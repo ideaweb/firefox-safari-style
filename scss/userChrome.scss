@@ -620,6 +620,14 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         min-height: var(--firefox-safari-style-tab-height) !important;
                         max-height: var(--firefox-safari-style-tab-height) !important;
                     }
+                    #tabbrowser-tabs {
+                        &, &[movingtab] {
+                            margin-top: 0 !important;
+                            margin-bottom: 0 !important;
+                            padding-top: 0 !important;
+                            padding-bottom: 0 !important;
+                        }
+                    }
                     overflow: hidden;
                     &, > hbox {
                         width: 100% !important;
