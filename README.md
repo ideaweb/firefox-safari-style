@@ -20,7 +20,7 @@ This theme will make Firefox more compliant with macOS.
 
 ## Updating
 
-A Firefox release may change its styles and brake this theme. To upate please just run `git pull` in the cloned repository to or just re-download it.
+A Firefox release may change its styles and break this theme. To upate please just run `git pull` in the cloned repository to or just re-download it.
 
 --
 
