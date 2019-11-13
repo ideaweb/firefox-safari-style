@@ -5,6 +5,9 @@ This theme will make Firefox more compliant with macOS.
 ![Firefox with NelliTab](https://raw.githubusercontent.com/ideaweb/firefox-safari-style/master/img/preview.png)
 *Firefox with [NelliTab](https://nellitab.io)*
 
+## Requirements
+ *  Firefox 71 or higher for macOS
+
 ## Installing
 
 * [Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) (recommended) or just download this repository 
