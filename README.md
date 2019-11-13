@@ -11,6 +11,7 @@ This theme will make Firefox more compliant with macOS.
 ## Installing
 
 * [Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) (recommended) or just download this repository 
+* Set ```toolkit.legacyUserProfileCustomizations.stylesheets``` to **true** in ```about:config```
 * Open your [userChrome.css](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) file in any text editor
 * Add the following line to your userChrome.css file (do not forget to update the path) 
 
