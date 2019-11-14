@@ -6,24 +6,46 @@ This theme will make Firefox more compliant with macOS.
 *Firefox with [NelliTab](https://nellitab.io)*
 
 ## Requirements
- *  Firefox 71 or higher for macOS
+
+*  Firefox 71 or higher for macOS
+
+## Known issues
+
+* Dark theme is supported but [Firefox not really have native dark mode](https://bugzilla.mozilla.org/buglist.cgi?quicksearch=dark mode macos) (e.g. context menus are still "light", white line on top of the window etc.)
+* Switching tabs by scrolling in the tab bar is currently not supported yet
 
 ## Installing
 
 * [Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) (recommended) or just download this repository 
-* Set ```toolkit.legacyUserProfileCustomizations.stylesheets``` to **true** in ```about:config```
-* Open your [userChrome.css](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) file in any text editor
-* Add the following line to your userChrome.css file (do not forget to update the path) 
+* Set ```toolkit.legacyUserProfileCustomizations.stylesheets``` to **true** in [about:config](https://support.mozilla.org/en-US/kb/about-config-editor-firefox)
+* Open the [userChrome.css](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) file located in your profile folder of Firefox with any text editor
+* Add there the following line to import the userChrome.css of this theme but please do not forget to update the path and do not mix up the imported file with the none working scss/userChrome.scss of this repository
 
 ```
 @import '/path/to/firefox-safari-style/css/userChrome.css';
 ```
 
+* Restart Firefox that changes can take effect
+
 ## Updating
 
 A Firefox release may change its styles and break this theme. To upate please just run `git pull` in the cloned repository to or just re-download it.
 
---
+## Troubleshooting
+
+If nothing changes in Firefox make sure that the userChrome.css in your profile directory is loaded. It can be tested easily by adding the following line at the end which changes the entire browser to _red_.
+
+```
+* { background-color: red !important; }
+```
+
+Please add the same line to the imported userChrome.css of this theme but use another color like _blue_ instead of _red_.
+
+Restart Firefox and check the color. If still nothing changes the userChrome.css in your profile is not loaded. Please verify the first boths steps of the install section above. If you see _red_ and not _blue_ the import of the theme failed e.g. by wrong path.
+
+In case of _blue_, please open an issue [here](https://github.com/ideaweb/firefox-safari-style/issues).
+
+---
 
 Mozilla and Firefox are trademarks of the Mozilla Foundation in the U.S. and other countries. 
 Safari and macOS are trademarks of Apple Inc., registered in the U.S. and other countries.
