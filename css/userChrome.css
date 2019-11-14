@@ -1,6 +1,7 @@
 /*****************/
-/* VERSION 0.1.1 */
+/* VERSION 0.1.2 */
 /*****************/
+@namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
 /*****************/
 /* DEFAULT THEME */
@@ -373,7 +374,7 @@
   }
 }
 @media (-moz-mac-yosemite-theme) {
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator) {
     max-height: 12px !important;
     max-width: 12px !important;
     min-height: 12px !important;
@@ -383,16 +384,16 @@
   }
 }
 @media (-moz-mac-yosemite-theme) {
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar image,
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar image:not(#userContext-indicator),
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #tracking-protection-icon-container,
-#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar image,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar image:not(#userContext-indicator),
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #tracking-protection-icon-container,
-#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar image,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar image:not(#userContext-indicator),
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #tracking-protection-icon-container,
-#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar image,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar image:not(#userContext-indicator),
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #tracking-protection-icon-container,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon {
@@ -499,7 +500,7 @@
   }
 }
 @media (-moz-mac-yosemite-theme) {
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button label {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button .toolbarbutton-text, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button #userContext-label, #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons, #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons .toolbarbutton-text, #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons #userContext-label {
     border-radius: 3px !important;
     border-width: 0 !important;
     background-color: var(--firefox-safari-style-attention-color) !important;
@@ -507,11 +508,31 @@
     padding: 1px 2px 1px 2px !important;
     font-size: 9px !important;
     margin-top: -1px !important;
-    color: #fff;
+    color: #fff !important;
     animation: none !important;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button:not([hidden=true]) + #pageActionSeparator {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button:not([hidden=true]) + #pageActionSeparator, #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons:not([hidden=true]) + #pageActionSeparator {
     margin-left: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons, #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons #userContext-label {
+    background-color: var(--identity-tab-color) !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons #userContext-indicator {
+    fill: #fff !important;
+    min-width: 10px !important;
+    width: 10px !important;
+    height: 10px !important;
+    min-height: 10px !important;
+    margin-left: 0 !important;
+    margin-right: 2px !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #reader-mode-button {
+    list-style-image: none !important;
+    background: url(chrome://browser/skin/readerMode.svg) 50% 50%/12px 12px no-repeat;
   }
 }
 @media (-moz-mac-yosemite-theme) {
@@ -599,10 +620,13 @@
   #navigator-toolbox #PersonalToolbar #PlacesChevron .toolbarbutton-icon {
     width: var(--firefox-safari-style-button-icon) !important;
     height: var(--firefox-safari-style-button-icon) !important;
-    fill: var(--firefox-safari-style-tab-color) !important;
+    fill: var(--firefox-safari-style-button-color) !important;
     margin-right: 1px !important;
   }
   #navigator-toolbox #PersonalToolbar #PlacesChevron .toolbarbutton-icon, #navigator-toolbox #PersonalToolbar #PlacesChevron .toolbarbutton-icon:hover {
+    background-color: transparent !important;
+  }
+  #navigator-toolbox #PersonalToolbar #PlacesChevron, #navigator-toolbox #PersonalToolbar #PlacesChevron:hover {
     background-color: transparent !important;
   }
   #navigator-toolbox #PersonalToolbar:-moz-window-inactive {
@@ -684,142 +708,175 @@
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tab-line {
     display: none;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab > .tab-stack {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-stack {
+    display: flex;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab > .tab-stack {
+    flex-direction: column;
     max-width: 100%;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab:not([fadein=true]), #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-background {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-label-container[pinned] {
+    display: none !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([fadein=true]) {
     display: none;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab[selected=true] {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-background {
+    width: 100% !important;
+    border: 0 !important;
+    order: 2;
+    height: 2px;
+    margin-top: -3px;
+    background: transparent !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-background *:not(.tab-bottom-line) {
+    display: none;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-background .tab-bottom-line {
+    background: var(--identity-tab-color) !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[selected=true] {
     background: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-selected-top) 0%, var(--firefox-safari-style-tab-background-color-selected-bottom) 100%) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab[selected=true]:-moz-window-inactive {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[selected=true]:-moz-window-inactive {
     background: var(--firefox-safari-style-tab-background-color-inactive) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab + tab.tabbrowser-tab {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab + tab.tabbrowser-tab {
     border-left: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab + tab.tabbrowser-tab:-moz-window-inactive {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab + tab.tabbrowser-tab:-moz-window-inactive {
     border-left: 1px solid var(--firefox-safari-style-tab-border-color-inactive) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content {
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     position: relative;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content:-moz-window-inactive {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:-moz-window-inactive {
     opacity: 0.55 !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-throbber,
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image,
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-close-button {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
+    filter: grayscale(100%);
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button {
     order: 1;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-throbber,
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image,
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-close-button,
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-sound {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound {
     fill: var(--firefox-safari-style-button-color) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-throbber:not([pinned]),
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image:not([pinned]),
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-close-button {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber:not([pinned]),
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]),
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-close-button {
     margin-left: -3px !important;
     margin-right: 6px !important;
     box-sizing: content-box;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-throbber {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
     transform: translateY(-1px);
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
     margin-top: -1px !important;
     border-radius: 2px;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image:not([src]) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]) {
     list-style-image: none !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image:not([src]):not([busy]) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]):not([busy]) {
     display: block;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-throbber,
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
     min-width: 16px;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-close-button {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button {
     display: none;
     margin-top: -1px !important;
     fill: var(--firefox-safari-style-tab-color) !important;
     padding: 1px;
     width: 14px;
+    min-width: 14px;
     height: 14px;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-sharing-icon-overlay,
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-overlay {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-sharing-icon-overlay,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-overlay {
     display: none !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-label-container {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container {
     order: 2;
-    flex: 1 1;
+    flex: 1 1 100%;
     margin-top: -1px !important;
     text-align: center !important;
     display: flex;
     max-width: 100%;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-label-container .tab-label {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-label {
     flex: 1 1;
     margin-top: 0 !important;
     color: var(--firefox-safari-style-tab-color) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-sound {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound {
     order: 3;
     width: 14px !important;
     height: 14px !important;
     margin-right: -3px !important;
     margin-top: -1px !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-sound[pictureinpicture]:not(:hover),
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-sound[soundplaying]:not(:hover),
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-sound[muted]:not(:hover),
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-sound[activemedia-blocked]:not(:hover) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[pictureinpicture]:not(:hover),
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[soundplaying]:not(:hover),
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[muted]:not(:hover),
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[activemedia-blocked]:not(:hover) {
     opacity: 1 !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content:not([pinned]):hover .tab-close-button {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:not([pinned]):hover .tab-close-button {
     display: block !important;
     opacity: 0.8 !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content:not([pinned]):hover .tab-icon-image, #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content:not([pinned]):hover .tab-icon-image:not([src]), #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content:not([pinned]):hover .tab-throbber {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:not([pinned]):hover .tab-icon-image, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:not([pinned]):hover .tab-icon-image:not([src]), #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:not([pinned]):hover .tab-throbber {
     display: none !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound:not([soundplaying]):not([muted]):not([activemedia-blocked]):not([pictureinpicture]),
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound,
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image:not([busy]):not([pinned]):not([src]) ~ .tab-close-button {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound:not([soundplaying]):not([muted]):not([activemedia-blocked]):not([pictureinpicture]),
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([busy]):not([pinned]):not([src]) ~ .tab-close-button {
     display: block !important;
     opacity: 0;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-label {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label {
     padding-right: 9px !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab .tab-content .tab-icon-image:-moz-window-inactive {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-window-inactive {
     opacity: 0.5 !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab::after {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab::after {
     border-color: var(--firefox-safari-style-tab-border-color-active) !important;
     display: none !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab[pinned] {
-    width: 37px;
-    max-width: 37px;
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] {
+    width: 38px;
+    max-width: 38px;
+    min-width: 38px;
     overflow: hidden !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab[pinned] .tab-icon-image {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] .tab-throbber,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] .tab-icon-image {
     position: relative;
-    left: 1px;
+    left: -1px;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab:-moz-any([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected=true]),
-#navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected=true]) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] + .tabbrowser-tab[pinned] {
+    width: 39px;
+    max-width: 39px;
+    min-width: 39px;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:-moz-any([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected=true]),
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected=true]) {
     background: none !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar tab.tabbrowser-tab:not([selected=true]):not(:-moz-window-inactive):hover {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([selected=true]):not(:-moz-window-inactive):hover {
     background-color: var(--firefox-safari-style-tab-background-color-hover) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button {
@@ -827,6 +884,8 @@
     opacity: 1 !important;
     border-left: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
     margin-left: auto !important;
+    min-width: 25px !important;
+    max-width: 25px !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive {
     border-left: 1px solid var(--firefox-safari-style-tab-border-color-inactive) !important;
@@ -934,5 +993,31 @@ toolbar .toolbarbutton-1:not([disabled=true]):not([checked]):not([open]):not(:ac
 toolbar .toolbarbutton-1:not([disabled=true]):not([checked]):not([open]):not(:active):not(#PanelUI-menu-button):hover > .toolbarbutton-badge-stack {
     color: var(--firefox-safari-style-tab-hover-color) !important;
     background-color: var(--firefox-safari-style-tab-hover-background) !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  .scrollbutton-up image,
+.scrollbutton-down image {
+    fill: var(--firefox-safari-style-button-color) !important;
+    border-color: var(--firefox-safari-style-button-color) !important;
+    max-width: 12px;
+    opacity: 1 !important;
+  }
+  .scrollbutton-up image:-moz-window-inactive,
+.scrollbutton-down image:-moz-window-inactive {
+    opacity: 0.5 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  .scrollbutton-up {
+    border-left: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
+  }
+  .scrollbutton-up:-moz-window-inactive {
+    border-left-color: var(--firefox-safari-style-tab-border-color-inactive) !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  .scrollbutton-up ~ spacer {
+    border-width: 0 !important;
   }
 }

@@ -12,7 +12,6 @@ This theme will make Firefox more compliant with macOS.
 ## Known issues
 
 * Dark theme is supported but [Firefox not really have native dark mode](https://bugzilla.mozilla.org/buglist.cgi?quicksearch=dark mode macos) (e.g. context menus are still "light", white line on top of the window etc.)
-* Switching tabs by scrolling in the tab bar is currently not supported yet
 
 ## Installing
 
