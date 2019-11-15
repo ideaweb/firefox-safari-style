@@ -2,8 +2,7 @@
 
 This theme will make Firefox more compliant with macOS.
 
-![Firefox with NelliTab](https://raw.githubusercontent.com/ideaweb/firefox-safari-style/master/img/preview.png)
-*Firefox with [NelliTab](https://nellitab.io)*
+<p align="center"><img alt="Firefox with NelliTab" src="https://raw.githubusercontent.com/ideaweb/firefox-safari-style/master/img/preview.png"/><br/><i>Firefox with macOS theme and <a href="https://nellitab.io">NelliTab</a> new tab extension</i></p>
 
 ## Requirements
 
@@ -11,7 +10,7 @@ This theme will make Firefox more compliant with macOS.
 
 ## Known issues
 
-* Dark theme is supported but [Firefox not really have native dark mode](https://bugzilla.mozilla.org/buglist.cgi?quicksearch=dark mode macos) (e.g. context menus are still "light", white line on top of the window etc.)
+* Dark theme is supported but [Firefox not really have native dark mode](https://bugzilla.mozilla.org/buglist.cgi?quicksearch=dark%20mode%20macos) (e.g. context menus are still "light", white line on top of the window etc.)
 
 ## Installing
 
@@ -20,7 +19,7 @@ This theme will make Firefox more compliant with macOS.
 * Open the [userChrome.css](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) file located in your profile folder of Firefox with any text editor
 * Add there the following line to import the userChrome.css of this theme but please do not forget to update the path and do not mix up the imported file with the none working scss/userChrome.scss of this repository
 
-```
+```css
 @import '/path/to/firefox-safari-style/css/userChrome.css';
 ```
 
@@ -28,13 +27,13 @@ This theme will make Firefox more compliant with macOS.
 
 ## Updating
 
-A Firefox release may change its styles and break this theme. To upate please just run `git pull` in the cloned repository to or just re-download it.
+A Firefox release may change its styles and break this theme. To update please just run `git pull` in the cloned repository to or just re-download it.
 
 ## Troubleshooting
 
 If nothing changes in Firefox make sure that the userChrome.css in your profile directory is loaded. It can be tested easily by adding the following line at the end which changes the entire browser to _red_.
 
-```
+```css
 * { background-color: red !important; }
 ```
 
