@@ -323,10 +323,13 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         border-color: var(--firefox-safari-style-outline-color);
                         box-shadow: 0 0 0 1px var(--firefox-safari-style-outline-color) inset !important;
                     }
-                    #urlbar:not([focused="true"]):not(:-moz-window-inactive), #searchbar:not(:focus-within) {
+                    #urlbar:not([focused="true"]):not(:-moz-window-inactive), 
+                    #urlbar:not([focused="true"]):not(:-moz-window-inactive) #urlbar-background,
+                    #searchbar:not(:focus-within) {
                         border-color: var(--firefox-safari-style-button-border-color) !important;
                         border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
                         border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
+                        box-shadow: none !important;
                     }
                     #urlbar, #searchbar {
                         &:-moz-window-inactive {

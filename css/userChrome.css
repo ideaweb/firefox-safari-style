@@ -294,10 +294,15 @@
     border-color: var(--firefox-safari-style-outline-color);
     box-shadow: 0 0 0 1px var(--firefox-safari-style-outline-color) inset !important;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:not(:focus-within), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:not([focused=true]):not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:not(:focus-within) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):not(:-moz-window-inactive),
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):not(:-moz-window-inactive) #urlbar-background,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:not(:focus-within), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:not([focused=true]):not(:-moz-window-inactive),
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:not([focused=true]):not(:-moz-window-inactive) #urlbar-background,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:not(:focus-within) {
     border-color: var(--firefox-safari-style-button-border-color) !important;
     border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
     border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
+    box-shadow: none !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar {
     padding-top: 0;
