@@ -403,7 +403,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         .urlbarView.megabar {
                             position: absolute !important;
                             left: -2px !important;  
-                            top: calc(var(--firefox-safari-style-tab-height) - 4px) !important;
+                            top: calc(var(--firefox-safari-style-tab-height) - 3px) !important;
                             margin-inline: 2px !important;
                             width: calc(100% - 0px) !important;
                             border-top: 0 !important;
