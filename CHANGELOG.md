@@ -2,6 +2,16 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.3 09/12/2019
+
+#### New Features:
+
+- Added support for new "breakout" address bar introduced with Firefox 73.
+
+#### Bug Fixes:
+
+- Fine tuning navigation buttons
+
 ## v0.1.2 14/11/2019
 
 #### Bug Fixes:

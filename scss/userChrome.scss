@@ -1,5 +1,5 @@
 /*****************/
-/* VERSION 0.1.2 */
+/* VERSION 0.1.3 */
 /*****************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -206,7 +206,6 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
             &:-moz-window-inactive {
                 background: var(--firefox-safari-style-bar-background-color-inactive) !important;
             }
-            overflow: hidden;
             padding-top: 4px;
             padding-left: var(--firefox-safari-style-controls-width);
             #main-window[inFullscreen="true"] & {
@@ -261,7 +260,6 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                                 border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
                             }
                         }
-
                         border-radius: 5px !important;
                     }
 
@@ -277,6 +275,8 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     &#back-button, &#forward-button {
                         width: calc(var(--firefox-safari-style-button-height) + 2px) !important;
                         margin-left: 0 !important;
+                        padding-inline-start: 2px !important;
+                        padding-inline-end: 2px !important;
                     }
                     image {
                         max-height: var(--firefox-safari-style-button-icon) !important;
@@ -341,6 +341,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         padding-top: 0;
                         margin-left: 2px;
                         margin-right: 2px;
+                        height: var(--firefox-safari-style-button-height) !important;
                         min-height: var(--firefox-safari-style-button-height) !important;
                         box-shadow: none !important;
                         border-width: 0.5px !important;
@@ -359,8 +360,80 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                                 opacity: 0.35 !important;
                             }
                         }
-                        #urlbar-input-container, & {
-                            border-radius: 2px;
+                        &[breakout] {
+                            top: 0 !important;
+                            left: 0 !important;
+                            &, * {
+                                transition: none !important;
+                            }
+                            &[breakout-extend] {
+                                top: 0 !important;
+                                left: 0 !important;
+                                width: 100% !important;
+                                height: var(--urlbar-height) !important;
+                                #urlbar-background {
+                                    opacity: 0 !important;
+                                }
+                                box-shadow: 0 0 0 2px var(--firefox-safari-style-outline-color) inset !important;
+                                > #urlbar-input-container {
+                                    height: var(--urlbar-height) !important;
+                                    padding-block: 0 !important;
+                                    padding-inline: 0 !important;
+                                }
+                                &[open] {
+                                    top: -2px !important;
+                                    left: -2px !important;
+                                    width: calc(100% + 4px) !important;
+                                    height: calc(var(--urlbar-height) + 4px) !important;
+                                    &, > #urlbar-input-container {
+                                        border-bottom: 0 !important;
+                                        border-bottom-left-radius: 0 !important;
+                                        border-bottom-right-radius: 0 !important;
+                                    }
+                                    > #urlbar-input-container {
+                                        padding-block: 2px !important;
+                                        padding-inline: 2px !important;
+                                    }
+                                }
+                            }
+                        }
+                        .urlbarView.megabar {
+                            position: absolute !important;
+                            left: -2px !important;  
+                            top: calc(var(--firefox-safari-style-tab-height) - 4px) !important;
+                            margin-inline: 2px !important;
+                            width: calc(100% - 0px) !important;
+                            border-top: 0 !important;
+                            border-right: 2px solid var(--firefox-safari-style-outline-color) !important;
+                            border-bottom: 2px solid var(--firefox-safari-style-outline-color) !important;
+                            border-left: 2px solid var(--firefox-safari-style-outline-color) !important;
+                            background-color: var(--firefox-safari-style-button-background-active) !important;
+                            border-bottom-left-radius: 5px !important;
+                            border-bottom-right-radius: 5px !important;
+                            .urlbarView-body-inner {
+                                border-top: 0 !important;
+                                * {
+                                    border-radius: 0 !important;
+                                }
+                                .urlbarView-results {
+                                    > :first-child {
+                                        margin-top: 2px;
+                                    }
+                                    .urlbarView-row {
+                                        padding: 0 !important;
+                                    }
+                                }
+                            }
+                            > .search-one-offs {
+                                padding-top: 0 !important;
+                                padding-bottom: 0 !important;
+                                .search-panel-one-offs-header {
+                                    display: none !important;
+                                }
+                            }
+                        }
+                        &, #urlbar-input-container {
+                            border-radius: 5px !important;
                         }
                         &, html|input#urlbar-input, html|input#urlbar-input *, #searchbar-textbox, #searchbar-textbox * {
                             font-size: 13px !important;
@@ -383,7 +456,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         #identity-box[pageproxystate="valid"].extensionPage > #identity-icon {
                             transform: translateY(-1px);
                         }
-                        image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator) {
+                        image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator):not(.button-icon) {
                             max-height: 12px !important;
                             max-width: 12px !important;
                             min-height: 12px !important;
