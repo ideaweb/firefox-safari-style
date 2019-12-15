@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.4 09/13/2019
+
+#### Bug Fixes:
+
+- Address bar in private windows when losing focus.
+
 ## v0.1.3 09/12/2019
 
 #### New Features:
