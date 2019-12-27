@@ -1,5 +1,5 @@
 /*****************/
-/* VERSION 0.1.4 */
+/* VERSION 0.1.5 */
 /*****************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -18,7 +18,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     --firefox-safari-style-attention-color: #0a84ff;
     --firefox-safari-style-outline-color: -moz-mac-focusring;
 
-    --firefox-safari-style-controls-width: 80px;
+    --firefox-safari-style-controls-width: 75px;
 
     --firefox-safari-style-inactive: #f6f6f6;
 
@@ -106,20 +106,20 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     --firefox-safari-style-inactive: #30292e;
 
     /* Border colors */
-    --firefox-safari-style-title-border-color-active: #000000;
-    --firefox-safari-style-title-border-color-inactive: #000000;
+    --firefox-safari-style-title-border-color-active: #1b1b1b;
+    --firefox-safari-style-title-border-color-inactive: 1b1b1b;
 
     /******************/
     /* NAVIGATION BAR */
     /******************/
 
     /* Default Background color (gradiant) */
-    --firefox-safari-style-bar-background-color-top: #3c343a;
-    --firefox-safari-style-bar-background-color-bottom: #373136;
+    --firefox-safari-style-bar-background-color-top: #3d393e;
+    --firefox-safari-style-bar-background-color-bottom: #363237;
     /* Background color for private windows */
     --firefox-safari-style-bar-background-color-private: #26003f;
     /* Background color for inactive windows */
-    --firefox-safari-style-bar-background-color-inactive: var(--firefox-safari-style-inactive);
+    --firefox-safari-style-bar-background-color-inactive: #322b32;
 
     /* Border colors */
     --firefox-safari-style-bar-border-color-active: #575255;
@@ -154,11 +154,18 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     /********************/
 
     /* Button background */
-    --firefox-safari-style-button-background-active: #6e656b;
+    --firefox-safari-style-button-background-active: #615f63;
     --firefox-safari-style-button-background-inactive: var(--firefox-safari-style-inactive);
     /* Border color of buttons and urlbar */
     --firefox-safari-style-button-border-color: #6a6368;
     --firefox-safari-style-button-border-color-top: #7e767c;
+    @media
+    only screen and (   min--moz-device-pixel-ratio: 1.01),
+    only screen and (		min-device-pixel-ratio: 1.01),
+    only screen and (				min-resolution: 120dpi),
+    only screen and (				min-resolution: 1.3dppx) {
+        --firefox-safari-style-button-border-color-top: #737174;
+    }
     --firefox-safari-style-button-border-color-bottom: #6a6368;
     --firefox-safari-style-button-border-color-inactive: #6a6368;
     /* Font and icon color of buttons and urlbar */
@@ -243,7 +250,14 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 &:not(#tabs-newtab-button):not(#urlbar-zoom-button) {
                     &:not(#PanelUI-menu-button) {
                         background-color: var(--firefox-safari-style-button-background-active) !important;
-                        border: 0.5px solid var(--firefox-safari-style-button-border-color) !important;
+                        border: 1px solid var(--firefox-safari-style-button-border-color) !important;
+                        @media
+                        only screen and (   min--moz-device-pixel-ratio: 1.01),
+                        only screen and (		min-device-pixel-ratio: 1.01),
+                        only screen and (				min-resolution: 120dpi),
+                        only screen and (				min-resolution: 1.3dppx) {
+                            border-width: 0.5px !important;
+                        }
                         border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
                         border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
                         
@@ -253,7 +267,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             border-top-color: var(--firefox-safari-style-button-border-color-inactive) !important;
                             border-bottom-color: var(--firefox-safari-style-button-border-color-inactive) !important;
 
-                            @media (prefers-color-scheme: dark) {
+                            &:-moz-lwtheme-brighttext {
                                 background-color: var(--firefox-safari-style-button-background-active) !important;
                                 border-color: var(--firefox-safari-style-button-border-color) !important;
                                 border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
@@ -263,8 +277,8 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         border-radius: 5px !important;
                     }
 
-                    margin-left: 2px !important;
-                    margin-right: 2px !important;
+                    margin-left: 4px !important;
+                    margin-right: 0 !important;
 
                     height: var(--firefox-safari-style-button-height) !important;
                     min-height: var(--firefox-safari-style-button-height) !important;
@@ -272,15 +286,19 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     &:not(#PanelUI-menu-button) {
                         width: var(--firefox-safari-style-button-width) !important;
                     }
-                    &#back-button, &#forward-button {
+                    &#back-button, 
+                    &#forward-button {
                         width: calc(var(--firefox-safari-style-button-height) + 2px) !important;
-                        margin-left: 0 !important;
                         padding-inline-start: 2px !important;
                         padding-inline-end: 2px !important;
                     }
                     image {
                         max-height: var(--firefox-safari-style-button-icon) !important;
                         max-width: var(--firefox-safari-style-button-icon) !important;
+                        &#fxa-avatar-image {
+                            max-height: calc(var(--firefox-safari-style-button-icon) + 2px) !important;
+                            max-width: calc(var(--firefox-safari-style-button-icon) + 2px) !important;
+                        }
                         border-radius: 0 !important;
                         border: 0 !important;
                         background: transparent !important;
@@ -295,7 +313,32 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     }
                 }
             }
+            > toolbarbutton, #nav-bar-customization-target toolbarbutton, #nav-bar-customization-target toolbarpaletteitem {
+                &#back-button + #forward-button,
+                &#wrapper-back-button + #wrapper-forward-button #forward-button,
+                &#forward-button + #back-button,
+                &#wrapper-forward-button + #wrapper-back-button #back-button {
+                    margin-left: -1px !important;
+                    @media
+                    only screen and (   min--moz-device-pixel-ratio: 1.01),
+                    only screen and (		min-device-pixel-ratio: 1.01),
+                    only screen and (				min-resolution: 120dpi),
+                    only screen and (				min-resolution: 1.3dppx) {
+                        margin-left: -0.5px !important;
+                    }
+                    &:-moz-lwtheme-brighttext {
+                        margin-left: 1px !important;
+                    }
+                }
+            }
             #nav-bar-customization-target {
+                @media
+                only screen and (   min--moz-device-pixel-ratio: 1.01),
+                only screen and (		min-device-pixel-ratio: 1.01),
+                only screen and (				min-resolution: 120dpi),
+                only screen and (				min-resolution: 1.3dppx) {
+                    margin-top: 0.5px !important;
+                }
                 #urlbar-container, #search-container {
                     padding: 0 !important;
                     #urlbar-input-container, &#search-container {
@@ -334,7 +377,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     #urlbar, #searchbar {
                         &:-moz-window-inactive {
                             opacity: 0.45 !important;
-                            @media (prefers-color-scheme: dark) {
+                            &:-moz-lwtheme-brighttext {
                                 opacity: 1 !important;
                             }
                             > * {
@@ -347,7 +390,14 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         height: var(--firefox-safari-style-button-height) !important;
                         min-height: var(--firefox-safari-style-button-height) !important;
                         box-shadow: none !important;
-                        border-width: 0.5px !important;
+                        border-width: 1px !important;
+                        @media
+                        only screen and (   min--moz-device-pixel-ratio: 1.01),
+                        only screen and (		min-device-pixel-ratio: 1.01),
+                        only screen and (				min-resolution: 120dpi),
+                        only screen and (				min-resolution: 1.3dppx) {
+                            border-width: 0.5px !important;
+                        }
                         background-color: var(--firefox-safari-style-button-background-active) !important;
                         #main-window[privatebrowsingmode] & {
                             background-color: var(--firefox-safari-style-bar-background-color-private) !important;
@@ -356,7 +406,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             border-color: var(--firefox-safari-style-button-border-color-inactive) !important;
                             border-top-color: var(--firefox-safari-style-button-border-color-inactive) !important;
                             border-bottom-color: var(--firefox-safari-style-button-border-color-inactive) !important;
-                            @media (prefers-color-scheme: dark) {
+                            &:-moz-lwtheme-brighttext {
                                 border-color: var(--firefox-safari-style-button-border-color) !important;
                                 border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
                                 border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
@@ -415,19 +465,33 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             border-bottom: 2px solid var(--firefox-safari-style-outline-color) !important;
                             border-left: 2px solid var(--firefox-safari-style-outline-color) !important;
                             background-color: var(--firefox-safari-style-button-background-active) !important;
+                            #main-window[privatebrowsingmode] & {
+                                border-right-color: #182a98 !important;
+                                border-bottom-color: #182a98 !important;
+                                border-left-color: #182a98 !important;
+                                background-color: var(--firefox-safari-style-bar-background-color-private) !important;
+                            }
                             border-bottom-left-radius: 5px !important;
                             border-bottom-right-radius: 5px !important;
-                            .urlbarView-body-inner {
-                                border-top: 0 !important;
-                                * {
-                                    border-radius: 0 !important;
+                            > .urlbarView-body-outer,
+                            > .search-one-offs {
+                                #main-window[privatebrowsingmode] & {
+                                    background-color: var(--firefox-safari-style-bar-background-color-private) !important;
                                 }
-                                .urlbarView-results {
-                                    > :first-child {
-                                        margin-top: 2px;
+                            }
+                            > .urlbarView-body-outer {
+                                .urlbarView-body-inner {
+                                    border-top: 0 !important;
+                                    * {
+                                        border-radius: 0 !important;
                                     }
-                                    .urlbarView-row {
-                                        padding: 0 !important;
+                                    .urlbarView-results {
+                                        > :first-child {
+                                            margin-top: 2px;
+                                        }
+                                        .urlbarView-row {
+                                            padding: 0 !important;
+                                        }
                                     }
                                 }
                             }
@@ -502,7 +566,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     }
                     &:-moz-window-inactive {
                         opacity: 0.5 !important; 
-                        @media (prefers-color-scheme: dark) {
+                        &:-moz-lwtheme-brighttext {
                             opacity: 0.35 !important; 
                         }
                     }
@@ -580,9 +644,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 }
             }
             #PanelUI-button {
-                width: 22px !important;
-                max-width: 22px !important;
-                min-width: 22px !important;
+                width: 23px !important;
+                max-width: 23px !important;
+                min-width: 23px !important;
                 border-width: 0 !important;
                 .toolbarbutton-badge {
                     margin-top: -16px !important;
@@ -590,12 +654,21 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
             }
             #PanelUI-button,
             #PanelUI-menu-button {
-                margin-left: 0 !important;
+                margin-left: 1px !important;
                 margin-right: 0 !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
+                height: var(--firefox-safari-style-button-height);
+                max-height: var(--firefox-safari-style-button-height);
+                min-height: var(--firefox-safari-style-button-height);
                 &, &:hover, .toolbarbutton-badge-stack, .toolbarbutton-badge-stack:hover {
                     background-color: transparent !important;
+                }
+            }
+            #fxa-toolbar-menu-button {
+                .toolbarbutton-badge-stack {
+                    padding-top: 4px !important;
+                    padding-bottom: 4px !important;
                 }
             }
             #PanelUI-menu-button {
@@ -604,10 +677,10 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 min-width: 11px !important;
                 list-style-image: none !important;
                 background: url("data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20width%3D%22408px%22%20height%3D%22408px%22%20viewBox%3D%220%200%20408%20408%22%20style%3D%22enable-background%3Anew%200%200%20408%20408%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%3E%0A%09%3Cg%20id%3D%22more-vert%22%3E%0A%09%09%3Cpath%20fill%3D%22%23666%22%20d%3D%22M204%2C102c28.05%2C0%2C51-22.95%2C51-51S232.05%2C0%2C204%2C0s-51%2C22.95-51%2C51S175.95%2C102%2C204%2C102z%20M204%2C153c-28.05%2C0-51%2C22.95-51%2C51%0A%09%09%09s22.95%2C51%2C51%2C51s51-22.95%2C51-51S232.05%2C153%2C204%2C153z%20M204%2C306c-28.05%2C0-51%2C22.95-51%2C51s22.95%2C51%2C51%2C51s51-22.95%2C51-51%0A%09%09%09S232.05%2C306%2C204%2C306z%22%2F%3E%0A%09%3C%2Fg%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E") 50% 50% / 12px 12px no-repeat !important;
-                @media (prefers-color-scheme: dark) {
+                &:-moz-lwtheme-brighttext {
                     background-image: url("data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20width%3D%22408px%22%20height%3D%22408px%22%20viewBox%3D%220%200%20408%20408%22%20style%3D%22enable-background%3Anew%200%200%20408%20408%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%3E%0A%09%3Cg%20id%3D%22more-vert%22%3E%0A%09%09%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M204%2C102c28.05%2C0%2C51-22.95%2C51-51S232.05%2C0%2C204%2C0s-51%2C22.95-51%2C51S175.95%2C102%2C204%2C102z%20M204%2C153c-28.05%2C0-51%2C22.95-51%2C51%0A%09%09%09s22.95%2C51%2C51%2C51s51-22.95%2C51-51S232.05%2C153%2C204%2C153z%20M204%2C306c-28.05%2C0-51%2C22.95-51%2C51s22.95%2C51%2C51%2C51s51-22.95%2C51-51%0A%09%09%09S232.05%2C306%2C204%2C306z%22%2F%3E%0A%09%3C%2Fg%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E") !important;
                 }
-                margin-left: 3px !important
+                margin-left: 4px !important
             }
             @if $firefox-safari-style-grayscale-extension-buttons-in-toolbar == true {
                 toolbarpaletteitem, toolbarbutton {
@@ -944,12 +1017,12 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     }
                     image {
                         opacity: 0.5 !important;
-                        @media (prefers-color-scheme: dark) {
+                        &:-moz-lwtheme-brighttext {
                             opacity: 1 !important;
                         }
                         &:-moz-window-inactive {
                             opacity: 0.3 !important;
-                            @media (prefers-color-scheme: dark) {
+                            &:-moz-lwtheme-brighttext {
                                 opacity: 1 !important;
                             }
                         }
