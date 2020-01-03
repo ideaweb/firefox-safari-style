@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.6 03/01/2020
+
+#### Improvements:
+
+- Changed icons for back and forward.
+- Improved other toolbar icons like overflow and menu.
+
 ## v0.1.5 27/12/2019
 
 #### Bug Fixes:

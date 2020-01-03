@@ -1,5 +1,5 @@
 /*****************/
-/* VERSION 0.1.5 */
+/* VERSION 0.1.6 */
 /*****************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -238,7 +238,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     margin-right: 3px !important;
                 }
             }
-            > toolbarbutton, #nav-bar-customization-target toolbarbutton {
+            > toolbarbutton, #nav-bar-customization-target toolbarbutton, #PanelUI-menu-button {
                 &.toolbarbutton-1 {
                     fill: var(--firefox-safari-style-button-color) !important;
                     fill-opacity: 1 !important;
@@ -247,54 +247,62 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         color: var(--firefox-safari-style-button-color) !important;
                     }
                 }
-                &:not(#tabs-newtab-button):not(#urlbar-zoom-button) {
-                    &:not(#PanelUI-menu-button) {
-                        background-color: var(--firefox-safari-style-button-background-active) !important;
-                        border: 1px solid var(--firefox-safari-style-button-border-color) !important;
-                        @media
-                        only screen and (   min--moz-device-pixel-ratio: 1.01),
-                        only screen and (		min-device-pixel-ratio: 1.01),
-                        only screen and (				min-resolution: 120dpi),
-                        only screen and (				min-resolution: 1.3dppx) {
-                            border-width: 0.5px !important;
-                        }
-                        border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
-                        border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
-                        
-                        &:-moz-window-inactive {
-                            background-color: var(--firefox-safari-style-button-background-inactive) !important;
-                            border-color: var(--firefox-safari-style-button-border-color-inactive) !important;
-                            border-top-color: var(--firefox-safari-style-button-border-color-inactive) !important;
-                            border-bottom-color: var(--firefox-safari-style-button-border-color-inactive) !important;
-
-                            &:-moz-lwtheme-brighttext {
-                                background-color: var(--firefox-safari-style-button-background-active) !important;
-                                border-color: var(--firefox-safari-style-button-border-color) !important;
-                                border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
-                                border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
-                            }
-                        }
-                        border-radius: 5px !important;
+                &#nav-bar-overflow-button, &#nav-bar-overflow-button:hover {
+                    &, image {
+                        background-color: transparent !important;
                     }
+                    margin-left: 4px !important;
+                    width: 16px !important;
+                    max-width: 16px !important;
+                    min-width: 16px !important;
+
+                }
+                &:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button) {
+                    
+                    background-color: var(--firefox-safari-style-button-background-active) !important;
+                    border: 1px solid var(--firefox-safari-style-button-border-color) !important;
+                    @media
+                    only screen and (   min--moz-device-pixel-ratio: 1.01),
+                    only screen and (		min-device-pixel-ratio: 1.01),
+                    only screen and (				min-resolution: 120dpi),
+                    only screen and (				min-resolution: 1.3dppx) {
+                        border-width: 0.5px !important;
+                    }
+                    border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
+                    border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
+                    
+                    &:-moz-window-inactive {
+                        background-color: var(--firefox-safari-style-button-background-inactive) !important;
+                        border-color: var(--firefox-safari-style-button-border-color-inactive) !important;
+                        border-top-color: var(--firefox-safari-style-button-border-color-inactive) !important;
+                        border-bottom-color: var(--firefox-safari-style-button-border-color-inactive) !important;
+
+                        &:-moz-lwtheme-brighttext {
+                            background-color: var(--firefox-safari-style-button-background-active) !important;
+                            border-color: var(--firefox-safari-style-button-border-color) !important;
+                            border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
+                            border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
+                        }
+                    }
+                    border-radius: 5px !important;
 
                     margin-left: 4px !important;
-                    margin-right: 0 !important;
+                    &:not(#PanelUI-menu-button) {
+                        margin-right: 0 !important;
+                    }
 
                     height: var(--firefox-safari-style-button-height) !important;
                     min-height: var(--firefox-safari-style-button-height) !important;
                     max-height: var(--firefox-safari-style-button-height) !important;
+                    width: var(--firefox-safari-style-button-width) !important;
+
                     &:not(#PanelUI-menu-button) {
-                        width: var(--firefox-safari-style-button-width) !important;
-                    }
-                    &#back-button, 
-                    &#forward-button {
-                        width: calc(var(--firefox-safari-style-button-height) + 2px) !important;
-                        padding-inline-start: 2px !important;
-                        padding-inline-end: 2px !important;
+                        image {
+                            max-height: var(--firefox-safari-style-button-icon) !important;
+                            max-width: var(--firefox-safari-style-button-icon) !important;
+                        }
                     }
                     image {
-                        max-height: var(--firefox-safari-style-button-icon) !important;
-                        max-width: var(--firefox-safari-style-button-icon) !important;
                         &#fxa-avatar-image {
                             max-height: calc(var(--firefox-safari-style-button-icon) + 2px) !important;
                             max-width: calc(var(--firefox-safari-style-button-icon) + 2px) !important;
@@ -311,23 +319,39 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             background-color: transparent !important;
                         }
                     }
+                    &#back-button, 
+                    &#forward-button {
+                        width: calc(var(--firefox-safari-style-button-height) + 2px) !important;
+                        padding-inline-start: 2px !important;
+                        padding-inline-end: 2px !important;
+                        image {
+                            list-style-image: url("chrome://global/skin/icons/arrow-left.svg");
+                            max-height: calc(var(--firefox-safari-style-button-icon) + 2px) !important;
+                            max-width: calc(var(--firefox-safari-style-button-icon) + 2px) !important;
+                        }
+                    }
+                    &#forward-button image {
+                        transform: rotate(180deg);
+                    }
                 }
             }
             > toolbarbutton, #nav-bar-customization-target toolbarbutton, #nav-bar-customization-target toolbarpaletteitem {
-                &#back-button + #forward-button,
-                &#wrapper-back-button + #wrapper-forward-button #forward-button,
-                &#forward-button + #back-button,
-                &#wrapper-forward-button + #wrapper-back-button #back-button {
-                    margin-left: -1px !important;
-                    @media
-                    only screen and (   min--moz-device-pixel-ratio: 1.01),
-                    only screen and (		min-device-pixel-ratio: 1.01),
-                    only screen and (				min-resolution: 120dpi),
-                    only screen and (				min-resolution: 1.3dppx) {
-                        margin-left: -0.5px !important;
-                    }
-                    &:-moz-lwtheme-brighttext {
-                        margin-left: 1px !important;
+                &:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button) {
+                    &#back-button + #forward-button,
+                    &#wrapper-back-button + #wrapper-forward-button #forward-button,
+                    &#forward-button + #back-button,
+                    &#wrapper-forward-button + #wrapper-back-button #back-button {
+                        margin-left: -1px !important;
+                        @media
+                        only screen and (   min--moz-device-pixel-ratio: 1.01),
+                        only screen and (		min-device-pixel-ratio: 1.01),
+                        only screen and (				min-resolution: 120dpi),
+                        only screen and (				min-resolution: 1.3dppx) {
+                            margin-left: -0.5px !important;
+                        }
+                        &:-moz-lwtheme-brighttext {
+                            margin-left: 1px !important;
+                        }
                     }
                 }
             }
@@ -571,8 +595,24 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         }
                     }
                 }
-                #downloads-button .toolbarbutton-badge-stack {
-                    transform: scale(0.85) translateY(0.5px);
+                #downloads-button {
+                    &, &:hover, .toolbarbutton-badge-stack, .toolbarbutton-badge-stack:hover {
+                        background-color: transparent !important;
+                    }
+                    .toolbarbutton-badge-stack {
+                        padding: 0 !important;
+                        transform: scale(0.75);
+                        #downloads-indicator-progress-outer {
+                            transform: scale(1.1) translateY(1px);
+                            @media
+                            only screen and (   min--moz-device-pixel-ratio: 1.01),
+                            only screen and (		min-device-pixel-ratio: 1.01),
+                            only screen and (				min-resolution: 120dpi),
+                            only screen and (				min-resolution: 1.3dppx) {
+                                transform: scale(1.1) translateY(0.5px);
+                            }
+                        }
+                    }
                 }
                 .webextension-browser-action .toolbarbutton-badge {
                     transform: scale(0.8) translateY(1px);
@@ -644,18 +684,39 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 }
             }
             #PanelUI-button {
-                width: 23px !important;
-                max-width: 23px !important;
-                min-width: 23px !important;
+                margin-left: 0 !important;
+                margin-right: 7px !important;
                 border-width: 0 !important;
                 .toolbarbutton-badge {
-                    margin-top: -16px !important;
+                    margin-top: -9px !important;
+                    margin-left: 3px !important;
+                }
+            }
+            #PanelUI-menu-button {
+                --firefox-safari-style-menu-icon-size: 12px; 
+                .toolbarbutton-badge-stack {
+                    padding: 0 !important;
+                    @media
+                    only screen and (   min--moz-device-pixel-ratio: 1.01),
+                    only screen and (		min-device-pixel-ratio: 1.01),
+                    only screen and (				min-resolution: 120dpi),
+                    only screen and (				min-resolution: 1.3dppx) {
+                        transform: scale(1.1);
+                    }
+                }
+                .toolbarbutton-icon {
+                    width: var(--firefox-safari-style-menu-icon-size) !important;
+                    min-width: var(--firefox-safari-style-menu-icon-size) !important;
+                    max-width: var(--firefox-safari-style-menu-icon-size) !important;
+                    height: var(--firefox-safari-style-menu-icon-size) !important;
+                    min-height: var(--firefox-safari-style-menu-icon-size) !important;
+                    max-height: var(--firefox-safari-style-menu-icon-size) !important;
+                    /*list-style-image: url("chrome://global/skin/icons/more.svg");*/
                 }
             }
             #PanelUI-button,
             #PanelUI-menu-button {
-                margin-left: 1px !important;
-                margin-right: 0 !important;
+                margin-left: 0 !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
                 height: var(--firefox-safari-style-button-height);
@@ -670,17 +731,6 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     padding-top: 4px !important;
                     padding-bottom: 4px !important;
                 }
-            }
-            #PanelUI-menu-button {
-                width: 11px !important;
-                max-width: 11px !important;
-                min-width: 11px !important;
-                list-style-image: none !important;
-                background: url("data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20width%3D%22408px%22%20height%3D%22408px%22%20viewBox%3D%220%200%20408%20408%22%20style%3D%22enable-background%3Anew%200%200%20408%20408%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%3E%0A%09%3Cg%20id%3D%22more-vert%22%3E%0A%09%09%3Cpath%20fill%3D%22%23666%22%20d%3D%22M204%2C102c28.05%2C0%2C51-22.95%2C51-51S232.05%2C0%2C204%2C0s-51%2C22.95-51%2C51S175.95%2C102%2C204%2C102z%20M204%2C153c-28.05%2C0-51%2C22.95-51%2C51%0A%09%09%09s22.95%2C51%2C51%2C51s51-22.95%2C51-51S232.05%2C153%2C204%2C153z%20M204%2C306c-28.05%2C0-51%2C22.95-51%2C51s22.95%2C51%2C51%2C51s51-22.95%2C51-51%0A%09%09%09S232.05%2C306%2C204%2C306z%22%2F%3E%0A%09%3C%2Fg%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E") 50% 50% / 12px 12px no-repeat !important;
-                &:-moz-lwtheme-brighttext {
-                    background-image: url("data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20width%3D%22408px%22%20height%3D%22408px%22%20viewBox%3D%220%200%20408%20408%22%20style%3D%22enable-background%3Anew%200%200%20408%20408%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%3E%0A%09%3Cg%20id%3D%22more-vert%22%3E%0A%09%09%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M204%2C102c28.05%2C0%2C51-22.95%2C51-51S232.05%2C0%2C204%2C0s-51%2C22.95-51%2C51S175.95%2C102%2C204%2C102z%20M204%2C153c-28.05%2C0-51%2C22.95-51%2C51%0A%09%09%09s22.95%2C51%2C51%2C51s51-22.95%2C51-51S232.05%2C153%2C204%2C153z%20M204%2C306c-28.05%2C0-51%2C22.95-51%2C51s22.95%2C51%2C51%2C51s51-22.95%2C51-51%0A%09%09%09S232.05%2C306%2C204%2C306z%22%2F%3E%0A%09%3C%2Fg%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E") !important;
-                }
-                margin-left: 4px !important
             }
             @if $firefox-safari-style-grayscale-extension-buttons-in-toolbar == true {
                 toolbarpaletteitem, toolbarbutton {
