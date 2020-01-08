@@ -1,5 +1,5 @@
 /*****************/
-/* VERSION 0.1.6 */
+/* VERSION 0.1.7 */
 /*****************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -198,6 +198,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     #navigator-toolbox {
         display: flex;
         flex-direction: column;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
 
         border-bottom: 1px solid var(--firefox-safari-style-title-border-color-active) !important;
         &:-moz-window-inactive {
@@ -688,7 +691,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 margin-right: 7px !important;
                 border-width: 0 !important;
                 .toolbarbutton-badge {
-                    margin-top: -9px !important;
+                    margin-top: -8px !important;
                     margin-left: 3px !important;
                 }
             }
@@ -727,6 +730,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 }
             }
             #fxa-toolbar-menu-button {
+                &, &:hover, .toolbarbutton-badge-stack, .toolbarbutton-badge-stack:hover {
+                    background-color: transparent !important;
+                }
                 .toolbarbutton-badge-stack {
                     padding-top: 4px !important;
                     padding-bottom: 4px !important;
@@ -1066,6 +1072,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         border-left: 1px solid var(--firefox-safari-style-tab-border-color-inactive) !important;
                     }
                     image {
+                        transform: translateX(-1px);
                         opacity: 0.5 !important;
                         &:-moz-lwtheme-brighttext {
                             opacity: 1 !important;
@@ -1143,23 +1150,39 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
         color: var(--firefox-safari-style-tab-hover-color) !important;
         background-color: var(--firefox-safari-style-tab-hover-background) !important;
     }
-    .scrollbutton-up image,
-    .scrollbutton-down image {
-        fill: var(--firefox-safari-style-button-color) !important;
-        border-color: var(--firefox-safari-style-button-color) !important;
-        max-width: 12px;
-        opacity: 1 !important;
-        &:-moz-window-inactive {
-            opacity: 0.5 !important;
+    .scrollbutton-up,
+    .scrollbutton-down {
+        &, image { 
+            opacity: 1 !important;
+        }
+        image {
+            fill: var(--firefox-safari-style-button-color) !important;
+            border-color: var(--firefox-safari-style-button-color) !important;
+            max-width: 12px;
+            opacity: 1 !important;
+            &:-moz-window-inactive {
+                opacity: 0.5 !important;
+            }
+        }
+        &[disabled="true"] image {
+            opacity: 0.4 !important;
         }
     }
     .scrollbutton-up {
         border-left: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
+        border-right: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
         &:-moz-window-inactive {
             border-left-color: var(--firefox-safari-style-tab-border-color-inactive) !important;
+            border-right-color: var(--firefox-safari-style-tab-border-color-inactive) !important;
+        }
+    }
+    .scrollbutton-down {
+        border-right: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
+        &:-moz-window-inactive {
+            border-right-color: var(--firefox-safari-style-tab-border-color-inactive) !important;
         }
     }
     .scrollbutton-up ~ spacer {
-        border-width: 0 !important;
+        opacity: 0 !important;
     }
 }

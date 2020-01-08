@@ -2,6 +2,16 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.7 08/01/2020
+
+#### Improvements:
+
+- Improved scroll buttons inside tab bar.
+
+#### Bug Fixes:
+
+- Fixed profile icon.
+
 ## v0.1.6 03/01/2020
 
 #### Improvements:
