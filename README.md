@@ -41,7 +41,7 @@ Please add the same line to the imported userChrome.css of this theme but use an
 
 Restart Firefox and check the color. If still nothing changes the userChrome.css in your profile is not loaded. Please verify the first boths steps of the install section above. If you see _red_ and not _blue_ the import of the theme failed e.g. by wrong path.
 
-In case of _blue_, please open an issue [here](https://github.com/ideaweb/firefox-safari-style/issues).
+In case of _blue_, please check the list of [known issues](https://github.com/ideaweb/firefox-safari-style/issues) to see if it has been previously reported. Otherwise, please open ticket [here](https://github.com/ideaweb/firefox-safari-style/issues). 
 
 ---
 
