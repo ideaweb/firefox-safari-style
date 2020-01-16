@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.8 16/01/2020
+
+#### Bug Fixes:
+
+- Fixed issue with window buttons and address bar introduced with recent Nightly.
+
 ## v0.1.7 08/01/2020
 
 #### Improvements:

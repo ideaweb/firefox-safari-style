@@ -1,5 +1,5 @@
 /*****************/
-/* VERSION 0.1.7 */
+/* VERSION 0.1.8 */
 /*****************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -451,7 +451,7 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar {
     position: absolute !important;
     left: -2px !important;
-    top: calc(var(--firefox-safari-style-tab-height) - 3px) !important;
+    top: calc(var(--firefox-safari-style-tab-height) - 1px) !important;
     margin-inline: 2px !important;
     width: calc(100% - 0px) !important;
     border-top: 0 !important;
@@ -854,6 +854,10 @@
     display: block !important;
     position: absolute;
     top: 0;
+    min-height: 27px;
+  }
+  #navigator-toolbox #titlebar > #toolbar-menubar .titlebar-buttonbox-container > .titlebar-buttonbox {
+    margin-top: 11px;
   }
   #navigator-toolbox #titlebar #TabsToolbar {
     display: flex;
