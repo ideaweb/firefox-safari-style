@@ -1,5 +1,5 @@
 /*****************/
-/* VERSION 0.1.8 */
+/* VERSION 0.1.9 */
 /*****************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -790,6 +790,9 @@
     padding-bottom: 0 !important;
     background: linear-gradient(to bottom, var(--firefox-safari-style-bar-background-color-bottom) 0%, var(--firefox-safari-style-bar-background-color-bottom) 100%) !important;
     border-top: 1px solid var(--firefox-safari-style-bar-border-color-active) !important;
+  }
+  #navigator-toolbox #PersonalToolbar[collapsed=true] {
+    display: none !important;
   }
   #navigator-toolbox #PersonalToolbar #PlacesToolbarItems {
     margin-top: 3px !important;

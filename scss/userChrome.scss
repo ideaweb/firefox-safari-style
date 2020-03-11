@@ -1,5 +1,5 @@
 /*****************/
-/* VERSION 0.1.8 */
+/* VERSION 0.1.9 */
 /*****************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -756,6 +756,11 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
             height: var(--firefox-safari-style-tab-height) !important;
             min-height: var(--firefox-safari-style-tab-height) !important;
             max-height: var(--firefox-safari-style-tab-height) !important;
+
+            &[collapsed="true"] {
+                display: none !important;
+            }
+
             #PlacesToolbarItems {
                 margin-top: 3px !important; 
                 &,  > * {
