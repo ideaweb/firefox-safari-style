@@ -1,6 +1,6 @@
-/*****************/
-/* VERSION 0.1.9 */
-/*****************/
+/****************+*/
+/* VERSION 0.1.10 */
+/******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
@@ -481,7 +481,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                                 }
                             }
                         }
-                        .urlbarView.megabar {
+                        .urlbarView {
                             position: absolute !important;
                             left: -2px !important;  
                             top: calc(var(--firefox-safari-style-tab-height) - 1px) !important;

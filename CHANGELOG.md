@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.10 11/04/2020
+
+#### Bug Fixes:
+
+- Fixed issue with address bar introduced with recent Nightly.
+
 ## v0.1.9 11/03/2020
 
 #### Bug Fixes:

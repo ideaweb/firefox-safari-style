@@ -1,6 +1,6 @@
-/*****************/
-/* VERSION 0.1.9 */
-/*****************/
+/****************+*/
+/* VERSION 0.1.10 */
+/******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
 /*****************/
@@ -448,7 +448,7 @@
   }
 }
 @media (-moz-mac-yosemite-theme) {
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView {
     position: absolute !important;
     left: -2px !important;
     top: calc(var(--firefox-safari-style-tab-height) - 1px) !important;
@@ -462,36 +462,36 @@
     border-bottom-left-radius: 5px !important;
     border-bottom-right-radius: 5px !important;
   }
-  #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar {
+  #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView {
     border-right-color: #182a98 !important;
     border-bottom-color: #182a98 !important;
     border-left-color: #182a98 !important;
     background-color: var(--firefox-safari-style-bar-background-color-private) !important;
   }
-  #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar > .urlbarView-body-outer,
-#main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar > .search-one-offs, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar > .urlbarView-body-outer,
-#main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar > .search-one-offs, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar > .urlbarView-body-outer,
-#main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar > .search-one-offs, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar > .urlbarView-body-outer,
-#main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar > .search-one-offs {
+  #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer,
+#main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .search-one-offs, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer,
+#main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .search-one-offs, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .urlbarView-body-outer,
+#main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .search-one-offs, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .urlbarView-body-outer,
+#main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .search-one-offs {
     background-color: var(--firefox-safari-style-bar-background-color-private) !important;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner {
     border-top: 0 !important;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner *, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner * {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner *, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner * {
     border-radius: 0 !important;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results > :first-child, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results > :first-child, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results > :first-child, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results > :first-child {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results > :first-child, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results > :first-child, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results > :first-child, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results > :first-child {
     margin-top: 2px;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row {
     padding: 0 !important;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar > .search-one-offs {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .search-one-offs {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView.megabar > .search-one-offs .search-panel-one-offs-header, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView.megabar > .search-one-offs .search-panel-one-offs-header, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView.megabar > .search-one-offs .search-panel-one-offs-header, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView.megabar > .search-one-offs .search-panel-one-offs-header {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .search-one-offs .search-panel-one-offs-header, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .search-one-offs .search-panel-one-offs-header, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .search-one-offs .search-panel-one-offs-header, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .search-one-offs .search-panel-one-offs-header {
     display: none !important;
   }
 }
