@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.10 */
+/* VERSION 0.1.11 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -805,6 +805,8 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             background: url("chrome://global/skin/icons/arrow-dropdown-16.svg") 100% 50% / 9px 9px no-repeat;
                             padding-right: 12px !important;
                         }
+                        padding-top: 0 !important;
+                        padding-bottom: 0 !important;
                     }
                 }
             }

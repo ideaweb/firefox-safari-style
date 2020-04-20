@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.10 */
+/* VERSION 0.1.11 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -821,6 +821,10 @@
   }
   #navigator-toolbox #PersonalToolbar:-moz-window-inactive {
     border-top-color: var(--firefox-safari-style-bar-border-color-inactive) !important;
+  }
+  #navigator-toolbox #PersonalToolbar #personal-bookmarks #PlacesToolbarItems .bookmark-item {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
   #navigator-toolbox #PersonalToolbar #personal-bookmarks #PlacesToolbarItems .bookmark-item .toolbarbutton-icon {
     display: none !important;

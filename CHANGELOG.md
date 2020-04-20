@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.11 20/04/2020
+
+#### Bug Fixes:
+
+- Fixed labels in bookmarks toolbar.
+
 ## v0.1.10 11/04/2020
 
 #### Bug Fixes:
