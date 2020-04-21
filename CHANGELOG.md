@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.12 21/04/2020
+
+#### Improvements:
+
+- Centering items on the bookmarks bar.
+
 ## v0.1.11 20/04/2020
 
 #### Bug Fixes:

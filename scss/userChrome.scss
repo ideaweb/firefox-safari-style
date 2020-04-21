@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.11 */
+/* VERSION 0.1.12 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -796,6 +796,12 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
             }
 
             #personal-bookmarks {
+                #PlacesToolbar {
+                    > hbox {
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
                 #PlacesToolbarItems {
                     .bookmark-item {
                         .toolbarbutton-icon {
