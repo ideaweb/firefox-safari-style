@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.12 */
+/* VERSION 0.1.13 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -1173,23 +1173,33 @@ toolbar .toolbarbutton-1:not([disabled=true]):not([checked]):not([open]):not(:ac
 }
 @media (-moz-mac-yosemite-theme) {
   .scrollbutton-up, .scrollbutton-up image,
+#scrollbutton-up,
+#scrollbutton-up image,
 .scrollbutton-down,
-.scrollbutton-down image {
+.scrollbutton-down image,
+#scrollbutton-down,
+#scrollbutton-down image {
     opacity: 1 !important;
   }
   .scrollbutton-up image,
-.scrollbutton-down image {
+#scrollbutton-up image,
+.scrollbutton-down image,
+#scrollbutton-down image {
     fill: var(--firefox-safari-style-button-color) !important;
     border-color: var(--firefox-safari-style-button-color) !important;
     max-width: 12px;
     opacity: 1 !important;
   }
   .scrollbutton-up image:-moz-window-inactive,
-.scrollbutton-down image:-moz-window-inactive {
+#scrollbutton-up image:-moz-window-inactive,
+.scrollbutton-down image:-moz-window-inactive,
+#scrollbutton-down image:-moz-window-inactive {
     opacity: 0.5 !important;
   }
   .scrollbutton-up[disabled=true] image,
-.scrollbutton-down[disabled=true] image {
+#scrollbutton-up[disabled=true] image,
+.scrollbutton-down[disabled=true] image,
+#scrollbutton-down[disabled=true] image {
     opacity: 0.4 !important;
   }
 }

@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.12 */
+/* VERSION 0.1.13 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -1168,7 +1168,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
         background-color: var(--firefox-safari-style-tab-hover-background) !important;
     }
     .scrollbutton-up,
-    .scrollbutton-down {
+    #scrollbutton-up,
+    .scrollbutton-down,
+    #scrollbutton-down {
         &, image { 
             opacity: 1 !important;
         }
