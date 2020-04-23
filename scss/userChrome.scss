@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.13 */
+/* VERSION 0.1.14 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -369,8 +369,15 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 #urlbar-container, #search-container {
                     padding: 0 !important;
                     #urlbar-input-container, &#search-container {
+                        display: flex;
+                        align-items: center;
+                        .urlbar-input-box {
+                            flex: 1;
+                        }
+                        height: var(--firefox-safari-style-button-height) !important;
                         min-height: var(--firefox-safari-style-button-height) !important;
-                        > * {
+                        > *, #identity-box, #urlbar-scheme, #urlbar-input {
+                            height: calc(var(--firefox-safari-style-button-height) - 2px) !important;
                             min-height: calc(var(--firefox-safari-style-button-height) - 2px) !important;
                         }
                         #pageActionSeparator {
@@ -460,23 +467,18 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                                 }
                                 box-shadow: 0 0 0 2px var(--firefox-safari-style-outline-color) inset !important;
                                 > #urlbar-input-container {
-                                    height: var(--urlbar-height) !important;
                                     padding-block: 0 !important;
                                     padding-inline: 0 !important;
                                 }
                                 &[open] {
-                                    top: -2px !important;
-                                    left: -2px !important;
-                                    width: calc(100% + 4px) !important;
-                                    height: calc(var(--urlbar-height) + 4px) !important;
+                                    top: -1px !important;
+                                    left: 0 !important;
+                                    width: 100% !important;
+                                    height: var(--urlbar-height) !important;
                                     &, > #urlbar-input-container {
                                         border-bottom: 0 !important;
                                         border-bottom-left-radius: 0 !important;
                                         border-bottom-right-radius: 0 !important;
-                                    }
-                                    > #urlbar-input-container {
-                                        padding-block: 2px !important;
-                                        padding-inline: 2px !important;
                                     }
                                 }
                             }
@@ -545,10 +547,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         }
                         &[focused="true"][usertyping="true"] {
                             #identity-box, .urlbar-input-box {
-                                position: static !important;
-                                margin-top: -2px !important;
-                                margin-bottom: -11px !important;
-                                padding-top: 4px !important;
+                                padding-top: 0px !important;
                             }
                         }
                         #identity-box[pageproxystate="valid"].extensionPage > #identity-icon {

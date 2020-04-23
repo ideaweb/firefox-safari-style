@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.14 23/04/2020
+
+#### Bug Fixes:
+
+- Fixed address bar.
+
 ## v0.1.13 22/04/2020
 
 #### Bug Fixes:
