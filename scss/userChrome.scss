@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.14 */
+/* VERSION 0.1.15 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -241,6 +241,12 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     margin-right: 3px !important;
                 }
             }
+            #library-button[animate] > .toolbarbutton-icon {
+                fill: var(--firefox-safari-style-button-color) !important;
+            }
+            #library-animatable-box {
+                display: none !important;
+            }
             > toolbarbutton, #nav-bar-customization-target toolbarbutton, #PanelUI-menu-button {
                 &.toolbarbutton-1 {
                     fill: var(--firefox-safari-style-button-color) !important;
@@ -471,7 +477,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                                     padding-inline: 0 !important;
                                 }
                                 &[open] {
-                                    top: -1px !important;
+                                    top: 0 !important;
                                     left: 0 !important;
                                     width: 100% !important;
                                     height: var(--urlbar-height) !important;
@@ -479,6 +485,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                                         border-bottom: 0 !important;
                                         border-bottom-left-radius: 0 !important;
                                         border-bottom-right-radius: 0 !important;
+                                    }
+                                    > #urlbar-input-container {
+                                        margin-top: -1px;
                                     }
                                 }
                             }
@@ -640,6 +649,10 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     background: url("chrome://browser/skin/bookmark-hollow.svg") 50% 50% / 12px 12px no-repeat;
                     margin-right: 8px;
                     margin-top: -2px !important;
+                    &[starred="true"] {
+                        background: var(--firefox-safari-style-attention-color) !important;
+                        mask: url("chrome://browser/skin/bookmark.svg") 50% 50% / 12px 12px no-repeat;
+                    }
                 }
                 #star-button-animatable-box {
                     display: none !important;

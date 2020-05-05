@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.14 */
+/* VERSION 0.1.15 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -201,6 +201,12 @@
     opacity: 0.3 !important;
     margin-left: 3px !important;
     margin-right: 3px !important;
+  }
+  #navigator-toolbox #nav-bar #library-button[animate] > .toolbarbutton-icon {
+    fill: var(--firefox-safari-style-button-color) !important;
+  }
+  #navigator-toolbox #nav-bar #library-animatable-box {
+    display: none !important;
   }
   #navigator-toolbox #nav-bar > toolbarbutton.toolbarbutton-1, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton.toolbarbutton-1, #navigator-toolbox #nav-bar #PanelUI-menu-button.toolbarbutton-1 {
     fill: var(--firefox-safari-style-button-color) !important;
@@ -438,7 +444,7 @@
     padding-inline: 0 !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend][open] {
-    top: -1px !important;
+    top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     height: var(--urlbar-height) !important;
@@ -447,6 +453,9 @@
     border-bottom: 0 !important;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend][open] > #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend][open] > #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend][open] > #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend][open] > #urlbar-input-container {
+    margin-top: -1px;
   }
 }
 @media (-moz-mac-yosemite-theme) {
@@ -655,6 +664,10 @@
     background: url("chrome://browser/skin/bookmark-hollow.svg") 50% 50%/12px 12px no-repeat;
     margin-right: 8px;
     margin-top: -2px !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #star-button[starred=true] {
+    background: var(--firefox-safari-style-attention-color) !important;
+    mask: url("chrome://browser/skin/bookmark.svg") 50% 50%/12px 12px no-repeat;
   }
 }
 @media (-moz-mac-yosemite-theme) {

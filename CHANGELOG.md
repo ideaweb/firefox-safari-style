@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.15 05/05/2020
+
+#### Bug Fixes:
+
+- Fixed bookmark icon in address bar for bookmarked pages.
+
 ## v0.1.14 23/04/2020
 
 #### Bug Fixes:
