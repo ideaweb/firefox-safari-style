@@ -653,7 +653,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 #star-button {
                     list-style-image: none !important;
                     background: url("chrome://browser/skin/bookmark-hollow.svg") 50% 50% / 12px 12px no-repeat;
-                    margin-right: 8px;
+                    margin-right: 6px;
                     margin-top: -2px !important;
                     &[starred="true"] {
                         background: var(--firefox-safari-style-attention-color) !important;
