@@ -1,11 +1,12 @@
 /****************+*/
-/* VERSION 0.1.15 */
+/* VERSION 0.1.16 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 @namespace html url("http://www.w3.org/1999/xhtml");
 
+$firefox-safari-style-show-favicons-in-bookmarks: false;
 $firefox-safari-style-show-favicons-in-tabs: true;
 $firefox-safari-style-grayscale-favicons-in-tabs: false;
 $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
@@ -559,16 +560,23 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                                 padding-top: 0px !important;
                             }
                         }
-                        #identity-box[pageproxystate="valid"].extensionPage > #identity-icon {
-                            transform: translateY(-1px);
+                        .urlbar-icon {
+                            width: 20px !important;
+                            height: 20px !important;
+                            padding: 3px !important;
                         }
-                        image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator):not(.button-icon) {
-                            max-height: 12px !important;
-                            max-width: 12px !important;
-                            min-height: 12px !important;
-                            min-width: 12px !important;
-                            position: relative !important;
-                            top: 1px !important;
+                        #identity-box image {
+                            max-height: 14px !important;
+                            max-width: 14px !important;
+                            transform: translate(2px, 0px);
+                        }
+                        #identity-box.extensionPage image {
+                            max-height: 13px !important;
+                            max-width: 13px !important;
+                            transform: translate(2px, -1px);
+                        }
+                        #identity-icon-label {
+                            padding-inline-start: 5px;
                         }
                         image:not(#userContext-indicator),
                         #identity-box, 
@@ -634,12 +642,10 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 #pageActionButton {
                     list-style-image: none !important;
                     background: url("chrome://global/skin/icons/more.svg") 50% 50% / 12px 12px no-repeat;
-                    margin-right: 8px;
                 }
                 #pocket-button {
                     list-style-image: none !important;
                     background: url("chrome://browser/skin/pocket-outline.svg") 50% 50% / 12px 12px no-repeat;
-                    margin-right: 8px;
                 }
                 #pocket-button-animatable-box {
                     display: none !important;
@@ -816,8 +822,10 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 }
                 #PlacesToolbarItems {
                     .bookmark-item {
-                        .toolbarbutton-icon {
-                            display: none !important;
+                        @if $firefox-safari-style-show-favicons-in-bookmarks == false { 
+                            .toolbarbutton-icon {
+                                display: none !important;
+                            }
                         }
                         .toolbarbutton-icon[type="menu"] + .toolbarbutton-text {
                             background: url("chrome://global/skin/icons/arrow-dropdown-16.svg") 100% 50% / 9px 9px no-repeat;

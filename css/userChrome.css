@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.15 */
+/* VERSION 0.1.16 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -531,18 +531,29 @@
   }
 }
 @media (-moz-mac-yosemite-theme) {
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box[pageproxystate=valid].extensionPage > #identity-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box[pageproxystate=valid].extensionPage > #identity-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box[pageproxystate=valid].extensionPage > #identity-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box[pageproxystate=valid].extensionPage > #identity-icon {
-    transform: translateY(-1px);
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon {
+    width: 20px !important;
+    height: 20px !important;
+    padding: 3px !important;
   }
 }
 @media (-moz-mac-yosemite-theme) {
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator):not(.button-icon), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator):not(.button-icon), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator):not(.button-icon), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar image:not(.urlbar-history-dropmarker):not(#tracking-protection-icon):not(#tracking-protection-icon-animatable-image):not(#userContext-indicator):not(.button-icon) {
-    max-height: 12px !important;
-    max-width: 12px !important;
-    min-height: 12px !important;
-    min-width: 12px !important;
-    position: relative !important;
-    top: 1px !important;
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box image {
+    max-height: 14px !important;
+    max-width: 14px !important;
+    transform: translate(2px, 0px);
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box.extensionPage image, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box.extensionPage image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box.extensionPage image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box.extensionPage image {
+    max-height: 13px !important;
+    max-width: 13px !important;
+    transform: translate(2px, -1px);
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-icon-label, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-icon-label, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-icon-label, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-icon-label {
+    padding-inline-start: 5px;
   }
 }
 @media (-moz-mac-yosemite-theme) {
@@ -643,14 +654,12 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #pageActionButton {
     list-style-image: none !important;
     background: url("chrome://global/skin/icons/more.svg") 50% 50%/12px 12px no-repeat;
-    margin-right: 8px;
   }
 }
 @media (-moz-mac-yosemite-theme) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #pocket-button {
     list-style-image: none !important;
     background: url("chrome://browser/skin/pocket-outline.svg") 50% 50%/12px 12px no-repeat;
-    margin-right: 8px;
   }
 }
 @media (-moz-mac-yosemite-theme) {

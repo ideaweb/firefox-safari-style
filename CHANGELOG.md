@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.16 20/05/2020
+
+#### Bug Fixes:
+
+- Fixed extension icons in address bar.
+
 ## v0.1.15 05/05/2020
 
 #### Bug Fixes:
