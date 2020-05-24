@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.16 */
+/* VERSION 0.1.17 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -444,18 +444,18 @@
     padding-inline: 0 !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend][open] {
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
+    top: -1px !important;
+    left: -1px !important;
+    width: calc(100% + 2px) !important;
     height: var(--urlbar-height) !important;
+    padding-top: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend][open] > #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend][open] > #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend][open] > #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend][open], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend][open] > #urlbar-input-container {
-    border-bottom: 0 !important;
+    border-bottom-color: transparent !important;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
-  }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend][open] > #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend][open] > #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend][open] > #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend][open] > #urlbar-input-container {
-    margin-top: -1px;
   }
 }
 @media (-moz-mac-yosemite-theme) {
@@ -539,15 +539,18 @@
 }
 @media (-moz-mac-yosemite-theme) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box image {
-    max-height: 14px !important;
-    max-width: 14px !important;
-    transform: translate(2px, 0px);
+    max-height: 13px !important;
+    max-width: 13px !important;
+    transform: translate(2px, -1px);
+  }
+}
+@media only screen and (-moz-mac-yosemite-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 1.3dppx) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box image {
+    transform: translate(2px, -0.5px);
   }
 }
 @media (-moz-mac-yosemite-theme) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box.extensionPage image, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box.extensionPage image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box.extensionPage image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box.extensionPage image {
-    max-height: 13px !important;
-    max-width: 13px !important;
     transform: translate(2px, -1px);
   }
 }

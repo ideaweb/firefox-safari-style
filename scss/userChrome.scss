@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.16 */
+/* VERSION 0.1.17 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -478,17 +478,17 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                                     padding-inline: 0 !important;
                                 }
                                 &[open] {
-                                    top: 0 !important;
-                                    left: 0 !important;
-                                    width: 100% !important;
+                                    top: -1px !important;
+                                    left: -1px !important;
+                                    width: calc(100% + 2px) !important;
                                     height: var(--urlbar-height) !important;
+                                    padding-top: 1px;
+                                    padding-left: 1px;
+                                    padding-right: 1px;
                                     &, > #urlbar-input-container {
-                                        border-bottom: 0 !important;
+                                        border-bottom-color: transparent !important;
                                         border-bottom-left-radius: 0 !important;
                                         border-bottom-right-radius: 0 !important;
-                                    }
-                                    > #urlbar-input-container {
-                                        margin-top: -1px;
                                     }
                                 }
                             }
@@ -566,13 +566,18 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             padding: 3px !important;
                         }
                         #identity-box image {
-                            max-height: 14px !important;
-                            max-width: 14px !important;
-                            transform: translate(2px, 0px);
-                        }
-                        #identity-box.extensionPage image {
                             max-height: 13px !important;
                             max-width: 13px !important;
+                            transform: translate(2px, -1px);
+                            @media
+                            only screen and (   min--moz-device-pixel-ratio: 1.01),
+                            only screen and (		min-device-pixel-ratio: 1.01),
+                            only screen and (				min-resolution: 120dpi),
+                            only screen and (				min-resolution: 1.3dppx) {
+                                transform: translate(2px, -0.5px);
+                            }
+                        }
+                        #identity-box.extensionPage image {
                             transform: translate(2px, -1px);
                         }
                         #identity-icon-label {
