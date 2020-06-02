@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.17 */
+/* VERSION 0.1.18 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -1193,6 +1193,16 @@ toolbar .toolbarbutton-1:not([disabled=true]):not([checked]):not([open]):not(:ac
 toolbar .toolbarbutton-1:not([disabled=true]):not([checked]):not([open]):not(:active):not(#PanelUI-menu-button):hover > .toolbarbutton-badge-stack {
     color: var(--firefox-safari-style-tab-hover-color) !important;
     background-color: var(--firefox-safari-style-tab-hover-background) !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  #PersonalToolbar .toolbarbutton-1:-moz-focusring,
+.findbar-button:-moz-focusring, findbar toolbarbutton.tabbable:-moz-focusring,
+toolbarbutton.bookmark-item:not(.subviewbutton):-moz-focusring,
+toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-icon,
+toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-text,
+toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-badge-stack {
+    outline: none !important;
   }
 }
 @media (-moz-mac-yosemite-theme) {

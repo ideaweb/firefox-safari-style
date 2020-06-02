@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.18 02/06/2020
+
+#### Bug Fixes:
+
+- Fixed outlines for focused toolbar icons.
+
 ## v0.1.17 24/05/2020
 
 #### Bug Fixes:
