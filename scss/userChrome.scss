@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.18 */
+/* VERSION 0.1.19 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -71,7 +71,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     --firefox-safari-style-tab-border-color-inactive: #dbdbdb;
 
     /* Colors e.g. for tabs or bookmarks */
-    --firefox-safari-style-tab-color: hsl(240, 5%, 5%);
+    --firefox-safari-style-tab-color: hsl(250, 5%, 5%);
     --firefox-safari-style-tab-hover-color: #ffffff;
     --firefox-safari-style-tab-hover-background: #acadad;
 
@@ -104,11 +104,11 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
 
 :root:-moz-lwtheme-brighttext {
 
-    --firefox-safari-style-inactive: #30292e;
+    --firefox-safari-style-inactive: #2e2a30;
 
     /* Border colors */
     --firefox-safari-style-title-border-color-active: #1b1b1b;
-    --firefox-safari-style-title-border-color-inactive: 1b1b1b;
+    --firefox-safari-style-title-border-color-inactive: #1b1b1b;
 
     /******************/
     /* NAVIGATION BAR */
@@ -120,7 +120,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     /* Background color for private windows */
     --firefox-safari-style-bar-background-color-private: #26003f;
     /* Background color for inactive windows */
-    --firefox-safari-style-bar-background-color-inactive: #322b32;
+    --firefox-safari-style-bar-background-color-inactive: var(--firefox-safari-style-inactive);
 
     /* Border colors */
     --firefox-safari-style-bar-border-color-active: #575255;
@@ -193,6 +193,14 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
             box-shadow: none !important;
         }
     }
+    html|body:-moz-lwtheme-brighttext {
+        box-sizing: border-box;
+        border: 1px solid rgba(255,255,255,.2);
+        border-top-color: black !important;
+    }
+    #main-window > * > box:not([id]) {
+        display: flex;
+    }
     #tabbrowser-tabpanels {
         background: transparent !important;
     }
@@ -203,10 +211,22 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
         min-width: 100%;
         max-width: 100%;
 
+        &:-moz-lwtheme-brighttext {
+            margin-top: -1px;
+            background: #2a2a2a;
+        }
+
         border-bottom: 1px solid var(--firefox-safari-style-title-border-color-active) !important;
         &:-moz-window-inactive {
             border-bottom-color: var(--firefox-safari-style-title-border-color-inactive) !important;
             filter: grayscale(100%);
+            &:-moz-lwtheme-brighttext {
+                filter: none;
+                toolbarbutton, image {
+                    filter: grayscale(100%);
+                }
+            }
+            color: transparent;
         }
         
         #nav-bar {
@@ -709,6 +729,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     background-color: transparent !important;
                 }
             }
+            #nav-bar-overflow-button:-moz-lwtheme-brighttext {
+                opacity: 0.5 !important; 
+            }
             #PanelUI-button {
                 margin-left: 0 !important;
                 margin-right: 7px !important;
@@ -805,6 +828,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 &, &:hover {
                     background-color: transparent !important;
                 }
+                &:-moz-lwtheme-brighttext {
+                    opacity: 0.5 !important; 
+                }
             }
             padding-top: 0 !important;
             padding-bottom: 0 !important;
@@ -887,7 +913,11 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 .toolbar-items {
                     background: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-top) 0%, var(--firefox-safari-style-tab-background-color-bottom) 100%) !important;
                     &:-moz-window-inactive {
-                        background: var(--firefox-safari-style-tab-background-color-inactive) !important;
+                        background: #dbdbdb !important;
+                        &:-moz-lwtheme-brighttext {
+                            opacity: 0.9;
+                            background: #1e1d1f !important;
+                        }
                     }
                     border-top: 1px solid var(--firefox-safari-style-tab-border-color-active);
                     &:-moz-window-inactive {
@@ -954,10 +984,19 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     & + tab.tabbrowser-tab:-moz-window-inactive {
                         border-left: 1px solid var(--firefox-safari-style-tab-border-color-inactive) !important;
                     }
+                    .tab-label-container:-moz-window-inactive {
+                        opacity: 0.55 !important;
+                        &:-moz-lwtheme-brighttext {
+                            opacity: 1 !important;
+                        }
+                    }
                     .tab-content {
                         overflow: hidden;
                         &:-moz-window-inactive {
                             opacity: 0.55 !important;
+                        }
+                        &:-moz-lwtheme-brighttext {
+                            opacity: 1 !important;
                         }
                         display: flex;
                         flex-direction: row;
@@ -1024,6 +1063,18 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                                 flex: 1 1;
                                 margin-top: 0 !important;
                                 color: var(--firefox-safari-style-tab-color) !important;
+                            }
+                        }
+                        &[selected="true"] {
+                            .tab-label-container {
+                                .tab-label:-moz-lwtheme-brighttext {
+                                    color: white !important;
+                                }
+                            }
+                        }
+                        &:-moz-window-inactive:-moz-lwtheme-brighttext {
+                            .tab-label {
+                                opacity: 0.7;
                             }
                         }
                         .tab-icon-sound {
@@ -1199,6 +1250,16 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-text, 
     toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-badge-stack {
         outline: none !important;
+    }
+    toolbarbutton.bookmark-item {
+        opacity: 0.7 !important;
+        &:-moz-window-inactive {
+            opacity: 0.6 !important;
+        }
+        &:-moz-lwtheme-brighttext {
+            opacity: 1 !important;
+            color: var(--firefox-safari-style-tab-color) !important;
+        }
     }
     .scrollbutton-up,
     #scrollbutton-up,

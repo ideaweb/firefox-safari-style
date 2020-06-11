@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.19 11/06/2020
+
+#### Bug Fixes:
+
+- Dark mode fixes like a white line in inactive windows etc.
+
 ## v0.1.18 02/06/2020
 
 #### Bug Fixes:
