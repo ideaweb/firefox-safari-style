@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.19 */
+/* VERSION 0.1.20 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -193,10 +193,18 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
             box-shadow: none !important;
         }
     }
-    html|body:-moz-lwtheme-brighttext {
+    #main-window html|body:-moz-lwtheme-brighttext {
         box-sizing: border-box;
         border: 1px solid rgba(255,255,255,.2);
         border-top-color: black !important;
+        border-radius: 5px;
+    }
+    #main-window[inFullscreen="true"] html|body:-moz-lwtheme-brighttext {
+        border-color: transparent !important;
+        border-radius: 0;
+    }
+    #main-window[inFullscreen="true"] html|body .titlebar-buttonbox-container {
+        opacity: 0;
     }
     #main-window > * > box:not([id]) {
         display: flex;

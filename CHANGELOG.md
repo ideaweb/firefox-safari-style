@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.20 08/07/2020
+
+#### Bug Fixes:
+
+- Fixed white outline on fullscreen in dark mode.
+
 ## v0.1.19 11/06/2020
 
 #### Bug Fixes:
