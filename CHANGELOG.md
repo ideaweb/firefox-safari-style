@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.21 28/07/2020
+
+#### Bug Fixes:
+
+- Fixed left border of first visible tab.
+
 ## v0.1.20 08/07/2020
 
 #### Bug Fixes:

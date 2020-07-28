@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.20 */
+/* VERSION 0.1.21 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -1007,11 +1007,11 @@
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[selected=true]:-moz-window-inactive {
     background: var(--firefox-safari-style-tab-background-color-inactive) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab + tab.tabbrowser-tab {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[fadein=true] ~ .tabbrowser-tab {
     border-left: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab + tab.tabbrowser-tab:-moz-window-inactive {
-    border-left: 1px solid var(--firefox-safari-style-tab-border-color-inactive) !important;
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[fadein=true] ~ .tabbrowser-tab:-moz-window-inactive {
+    border-left-color: var(--firefox-safari-style-tab-border-color-inactive) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-label-container:-moz-window-inactive {
     opacity: 0.55 !important;

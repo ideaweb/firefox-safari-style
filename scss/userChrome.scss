@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.20 */
+/* VERSION 0.1.21 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -986,11 +986,11 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             background: var(--firefox-safari-style-tab-background-color-inactive) !important;
                         }
                     }
-                    & + tab.tabbrowser-tab {
+                    &[fadein="true"] ~ .tabbrowser-tab {
                         border-left: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
-                    }
-                    & + tab.tabbrowser-tab:-moz-window-inactive {
-                        border-left: 1px solid var(--firefox-safari-style-tab-border-color-inactive) !important;
+                        &:-moz-window-inactive {
+                            border-left-color: var(--firefox-safari-style-tab-border-color-inactive) !important;
+                        }
                     }
                     .tab-label-container:-moz-window-inactive {
                         opacity: 0.55 !important;
