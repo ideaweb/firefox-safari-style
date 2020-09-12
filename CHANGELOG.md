@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.22 12/09/2020
+
+#### Bug Fixes:
+
+- Fixed padding in fullscreen videos.
+
 ## v0.1.21 28/07/2020
 
 #### Bug Fixes:

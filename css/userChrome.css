@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.21 */
+/* VERSION 0.1.22 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -160,18 +160,18 @@
     border-top-color: black !important;
     border-radius: 5px;
   }
-
   #main-window[inFullscreen=true] html|body:-moz-lwtheme-brighttext {
     border-color: transparent !important;
     border-radius: 0;
   }
-
   #main-window[inFullscreen=true] html|body .titlebar-buttonbox-container {
     opacity: 0;
   }
-
   #main-window > * > box:not([id]) {
     display: flex;
+  }
+  #main-window[inDOMFullscreen=true] > * > box:not([id]) {
+    display: none;
   }
 
   #tabbrowser-tabpanels {
@@ -732,6 +732,11 @@
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button:not([hidden=true]) + #pageActionSeparator, #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons:not([hidden=true]) + #pageActionSeparator, #navigator-toolbox #nav-bar #nav-bar-customization-target #contextual-feature-recommendation:not([hidden=true]) + #pageActionSeparator {
     margin-left: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #contextual-feature-recommendation {
+    display: none !important;
   }
 }
 @media (-moz-mac-yosemite-theme) {

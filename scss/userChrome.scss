@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.21 */
+/* VERSION 0.1.22 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -193,21 +193,30 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
             box-shadow: none !important;
         }
     }
-    #main-window html|body:-moz-lwtheme-brighttext {
-        box-sizing: border-box;
-        border: 1px solid rgba(255,255,255,.2);
-        border-top-color: black !important;
-        border-radius: 5px;
-    }
-    #main-window[inFullscreen="true"] html|body:-moz-lwtheme-brighttext {
-        border-color: transparent !important;
-        border-radius: 0;
-    }
-    #main-window[inFullscreen="true"] html|body .titlebar-buttonbox-container {
-        opacity: 0;
-    }
-    #main-window > * > box:not([id]) {
-        display: flex;
+    #main-window {
+        html|body:-moz-lwtheme-brighttext {
+            box-sizing: border-box;
+            border: 1px solid rgba(255,255,255,.2);
+            border-top-color: black !important;
+            border-radius: 5px;
+        }
+        &[inFullscreen="true"] {
+            html|body {
+                &:-moz-lwtheme-brighttext {
+                    border-color: transparent !important;
+                    border-radius: 0;
+                }
+                .titlebar-buttonbox-container {
+                    opacity: 0;
+                }
+            }
+        }
+        > * > box:not([id]) {
+            display: flex;
+        }
+        &[inDOMFullscreen="true"] > * > box:not([id]) {
+            display: none;
+        }
     }
     #tabbrowser-tabpanels {
         background: transparent !important;
@@ -711,6 +720,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     &:not([hidden="true"]) + #pageActionSeparator {
                         margin-left: 0 !important;
                     }
+                }
+                #contextual-feature-recommendation {
+                    display: none !important;
                 }
                 #userContext-icons {
                     &, #userContext-label {
