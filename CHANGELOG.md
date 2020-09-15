@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.24 17/09/2020
+
+#### Bug Fixes:
+
+- Fixed container tabs.
+
 ## v0.1.23 17/09/2020
 
 #### New Features:
