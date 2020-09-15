@@ -48,7 +48,7 @@ Hides tab bar if there is only one tab open. Unfortunately currently its not pos
 
 ```css
 #personal-bookmarks .bookmark-item .toolbarbutton-icon {
-    display: block !important;
+    display: inline !important;
 }
 ```
 
