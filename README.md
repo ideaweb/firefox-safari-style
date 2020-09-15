@@ -54,7 +54,9 @@ Hides tab bar if there is only one tab open. Unfortunately currently its not pos
 
 ## Troubleshooting
 
-If nothing changes in Firefox make sure that the userChrome.css in your profile directory is loaded. It can be tested easily by adding the following line at the end which changes the entire browser to _red_.
+Make sure that your userChrome.css does not contain any lines beginning with `@namespace`, just only a single line with the above `@import` statement. Remove any extra code snippets as well.
+
+If still nothing changes in Firefox make sure that the userChrome.css in your profile directory is loaded. It can be tested easily by adding the following line at the end which changes the entire browser to _red_.
 
 ```css
 * { background-color: red !important; }
@@ -64,7 +66,7 @@ Please add the same line to the imported userChrome.css of this theme but use an
 
 Restart Firefox and check the color. If still nothing changes the userChrome.css in your profile is not loaded. Please verify the first boths steps of the install section above. If you see _red_ and not _blue_ the import of the theme failed e.g. by wrong path.
 
-In case of _blue_, please check the list of [known issues](https://github.com/ideaweb/firefox-safari-style/issues) to see if it has been previously reported like the [namespace problem](https://github.com/ideaweb/firefox-safari-style/issues/3). Otherwise, please open a ticket [here](https://github.com/ideaweb/firefox-safari-style/issues). 
+In case of _blue_, please check the list of [known issues](https://github.com/ideaweb/firefox-safari-style/issues) to see if it has been previously reported. Otherwise, please open a ticket [here](https://github.com/ideaweb/firefox-safari-style/issues). 
 
 ---
 
