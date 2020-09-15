@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.22 */
+/* VERSION 0.1.23 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -69,7 +69,7 @@
   --firefox-safari-style-button-border-color-inactive: #c0c0c0;
   /* Font and icon color of buttons and urlbar */
   --firefox-safari-style-button-color: #5f5f5f;
-  --tab-min-height: var(--firefox-safari-style-tab-height) !important;
+  --tab-min-height: 0 !important;
   --space-above-tabbar: 0 !important;
   --toolbarbutton-vertical-text-padding: 4px !important;
 }
@@ -215,15 +215,9 @@
   #main-window[inFullscreen=true] #navigator-toolbox #nav-bar {
     padding-left: 6px !important;
   }
-  #navigator-toolbox #nav-bar, #navigator-toolbox #nav-bar > hbox, #navigator-toolbox #nav-bar > box {
-    height: var(--firefox-safari-style-bar-height);
-    min-height: var(--firefox-safari-style-bar-height);
-    max-height: var(--firefox-safari-style-bar-height);
-  }
-  #navigator-toolbox #nav-bar > toolbaritem {
-    height: var(--firefox-safari-style-bar-height);
-    min-height: var(--firefox-safari-style-bar-height);
-    max-height: var(--firefox-safari-style-bar-height);
+  #navigator-toolbox #nav-bar, #navigator-toolbox #nav-bar > hbox, #navigator-toolbox #nav-bar > box, #navigator-toolbox #nav-bar > toolbaritem {
+    min-height: var(--firefox-safari-style-bar-height) !important;
+    max-height: var(--firefox-safari-style-bar-height) !important;
   }
   #navigator-toolbox #nav-bar > toolbarpaletteitem[removable=false], #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem[removable=false] {
     opacity: 0.7 !important;
@@ -249,12 +243,19 @@
   }
   #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover {
     margin-left: 4px !important;
-    width: 16px !important;
-    max-width: 16px !important;
-    min-width: 16px !important;
   }
   #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button image, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button image, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover image {
     background-color: transparent !important;
+  }
+  #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button .toolbarbutton-icon, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button image, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button image .toolbarbutton-icon, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover .toolbarbutton-icon, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover image .toolbarbutton-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button .toolbarbutton-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button image .toolbarbutton-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover .toolbarbutton-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover image .toolbarbutton-icon, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button .toolbarbutton-icon, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button image, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button image .toolbarbutton-icon, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover .toolbarbutton-icon, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover image .toolbarbutton-icon {
+    width: var(--firefox-safari-style-button-height) !important;
+    max-width: var(--firefox-safari-style-button-height) !important;
+    min-width: var(--firefox-safari-style-button-height) !important;
+    height: var(--firefox-safari-style-button-height) !important;
+    max-height: var(--firefox-safari-style-button-height) !important;
+    min-height: var(--firefox-safari-style-button-height) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button), #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button), #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button) {
     background-color: var(--firefox-safari-style-button-background-active) !important;
@@ -898,9 +899,6 @@
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
-  #navigator-toolbox #PersonalToolbar #personal-bookmarks #PlacesToolbarItems .bookmark-item .toolbarbutton-icon {
-    display: none !important;
-  }
   #navigator-toolbox #PersonalToolbar #personal-bookmarks #PlacesToolbarItems .bookmark-item .toolbarbutton-icon[type=menu] + .toolbarbutton-text {
     background: url("chrome://global/skin/icons/arrow-dropdown-16.svg") 100% 50%/9px 9px no-repeat;
     padding-right: 12px !important;
@@ -918,8 +916,8 @@
   #navigator-toolbox #titlebar {
     order: 3;
     flex: 1 1;
-    height: var(--firefox-safari-style-tab-height) !important;
-    min-height: var(--firefox-safari-style-tab-height) !important;
+    /*height: var(--firefox-safari-style-tab-height) !important;
+    min-height: var(--firefox-safari-style-tab-height) !important;*/
     max-height: var(--firefox-safari-style-tab-height) !important;
     /* Show alternate window controls */
   }
@@ -941,7 +939,8 @@
   #navigator-toolbox #titlebar #TabsToolbar {
     display: flex;
     flex-direction: column-reverse;
-    height: var(--firefox-safari-style-tab-height);
+    min-height: 0 !important;
+    /*height: var(--firefox-safari-style-tab-height);*/
     /* Hide window controls */
   }
   #navigator-toolbox #titlebar #TabsToolbar .titlebar-buttonbox-container, #navigator-toolbox #titlebar #TabsToolbar #menubar-items {
@@ -949,7 +948,6 @@
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items {
     background: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-top) 0%, var(--firefox-safari-style-tab-background-color-bottom) 100%) !important;
-    border-top: 1px solid var(--firefox-safari-style-tab-border-color-active);
     overflow: hidden;
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items:-moz-window-inactive {
@@ -959,12 +957,13 @@
     opacity: 0.9;
     background: #1e1d1f !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items:-moz-window-inactive {
-    border-top-color: var(--firefox-safari-style-tab-border-color-inactive) !important;
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab[selected=true] {
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active);
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab[selected=true]:-moz-window-inactive {
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab::after, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab stack, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-content {
-    height: var(--firefox-safari-style-tab-height) !important;
-    min-height: var(--firefox-safari-style-tab-height) !important;
     max-height: var(--firefox-safari-style-tab-height) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs[movingtab] {
@@ -1333,6 +1332,11 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
 @media (-moz-mac-yosemite-theme) {
   .scrollbutton-up ~ spacer {
     opacity: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  #personal-bookmarks .bookmark-item .toolbarbutton-icon {
+    display: none !important;
   }
 }
 

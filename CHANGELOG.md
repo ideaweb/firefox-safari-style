@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.23 17/09/2020
+
+#### New Features:
+
+- Support to hide tab bar if there is only one tab open. Please check "Extras" in Readme how to enable it.
+
 ## v0.1.22 12/09/2020
 
 #### Bug Fixes:

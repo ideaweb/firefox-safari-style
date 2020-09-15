@@ -29,6 +29,29 @@ This theme will make Firefox more compliant with macOS.
 
 A Firefox release may change its styles and break this theme. To update please just run `git pull` in the cloned repository to or just re-download it.
 
+## Extras
+
+Some code snippets to add extra functionallity. Just add any code below to the end of your userChrome.css.
+
+### Hide solo tab
+
+Hides tab bar if there is only one tab open. Unfortunately currently its not possible to move the new tab button up and that's why it should be hidden as well.
+
+```css
+#tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"],
+#tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"] ~ toolbarbutton {
+  visibility: collapse;
+}
+```
+
+### Shows favicons in bookmarks bar
+
+```css
+#personal-bookmarks .bookmark-item .toolbarbutton-icon {
+    display: block !important;
+}
+```
+
 ## Troubleshooting
 
 If nothing changes in Firefox make sure that the userChrome.css in your profile directory is loaded. It can be tested easily by adding the following line at the end which changes the entire browser to _red_.
