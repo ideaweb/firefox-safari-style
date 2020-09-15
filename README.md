@@ -54,7 +54,7 @@ Hides tab bar if there is only one tab open. Unfortunately currently its not pos
 
 ## Troubleshooting
 
-Make sure that your userChrome.css does not contain any lines beginning with `@namespace`, just only a single line with the above `@import` statement. Remove any extra code snippets as well.
+Make sure that your userChrome.css does not contain any lines beginning with [`@namespace`](https://github.com/ideaweb/firefox-safari-style/issues/3), just only a single line with the above `@import` statement. Remove any extra code snippets as well.
 
 If still nothing changes in Firefox make sure that the userChrome.css in your profile directory is loaded. It can be tested easily by adding the following line at the end which changes the entire browser to _red_.
 
