@@ -1,6 +1,6 @@
-/****************+*/
-/* VERSION 0.1.24 */
-/******************/
+/***************+*/
+/* VERSION 0.2.0 */
+/*****************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
 /*****************/
@@ -8,47 +8,52 @@
 /*****************/
 :root {
   --firefox-safari-style-attention-color: #0a84ff;
-  --firefox-safari-style-outline-color: -moz-mac-focusring;
+  --firefox-safari-style-outline-color: #73a6f1;
   --firefox-safari-style-controls-width: 75px;
-  --firefox-safari-style-inactive: #f6f6f6;
+  --firefox-safari-style-inactive: #fbfbfb;
   /* Border colors */
-  --firefox-safari-style-title-border-color-active: #aaaaaa;
-  --firefox-safari-style-title-border-color-inactive: #dbdbdb;
+  --firefox-safari-style-title-border-color-active: rgba(0,0,0,0.15);
+  --firefox-safari-style-title-border-color-inactive: rgba(0,0,0,0.15);
   /******************/
   /* NAVIGATION BAR */
   /******************/
   /* Default Background color (gradiant) */
-  --firefox-safari-style-bar-background-color-top: #e3e4e4;
-  --firefox-safari-style-bar-background-color-bottom: #d4d5d5;
+  --firefox-safari-style-bar-background-color-top: #fbfbfb;
+  --firefox-safari-style-bar-background-color-bottom: #fbfbfb;
   /* Background color for private windows */
   --firefox-safari-style-bar-background-color-private: #26003f;
   /* Background color for inactive windows */
   --firefox-safari-style-bar-background-color-inactive: var(--firefox-safari-style-inactive);
   /* Max height of navigation bar */
-  --firefox-safari-style-bar-height: 38px;
+  --firefox-safari-style-bar-height: 52px;
   /* Border colors */
   --firefox-safari-style-bar-border-color-active: #c1c2c2;
   --firefox-safari-style-bar-border-color-inactive: #dfdfdf;
+  /* Input background */
+  --firefox-safari-style-input-background-active: #ebebeb;
+  --firefox-safari-style-input-background-inactive: #ebebeb;
   /********/
   /* TABS */
   /********/
   /* Max height of a tab */
-  --firefox-safari-style-tab-height: 25px;
+  --firefox-safari-style-tab-height: 28px;
   /* Default background color (gradiant) */
-  --firefox-safari-style-tab-background-color-top: #bdbebe;
-  --firefox-safari-style-tab-background-color-bottom: #b5b6b6;
+  --firefox-safari-style-tab-background-color-top: #e9e9e9;
+  --firefox-safari-style-tab-background-color-bottom: #e9e9e9;
   /* Background active tab (gradiant) */
-  --firefox-safari-style-tab-background-color-selected-top: #d4d5d5;
-  --firefox-safari-style-tab-background-color-selected-bottom: #cacbcb;
+  --firefox-safari-style-tab-background-color-selected-top: #fbfbfb;
+  --firefox-safari-style-tab-background-color-selected-bottom: #fbfbfb;
   /* Background inactive tab */
   --firefox-safari-style-tab-background-color-inactive: var(--firefox-safari-style-inactive);
   /* Button background hover on incative tab */
-  --firefox-safari-style-tab-background-color-hover: #afafaf;
+  --firefox-safari-style-tab-background-color-hover: #dadbdb;
   /* Icon size of favicon, throbber, sound etc. */
-  --firefox-safari-style-button-icon: 12px;
+  --firefox-safari-style-button-icon: 16px;
   /* Border colors */
-  --firefox-safari-style-tab-border-color-active: #afb0b0;
-  --firefox-safari-style-tab-border-color-inactive: #dbdbdb;
+  --firefox-safari-style-tab-border-color-active: #cccccc;
+  --firefox-safari-style-tab-border-color-inactive: #cccccc;
+  --firefox-safari-style-tab-border-left-color-active: #d9cfd0;
+  --firefox-safari-style-tab-border-left-color-inactive: #d9cfd0;
   /* Colors e.g. for tabs or bookmarks */
   --firefox-safari-style-tab-color: hsl(250, 5%, 5%);
   --firefox-safari-style-tab-hover-color: #ffffff;
@@ -57,16 +62,17 @@
   /* BUTTONS (URLBAR) */
   /********************/
   /* Button default size */
-  --firefox-safari-style-button-width: 38px;
-  --firefox-safari-style-button-height: 24px;
+  --firefox-safari-style-button-width: 32px;
+  --firefox-safari-style-button-height: 28px;
   /* Button background */
-  --firefox-safari-style-button-background-active: white;
-  --firefox-safari-style-button-background-inactive: var(--firefox-safari-style-inactive);
+  --firefox-safari-style-button-background-active: transparent;
+  --firefox-safari-style-button-background-inactive: transparent;
+  --firefox-safari-style-button-background-hover: #e7e8e8;
   /* Border color of buttons and urlbar */
-  --firefox-safari-style-button-border-color: #cccccc;
-  --firefox-safari-style-button-border-color-top: #cccccc;
-  --firefox-safari-style-button-border-color-bottom: #b4b4b4;
-  --firefox-safari-style-button-border-color-inactive: #c0c0c0;
+  --firefox-safari-style-button-border-color: transparent;
+  --firefox-safari-style-button-border-color-top: transparent;
+  --firefox-safari-style-button-border-color-bottom: transparent;
+  --firefox-safari-style-button-border-color-inactive: transparent;
   /* Font and icon color of buttons and urlbar */
   --firefox-safari-style-button-color: #5f5f5f;
   --tab-min-height: 0 !important;
@@ -78,7 +84,7 @@
 /* DARK THEME */
 /**************/
 :root:-moz-lwtheme-brighttext {
-  --firefox-safari-style-inactive: #2e2a30;
+  --firefox-safari-style-inactive: #282828;
   /* Border colors */
   --firefox-safari-style-title-border-color-active: #1b1b1b;
   --firefox-safari-style-title-border-color-inactive: #1b1b1b;
@@ -86,8 +92,8 @@
   /* NAVIGATION BAR */
   /******************/
   /* Default Background color (gradiant) */
-  --firefox-safari-style-bar-background-color-top: #3d393e;
-  --firefox-safari-style-bar-background-color-bottom: #363237;
+  --firefox-safari-style-bar-background-color-top: #383839;
+  --firefox-safari-style-bar-background-color-bottom: #383839;
   /* Background color for private windows */
   --firefox-safari-style-bar-background-color-private: #26003f;
   /* Background color for inactive windows */
@@ -95,19 +101,22 @@
   /* Border colors */
   --firefox-safari-style-bar-border-color-active: #575255;
   --firefox-safari-style-bar-border-color-inactive: #4e474d;
+  /* Input background */
+  --firefox-safari-style-input-background-active: #464546;
+  --firefox-safari-style-input-background-inactive: #464546;
   /********/
   /* TABS */
   /********/
   /* Default background color (gradiant) */
-  --firefox-safari-style-tab-background-color-top: #181618;
-  --firefox-safari-style-tab-background-color-bottom: #181618;
+  --firefox-safari-style-tab-background-color-top: #1f1f1f;
+  --firefox-safari-style-tab-background-color-bottom: #1f1f1f;
   /* Background active tab (gradiant) */
-  --firefox-safari-style-tab-background-color-selected-top: #343034;
-  --firefox-safari-style-tab-background-color-selected-bottom: #302c2f;
+  --firefox-safari-style-tab-background-color-selected-top: #383839;
+  --firefox-safari-style-tab-background-color-selected-bottom: #383839;
   /* Background inactive tab */
   --firefox-safari-style-tab-background-color-inactive: var(--firefox-safari-style-inactive);
   /* Button background hover on incative tab */
-  --firefox-safari-style-tab-background-color-hover: #181618;
+  --firefox-safari-style-tab-background-color-hover: #303131;
   /* Border colors */
   --firefox-safari-style-tab-border-color-active: #575255;
   --firefox-safari-style-tab-border-color-inactive: #4e474d;
@@ -118,21 +127,26 @@
   /********************/
   /* BUTTONS (URLBAR) */
   /********************/
-  /* Button background */
+  /* Button background * /
   --firefox-safari-style-button-background-active: #615f63;
-  --firefox-safari-style-button-background-inactive: var(--firefox-safari-style-inactive);
-  /* Border color of buttons and urlbar */
+  --firefox-safari-style-button-background-inactive: var(--firefox-safari-style-inactive);*/
+  --firefox-safari-style-button-background-hover: #454546;
+  /* Border color of buttons and urlbar * /
   --firefox-safari-style-button-border-color: #6a6368;
   --firefox-safari-style-button-border-color-top: #7e767c;
-  --firefox-safari-style-button-border-color-bottom: #6a6368;
-  --firefox-safari-style-button-border-color-inactive: #6a6368;
-  /* Font and icon color of buttons and urlbar */
-  --firefox-safari-style-button-color: #ffffff;
-}
-@media only screen and (min--moz-device-pixel-ratio: 1.01), only screen and (min-device-pixel-ratio: 1.01), only screen and (min-resolution: 120dpi), only screen and (min-resolution: 1.3dppx) {
-  :root:-moz-lwtheme-brighttext {
-    --firefox-safari-style-button-border-color-top: #737174;
+  @media
+  only screen and (   min--moz-device-pixel-ratio: 1.01),
+  only screen and (		min-device-pixel-ratio: 1.01),
+  only screen and (				min-resolution: 120dpi),
+  only screen and (				min-resolution: 1.3dppx) {
+      --firefox-safari-style-button-border-color-top: #737174;
   }
+  --firefox-safari-style-button-border-color-bottom: #6a6368;
+  --firefox-safari-style-button-border-color-inactive: #6a6368;*/
+  --firefox-safari-style-tab-border-left-color-active: #444345;
+  --firefox-safari-style-tab-border-left-color-inactive: #444345;
+  /* Font and icon color of buttons and urlbar */
+  --firefox-safari-style-button-color: rgba(255,255,255,0.7);
 }
 
 @media (-moz-mac-yosemite-theme) {
@@ -204,9 +218,8 @@
   #navigator-toolbox #nav-bar {
     order: 1;
     flex: 1 1;
-    padding-top: 7px !important;
+    padding-top: 11px !important;
     background: linear-gradient(to bottom, var(--firefox-safari-style-bar-background-color-top) 0%, var(--firefox-safari-style-bar-background-color-bottom) 100%) !important;
-    padding-top: 4px;
     padding-left: var(--firefox-safari-style-controls-width);
   }
   #navigator-toolbox #nav-bar:-moz-window-inactive {
@@ -242,20 +255,27 @@
     color: var(--firefox-safari-style-button-color) !important;
   }
   #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover {
+    margin-top: 0 !important;
     margin-left: 4px !important;
+    --toolbarbutton-border-radius: 5px !important;
+    border-radius: 5px !important;
+    width: var(--firefox-safari-style-button-width) !important;
   }
   #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button image, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button image, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover image {
     background-color: transparent !important;
   }
   #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button .toolbarbutton-icon, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button image, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button image .toolbarbutton-icon, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover .toolbarbutton-icon, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover image .toolbarbutton-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button .toolbarbutton-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button image .toolbarbutton-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover .toolbarbutton-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover image .toolbarbutton-icon, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button .toolbarbutton-icon, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button image, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button image .toolbarbutton-icon, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover .toolbarbutton-icon, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover image, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover image .toolbarbutton-icon {
-    width: var(--firefox-safari-style-button-height) !important;
-    max-width: var(--firefox-safari-style-button-height) !important;
-    min-width: var(--firefox-safari-style-button-height) !important;
+    width: var(--firefox-safari-style-button-width) !important;
+    max-width: var(--firefox-safari-style-button-width) !important;
+    min-width: var(--firefox-safari-style-button-width) !important;
     height: var(--firefox-safari-style-button-height) !important;
     max-height: var(--firefox-safari-style-button-height) !important;
     min-height: var(--firefox-safari-style-button-height) !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+  #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar > toolbarbutton#nav-bar-overflow-button:hover:hover, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton#nav-bar-overflow-button:hover:hover, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover, #navigator-toolbox #nav-bar #PanelUI-menu-button#nav-bar-overflow-button:hover:hover {
+    background-color: var(--firefox-safari-style-button-background-hover) !important;
   }
   #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button), #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button), #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button) {
     background-color: var(--firefox-safari-style-button-background-active) !important;
@@ -268,6 +288,9 @@
     min-height: var(--firefox-safari-style-button-height) !important;
     max-height: var(--firefox-safari-style-button-height) !important;
     width: var(--firefox-safari-style-button-width) !important;
+  }
+  #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):hover, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):hover, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):hover {
+    background-color: var(--firefox-safari-style-button-background-hover) !important;
   }
 }
 @media only screen and (-moz-mac-yosemite-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 1.3dppx) {
@@ -332,6 +355,10 @@
     max-height: calc(var(--firefox-safari-style-button-icon) + 2px) !important;
     max-width: calc(var(--firefox-safari-style-button-icon) + 2px) !important;
   }
+  #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button *, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button *, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button *, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button *, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button *, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button * {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
 }
 @media (-moz-mac-yosemite-theme) {
   #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button image, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button image {
@@ -368,6 +395,12 @@
     height: var(--firefox-safari-style-button-height) !important;
     min-height: var(--firefox-safari-style-button-height) !important;
   }
+  #main-window:not([privatebrowsingmode]) #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container, #main-window:not([privatebrowsingmode]) #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container, #main-window:not([privatebrowsingmode]) #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container, #main-window:not([privatebrowsingmode]) #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container {
+    background: var(--firefox-safari-style-input-background-active);
+  }
+  #main-window:not([privatebrowsingmode]) #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container:-moz-window-inactive, #main-window:not([privatebrowsingmode]) #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container:-moz-window-inactive, #main-window:not([privatebrowsingmode]) #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container:-moz-window-inactive, #main-window:not([privatebrowsingmode]) #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container:-moz-window-inactive {
+    background: var(--firefox-safari-style-input-background-active);
+  }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container .urlbar-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container .urlbar-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container .urlbar-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container .urlbar-input-box {
     flex: 1;
   }
@@ -388,13 +421,30 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .searchbar-textbox, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .searchbar-textbox {
     flex: 1 1;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not(.megabar)[focused=true],
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):-moz-lwtheme > #urlbar-background,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not(.megabar)[focused=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar.megabar[focused=true] > #urlbar-background,
-#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:focus-within, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:not(.megabar)[focused=true],
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:focus-within, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:not([focused=true]):-moz-lwtheme > #urlbar-background,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:not(.megabar)[focused=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar.megabar[focused=true] > #urlbar-background,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:focus-within {
-    border-color: var(--firefox-safari-style-outline-color);
+    border-color: var(--firefox-safari-style-outline-color) !important;
     box-shadow: 0 0 0 1px var(--firefox-safari-style-outline-color) inset !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):-moz-lwtheme > #urlbar-background#urlbar[open=true] #urlbar-input-container:focus-within,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme#urlbar[open=true] #urlbar-input-container:focus-within,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not(.megabar)[focused=true]#urlbar[open=true] #urlbar-input-container:focus-within,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar.megabar[focused=true] > #urlbar-background#urlbar[open=true] #urlbar-input-container:focus-within,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:focus-within#urlbar[open=true] #urlbar-input-container:focus-within, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:not([focused=true]):-moz-lwtheme > #urlbar-background#urlbar[open=true] #urlbar-input-container:focus-within,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme#urlbar[open=true] #urlbar-input-container:focus-within,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:not(.megabar)[focused=true]#urlbar[open=true] #urlbar-input-container:focus-within,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar.megabar[focused=true] > #urlbar-background#urlbar[open=true] #urlbar-input-container:focus-within,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:focus-within#urlbar[open=true] #urlbar-input-container:focus-within {
+    border-top-color: var(--firefox-safari-style-outline-color) !important;
+    border-left-color: var(--firefox-safari-style-outline-color) !important;
+    border-right-color: var(--firefox-safari-style-outline-color) !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):not(:-moz-window-inactive),
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):not(:-moz-window-inactive) #urlbar-background,
@@ -417,7 +467,7 @@
     background-color: var(--firefox-safari-style-button-background-active) !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:-moz-window-inactive, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:-moz-window-inactive, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:-moz-window-inactive, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:-moz-window-inactive {
-    opacity: 0.45 !important;
+    opacity: 0.5 !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:-moz-window-inactive:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:-moz-window-inactive:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:-moz-window-inactive:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:-moz-window-inactive:-moz-lwtheme-brighttext {
     opacity: 1 !important;
@@ -505,11 +555,19 @@
     border-bottom-left-radius: 5px !important;
     border-bottom-right-radius: 5px !important;
   }
-  #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView {
-    border-right-color: #182a98 !important;
-    border-bottom-color: #182a98 !important;
-    border-left-color: #182a98 !important;
-    background-color: var(--firefox-safari-style-bar-background-color-private) !important;
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .urlbarView-body-outer,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .urlbarView-body-outer,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .search-one-offs {
+    background-color: var(--firefox-safari-style-input-background-active) !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer:-moz-window-inactive,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .search-one-offs:-moz-window-inactive, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer:-moz-window-inactive,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .search-one-offs:-moz-window-inactive, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .urlbarView-body-outer:-moz-window-inactive,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .search-one-offs:-moz-window-inactive, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .urlbarView-body-outer:-moz-window-inactive,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .search-one-offs:-moz-window-inactive {
+    background-color: var(--firefox-safari-style-input-background-inactive) !important;
   }
   #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer,
 #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .search-one-offs, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer,
@@ -540,6 +598,7 @@
 }
 @media (-moz-mac-yosemite-theme) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #urlbar-input-container {
+    --toolbarbutton-border-radius: 5px !important;
     border-radius: 5px !important;
   }
 }
@@ -664,7 +723,7 @@
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #downloads-button .toolbarbutton-badge-stack {
     padding: 0 !important;
-    transform: scale(0.75);
+    transform: scale(0.86) translateY(-1px);
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #downloads-button .toolbarbutton-badge-stack #downloads-indicator-progress-outer {
     transform: scale(1.1) translateY(1px);
@@ -769,11 +828,6 @@
   }
 }
 @media (-moz-mac-yosemite-theme) {
-  #navigator-toolbox #nav-bar #nav-bar-overflow-button:-moz-lwtheme-brighttext {
-    opacity: 0.5 !important;
-  }
-}
-@media (-moz-mac-yosemite-theme) {
   #navigator-toolbox #nav-bar #PanelUI-button {
     margin-left: 0 !important;
     margin-right: 7px !important;
@@ -786,7 +840,7 @@
 }
 @media (-moz-mac-yosemite-theme) {
   #navigator-toolbox #nav-bar #PanelUI-menu-button {
-    --firefox-safari-style-menu-icon-size: 12px;
+    --firefox-safari-style-menu-icon-size: 16px;
   }
   #navigator-toolbox #nav-bar #PanelUI-menu-button .toolbarbutton-badge-stack {
     padding: 0 !important;
@@ -814,6 +868,9 @@
     margin-left: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    width: var(--firefox-safari-style-button-width) !important;
+    max-width: var(--firefox-safari-style-button-width) !important;
+    min-width: var(--firefox-safari-style-button-width) !important;
     height: var(--firefox-safari-style-button-height);
     max-height: var(--firefox-safari-style-button-height);
     min-height: var(--firefox-safari-style-button-height);
@@ -934,7 +991,8 @@
     min-height: 27px;
   }
   #navigator-toolbox #titlebar > #toolbar-menubar .titlebar-buttonbox-container > .titlebar-buttonbox {
-    margin-top: 11px;
+    margin-top: 18px;
+    margin-left: 17px;
   }
   #navigator-toolbox #titlebar #TabsToolbar {
     display: flex;
@@ -957,11 +1015,20 @@
     opacity: 0.9;
     background: #1e1d1f !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab[selected=true] {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active);
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab[selected=true], #navigator-toolbox #titlebar #TabsToolbar .toolbar-items:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab[selected=true]:-moz-window-inactive {
+    box-shadow: inset 0px 1px 0px transparent;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab[selected=true]:-moz-window-inactive {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive) !important;
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]) {
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive);
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-lwtheme-brighttext {
+    box-shadow: inset 0px 1px 0px black;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-window-inactive {
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-window-inactive:-moz-lwtheme-brighttext {
+    box-shadow: inset 0px 1px 0px black !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab::after, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab stack, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-content {
     max-height: var(--firefox-safari-style-tab-height) !important;
@@ -1018,10 +1085,10 @@
     background: var(--firefox-safari-style-tab-background-color-inactive) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[fadein=true] ~ .tabbrowser-tab {
-    border-left: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
+    border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[fadein=true] ~ .tabbrowser-tab:-moz-window-inactive {
-    border-left-color: var(--firefox-safari-style-tab-border-color-inactive) !important;
+    border-left-color: var(--firefox-safari-style-tab-border-left-color-inactive) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-label-container:-moz-window-inactive {
     opacity: 0.55 !important;
@@ -1173,13 +1240,21 @@
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button {
     height: calc(var(--firefox-safari-style-tab-height) - 1px);
     opacity: 1 !important;
-    border-left: 1px solid var(--firefox-safari-style-tab-border-color-active) !important;
+    border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
     margin-left: auto !important;
     min-width: 25px !important;
     max-width: 25px !important;
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive);
+  }
+  #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-lwtheme-brighttext, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-lwtheme-brighttext {
+    box-shadow: inset 0px 1px 0px black;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive {
-    border-left: 1px solid var(--firefox-safari-style-tab-border-color-inactive) !important;
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
+    border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-inactive) !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive:-moz-lwtheme-brighttext, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive:-moz-lwtheme-brighttext {
+    box-shadow: inset 0px 1px 0px black !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button image, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button image {
     transform: translateX(-1px);
@@ -1343,6 +1418,17 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
 @media (-moz-mac-yosemite-theme) {
   #personal-bookmarks .bookmark-item .toolbarbutton-icon {
     display: none !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  #appMenu-popup, #widget-overflow {
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+  }
+}
+@media (-moz-mac-yosemite-theme) {
+  #identity-box:hover:not(.no-hover):not([open=true]),
+#tracking-protection-icon-container:hover:not([open=true]) {
+    background-color: transparent !important;
   }
 }
 

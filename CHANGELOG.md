@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.0 13/11/2020
+
+#### New Features:
+
+- Support for new theme.
+
 ## v0.1.24 17/09/2020
 
 #### Bug Fixes:
