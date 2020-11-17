@@ -264,6 +264,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
             order: 1;
             flex: 1 1;
             padding-top: 11px !important;
+            padding-right: 5px !important;
             background: linear-gradient(to bottom, var(--firefox-safari-style-bar-background-color-top) 0%, var(--firefox-safari-style-bar-background-color-bottom) 100%) !important;
             &:-moz-window-inactive {
                 background: var(--firefox-safari-style-bar-background-color-inactive) !important;
@@ -319,7 +320,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     margin-left: 4px !important;
                     --toolbarbutton-border-radius: 5px !important;
                     border-radius: 5px !important;
-                    &:hover {
+                    &:hover:not(:-moz-window-inactive) {
                         background-color: var(--firefox-safari-style-button-background-hover) !important;
                     }
                     width: var(--firefox-safari-style-button-width) !important;
@@ -327,7 +328,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 &:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button) {
                     
                     background-color: var(--firefox-safari-style-button-background-active) !important;
-                    &:hover {
+                    &:hover:not(:-moz-window-inactive) {
                         background-color: var(--firefox-safari-style-button-background-hover) !important;
                     }
                     border: 1px solid var(--firefox-safari-style-button-border-color) !important;
@@ -1299,6 +1300,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 }
             }
         }
+    }
+    #new-tab-button {
+        list-style-image: url(chrome://browser/skin/add.svg) !important;
     }
     #searchbar,
     #search-container,
