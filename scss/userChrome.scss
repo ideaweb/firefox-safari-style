@@ -172,7 +172,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     --firefox-safari-style-button-color: #ffffff;
 }
 
-@media (-moz-mac-yosemite-theme) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
     /*-moz-appearance: -moz-mac-vibrant-titlebar-light !important;*/
     #mainPopupSet {
         #pageActionActivatedActionPanel, 

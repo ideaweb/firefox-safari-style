@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.25 18/11/2020
+
+#### Bug Fixes:
+
+- Fixed broken theme with recent nightly.
+
 ## v0.1.24 17/09/2020
 
 #### Bug Fixes:
