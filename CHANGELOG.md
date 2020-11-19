@@ -2,6 +2,16 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.3 19/11/2020
+
+#### New Features:
+
+- One dark theme found in userChrome-onedark.css.
+
+#### Bug Fixes:
+
+- Fixed focus of address bar.
+
 ## v0.2.2 18/11/2020
 
 #### Bug Fixes:
