@@ -1,5 +1,5 @@
 /***************+*/
-/* VERSION 0.2.4 */
+/* VERSION 0.2.5 */
 /*****************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -14,6 +14,10 @@ $firefox-safari-style-theme: false;
 /*****************/
 /* DEFAULT THEME */
 /*****************/
+
+/***************/
+/* LIGHT THEME */
+/***************/
 
 :root {
     --firefox-safari-style-attention-color: #0a84ff;
@@ -100,11 +104,11 @@ $firefox-safari-style-theme: false;
     --toolbarbutton-vertical-text-padding: 4px !important;
 }
 
-/**************/
-/* DARK THEME */
-/**************/
-
 @if $firefox-safari-style-theme == false {
+
+    /**************/
+    /* DARK THEME */
+    /**************/
 
     :root:-moz-lwtheme-brighttext {
 
@@ -204,7 +208,7 @@ $firefox-safari-style-dark-theme: false;
         /********/
 
         /* Default background color */
-        --firefox-safari-style-tab-background-color-inactive: #21252b;
+        --firefox-safari-style-tab-background-color-inactive: var(--firefox-safari-style-input-background-active);
         /* Background active tab */
         --firefox-safari-style-tab-background-color-active: var(--firefox-safari-style-background-color-active);
         /* Button background hover on incative tab */
@@ -260,15 +264,17 @@ $firefox-safari-style-dark-theme: false;
         html|body {
             box-sizing: border-box;
         }
-        html|body, #nav-bar, .toolbar-items, .tabbrowser-tab, #PersonalToolbar, #tabbrowser-tabpanels {
+        html|body, #nav-bar, #tabbrowser-tabs, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels {
             background: var(--firefox-safari-style-background-color-active) !important;
             &:-moz-window-inactive {
                 background: var(--firefox-safari-style-background-color-inactive) !important;
             }
         }
-        .tabbrowser-tab:not([selected="true"]), #tabs-newtab-button, #new-tab-button {
-            background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-inactive) 0%, var(--firefox-safari-style-tab-background-color-inactive) 100%) !important;
-            &:not(:-moz-window-inactive):hover {
+        #tabbrowser-tabs {
+            &, &:-moz-window-inactive {
+                background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-inactive) 0%, var(--firefox-safari-style-tab-background-color-inactive) 100%) !important;
+            }
+            &:hover {
                 background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-hover) 0%, var(--firefox-safari-style-tab-background-color-hover) 100%) !important;
             }
         }
@@ -305,14 +311,11 @@ $firefox-safari-style-dark-theme: false;
         * {
             transition: none !important;
         }
-        &:-moz-lwtheme-brighttext {
-            margin-top: -1px;
-        }
 
         border-bottom: 1px solid var(--firefox-safari-style-tab-border-bottom-color-active) !important;
         &:-moz-window-inactive {
             border-bottom-color: var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
-            toolbarbutton, image {
+            toolbarbutton:not(#tabs-newtab-button), image {
                 filter: grayscale(100%);
             }
             color: transparent;
@@ -468,26 +471,6 @@ $firefox-safari-style-dark-theme: false;
                     }
                 }
             }
-            > toolbarbutton, #nav-bar-customization-target toolbarbutton, #nav-bar-customization-target toolbarpaletteitem {
-                &:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button) {
-                    &#back-button + #forward-button,
-                    &#wrapper-back-button + #wrapper-forward-button #forward-button,
-                    &#forward-button + #back-button,
-                    &#wrapper-forward-button + #wrapper-back-button #back-button {
-                        margin-left: -1px !important;
-                        @media
-                        only screen and (   min--moz-device-pixel-ratio: 1.01),
-                        only screen and (		min-device-pixel-ratio: 1.01),
-                        only screen and (				min-resolution: 120dpi),
-                        only screen and (				min-resolution: 1.3dppx) {
-                            margin-left: -0.5px !important;
-                        }
-                        &:-moz-lwtheme-brighttext {
-                            margin-left: 1px !important;
-                        }
-                    }
-                }
-            }
             #nav-bar-customization-target {
                 @media
                 only screen and (   min--moz-device-pixel-ratio: 1.01),
@@ -544,7 +527,6 @@ $firefox-safari-style-dark-theme: false;
                         margin-right: 2px;
                         height: var(--firefox-safari-style-button-height) !important;
                         min-height: var(--firefox-safari-style-button-height) !important;
-                        box-shadow: none !important;
                         border: 0 solid transparent !important;
                         box-shadow: none !important;
                         box-sizing: border-box;
@@ -575,6 +557,8 @@ $firefox-safari-style-dark-theme: false;
                             #urlbar-background {
                                 background: none !important;
                                 background-color: transparent !important;
+                                border-color: transparent !important;
+                                box-shadow: none !important;
                             }
                             &[breakout-extend] {
                                 #urlbar-background {
@@ -716,9 +700,13 @@ $firefox-safari-style-dark-theme: false;
                         }
                     }
                     &:-moz-window-inactive {
-                        opacity: 0.5 !important; 
-                        &:-moz-lwtheme-brighttext {
+                        @if $firefox-safari-style-dark-theme == true {
                             opacity: 0.35 !important; 
+                        } @else {
+                            opacity: 0.5 !important; 
+                            &:-moz-lwtheme-brighttext {
+                                opacity: 0.35 !important; 
+                            }
                         }
                     }
                 }
@@ -989,26 +977,23 @@ $firefox-safari-style-dark-theme: false;
                 .titlebar-buttonbox-container, #menubar-items {
                     display: none !important ;
                 }
-                .toolbar-items {
-                    &, .tabbrowser-tab[selected="true"], &:-moz-window-inactive, .tabbrowser-tab[selected="true"]:-moz-window-inactive {
-                        box-shadow: inset 0px 1px 0px transparent;
-                    }
-                    .tabbrowser-tab:not([selected="true"]) {
-                        @if $firefox-safari-style-dark-theme == true {
+                #tabbrowser-tabs {
+                    @if $firefox-safari-style-dark-theme == true {
+                        box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
+                    } @else {
+                        box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive);
+                        &:-moz-lwtheme-brighttext {
                             box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
-                        } @else {
-                            box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive);
+                        }
+                        &:-moz-window-inactive {
+                            box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
                             &:-moz-lwtheme-brighttext {
-                                box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
-                            }
-                            &:-moz-window-inactive {
-                                box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
-                                &:-moz-lwtheme-brighttext {
-                                    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
-                                }
+                                box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
                             }
                         }
                     }
+                }
+                .toolbar-items {
                     &, #tabbrowser-tabs, tab.tabbrowser-tab, tab.tabbrowser-tab::after, tab.tabbrowser-tab stack, tab.tabbrowser-tab .tab-content {
                         max-height: var(--firefox-safari-style-tab-height) !important;
                     }
@@ -1239,6 +1224,9 @@ $firefox-safari-style-dark-theme: false;
                     height: calc(var(--firefox-safari-style-tab-height) - 1px);
                     opacity: 1 !important;
                     border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
+                    &:-moz-window-inactive {
+                        border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-inactive) !important;
+                    }
                     margin-left: auto !important;
                     min-width: 25px !important;
                     max-width: 25px !important;
@@ -1250,7 +1238,6 @@ $firefox-safari-style-dark-theme: false;
                             box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
                         }
                         &:-moz-window-inactive {
-                            border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-inactive) !important;
                             box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
                             &:-moz-lwtheme-brighttext {
                                 box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active) !important;
@@ -1264,9 +1251,13 @@ $firefox-safari-style-dark-theme: false;
                             opacity: 1 !important;
                         }
                         &:-moz-window-inactive {
-                            opacity: 0.3 !important;
-                            &:-moz-lwtheme-brighttext {
-                                opacity: 1 !important;
+                            @if $firefox-safari-style-dark-theme == true {
+                                opacity: 0.35 !important; 
+                            } @else {
+                                opacity: 0.5 !important; 
+                                &:-moz-lwtheme-brighttext {
+                                    opacity: 0.35 !important; 
+                                }
                             }
                         }
                     }

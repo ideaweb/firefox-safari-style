@@ -1,11 +1,14 @@
 /***************+*/
-/* VERSION 0.2.4 */
+/* VERSION 0.2.5 */
 /*****************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
 /*****************/
 /* DEFAULT THEME */
 /*****************/
+/***************/
+/* LIGHT THEME */
+/***************/
 :root {
   --firefox-safari-style-attention-color: #0a84ff;
   --firefox-safari-style-outline-color: #73a6f1;
@@ -151,16 +154,16 @@
   #main-window html|body {
     box-sizing: border-box;
   }
-  #main-window html|body, #main-window #nav-bar, #main-window .toolbar-items, #main-window .tabbrowser-tab, #main-window #PersonalToolbar, #main-window #tabbrowser-tabpanels {
+  #main-window html|body, #main-window #nav-bar, #main-window #tabbrowser-tabs, #main-window .tabbrowser-tab[selected=true], #main-window #PersonalToolbar, #main-window #tabbrowser-tabpanels {
     background: var(--firefox-safari-style-background-color-active) !important;
   }
-  #main-window html|body:-moz-window-inactive, #main-window #nav-bar:-moz-window-inactive, #main-window .toolbar-items:-moz-window-inactive, #main-window .tabbrowser-tab:-moz-window-inactive, #main-window #PersonalToolbar:-moz-window-inactive, #main-window #tabbrowser-tabpanels:-moz-window-inactive {
+  #main-window html|body:-moz-window-inactive, #main-window #nav-bar:-moz-window-inactive, #main-window #tabbrowser-tabs:-moz-window-inactive, #main-window .tabbrowser-tab[selected=true]:-moz-window-inactive, #main-window #PersonalToolbar:-moz-window-inactive, #main-window #tabbrowser-tabpanels:-moz-window-inactive {
     background: var(--firefox-safari-style-background-color-inactive) !important;
   }
-  #main-window .tabbrowser-tab:not([selected=true]), #main-window #tabs-newtab-button, #main-window #new-tab-button {
+  #main-window #tabbrowser-tabs, #main-window #tabbrowser-tabs:-moz-window-inactive {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-inactive) 0%, var(--firefox-safari-style-tab-background-color-inactive) 100%) !important;
   }
-  #main-window .tabbrowser-tab:not([selected=true]):not(:-moz-window-inactive):hover, #main-window #tabs-newtab-button:not(:-moz-window-inactive):hover, #main-window #new-tab-button:not(:-moz-window-inactive):hover {
+  #main-window #tabbrowser-tabs:hover {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-hover) 0%, var(--firefox-safari-style-tab-background-color-hover) 100%) !important;
   }
   #main-window html|body:-moz-lwtheme-brighttext {
@@ -190,14 +193,11 @@
   #navigator-toolbox * {
     transition: none !important;
   }
-  #navigator-toolbox:-moz-lwtheme-brighttext {
-    margin-top: -1px;
-  }
   #navigator-toolbox:-moz-window-inactive {
     border-bottom-color: var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
     color: transparent;
   }
-  #navigator-toolbox:-moz-window-inactive toolbarbutton, #navigator-toolbox:-moz-window-inactive image {
+  #navigator-toolbox:-moz-window-inactive toolbarbutton:not(#tabs-newtab-button), #navigator-toolbox:-moz-window-inactive image {
     filter: grayscale(100%);
   }
   #navigator-toolbox #nav-bar {
@@ -351,21 +351,6 @@
     transform: rotate(180deg);
   }
 }
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button + #forward-button, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-back-button + #wrapper-forward-button #forward-button, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button + #back-button, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-forward-button + #wrapper-back-button #back-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button + #forward-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-back-button + #wrapper-forward-button #forward-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button + #back-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-forward-button + #wrapper-back-button #back-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button + #forward-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-back-button + #wrapper-forward-button #forward-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button + #back-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-forward-button + #wrapper-back-button #back-button {
-    margin-left: -1px !important;
-  }
-}
-@media only screen and (-moz-mac-yosemite-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 1.3dppx), only screen and (-moz-mac-big-sur-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 1.3dppx) {
-  #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button + #forward-button, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-back-button + #wrapper-forward-button #forward-button, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button + #back-button, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-forward-button + #wrapper-back-button #back-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button + #forward-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-back-button + #wrapper-forward-button #forward-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button + #back-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-forward-button + #wrapper-back-button #back-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button + #forward-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-back-button + #wrapper-forward-button #forward-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button + #back-button, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-forward-button + #wrapper-back-button #back-button {
-    margin-left: -0.5px !important;
-  }
-}
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button + #forward-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-back-button + #wrapper-forward-button #forward-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button + #back-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-forward-button + #wrapper-back-button #back-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button + #forward-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-back-button + #wrapper-forward-button #forward-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button + #back-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-forward-button + #wrapper-back-button #back-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#back-button + #forward-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-back-button + #wrapper-forward-button #forward-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#forward-button + #back-button:-moz-lwtheme-brighttext, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button)#wrapper-forward-button + #wrapper-back-button #back-button:-moz-lwtheme-brighttext {
-    margin-left: 1px !important;
-  }
-}
 @media only screen and (-moz-mac-yosemite-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 1.3dppx), only screen and (-moz-mac-big-sur-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 1.3dppx) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target {
     margin-top: 0.5px !important;
@@ -415,7 +400,6 @@
     margin-right: 2px;
     height: var(--firefox-safari-style-button-height) !important;
     min-height: var(--firefox-safari-style-button-height) !important;
-    box-shadow: none !important;
     border: 0 solid transparent !important;
     box-shadow: none !important;
     box-sizing: border-box;
@@ -454,6 +438,8 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout] #urlbar-background {
     background: none !important;
     background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend] #urlbar-background {
     opacity: 0 !important;
@@ -942,23 +928,20 @@
   #navigator-toolbox #titlebar #TabsToolbar .titlebar-buttonbox-container, #navigator-toolbox #titlebar #TabsToolbar #menubar-items {
     display: none !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items {
-    overflow: hidden;
-  }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab[selected=true], #navigator-toolbox #titlebar #TabsToolbar .toolbar-items:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab[selected=true]:-moz-window-inactive {
-    box-shadow: inset 0px 1px 0px transparent;
-  }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]) {
+  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-tabs {
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive);
   }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-lwtheme-brighttext {
+  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-tabs:-moz-lwtheme-brighttext {
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
   }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-window-inactive {
+  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-tabs:-moz-window-inactive {
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-window-inactive:-moz-lwtheme-brighttext {
+  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-tabs:-moz-window-inactive:-moz-lwtheme-brighttext {
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items {
+    overflow: hidden;
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab::after, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab stack, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-content {
     max-height: var(--firefox-safari-style-tab-height) !important;
@@ -1167,11 +1150,13 @@
     max-width: 25px !important;
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive);
   }
+  #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive {
+    border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-inactive) !important;
+  }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-lwtheme-brighttext, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-lwtheme-brighttext {
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive {
-    border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-inactive) !important;
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive:-moz-lwtheme-brighttext, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive:-moz-lwtheme-brighttext {
@@ -1185,10 +1170,10 @@
     opacity: 1 !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button image:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button image:-moz-window-inactive {
-    opacity: 0.3 !important;
+    opacity: 0.5 !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button image:-moz-window-inactive:-moz-lwtheme-brighttext, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button image:-moz-window-inactive:-moz-lwtheme-brighttext {
-    opacity: 1 !important;
+    opacity: 0.35 !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button .toolbarbutton-icon, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button .toolbarbutton-icon {
     width: 21px !important;

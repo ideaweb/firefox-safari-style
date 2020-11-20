@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.5 20/11/2020
+
+#### Bug Fixes:
+
+- Fixed background in address bar.
+- Fixed collapsing toolbar with pinned tabs (if enabled).
+
 ## v0.2.4 20/11/2020
 
 #### Bug Fixes:
