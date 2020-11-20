@@ -1,5 +1,5 @@
 /***************+*/
-/* VERSION 0.2.3 */
+/* VERSION 0.2.4 */
 /*****************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -1168,14 +1168,14 @@
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive);
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-lwtheme-brighttext, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-lwtheme-brighttext {
-    box-shadow: inset 0px 1px 0px black;
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
     border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-inactive) !important;
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive:-moz-lwtheme-brighttext, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive:-moz-lwtheme-brighttext {
-    box-shadow: inset 0px 1px 0px black !important;
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button image, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button image {
     transform: translateX(-1px);

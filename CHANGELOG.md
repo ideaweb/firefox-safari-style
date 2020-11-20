@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.4 20/11/2020
+
+#### Bug Fixes:
+
+- Borders in One-Dark theme.
+
 ## v0.2.3 19/11/2020
 
 #### New Features:
