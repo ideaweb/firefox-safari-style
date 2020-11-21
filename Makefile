@@ -17,12 +17,8 @@ files:
 
 	@echo -n "userChrome.css... "; \
 	cat scss/userChrome.scss | $(SASS) --no-source-map - css/userChrome.css && echo "done" || echo "\033[31mfailed\033[0m"; \
-	for i in \
-		onedark \
-	; do \
-		echo -n "userChrome-$$i.css... "; \
-		cat scss/userChrome.scss | sed "s/firefox-safari-style-theme: false/firefox-safari-style-theme: $$i/g" | $(SASS) --no-source-map - css/userChrome-$$i.css && echo "done" || echo "\033[31mfailed\033[0m"; \
-	done;
+	echo -n "userChrome-theme.css... "; \
+	cat scss/userChrome.scss | sed "s/firefox-safari-style-support-themes: false/firefox-safari-style-support-themes: true/g" | $(SASS) --no-source-map - css/userChrome-theme.css && echo "done" || echo "\033[31mfailed\033[0m"; \
 
 all:
 
@@ -40,6 +36,7 @@ ifneq ($(SASS),false)
 	@echo "Checking for SASS compiler... $(SASS)"
 ifneq ($(MD5SUM),false)
 	@echo "Checking for Md5 checksums tool... $(MD5SUM)"; \
+	$(MAKE) -s files; \
 	echo "Sass is watching for changes. Press Ctrl-C to stop."; \
 	m1=$$(md5sum ./scss/userChrome.scss);  \
 	while true; do \

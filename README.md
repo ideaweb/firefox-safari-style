@@ -12,7 +12,7 @@ This theme will make Firefox more compliant with macOS.
 
 ## Known issues
 
-* "Tinting" is currently not supported. The option "Allow wallpaper tinting windows" should be disabled in system preferences.
+* "Tinting" is currently not supported. IF you want that Firefox and macOS have the same colors please disable the option "Allow wallpaper tinting windows" in system preferences.
 * Dark theme is supported but [Firefox not really have native dark mode](https://bugzilla.mozilla.org/buglist.cgi?quicksearch=dark%20mode%20macos) (e.g. context menus are still "light", white line on top of the window etc.)
 
 ## Installing
@@ -22,15 +22,15 @@ This theme will make Firefox more compliant with macOS.
 * Open the [userChrome.css](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) file located in your profile folder of Firefox with any text editor
 * Add there one of the following lines below to import your chosen userChrome.css of this theme but please do not forget to update the path and do not mix up the imported file with the none working scss/userChrome.scss of this repository
 
-**Default light and dark theme by using "Customise"**
+**Default light and dark theme with macOS colors**
 
 ```css
 @import '/path/to/firefox-safari-style/css/userChrome.css';
 ```
-**or use any other supported themes**
+**or use the following file to use the colors from chosen Firefox theme**
 
 ```css
-@import '/path/to/firefox-safari-style/css/userChrome-onedark.css';
+@import '/path/to/firefox-safari-style/css/userChrome-theme.css';
 ```
 
 * Restart Firefox that changes can take effect

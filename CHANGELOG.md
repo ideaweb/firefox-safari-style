@@ -2,6 +2,16 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.7 21/11/2020
+
+#### New Features:
+
+- Support for for themes provided by Firefox (userChrome-theme.css).
+
+#### Changes:
+
+- Because of new theme support One-Dark theme has been removed (userChrome-onedark.css).
+
 ## v0.2.6 21/11/2020
 
 #### Bug Fixes:

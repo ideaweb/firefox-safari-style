@@ -1,5 +1,5 @@
 /***************+*/
-/* VERSION 0.2.6 */
+/* VERSION 0.2.7 */
 /*****************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -47,11 +47,11 @@
   /* Icon size of favicon, throbber, sound etc. */
   --firefox-safari-style-button-icon: 16px;
   /* Border colors */
-  --firefox-safari-style-tab-border-color-active: #cccccc;
+  --firefox-safari-style-tab-border-color-active: rgba(0,0,0,0.1);
   --firefox-safari-style-tab-border-color-inactive: var(--firefox-safari-style-tab-border-color-active);
-  --firefox-safari-style-tab-border-bottom-color-active: #d0d0d0;
+  --firefox-safari-style-tab-border-bottom-color-active: rgba(0,0,0,0.15);
   --firefox-safari-style-tab-border-bottom-color-inactive: var(--firefox-safari-style-tab-border-bottom-color-active);
-  --firefox-safari-style-tab-border-left-color-active: #d9cfd0;
+  --firefox-safari-style-tab-border-left-color-active: rgba(0,0,0,0.15);
   --firefox-safari-style-tab-border-left-color-inactive: var(--firefox-safari-style-tab-border-left-color-active);
   /* Colors e.g. for tabs or bookmarks */
   --firefox-safari-style-tab-color: hsl(250, 5%, 5%);
@@ -73,7 +73,7 @@
   --firefox-safari-style-button-border-color-bottom: transparent;
   --firefox-safari-style-button-border-color-inactive: transparent;
   /* Font and icon color of buttons and urlbar */
-  --firefox-safari-style-button-color: #5f5f5f;
+  --firefox-safari-style-button-color: rgba(0,0,0,0.6);
   --tab-min-height: 0 !important;
   --space-above-tabbar: 0 !important;
   --toolbarbutton-vertical-text-padding: 4px !important;
@@ -110,9 +110,9 @@
   --firefox-safari-style-tab-background-color-hover: rgba(0,0,0,0.1);
   /* Border colors */
   --firefox-safari-style-tab-border-color-active: var(--firefox-safari-style-background-color-active);
-  --firefox-safari-style-tab-border-color-inactive: #4e474d;
+  --firefox-safari-style-tab-border-color-inactive: var(--firefox-safari-style-tab-border-color-active);
   /* Colors e.g. for tabs or bookmarks */
-  --firefox-safari-style-tab-color: #9b999b;
+  --firefox-safari-style-tab-color: rgba(255,255,255,0.6);
   --firefox-safari-style-tab-hover-color: var(--firefox-safari-style-tab-color);
   --firefox-safari-style-tab-hover-background: var(--firefox-safari-style-input-background-active);
   /********************/
@@ -121,16 +121,16 @@
   /* Button background */
   --firefox-safari-style-button-background-hover: var(--firefox-safari-style-input-background-active);
   /* Border color of buttons and urlbar */
-  --firefox-safari-style-tab-border-bottom-color-active: black;
+  --firefox-safari-style-tab-border-bottom-color-active: rgba(0,0,0,0.4);
   --firefox-safari-style-tab-border-bottom-color-inactive: var(--firefox-safari-style-tab-border-bottom-color-active);
-  --firefox-safari-style-tab-border-left-color-active: #444345;
+  --firefox-safari-style-tab-border-left-color-active: rgba(255,255,255,0.2);
   --firefox-safari-style-tab-border-left-color-inactive: var(--firefox-safari-style-tab-border-left-color-active);
   /* Font and icon color of buttons and urlbar */
   --firefox-safari-style-button-color: rgba(255,255,255,0.7);
 }
 
 /******************/
-/* ONE DARK THEME */
+/* FIREFOX THEMES */
 /******************/
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   /*-moz-appearance: -moz-mac-vibrant-titlebar-light !important;*/
@@ -154,17 +154,29 @@
   #main-window html|body {
     box-sizing: border-box;
   }
-  #main-window html|body, #main-window #nav-bar, #main-window #tabbrowser-tabs, #main-window .tabbrowser-tab[selected=true], #main-window #PersonalToolbar, #main-window #tabbrowser-tabpanels {
+  #main-window html|body, #main-window #nav-bar, #main-window .tabbrowser-tab[selected=true], #main-window #PersonalToolbar, #main-window #tabbrowser-tabpanels {
     background: var(--firefox-safari-style-background-color-active) !important;
   }
-  #main-window html|body:-moz-window-inactive, #main-window #nav-bar:-moz-window-inactive, #main-window #tabbrowser-tabs:-moz-window-inactive, #main-window .tabbrowser-tab[selected=true]:-moz-window-inactive, #main-window #PersonalToolbar:-moz-window-inactive, #main-window #tabbrowser-tabpanels:-moz-window-inactive {
+  #main-window html|body:-moz-window-inactive, #main-window #nav-bar:-moz-window-inactive, #main-window .tabbrowser-tab[selected=true]:-moz-window-inactive, #main-window #PersonalToolbar:-moz-window-inactive, #main-window #tabbrowser-tabpanels:-moz-window-inactive {
     background: var(--firefox-safari-style-background-color-inactive) !important;
   }
-  #main-window #tabbrowser-tabs, #main-window #tabbrowser-tabs:-moz-window-inactive {
+  #main-window .tabbrowser-tab:not([selected=true]), #main-window .toolbar-items #tabs-newtab-button, #main-window .toolbar-items #new-tab-button {
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-active);
+  }
+  #main-window .tabbrowser-tab:not([selected=true]), #main-window .tabbrowser-tab:not([selected=true]):-moz-window-inactive, #main-window .toolbar-items #tabs-newtab-button, #main-window .toolbar-items #tabs-newtab-button:-moz-window-inactive, #main-window .toolbar-items #new-tab-button, #main-window .toolbar-items #new-tab-button:-moz-window-inactive {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-inactive) 0%, var(--firefox-safari-style-tab-background-color-inactive) 100%) !important;
   }
-  #main-window #tabbrowser-tabs:hover {
+  #main-window .tabbrowser-tab:not([selected=true]):hover, #main-window .toolbar-items #tabs-newtab-button:hover, #main-window .toolbar-items #new-tab-button:hover {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-hover) 0%, var(--firefox-safari-style-tab-background-color-hover) 100%) !important;
+  }
+  #main-window .tabbrowser-tab:not([selected=true]):-moz-lwtheme-brighttext, #main-window .toolbar-items #tabs-newtab-button:-moz-lwtheme-brighttext, #main-window .toolbar-items #new-tab-button:-moz-lwtheme-brighttext {
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
+  }
+  #main-window .tabbrowser-tab:not([selected=true]):-moz-window-inactive, #main-window .toolbar-items #tabs-newtab-button:-moz-window-inactive, #main-window .toolbar-items #new-tab-button:-moz-window-inactive {
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
+  }
+  #main-window .tabbrowser-tab:not([selected=true]):-moz-window-inactive:-moz-lwtheme-brighttext, #main-window .toolbar-items #tabs-newtab-button:-moz-window-inactive:-moz-lwtheme-brighttext, #main-window .toolbar-items #new-tab-button:-moz-window-inactive:-moz-lwtheme-brighttext {
+    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
   }
   #main-window html|body:-moz-lwtheme-brighttext {
     border-top: 1px solid black !important;
@@ -188,6 +200,7 @@
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+    background-image: none !important;
     border-bottom: 1px solid var(--firefox-safari-style-tab-border-bottom-color-active) !important;
   }
   #navigator-toolbox * {
@@ -205,11 +218,7 @@
     flex: 1 1;
     padding-top: 11px !important;
     padding-right: 5px !important;
-    background: var(--firefox-safari-style-background-color-active) !important;
     padding-left: var(--firefox-safari-style-controls-width);
-  }
-  #navigator-toolbox #nav-bar:-moz-window-inactive {
-    background: var(--firefox-safari-style-background-color-inactive) !important;
   }
   #main-window[inFullscreen=true] #navigator-toolbox #nav-bar {
     padding-left: 6px !important;
@@ -928,18 +937,6 @@
   #navigator-toolbox #titlebar #TabsToolbar .titlebar-buttonbox-container, #navigator-toolbox #titlebar #TabsToolbar #menubar-items {
     display: none !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-tabs {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive);
-  }
-  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-tabs:-moz-lwtheme-brighttext {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
-  }
-  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-tabs:-moz-window-inactive {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
-  }
-  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-tabs:-moz-window-inactive:-moz-lwtheme-brighttext {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
-  }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items {
     overflow: hidden;
   }
@@ -1149,19 +1146,9 @@
     margin-left: auto !important;
     min-width: 25px !important;
     max-width: 25px !important;
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive);
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive {
     border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-inactive) !important;
-  }
-  #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-lwtheme-brighttext, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-lwtheme-brighttext {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
-  }
-  #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
-  }
-  #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button:-moz-window-inactive:-moz-lwtheme-brighttext, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button:-moz-window-inactive:-moz-lwtheme-brighttext {
-    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button image, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button image {
     transform: translateX(-1px);
