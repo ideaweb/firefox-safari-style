@@ -1072,8 +1072,9 @@ $firefox-safari-style-dark-theme: false;
                         position: relative;
                         .tab-throbber {
                             -moz-context-properties: initial !important;
+                            filter: grayscale(100%);
                             @if $firefox-safari-style-dark-theme == true {
-                                filter: invert(100%);
+                                filter: grayscale(100%) invert(100%);
                             }
                         }
                         .tab-throbber,

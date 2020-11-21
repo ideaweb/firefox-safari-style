@@ -996,7 +996,8 @@
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
     -moz-context-properties: initial !important;
-    filter: invert(100%);
+    filter: grayscale(100%);
+    filter: grayscale(100%) invert(100%);
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image,
