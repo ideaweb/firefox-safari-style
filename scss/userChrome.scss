@@ -1,5 +1,5 @@
 /***************+*/
-/* VERSION 0.2.5 */
+/* VERSION 0.2.6 */
 /*****************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -1071,7 +1071,10 @@ $firefox-safari-style-dark-theme: false;
                         flex-direction: row;
                         position: relative;
                         .tab-throbber {
-                            filter: grayscale(100%);
+                            -moz-context-properties: initial !important;
+                            @if $firefox-safari-style-dark-theme == true {
+                                filter: invert(100%);
+                            }
                         }
                         .tab-throbber,
                         .tab-icon-image,

@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.6 21/11/2020
+
+#### Bug Fixes:
+
+- Fixed throbber in tabs for dark themes.
+
 ## v0.2.5 20/11/2020
 
 #### Bug Fixes:

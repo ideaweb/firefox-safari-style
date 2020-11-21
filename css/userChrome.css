@@ -1,5 +1,5 @@
 /***************+*/
-/* VERSION 0.2.5 */
+/* VERSION 0.2.6 */
 /*****************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -1016,7 +1016,7 @@
     opacity: 1 !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
-    filter: grayscale(100%);
+    -moz-context-properties: initial !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image,
