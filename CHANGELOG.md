@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.26 06/01/2021
+
+#### Bug Fixes:
+
+- Fixed broken theme with Firefox 84.
+
 ## v0.1.25 18/11/2020
 
 #### Bug Fixes:

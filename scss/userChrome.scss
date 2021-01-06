@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.25 */
+/* VERSION 0.1.26 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -172,7 +172,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     --firefox-safari-style-button-color: #ffffff;
 }
 
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+@media all {
     /*-moz-appearance: -moz-mac-vibrant-titlebar-light !important;*/
     #mainPopupSet {
         #pageActionActivatedActionPanel, 
