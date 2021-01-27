@@ -1,5 +1,5 @@
 /***************+*/
-/* VERSION 0.2.8 */
+/* VERSION 0.2.9 */
 /*****************/
 
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
@@ -269,7 +269,7 @@ $firefox-safari-style-support-themes: false;
                 background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-hover) 0%, var(--firefox-safari-style-tab-background-color-hover) 100%) !important;
             }
         }
-        &[lwt-popup-brighttext="true"] html|body {
+        &[lwt-popup-brighttext="true"]:not([sizemode="fullscreen"]) html|body {
             border-top: 1px solid black !important;
         }
         &[inFullscreen="true"] {

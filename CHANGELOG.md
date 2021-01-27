@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.9 27/01/2021
+
+#### Bug Fixes:
+
+- Removed white line in fullscreen mode.
+
 ## v0.2.8 23/11/2020
 
 #### Bug Fixes:

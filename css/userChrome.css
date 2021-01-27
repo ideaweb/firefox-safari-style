@@ -1,5 +1,5 @@
 /***************+*/
-/* VERSION 0.2.8 */
+/* VERSION 0.2.9 */
 /*****************/
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -195,7 +195,7 @@
 #main-window #alltabs-button:not([disabled=true]):hover {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-hover) 0%, var(--firefox-safari-style-tab-background-color-hover) 100%) !important;
   }
-  #main-window[lwt-popup-brighttext=true] html|body {
+  #main-window[lwt-popup-brighttext=true]:not([sizemode=fullscreen]) html|body {
     border-top: 1px solid black !important;
   }
   #main-window[inFullscreen=true] html|body {
@@ -1403,3 +1403,5 @@ spacer[part=overflow-end-indicator] {
     max-width: none !important;
   }
 }
+
+/*# sourceMappingURL=userChrome.css.map */
