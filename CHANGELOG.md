@@ -7,6 +7,8 @@ This overview provides notable information about improvements, changes and fixes
 #### Bug Fixes:
 
 - Removed white line in fullscreen mode.
+- Background color of url bar in private windows.
+- White line of first tab in dark mode.
 
 ## v0.2.8 23/11/2020
 
