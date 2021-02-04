@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.10 04/02/2021
+
+#### Bug Fixes:
+
+- Added missing fixes from 0.2.9 in userChrome-theme.css.
+
 ## v0.2.9 27/01/2021
 
 #### Bug Fixes:

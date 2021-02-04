@@ -1,6 +1,6 @@
-/***************+*/
-/* VERSION 0.2.8 */
-/*****************/
+/***************+**/
+/* VERSION 0.2.10 */
+/******************/
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -19,7 +19,7 @@
   /* Background color for inactive windows */
   --firefox-safari-style-background-color-inactive: #f0f0f0;
   /* Background color for private windows */
-  --firefox-safari-style-background-color-private: #26003f;
+  --firefox-safari-style-background-color-private: #838383;
   /* Border colors */
   --firefox-safari-style-title-border-color-active: rgba(0,0,0,0.15);
   --firefox-safari-style-title-border-color-inactive: var(--firefox-safari-style-title-border-color-active);
@@ -88,6 +88,8 @@
   --firefox-safari-style-background-color-active: #383839;
   /* Background color for inactive windows */
   --firefox-safari-style-background-color-inactive: #282828;
+  /* Background color for private windows */
+  --firefox-safari-style-background-color-private: #0d0d0d;
   /* Border colors */
   --firefox-safari-style-title-border-color-active: rgba(255,255,255,0.15);
   --firefox-safari-style-title-border-color-inactive: var(--firefox-safari-style-title-border-color-active);
@@ -216,7 +218,7 @@
 #main-window #alltabs-button:not([disabled=true]):hover {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-hover) 0%, var(--firefox-safari-style-tab-background-color-hover) 100%) !important;
   }
-  #main-window[lwt-popup-brighttext=true] html|body {
+  #main-window[lwt-popup-brighttext=true]:not([sizemode=fullscreen]) html|body {
     border-top: 1px solid black !important;
   }
   #main-window[inFullscreen=true] html|body {
@@ -473,7 +475,7 @@
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar {
-    background-color: var(--firefox-safari-style-input-background-inactive) !important;
+    background-color: var(--firefox-safari-style-background-color-private) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1047,6 +1049,9 @@
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items .tab-line {
     display: none;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .titlebar-spacer[type=pre-tabs] {
+    border-inline-end: 1px solid transparent !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab {
     border-left: 1px solid transparent !important;

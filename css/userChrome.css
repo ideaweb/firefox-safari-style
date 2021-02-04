@@ -1,6 +1,6 @@
-/***************+*/
-/* VERSION 0.2.9 */
-/*****************/
+/***************+**/
+/* VERSION 0.2.10 */
+/******************/
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -1408,5 +1408,3 @@ spacer[part=overflow-end-indicator] {
     max-width: none !important;
   }
 }
-
-/*# sourceMappingURL=userChrome.css.map */
