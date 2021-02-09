@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.10 */
+/* VERSION 0.2.11 */
 /******************/
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -494,6 +494,14 @@
     border-bottom-left-radius: 5px !important;
     border-bottom-right-radius: 5px !important;
   }
+}
+@media only screen and (-moz-mac-yosemite-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 1.3dppx), only screen and (-moz-mac-big-sur-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 1.3dppx) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView {
+    margin-inline: 1.5px !important;
+    width: calc(100% + 5px) !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer:hover,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .search-one-offs,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .search-one-offs:hover, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer:hover,
@@ -529,6 +537,8 @@
 #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .search-one-offs:hover {
     background-color: var(--firefox-safari-style-background-color-private) !important;
   }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner {
     border-top: 0 !important;
   }
@@ -541,6 +551,8 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .urlbarView-body-outer .urlbarView-body-inner .urlbarView-results .urlbarView-row {
     padding: 0 !important;
   }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView > .search-one-offs, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView > .search-one-offs {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
@@ -1326,10 +1338,12 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #scrollbutton-up:not([disabled=true]) {
+  #scrollbutton-up {
+    border-left: 0 !important;
+    border-right: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
     border-right: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
   }
-  #scrollbutton-up:not([disabled=true]):-moz-window-inactive {
+  #scrollbutton-up:-moz-window-inactive {
     border-right-color: var(--firefox-safari-style-tab-border-left-color-inactive) !important;
   }
 }

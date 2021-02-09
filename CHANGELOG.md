@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.11 09/02/2021
+
+#### Bug Fixes:
+
+- Left scroll button in tab bar.
+- Fixed displaced address bar with HiDPI displays.
+
 ## v0.2.10 04/02/2021
 
 #### Bug Fixes:
