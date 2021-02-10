@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.11 */
+/* VERSION 0.2.12 */
 /******************/
 
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
@@ -486,6 +486,16 @@ $firefox-safari-style-support-themes: false;
                         > *, #identity-box, #urlbar-scheme, #urlbar-input {
                             height: calc(var(--firefox-safari-style-button-height) - 2px) !important;
                             min-height: calc(var(--firefox-safari-style-button-height) - 2px) !important;
+                        }
+                        #identity-box {
+                            display: flex;
+                        }
+                        .identity-box-button:hover:active, .identity-box-button[open="true"], 
+                        #tracking-protection-icon-container:hover:active, 
+                        #tracking-protection-icon-container[open="true"],
+                        .identity-box-button:hover:not([open="true"]), 
+                        #tracking-protection-icon-container:hover:not([open="true"]) {
+                            background-color: transparent im !important;
                         }
                         #pageActionSeparator {
                             visibility: visible !important;
@@ -1257,6 +1267,14 @@ $firefox-safari-style-support-themes: false;
                     display: none;
                 }
             }
+        }
+    }
+    #statuspanel #statuspanel-label {
+        border-color: var(--firefox-safari-style-input-background-active) !important;
+        background-color: var(--firefox-safari-style-background-color-active) !important;
+        color: var(--firefox-safari-style-tab-color) !important;
+        &:-moz-window-inactive {
+            opacity: 0.6 !important;
         }
     }
     #new-tab-button {

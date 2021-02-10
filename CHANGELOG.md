@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.12 10/02/2021
+
+#### Bug Fixes:
+
+- Position of icons in identity box.
+- Color of status bar.
+
 ## v0.2.11 09/02/2021
 
 #### Bug Fixes:
