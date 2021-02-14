@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.13 14/02/2021
+
+#### Bug Fixes:
+
+- Fixed focused address bar with HiDPI displays.
+
 ## v0.2.12 10/02/2021
 
 #### Bug Fixes:

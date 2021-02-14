@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.12 */
+/* VERSION 0.2.13 */
 /******************/
 
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
@@ -483,6 +483,14 @@ $firefox-safari-style-support-themes: false;
                         }
                         height: var(--firefox-safari-style-button-height) !important;
                         min-height: var(--firefox-safari-style-button-height) !important;
+                        @media
+                        only screen and (   min--moz-device-pixel-ratio: 1.01),
+                        only screen and (		min-device-pixel-ratio: 1.01),
+                        only screen and (				min-resolution: 120dpi),
+                        only screen and (				min-resolution: 1.3dppx) {
+                            height: calc(var(--firefox-safari-style-button-height) - 0.5px) !important;
+                            min-height: calc(var(--firefox-safari-style-button-height) - 0.5px) !important;
+                        }
                         > *, #identity-box, #urlbar-scheme, #urlbar-input {
                             height: calc(var(--firefox-safari-style-button-height) - 2px) !important;
                             min-height: calc(var(--firefox-safari-style-button-height) - 2px) !important;
