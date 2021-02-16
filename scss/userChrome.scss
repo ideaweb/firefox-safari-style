@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.13 */
+/* VERSION 0.2.14 */
 /******************/
 
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
@@ -497,6 +497,7 @@ $firefox-safari-style-support-themes: false;
                         }
                         #identity-box {
                             display: flex;
+                            align-items: center;
                         }
                         .identity-box-button:hover:active, .identity-box-button[open="true"], 
                         #tracking-protection-icon-container:hover:active, 

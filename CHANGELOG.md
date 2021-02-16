@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.14 16/02/2021
+
+#### Bug Fixes:
+
+- Position of icons in identity box (next try).
+
 ## v0.2.13 14/02/2021
 
 #### Bug Fixes:
