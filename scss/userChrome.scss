@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.14 */
+/* VERSION 0.2.15 */
 /******************/
 
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
@@ -270,9 +270,6 @@ $firefox-safari-style-support-themes: false;
             &:not([disabled="true"]):hover {
                 background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-hover) 0%, var(--firefox-safari-style-tab-background-color-hover) 100%) !important;
             }
-        }
-        &[lwt-popup-brighttext="true"]:not([sizemode="fullscreen"]) html|body {
-            border-top: 1px solid black !important;
         }
         &[inFullscreen="true"] {
             html|body {
@@ -1081,18 +1078,7 @@ $firefox-safari-style-support-themes: false;
                         display: none;
                     }
                     .tab-background {
-                        width: 100% !important;
-                        border: 0 !important;
-                        order: 2;
-                        height: 2px;
-                        margin-top: -3px;
-                        background: transparent !important;
-                        *:not(.tab-bottom-line) {
-                            display: none;
-                        }
-                        .tab-bottom-line {
-                            background: var(--identity-tab-color) !important;
-                        }
+                        display: none;
                     }
                     border-left: 1px solid transparent !important;
                     &[fadein="true"] ~ .tabbrowser-tab {

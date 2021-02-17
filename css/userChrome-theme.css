@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.14 */
+/* VERSION 0.2.15 */
 /******************/
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -217,9 +217,6 @@
 #main-window .toolbar-items #alltabs-button:not([disabled=true]):hover,
 #main-window #alltabs-button:not([disabled=true]):hover {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-hover) 0%, var(--firefox-safari-style-tab-background-color-hover) 100%) !important;
-  }
-  #main-window[lwt-popup-brighttext=true]:not([sizemode=fullscreen]) html|body {
-    border-top: 1px solid black !important;
   }
   #main-window[inFullscreen=true] html|body {
     border-color: transparent !important;
@@ -1120,18 +1117,7 @@
     display: none;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-background {
-    width: 100% !important;
-    border: 0 !important;
-    order: 2;
-    height: 2px;
-    margin-top: -3px;
-    background: transparent !important;
-  }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-background *:not(.tab-bottom-line) {
     display: none;
-  }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-background .tab-bottom-line {
-    background: var(--identity-tab-color) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[fadein=true] ~ .tabbrowser-tab {
     border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;

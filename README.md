@@ -62,6 +62,16 @@ Hides tab bar if there is only one tab open. Unfortunately currently its not pos
 }
 ```
 
+### Change the purple color in private windows
+
+To change the purple color in private windows you need to add the following code to another file [userContent.css](http://kb.mozillazine.org/index.php?title=userContent.css&printable=yes). Please do not mix up with the file [userChrome.css](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) above for this theme. 
+
+```css
+html.private {
+    --in-content-page-background: #838383 !important;
+}
+```
+
 ## Troubleshooting
 
 Make sure that your userChrome.css does not contain any lines beginning with [`@namespace`](https://github.com/ideaweb/firefox-safari-style/issues/3), just only a single line with the above `@import` statement. Remove any extra code snippets as well.

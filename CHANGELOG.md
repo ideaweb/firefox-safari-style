@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.15 17/02/2021
+
+#### Bug Fixes:
+
+- Fixed close button in tabs.
+- Added new extra hint in README.md to change the purple color in private windows.
+
 ## v0.2.14 16/02/2021
 
 #### Bug Fixes:
