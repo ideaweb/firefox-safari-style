@@ -570,6 +570,12 @@
   }
 }
 @media all {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box {
+    display: flex;
+    align-items: center;
+  }
+}
+@media all {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box image {
     max-height: 13px !important;
     max-width: 13px !important;

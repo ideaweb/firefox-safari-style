@@ -601,6 +601,10 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             height: 20px !important;
                             padding: 3px !important;
                         }
+                        #identity-box {
+                            display: flex;
+                            align-items: center;
+                        }
                         #identity-box image {
                             max-height: 13px !important;
                             max-width: 13px !important;
