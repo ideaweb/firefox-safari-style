@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.26 */
+/* VERSION 0.1.27 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -1034,6 +1034,7 @@
     display: flex;
     flex-direction: row;
     position: relative;
+    min-height: calc(var(--firefox-safari-style-tab-height) - 1px) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:-moz-window-inactive {
     opacity: 0.55 !important;

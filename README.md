@@ -2,15 +2,9 @@
 
 This theme will make Firefox more compliant with macOS.
 
-<p align="center"><img alt="Firefox with NelliTab" src="https://raw.githubusercontent.com/ideaweb/firefox-safari-style/master/img/preview.png"/><br/><i>Firefox with macOS theme and <a href="https://nellitab.io">NelliTab</a> new tab extension</i></p>
-
 ## Requirements
 
 *  Firefox 71 or higher for macOS
-
-## Known issues
-
-* Dark theme is supported but [Firefox not really have native dark mode](https://bugzilla.mozilla.org/buglist.cgi?quicksearch=dark%20mode%20macos) (e.g. context menus are still "light", white line on top of the window etc.)
 
 ## Installing
 
@@ -28,29 +22,6 @@ This theme will make Firefox more compliant with macOS.
 ## Updating
 
 A Firefox release may change its styles and break this theme. To update please just run `git pull` in the cloned repository to or just re-download it.
-
-## Extras
-
-Some code snippets to add extra functionallity. Just add any code below to the end of your userChrome.css.
-
-### Hide solo tab
-
-Hides tab bar if there is only one tab open. Unfortunately currently its not possible to move the new tab button up and that's why it should be hidden as well.
-
-```css
-#tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"],
-#tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"] ~ toolbarbutton {
-  visibility: collapse;
-}
-```
-
-### Shows favicons in bookmarks bar
-
-```css
-#personal-bookmarks .bookmark-item .toolbarbutton-icon {
-    display: inline !important;
-}
-```
 
 ## Troubleshooting
 

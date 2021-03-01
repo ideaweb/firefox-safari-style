@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.27 01/03/2021
+
+#### Bug Fixes:
+
+- Fixed broken tabs with Firefox 86.
+
 ## v0.1.26 06/01/2021
 
 #### Bug Fixes:
