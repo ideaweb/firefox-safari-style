@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.28 05/03/2021
+
+#### Bug Fixes:
+
+- Fixed close button in tabs with recent nightly.
+
 ## v0.1.27 01/03/2021
 
 #### Bug Fixes:
