@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.15 */
+/* VERSION 0.2.16 */
 /******************/
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -1164,10 +1164,10 @@
     display: none;
     margin-top: 0 !important;
     fill: var(--firefox-safari-style-tab-color) !important;
-    padding: 1px;
-    width: 14px;
-    min-width: 14px;
-    height: 14px;
+    padding: 1px !important;
+    width: 14px !important;
+    min-width: 14px !important;
+    height: 14px !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-sharing-icon-overlay,
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-overlay {

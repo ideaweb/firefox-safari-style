@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.15 */
+/* VERSION 0.2.16 */
 /******************/
 
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
@@ -1147,10 +1147,10 @@ $firefox-safari-style-support-themes: false;
                             display: none;
                             margin-top: 0 !important;
                             fill: var(--firefox-safari-style-tab-color) !important;
-                            padding: 1px;
-                            width: 14px;
-                            min-width: 14px;
-                            height: 14px; 
+                            padding: 1px !important;
+                            width: 14px !important;
+                            min-width: 14px !important;
+                            height: 14px !important; 
                         }
                         .tab-sharing-icon-overlay,
                         .tab-icon-overlay {
