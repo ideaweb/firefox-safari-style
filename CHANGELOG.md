@@ -2,6 +2,16 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.17 16/03/2021
+
+#### New Features:
+
+- Added optional transparency / blur effect (userChrome-vibrancy.css).
+
+#### Bug Fixes:
+
+- Fixed close button in tabs with recent nightly (again).
+
 ## v0.2.16 05/03/2021
 
 #### Bug Fixes:

@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.16 */
+/* VERSION 0.2.17 */
 /******************/
 
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
@@ -12,6 +12,7 @@ $firefox-safari-style-show-favicons-in-tabs: true;
 $firefox-safari-style-grayscale-favicons-in-tabs: false;
 $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
 $firefox-safari-style-support-themes: false;
+$firefox-safari-style-vibrancy: false;
 
 /*****************/
 /* DEFAULT THEME */
@@ -62,6 +63,11 @@ $firefox-safari-style-support-themes: false;
 
     /* Default background color */
     --firefox-safari-style-tab-background-color-inactive: rgba(0,0,0,0.05);
+    @if $firefox-safari-style-vibrancy != false {
+        &:not(:-moz-window-inactive) {
+            --firefox-safari-style-tab-background-color-inactive: rgba(0,0,0,0.075);
+        }
+    }
     /* Background active tab */
     --firefox-safari-style-tab-background-color-active: var(--firefox-safari-style-background-color-active);
     /* Button background hover on incative tab */
@@ -76,6 +82,19 @@ $firefox-safari-style-support-themes: false;
     --firefox-safari-style-tab-border-bottom-color-inactive: var(--firefox-safari-style-tab-border-bottom-color-active);
     --firefox-safari-style-tab-border-left-color-active: rgba(0,0,0,0.15);
     --firefox-safari-style-tab-border-left-color-inactive: var(--firefox-safari-style-tab-border-left-color-active);
+    --firefox-safari-style-tab-border-left-color-vibrance: rgba(0,0,0,0.1);
+
+    @if $firefox-safari-style-vibrancy == tabs {
+        --firefox-safari-style-tab-border-bottom-color-active: rgba(0,0,0,0.025);
+        --firefox-safari-style-tab-border-bottom-color-inactive: var(--firefox-safari-style-tab-border-bottom-color-active);
+        --firefox-safari-style-tab-border-left-color-active: rgba(0,0,0,0.1);
+        --firefox-safari-style-tab-border-left-color-inactive: var(--firefox-safari-style-tab-border-left-color-active);
+    }@else if $firefox-safari-style-vibrancy != false {
+        --firefox-safari-style-tab-border-bottom-color-active: rgba(0,0,0,0.1);
+        --firefox-safari-style-tab-border-bottom-color-inactive: var(--firefox-safari-style-tab-border-bottom-color-active);
+        --firefox-safari-style-tab-border-left-color-active: rgba(0,0,0,0.1);
+        --firefox-safari-style-tab-border-left-color-inactive: var(--firefox-safari-style-tab-border-left-color-active);
+    }
 
     /* Colors e.g. for tabs or bookmarks */
     --firefox-safari-style-tab-color: hsl(250, 5%, 5%);
@@ -166,6 +185,7 @@ $firefox-safari-style-support-themes: false;
     --firefox-safari-style-tab-border-bottom-color-inactive: var(--firefox-safari-style-tab-border-bottom-color-active);
     --firefox-safari-style-tab-border-left-color-active: rgba(255,255,255,0.2);
     --firefox-safari-style-tab-border-left-color-inactive: var(--firefox-safari-style-tab-border-left-color-active);
+    --firefox-safari-style-tab-border-left-color-vibrance: rgba(255,255,255,0.15);
 
     /* Font and icon color of buttons and urlbar */
     --firefox-safari-style-button-color: rgba(255,255,255,0.7);
@@ -185,7 +205,12 @@ $firefox-safari-style-support-themes: false;
         --firefox-safari-style-background-color-inactive: var(--firefox-safari-style-background-color-active);
 
         /* Default background color */
-        --firefox-safari-style-tab-background-color-inactive: var(--lwt-accent-color);
+        @if $firefox-safari-style-vibrancy != false {
+            --firefox-safari-style-tab-background-color-inactive: rgba(0,0,0,0.25);
+        }
+        @else {
+            --firefox-safari-style-tab-background-color-inactive: var(--lwt-accent-color);
+        }
         /* Background active tab */
         --firefox-safari-style-tab-background-color-active: var(--firefox-safari-style-background-color-active);
         /* Colors e.g. for tabs or bookmarks */
@@ -206,7 +231,6 @@ $firefox-safari-style-support-themes: false;
 }
 
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-    /*-moz-appearance: -moz-mac-vibrant-titlebar-light !important;*/
     :root {
         background-image: none !important;
     }
@@ -229,12 +253,16 @@ $firefox-safari-style-support-themes: false;
         }
     }
     #main-window {
+        -moz-appearance: none;
         --toolbarbutton-hover-background: transparent !important;
         html|body {
             box-sizing: border-box;
         }
         html|body, #nav-bar, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels {
-            @if $firefox-safari-style-support-themes == true {
+            @if $firefox-safari-style-vibrancy != false {
+                background-color: transparent !important;
+            }
+            @else if $firefox-safari-style-support-themes == true {
                 background-color: var(--firefox-safari-style-background-color-active) !important;
                 &:-moz-window-inactive {
                     background-color: var(--firefox-safari-style-background-color-inactive) !important;
@@ -246,15 +274,44 @@ $firefox-safari-style-support-themes: false;
                 }
             }
         }
-        #TabsToolbar .toolbar-items {
-            box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-active);
-            &:-moz-lwtheme-brighttext {
-                box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
-            }
-            &:-moz-window-inactive {
-                box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
+        @if $firefox-safari-style-vibrancy != false {
+            html|body {
+                &:not(:-moz-lwtheme-brighttext) {
+                    -moz-appearance: -moz-mac-vibrancy-light !important;
+                }
                 &:-moz-lwtheme-brighttext {
-                    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
+                    -moz-appearance: -moz-mac-vibrancy-dark !important;
+                }
+            }
+            @if $firefox-safari-style-vibrancy == tabs {
+                #nav-bar, .tabbrowser-tab[selected="true"] {
+                    background: var(--firefox-safari-style-background-color-active) !important;
+                    &:-moz-window-inactive {
+                        background: var(--firefox-safari-style-background-color-inactive) !important;
+                    }
+                }
+            }
+        }
+        #TabsToolbar .toolbar-items {
+            @if $firefox-safari-style-vibrancy != false {
+                .tabbrowser-tab:not([selected="true"]), 
+                #tabs-newtab-button, 
+                #alltabs-button {
+                    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-active);
+                    &:-moz-window-inactive {
+                        box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-vibrance) !important;
+                    }
+                }
+            } @else {
+                box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-active);
+                &:-moz-lwtheme-brighttext {
+                    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
+                }
+                &:-moz-window-inactive {
+                    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
+                    &:-moz-lwtheme-brighttext {
+                        box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
+                    }
                 }
             }
         }
@@ -296,6 +353,7 @@ $firefox-safari-style-support-themes: false;
             background-color: var(--firefox-safari-style-tab-background-color-inactive) !important;
             background-image: var(--lwt-header-image) !important;
         } @else {
+            background-color: transparent !important;
             background-image: none !important;
         }
 
@@ -464,6 +522,9 @@ $firefox-safari-style-support-themes: false;
                 }
                 #urlbar-container, #search-container {
                     padding: 0 !important;
+                    #urlbar-input-container {
+                        padding-inline-end: 2px !important;
+                    }
                     #urlbar-input-container, &#search-container {
                         #main-window:not([privatebrowsingmode]) &, #main-window:not([privatebrowsingmode]) &:hover {
                             background: var(--firefox-safari-style-background-color-active) !important;
@@ -541,13 +602,18 @@ $firefox-safari-style-support-themes: false;
                         &[focused="true"]:not(:-moz-window-inactive) {
                             box-shadow: 0 0 0 2px var(--firefox-safari-style-outline-color) !important;
                         }
-                        @media
+                        @if $firefox-safari-style-vibrancy == all {
+                            &:not([focused="true"]) #urlbar-input-container:not(:-moz-window-inactive):not(:-moz-lwtheme-brighttext) {
+                                border-color: var(--firefox-safari-style-tab-border-bottom-color-active) !important;
+                            }
+                        }
+                        /*@media
                         only screen and (   min--moz-device-pixel-ratio: 1.01),
                         only screen and (		min-device-pixel-ratio: 1.01),
                         only screen and (				min-resolution: 120dpi),
                         only screen and (				min-resolution: 1.3dppx) {
                             border-width: 0.5px !important;
-                        }
+                        }*/
                         background-color: var(--firefox-safari-style-input-background-active) !important;
                         #main-window[privatebrowsingmode] & {
                             background-color: var(--firefox-safari-style-background-color-private) !important;
@@ -569,6 +635,7 @@ $firefox-safari-style-support-themes: false;
                                 > #urlbar-input-container {
                                     padding-block: 0 !important;
                                     padding-inline: 0 !important;
+                                    padding-inline-end: 2px !important;
                                 }
                                 &[open] {
                                     &, > #urlbar-input-container {
@@ -585,14 +652,14 @@ $firefox-safari-style-support-themes: false;
                             top: calc(var(--firefox-safari-style-tab-height) - 1px) !important;
                             margin-inline: 2px !important;
                             width: calc(100% + 4px) !important;
-                            @media
+                            /*@media
                             only screen and (   min--moz-device-pixel-ratio: 1.01),
                             only screen and (		min-device-pixel-ratio: 1.01),
                             only screen and (				min-resolution: 120dpi),
                             only screen and (				min-resolution: 1.3dppx) {
                                 margin-inline: 1.5px !important;
                                 width: calc(100% + 5px) !important;
-                            }
+                            }*/
                             border-top: 0 !important;
                             border-right: 2px solid var(--firefox-safari-style-outline-color) !important;
                             border-bottom: 2px solid var(--firefox-safari-style-outline-color) !important;
@@ -991,6 +1058,11 @@ $firefox-safari-style-support-themes: false;
                 #tabs-newtab-button, #new-tab-button, #alltabs-button {
                     height: calc(var(--firefox-safari-style-tab-height) - 1px);
                     opacity: 1 !important;
+                    @if $firefox-safari-style-vibrancy != false {
+                        &#alltabs-button {
+                            opacity: 0.8 !important;
+                        }
+                    }
                     border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
                     &:-moz-window-inactive {
                         border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-inactive) !important;
@@ -1070,6 +1142,10 @@ $firefox-safari-style-support-themes: false;
                     > .tab-stack {
                         padding-top: 5px;
                         max-width: 100%;
+                        .tab-icon-stack {
+                            margin-top: -1px !important;
+                            margin-left: 1px !important;
+                        }
                     }
                     .tab-label-container[pinned] {
                         display: none !important;
@@ -1145,12 +1221,14 @@ $firefox-safari-style-support-themes: false;
                         }
                         .tab-close-button {
                             display: none;
-                            margin-top: 0 !important;
+                            margin-top: 1px !important;
                             fill: var(--firefox-safari-style-tab-color) !important;
                             padding: 1px !important;
                             width: 14px !important;
                             min-width: 14px !important;
                             height: 14px !important; 
+                            margin-inline-end: 7px !important;
+                            margin-inline-start: -2px !important;
                         }
                         .tab-sharing-icon-overlay,
                         .tab-icon-overlay {
@@ -1186,7 +1264,7 @@ $firefox-safari-style-support-themes: false;
                             width: 14px !important;
                             height: 14px !important; 
                             margin-right: -3px !important;
-                            margin-top: 0 !important;
+                            margin-top: 1px !important;
                         }
                         .tab-icon-sound[pictureinpicture]:not(:hover), 
                         .tab-icon-sound[soundplaying]:not(:hover), 
@@ -1273,7 +1351,13 @@ $firefox-safari-style-support-themes: false;
         }
     }
     #new-tab-button {
-        list-style-image: url(chrome://browser/skin/add.svg) !important;
+        list-style-image: url(chrome://global/skin/icons/add.svg) !important;
+        @if $firefox-safari-style-vibrancy != false {
+            box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-active);
+            &:-moz-window-inactive {
+                box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-vibrance) !important;
+            }
+        }
     }
     #urlbar, #searchbar {
         border-width: 0 !important;
@@ -1340,8 +1424,17 @@ $firefox-safari-style-support-themes: false;
         &:-moz-window-inactive {
             border-left-color: var(--firefox-safari-style-tab-border-left-color-inactive) !important;
         }
+        @if $firefox-safari-style-vibrancy != false {
+            box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-active);
+            &:-moz-window-inactive {
+                box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-vibrance) !important;
+            }
+        }
         &, image { 
             opacity: 1 !important;
+            @if $firefox-safari-style-vibrancy != false {
+                opacity: 0.8 !important;
+            }
         }
         image {
             fill: var(--firefox-safari-style-button-color) !important;

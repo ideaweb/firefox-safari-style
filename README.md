@@ -33,6 +33,12 @@ This theme will make Firefox more compliant with macOS.
 @import '/path/to/firefox-safari-style/css/userChrome-theme.css';
 ```
 
+**or to enable transparency / blur effect**
+
+```css
+@import '/path/to/firefox-safari-style/css/userChrome-vibrancy.css';
+```
+
 * Restart Firefox that changes can take effect
 
 ## Updating

@@ -19,6 +19,10 @@ files:
 	cat scss/userChrome.scss | $(SASS) --no-source-map - css/userChrome.css && echo "done" || echo "\033[31mfailed\033[0m"; \
 	echo -n "userChrome-theme.css... "; \
 	cat scss/userChrome.scss | sed "s/firefox-safari-style-support-themes: false/firefox-safari-style-support-themes: true/g" | $(SASS) --no-source-map - css/userChrome-theme.css && echo "done" || echo "\033[31mfailed\033[0m"; \
+	echo -n "userChrome-vibrancy.css... "; \
+	cat scss/userChrome.scss | sed "s/firefox-safari-style-vibrancy: false/firefox-safari-style-vibrancy: all/g" | $(SASS) --no-source-map - css/userChrome-vibrancy.css && echo "done" || echo "\033[31mfailed\033[0m"; \
+#	echo -n "userChrome-vibrancy-tabs.css... "; \
+#	cat scss/userChrome.scss | sed "s/firefox-safari-style-vibrancy: false/firefox-safari-style-vibrancy: tabs/g" | $(SASS) --no-source-map - css/userChrome-vibrancy-tabs.css && echo "done" || echo "\033[31mfailed\033[0m"; \
 
 all:
 
