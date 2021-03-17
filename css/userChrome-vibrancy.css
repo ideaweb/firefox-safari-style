@@ -997,6 +997,8 @@
     min-height: 0 !important;
     /*height: var(--firefox-safari-style-tab-height);*/
     /* Hide window controls */
+    -moz-appearance: none !important;
+    background-color: transparent !important;
     /* New tab button */
   }
   #navigator-toolbox #titlebar #TabsToolbar .titlebar-buttonbox-container, #navigator-toolbox #titlebar #TabsToolbar #menubar-items {

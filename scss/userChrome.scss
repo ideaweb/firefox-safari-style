@@ -1053,6 +1053,10 @@ $firefox-safari-style-vibrancy: false;
                 .titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
                     max-width: 1px
                 }
+                @if $firefox-safari-style-vibrancy != false {
+                    -moz-appearance: none !important;
+                    background-color: transparent !important;
+                }
                 /* New tab button */
                 #wrapper-alltabs-button {
                     opacity: 1 !important;
