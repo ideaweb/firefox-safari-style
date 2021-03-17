@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.18 17/03/2021
+
+#### Bug Fixes:
+
+- Fixed default and vibrancy theme with selected theme in Firefox.
+
 ## v0.2.17 16/03/2021
 
 #### New Features:

@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.17 */
+/* VERSION 0.2.18 */
 /******************/
 
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
@@ -123,6 +123,7 @@ $firefox-safari-style-vibrancy: false;
     --tab-min-height: 0 !important;
     --space-above-tabbar: 0 !important;
     --toolbarbutton-vertical-text-padding: 4px !important;
+    --toolbarbutton-hover-transition-duration: 0ms !important;
 }
 
 /**************/
@@ -258,7 +259,7 @@ $firefox-safari-style-vibrancy: false;
         html|body {
             box-sizing: border-box;
         }
-        html|body, #nav-bar, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels {
+        &, html|body, #nav-bar, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels {
             @if $firefox-safari-style-vibrancy != false {
                 background-color: transparent !important;
             }
@@ -372,6 +373,7 @@ $firefox-safari-style-vibrancy: false;
             padding-top: 11px !important;
             padding-right: 5px !important;
             padding-left: var(--firefox-safari-style-controls-width);
+            transition: none !important;
             #main-window[inFullscreen="true"] & {
                 padding-left: 6px !important;
             }

@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.17 */
+/* VERSION 0.2.18 */
 /******************/
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -83,6 +83,7 @@
   --tab-min-height: 0 !important;
   --space-above-tabbar: 0 !important;
   --toolbarbutton-vertical-text-padding: 4px !important;
+  --toolbarbutton-hover-transition-duration: 0ms !important;
 }
 :root:not(:-moz-window-inactive) {
   --firefox-safari-style-tab-background-color-inactive: rgba(0,0,0,0.075);
@@ -173,7 +174,7 @@
   #main-window html|body {
     box-sizing: border-box;
   }
-  #main-window html|body, #main-window #nav-bar, #main-window .tabbrowser-tab[selected=true], #main-window #PersonalToolbar, #main-window #tabbrowser-tabpanels {
+  #main-window, #main-window html|body, #main-window #nav-bar, #main-window .tabbrowser-tab[selected=true], #main-window #PersonalToolbar, #main-window #tabbrowser-tabpanels {
     background-color: transparent !important;
   }
   #main-window html|body:not(:-moz-lwtheme-brighttext) {
@@ -243,6 +244,7 @@
     padding-top: 11px !important;
     padding-right: 5px !important;
     padding-left: var(--firefox-safari-style-controls-width);
+    transition: none !important;
   }
   #main-window[inFullscreen=true] #navigator-toolbox #nav-bar {
     padding-left: 6px !important;
