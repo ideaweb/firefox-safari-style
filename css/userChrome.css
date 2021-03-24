@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.18 */
+/* VERSION 0.2.19 */
 /******************/
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -501,6 +501,14 @@
   #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar {
     background-color: var(--firefox-safari-style-background-color-private) !important;
   }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #page-action-buttons {
+    display: flex;
+    align-items: center;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #page-action-buttons #urlbar-zoom-button, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #page-action-buttons #urlbar-zoom-button, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #page-action-buttons #urlbar-zoom-button, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #page-action-buttons #urlbar-zoom-button {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout] *, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout] *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout] *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout] * {
     transition: none !important;
   }
@@ -809,6 +817,7 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #reader-mode-button {
     list-style-image: none !important;
     background: url(chrome://browser/skin/readerMode.svg) 50% 50%/12px 12px no-repeat;
+    background-image: url(chrome://browser/skin/reader-mode.svg);
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {

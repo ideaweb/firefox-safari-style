@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.19 24/03/2021
+
+#### Bug Fixes:
+
+- Fixed zoom button.
+
 ## v0.2.18 17/03/2021
 
 #### Bug Fixes:
