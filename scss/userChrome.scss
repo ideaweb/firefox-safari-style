@@ -1522,7 +1522,7 @@ $firefox-safari-style-vibrancy: false;
     .urlbar-icon:-moz-focusring, .urlbar-icon-wrapper:-moz-focusring {
         outline: none !important;
     }
-    .tabbrowser-tab:not([pinned]) {
+    .tabbrowser-tab:not([pinned])[fadein] {
         max-width: none !important;
     }
 }
