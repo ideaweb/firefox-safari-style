@@ -1121,6 +1121,8 @@ $firefox-safari-style-vibrancy: false;
                             opacity: 1 !important;
                             display: block !important;
                             background: url(chrome://global/skin/icons/spinner-arrow-down.svg) 50% 50% / 9px 9px no-repeat !important;
+                            width: 9px;
+                            height: 9px;
                         }
                         &[open="true"] stack, &[open="true"]:hover stack {
                             background-image: url(chrome://global/skin/icons/spinner-arrow-up.svg) !important;
@@ -1439,6 +1441,9 @@ $firefox-safari-style-vibrancy: false;
     #scrollbutton-down {
         border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
         border-right: 1px solid transparent !important;
+        border-top: 0 !important;
+        border-bottom: 0 !important;
+        border-radius: 0 !important;
         margin-bottom: 0 !important;
         &:-moz-window-inactive {
             border-left-color: var(--firefox-safari-style-tab-border-left-color-inactive) !important;

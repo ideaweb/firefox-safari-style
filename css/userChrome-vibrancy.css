@@ -1067,6 +1067,8 @@
     opacity: 1 !important;
     display: block !important;
     background: url(chrome://global/skin/icons/spinner-arrow-down.svg) 50% 50%/9px 9px no-repeat !important;
+    width: 9px;
+    height: 9px;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button#alltabs-button[open=true] stack, #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button#alltabs-button[open=true]:hover stack, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button#alltabs-button[open=true] stack, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button#alltabs-button[open=true]:hover stack, #navigator-toolbox #titlebar #TabsToolbar #alltabs-button#alltabs-button[open=true] stack, #navigator-toolbox #titlebar #TabsToolbar #alltabs-button#alltabs-button[open=true]:hover stack {
     background-image: url(chrome://global/skin/icons/spinner-arrow-up.svg) !important;
@@ -1375,6 +1377,9 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
 #scrollbutton-down {
     border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
     border-right: 1px solid transparent !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    border-radius: 0 !important;
     margin-bottom: 0 !important;
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-active);
   }
