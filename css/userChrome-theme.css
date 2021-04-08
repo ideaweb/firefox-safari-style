@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.19 */
+/* VERSION 0.2.20 */
 /******************/
 /* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -1027,6 +1027,9 @@
   #navigator-toolbox #titlebar #TabsToolbar #wrapper-alltabs-button {
     opacity: 1 !important;
   }
+  #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button {
+    --toolbarbutton-inner-padding: 6px;
+  }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button, #navigator-toolbox #titlebar #TabsToolbar #alltabs-button {
     height: calc(var(--firefox-safari-style-tab-height) - 1px);
     opacity: 1 !important;
@@ -1210,6 +1213,7 @@
     flex: 1 1;
     margin-top: 0 !important;
     color: var(--firefox-safari-style-tab-color) !important;
+    line-height: 17px;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content[selected=true] .tab-label-container .tab-label:-moz-lwtheme-brighttext {
     color: white !important;

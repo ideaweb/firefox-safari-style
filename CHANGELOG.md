@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.20 08/04/2021
+
+#### Bug Fixes:
+
+- Line height in tabs.
+- New tab button.
+
 ## v0.2.19 24/03/2021
 
 #### Bug Fixes:
