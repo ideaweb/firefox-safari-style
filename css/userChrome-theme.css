@@ -1,7 +1,10 @@
 /***************+**/
-/* VERSION 0.2.20 */
+/* VERSION 0.2.21 */
 /******************/
-/* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
+/* 
+    Icons: resource:///chrome/browser/skin/classic/browser/
+           resource://gre/chrome/toolkit/skin/classic/global/icons/ 
+*/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
 /*****************/
@@ -243,6 +246,7 @@
     background-color: var(--firefox-safari-style-tab-background-color-inactive) !important;
     background-image: var(--lwt-header-image) !important;
     border-bottom: 1px solid var(--firefox-safari-style-tab-border-bottom-color-active) !important;
+    --urlbar-separator-color: transparent;
   }
   #navigator-toolbox:-moz-window-inactive {
     border-bottom-color: var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
@@ -448,24 +452,28 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container .identity-box-button:hover:active, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container .identity-box-button[open=true],
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container .identity-box-button,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container .identity-box-button:hover:active, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container .identity-box-button[open=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container #tracking-protection-icon-container:hover:active,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container #tracking-protection-icon-container[open=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container .identity-box-button:hover:not([open=true]),
-#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container #tracking-protection-icon-container:hover:not([open=true]), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container .identity-box-button:hover:active, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container .identity-box-button[open=true],
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar-input-container #tracking-protection-icon-container:hover:not([open=true]), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container .identity-box-button,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container .identity-box-button:hover:active, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container .identity-box-button[open=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container #tracking-protection-icon-container:hover:active,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container #tracking-protection-icon-container[open=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container .identity-box-button:hover:not([open=true]),
-#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container #tracking-protection-icon-container:hover:not([open=true]), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container .identity-box-button:hover:active, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container .identity-box-button[open=true],
+#navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container#search-container #tracking-protection-icon-container:hover:not([open=true]), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container .identity-box-button,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container .identity-box-button:hover:active, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container .identity-box-button[open=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container #tracking-protection-icon-container:hover:active,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container #tracking-protection-icon-container[open=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container .identity-box-button:hover:not([open=true]),
-#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container #tracking-protection-icon-container:hover:not([open=true]), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container .identity-box-button:hover:active, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container .identity-box-button[open=true],
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar-input-container #tracking-protection-icon-container:hover:not([open=true]), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container .identity-box-button,
+#navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container .identity-box-button:hover:active, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container .identity-box-button[open=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container #tracking-protection-icon-container:hover:active,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container #tracking-protection-icon-container[open=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container .identity-box-button:hover:not([open=true]),
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container#search-container #tracking-protection-icon-container:hover:not([open=true]) {
-    background-color: transparent im !important;
+    background-color: transparent !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -769,6 +777,7 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #pageActionButton {
     list-style-image: none !important;
     background: url("chrome://global/skin/icons/more.svg") 50% 50%/12px 12px no-repeat;
+    visibility: initial !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -813,6 +822,12 @@
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button:not([hidden=true]) + #pageActionSeparator, #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons:not([hidden=true]) + #pageActionSeparator, #navigator-toolbox #nav-bar #nav-bar-customization-target #contextual-feature-recommendation:not([hidden=true]) + #pageActionSeparator {
     margin-left: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #pageActionSeparator {
+    display: block !important;
+    height: 26px !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1236,6 +1251,28 @@
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[activemedia-blocked]:not(:hover) {
     opacity: 1 !important;
   }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton {
+    display: flex;
+    mask-image: none !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton .tab-text {
+    max-width: calc(100% - 10px);
+    mask-image: linear-gradient(to left, transparent, black var(--tab-label-mask-size));
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton .tab-secondary-label {
+    min-width: 20px;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton .tab-secondary-label > .tab-icon-sound-label {
+    position: absolute;
+    right: 2px;
+    max-width: 20px;
+    height: 18px !important;
+    color: transparent;
+    background: url(chrome://browser/skin/tabbrowser/tab-audio-playing.svg) 100% 50%/14px 14px no-repeat;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label {
+    background-image: url(chrome://browser/skin/tabbrowser/tab-audio-muted.svg);
+  }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound:not([soundplaying]):not([muted]):not([activemedia-blocked]):not([pictureinpicture]),
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound {
     display: block !important;
@@ -1276,6 +1313,9 @@
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:hover .tab-content:not([pinned]) .tab-close-button {
     display: block !important;
     opacity: 0.8 !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not(:hover) .tab-content .tab-icon-image {
+    opacity: 1 !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tab-content {
     overflow: hidden !important;
