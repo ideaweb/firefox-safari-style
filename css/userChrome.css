@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.21 */
+/* VERSION 0.2.22 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/
@@ -517,6 +517,9 @@
     margin-top: 0 !important;
     margin-bottom: 0 !important;
   }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #page-action-buttons .star-button-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #page-action-buttons .star-button-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #page-action-buttons .star-button-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #page-action-buttons .star-button-box {
+    max-width: 20px;
+  }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout] *, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout] *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout] *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout] * {
     transition: none !important;
   }
@@ -538,6 +541,9 @@
     border-bottom-color: transparent !important;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #urlbar-input-container {
+    padding-left: 0 !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView {
     position: absolute !important;
@@ -633,7 +639,7 @@
     padding-top: 0px !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon {
-    width: 20px !important;
+    max-width: 20px !important;
     height: 20px !important;
     padding: 3px !important;
   }
@@ -774,7 +780,7 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #star-button {
     list-style-image: none !important;
     background: url("chrome://browser/skin/bookmark-hollow.svg") 50% 50%/12px 12px no-repeat;
-    margin-right: 6px;
+    /*margin-right: 6px;*/
     margin-top: -2px !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #star-button[starred=true] {
@@ -1335,6 +1341,11 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #identity-icon-label {
+    padding-inline-start: 6px;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #customization-panelWrapper {
     transform: translateX(12px);
   }
@@ -1510,5 +1521,10 @@ spacer[part=overflow-end-indicator] {
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   .tabbrowser-tab:not([pinned]) {
     max-width: none !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  #identity-box {
+    margin-inline-end: 0 !important;
   }
 }

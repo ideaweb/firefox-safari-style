@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.21 */
+/* VERSION 0.2.22 */
 /******************/
 
 /* 
@@ -633,6 +633,9 @@ $firefox-safari-style-vibrancy: false;
                                 margin-top: 0 !important;
                                 margin-bottom: 0 !important;
                             }
+                            .star-button-box {
+                                max-width: 20px;
+                            }
                         }
                         &[breakout] {
                             &, * {
@@ -661,6 +664,9 @@ $firefox-safari-style-vibrancy: false;
                                     }
                                 }
                             }
+                        }
+                        #urlbar-input-container {
+                            padding-left: 0 !important;
                         }
                         .urlbarView {
                             position: absolute !important;
@@ -741,7 +747,7 @@ $firefox-safari-style-vibrancy: false;
                             }
                         }
                         .urlbar-icon {
-                            width: 20px !important;
+                            max-width: 20px !important;
                             height: 20px !important;
                             padding: 3px !important;
                         }
@@ -839,7 +845,7 @@ $firefox-safari-style-vibrancy: false;
                 #star-button {
                     list-style-image: none !important;
                     background: url("chrome://browser/skin/bookmark-hollow.svg") 50% 50% / 12px 12px no-repeat;
-                    margin-right: 6px;
+                    /*margin-right: 6px;*/
                     margin-top: -2px !important;
                     &[starred="true"] {
                         background: var(--firefox-safari-style-attention-color) !important;
@@ -1429,6 +1435,9 @@ $firefox-safari-style-vibrancy: false;
     #identity-icon-label[value*="NelliTab"] { 
         display: none !important;
     }
+    #identity-icon-label { 
+        padding-inline-start: 6px;
+    }
     #customization-panelWrapper {
         transform: translateX(12px);
     }
@@ -1571,5 +1580,12 @@ $firefox-safari-style-vibrancy: false;
     }
     .tabbrowser-tab:not([pinned]) {
         max-width: none !important;
+    }
+}
+@media 
+(-moz-mac-yosemite-theme) and (-moz-proton),
+(-moz-mac-big-sur-theme) and (-moz-proton) {
+    #identity-box {
+        margin-inline-end: 0 !important;
     }
 }

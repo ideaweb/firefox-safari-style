@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.22 20/04/2021
+
+#### Bug Fixes:
+
+- More fixes for new Proton interface in Firefox Nightly.
+
 ## v0.2.21 13/04/2021
 
 #### Bug Fixes:
