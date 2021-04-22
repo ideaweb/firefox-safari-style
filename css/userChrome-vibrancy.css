@@ -1545,7 +1545,7 @@ spacer[part=overflow-end-indicator] {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  .tabbrowser-tab:not([pinned]) {
+  .tabbrowser-tab:not([pinned])[fadein] {
     max-width: none !important;
   }
 }
