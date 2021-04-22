@@ -153,6 +153,10 @@
   #mainPopupSet .panel-arrowcontent {
     box-shadow: none !important;
   }
+  
+  body {
+    border-color: var(--firefox-safari-style-tab-border-color-inactive) !important;
+  }
 
   #main-window html|body:-moz-lwtheme-brighttext {
     box-sizing: border-box;
@@ -978,6 +982,10 @@
     min-height: var(--firefox-safari-style-tab-height) !important;
     max-height: var(--firefox-safari-style-tab-height) !important;
   }
+  .tab-icon-stack {
+    display: flex;
+    align-items: center;
+  }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs[movingtab] {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
@@ -1094,6 +1102,11 @@
     width: 14px !important;
     min-width: 14px !important;
     height: 14px !important;
+    margin-right: 5px;
+  }
+  .tab-close-button,
+  .close-icon {
+    margin-right: 5px !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-sharing-icon-overlay,
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-overlay {
