@@ -20,34 +20,35 @@ This theme will make Firefox more compliant with macOS.
 * [Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) (recommended) or just download this repository (for legacy theme please checkout branch 0.1)
 * Set ```toolkit.legacyUserProfileCustomizations.stylesheets``` to **true** in [about:config](https://support.mozilla.org/en-US/kb/about-config-editor-firefox)
 * Open the [userChrome.css](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) file located in your profile folder of Firefox with any text editor
-* Add there one of the following lines below to import your chosen userChrome.css of this theme but please do not forget to update the path and do not mix up the imported file with the none working scss/userChrome.scss of this repository
+* Add there **one** of the following lines below to import your chosen userChrome.css of this theme but please do not forget to update the path and do not mix up the imported file with the none working scss/userChrome.scss of this repository
 
 **Default light and dark theme with macOS colors**
 
 ```css
 @import '/path/to/firefox-safari-style/css/userChrome.css';
 ```
-**or use the following file to use the colors from chosen Firefox theme**
 
-```css
-@import '/path/to/firefox-safari-style/css/userChrome-theme.css';
-```
-
-**or to enable transparency / blur effect**
+**or(!) for macOS colors with enabled transparency / blur effect**
 
 ```css
 @import '/path/to/firefox-safari-style/css/userChrome-vibrancy.css';
+```
+
+**or(!) use the following file to use the colors from chosen Firefox theme**
+
+```css
+@import '/path/to/firefox-safari-style/css/userChrome-theme.css';
 ```
 
 * Restart Firefox that changes can take effect
 
 ## Updating
 
-A Firefox release may change its styles and break this theme. To update please just run `git pull` in the cloned repository to or just re-download it.
+A Firefox release may change its styles and break this theme. To update please just run `git pull` in the cloned repository or just re-download it.
 
 ## Extras
 
-Some code snippets to add extra functionallity. Just add any code below to the end of your userChrome.css.
+Some code snippets to add extra functionality. Just add any code below to the end of your userChrome.css.
 
 ### Hide solo tab
 
@@ -90,7 +91,7 @@ If still nothing changes in Firefox make sure that the userChrome.css in your pr
 
 Please add the same line to the imported userChrome.css of this theme but use another color like _blue_ instead of _red_.
 
-Restart Firefox and check the color. If still nothing changes the userChrome.css in your profile is not loaded. Please verify the first boths steps of the install section above. If you see _red_ and not _blue_ the import of the theme failed e.g. by wrong path.
+Restart Firefox and check the color. If still nothing changes the userChrome.css in your profile is not loaded. Please verify the first both steps of the install section above. If you see _red_ and not _blue_ the import of the theme failed e.g. by wrong path.
 
 In case of _blue_, please check the list of [known issues](https://github.com/ideaweb/firefox-safari-style/issues) to see if it has been previously reported. Otherwise, please open a ticket [here](https://github.com/ideaweb/firefox-safari-style/issues). 
 

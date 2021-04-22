@@ -1,8 +1,11 @@
 /***************+**/
-/* VERSION 0.2.19 */
+/* VERSION 0.2.22 */
 /******************/
 
-/* Icons: resource://gre/chrome/toolkit/skin/classic/global/icons/ */
+/* 
+    Icons: resource:///chrome/browser/skin/classic/browser/
+           resource://gre/chrome/toolkit/skin/classic/global/icons/ 
+*/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
@@ -366,6 +369,8 @@ $firefox-safari-style-vibrancy: false;
             }
             color: transparent;
         }
+
+        --urlbar-separator-color: transparent;
         
         #nav-bar {
             order: 1;
@@ -559,12 +564,13 @@ $firefox-safari-style-vibrancy: false;
                             display: flex;
                             align-items: center;
                         }
+                        .identity-box-button,
                         .identity-box-button:hover:active, .identity-box-button[open="true"], 
                         #tracking-protection-icon-container:hover:active, 
                         #tracking-protection-icon-container[open="true"],
                         .identity-box-button:hover:not([open="true"]), 
                         #tracking-protection-icon-container:hover:not([open="true"]) {
-                            background-color: transparent im !important;
+                            background-color: transparent !important;
                         }
                         #pageActionSeparator {
                             visibility: visible !important;
@@ -627,6 +633,9 @@ $firefox-safari-style-vibrancy: false;
                                 margin-top: 0 !important;
                                 margin-bottom: 0 !important;
                             }
+                            .star-button-box {
+                                max-width: 20px;
+                            }
                         }
                         &[breakout] {
                             &, * {
@@ -655,6 +664,9 @@ $firefox-safari-style-vibrancy: false;
                                     }
                                 }
                             }
+                        }
+                        #urlbar-input-container {
+                            padding-left: 0 !important;
                         }
                         .urlbarView {
                             position: absolute !important;
@@ -735,7 +747,7 @@ $firefox-safari-style-vibrancy: false;
                             }
                         }
                         .urlbar-icon {
-                            width: 20px !important;
+                            max-width: 20px !important;
                             height: 20px !important;
                             padding: 3px !important;
                         }
@@ -821,6 +833,7 @@ $firefox-safari-style-vibrancy: false;
                 #pageActionButton {
                     list-style-image: none !important;
                     background: url("chrome://global/skin/icons/more.svg") 50% 50% / 12px 12px no-repeat;
+                    visibility: initial !important;
                 }
                 #pocket-button {
                     list-style-image: none !important;
@@ -832,7 +845,7 @@ $firefox-safari-style-vibrancy: false;
                 #star-button {
                     list-style-image: none !important;
                     background: url("chrome://browser/skin/bookmark-hollow.svg") 50% 50% / 12px 12px no-repeat;
-                    margin-right: 6px;
+                    /*margin-right: 6px;*/
                     margin-top: -2px !important;
                     &[starred="true"] {
                         background: var(--firefox-safari-style-attention-color) !important;
@@ -857,6 +870,10 @@ $firefox-safari-style-vibrancy: false;
                     &:not([hidden="true"]) + #pageActionSeparator {
                         margin-left: 0 !important;
                     }
+                }
+                #pageActionSeparator {
+                    display: block !important;
+                    height: 26px !important
                 }
                 #contextual-feature-recommendation {
                     display: none !important;
@@ -1070,6 +1087,9 @@ $firefox-safari-style-vibrancy: false;
                 #wrapper-alltabs-button {
                     opacity: 1 !important;
                 }
+                #tabs-newtab-button, #new-tab-button {
+                    --toolbarbutton-inner-padding: 6px;
+                }
                 #tabs-newtab-button, #new-tab-button, #alltabs-button {
                     height: calc(var(--firefox-safari-style-tab-height) - 1px);
                     opacity: 1 !important;
@@ -1118,6 +1138,8 @@ $firefox-safari-style-vibrancy: false;
                             opacity: 1 !important;
                             display: block !important;
                             background: url(chrome://global/skin/icons/spinner-arrow-down.svg) 50% 50% / 9px 9px no-repeat !important;
+                            width: 9px;
+                            height: 9px;
                         }
                         &[open="true"] stack, &[open="true"]:hover stack {
                             background-image: url(chrome://global/skin/icons/spinner-arrow-up.svg) !important;
@@ -1260,6 +1282,7 @@ $firefox-safari-style-vibrancy: false;
                                 flex: 1 1;
                                 margin-top: 0 !important;
                                 color: var(--firefox-safari-style-tab-color) !important;
+                                line-height: 17px;
                             }
                         }
                         &[selected="true"] {
@@ -1286,6 +1309,28 @@ $firefox-safari-style-vibrancy: false;
                         .tab-icon-sound[muted]:not(:hover), 
                         .tab-icon-sound[activemedia-blocked]:not(:hover) {
                             opacity: 1 !important;
+                        }
+                        .tab-label-container.proton {
+                            display: flex;
+                            mask-image: none !important;
+                            .tab-text {
+                                max-width: calc(100% - 10px);
+                                mask-image: linear-gradient(to left, transparent, black var(--tab-label-mask-size));
+                            }
+                            .tab-secondary-label {
+                                min-width: 20px;
+                                > .tab-icon-sound-label {
+                                    position: absolute;
+                                    right: 2px;
+                                    max-width: 20px;
+                                    height: 18px !important;
+                                    color: transparent;
+                                    background: url(chrome://browser/skin/tabbrowser/tab-audio-playing.svg) 100% 50% / 14px 14px no-repeat;
+                                    &.tab-icon-sound-muted-label {
+                                        background-image: url(chrome://browser/skin/tabbrowser/tab-audio-muted.svg);
+                                    }
+                                }
+                            }
                         }
                         .tab-icon-image:not([pinned]) ~ .tab-icon-sound:not([soundplaying]):not([muted]):not([activemedia-blocked]):not([pictureinpicture]), 
                         .tab-icon-image:not([pinned]) ~ .tab-icon-sound/*,
@@ -1346,6 +1391,11 @@ $firefox-safari-style-vibrancy: false;
                         display: block !important;
                         opacity: 0.8 !important;
                     }
+                    @if $firefox-safari-style-show-favicons-in-tabs == true {
+                        &:not(:hover) .tab-content .tab-icon-image {
+                            opacity: 1 !important;
+                        }
+                    }
                 }
                 .tab-content {
                     overflow: hidden !important;
@@ -1384,6 +1434,9 @@ $firefox-safari-style-vibrancy: false;
     #identity-icon[tooltiptext*="NelliTab"] ~ #identity-icon-labels, 
     #identity-icon-label[value*="NelliTab"] { 
         display: none !important;
+    }
+    #identity-icon-label { 
+        padding-inline-start: 6px;
     }
     #customization-panelWrapper {
         transform: translateX(12px);
@@ -1435,6 +1488,9 @@ $firefox-safari-style-vibrancy: false;
     #scrollbutton-down {
         border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
         border-right: 1px solid transparent !important;
+        border-top: 0 !important;
+        border-bottom: 0 !important;
+        border-radius: 0 !important;
         margin-bottom: 0 !important;
         &:-moz-window-inactive {
             border-left-color: var(--firefox-safari-style-tab-border-left-color-inactive) !important;
@@ -1524,5 +1580,12 @@ $firefox-safari-style-vibrancy: false;
     }
     .tabbrowser-tab:not([pinned])[fadein] {
         max-width: none !important;
+    }
+}
+@media 
+(-moz-mac-yosemite-theme) and (-moz-proton),
+(-moz-mac-big-sur-theme) and (-moz-proton) {
+    #identity-box {
+        margin-inline-end: 0 !important;
     }
 }

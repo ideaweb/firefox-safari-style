@@ -2,6 +2,27 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.22 20/04/2021
+
+#### Bug Fixes:
+
+- More fixes for new Proton interface in Firefox Nightly.
+
+## v0.2.21 13/04/2021
+
+#### Bug Fixes:
+
+- Sound icon in tabs.
+- Background color in address bar.
+- Restored page action button.
+
+## v0.2.20 08/04/2021
+
+#### Bug Fixes:
+
+- Line height in tabs.
+- New tab and scroll buttons.
+
 ## v0.2.19 24/03/2021
 
 #### Bug Fixes:
