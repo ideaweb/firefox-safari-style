@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.23 22/04/2021
+
+#### Bug Fixes:
+
+- Fixed tabs not closing properly and fixed borders with pinned tabs. Thx to Finn.
+
 ## v0.2.22 20/04/2021
 
 #### Bug Fixes:

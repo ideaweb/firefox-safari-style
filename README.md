@@ -95,6 +95,10 @@ Restart Firefox and check the color. If still nothing changes the userChrome.css
 
 In case of _blue_, please check the list of [known issues](https://github.com/ideaweb/firefox-safari-style/issues) to see if it has been previously reported. Otherwise, please open a ticket [here](https://github.com/ideaweb/firefox-safari-style/issues). 
 
+## Development
+
+If you want to contribute or to make your own changes please edit userChrome.scss file only. Then just run `make` in root folder of this repository to get more details how to create final CSS files.
+
 ---
 
 Mozilla and Firefox are trademarks of the Mozilla Foundation in the U.S. and other countries. 
