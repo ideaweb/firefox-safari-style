@@ -566,6 +566,9 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #urlbar-input-container {
     padding-left: 0 !important;
   }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #urlbar-input-container moz-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #urlbar-input-container moz-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #urlbar-input-container moz-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #urlbar-input-container moz-input-box {
+    text-align: center;
+  }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView {
     position: absolute !important;
     left: -4px !important;
@@ -655,6 +658,9 @@
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar html|input#urlbar-input, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar html|input#urlbar-input, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar html|input#urlbar-input, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar html|input#urlbar-input {
     padding-left: 2px !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[open=true] #urlbar-input-container moz-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[open=true] #urlbar-input-container moz-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[open=true] #urlbar-input-container moz-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[open=true] #urlbar-input-container moz-input-box {
+    text-align: left !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[focused=true][usertyping=true] #identity-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[focused=true][usertyping=true] .urlbar-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[focused=true][usertyping=true] #identity-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[focused=true][usertyping=true] .urlbar-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[focused=true][usertyping=true] #identity-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[focused=true][usertyping=true] .urlbar-input-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[focused=true][usertyping=true] #identity-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[focused=true][usertyping=true] .urlbar-input-box {
     padding-top: 0px !important;
