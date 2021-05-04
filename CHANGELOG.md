@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.24 04/05/2021
+
+#### Bug Fixes:
+
+- Fixed toolbar icons.
+- Removed grayscale filter for icons.
+
 ## v0.2.23 22/04/2021
 
 #### Bug Fixes:

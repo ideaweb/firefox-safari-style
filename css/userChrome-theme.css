@@ -1,9 +1,9 @@
 /***************+**/
-/* VERSION 0.2.22 */
+/* VERSION 0.2.24 */
 /******************/
 /* 
-    Icons: resource:///chrome/browser/skin/classic/browser/
-           resource://gre/chrome/toolkit/skin/classic/global/icons/ 
+    Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
+           resource://gre/chrome/toolkit/skin/classic/global/icons/ => chrome://global/skin/icons/arrow-left.svg
 */
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -664,6 +664,20 @@
     height: 20px !important;
     padding: 3px !important;
   }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon[style*="moz-extension://"] {
+    padding: 0 !important;
+    max-height: 16px !important;
+    max-width: 16px !important;
+    margin-inline-start: 3px;
+    margin-inline-end: 3px;
+  }
+}
+@media only screen and (-moz-mac-yosemite-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 1.3dppx), only screen and (-moz-mac-big-sur-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 1.3dppx) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon[style*="moz-extension://"] {
+    transform: translateY(-0.5px);
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box image {
     max-height: 13px !important;
     max-width: 13px !important;
@@ -882,9 +896,6 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #nav-bar #PanelUI-menu-button {
-    --firefox-safari-style-menu-icon-size: 16px;
-  }
   #navigator-toolbox #nav-bar #PanelUI-menu-button .toolbarbutton-badge-stack {
     padding: 0 !important;
   }
@@ -896,12 +907,12 @@
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #nav-bar #PanelUI-menu-button .toolbarbutton-icon {
-    width: var(--firefox-safari-style-menu-icon-size) !important;
-    min-width: var(--firefox-safari-style-menu-icon-size) !important;
-    max-width: var(--firefox-safari-style-menu-icon-size) !important;
-    height: var(--firefox-safari-style-menu-icon-size) !important;
-    min-height: var(--firefox-safari-style-menu-icon-size) !important;
-    max-height: var(--firefox-safari-style-menu-icon-size) !important;
+    width: var(--firefox-safari-style-button-icon) !important;
+    min-width: var(--firefox-safari-style-button-icon) !important;
+    max-width: var(--firefox-safari-style-button-icon) !important;
+    height: var(--firefox-safari-style-button-icon) !important;
+    min-height: var(--firefox-safari-style-button-icon) !important;
+    max-height: var(--firefox-safari-style-button-icon) !important;
     /*list-style-image: url("chrome://global/skin/icons/more.svg");*/
   }
 }
@@ -933,11 +944,6 @@
   #navigator-toolbox #nav-bar #fxa-toolbar-menu-button .toolbarbutton-badge-stack {
     padding-top: 4px !important;
     padding-bottom: 4px !important;
-  }
-}
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #nav-bar toolbarpaletteitem.webextension-browser-action .toolbarbutton-icon, #navigator-toolbox #nav-bar toolbarbutton.webextension-browser-action .toolbarbutton-icon {
-    filter: grayscale(100%);
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1544,11 +1550,81 @@ spacer[part=overflow-end-indicator] {
   }
 }
 @media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  #nav-bar {
+    padding-right: 8px !important;
+  }
+
   #identity-box {
     margin-inline-end: 0 !important;
   }
 
   #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
     margin-inline-start: 0 !important;
+  }
+
+  #downloads-button .toolbarbutton-badge-stack {
+    transform: none !important;
+  }
+  #downloads-button .toolbarbutton-badge-stack #downloads-indicator-progress-outer {
+    transform: none !important;
+  }
+
+  #nav-bar-overflow-button image, #nav-bar-overflow-button image .toolbarbutton-icon, #nav-bar-overflow-button:hover image, #nav-bar-overflow-button:hover image .toolbarbutton-icon {
+    padding: 6px 0 !important;
+  }
+}
+@media only screen and (-moz-mac-yosemite-theme) and (-moz-proton) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (-moz-proton) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (-moz-proton) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (-moz-proton) and (min-resolution: 1.3dppx), only screen and (-moz-mac-big-sur-theme) and (-moz-proton) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (-moz-proton) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (-moz-proton) and (min-resolution: 120dpi), only screen and (-moz-mac-big-sur-theme) and (-moz-proton) and (min-resolution: 1.3dppx) {
+  #nav-bar-overflow-button image, #nav-bar-overflow-button image .toolbarbutton-icon, #nav-bar-overflow-button:hover image, #nav-bar-overflow-button:hover image .toolbarbutton-icon {
+    padding: 5.5px 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image {
+    min-height: var(--firefox-safari-style-button-icon) !important;
+    min-width: var(--firefox-safari-style-button-icon) !important;
+    --firefox-safari-style-button-icon: 17px;
+  }
+}
+@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  #onepassword4_agilebits_com-browser-action {
+    --webextension-menupanel-image: url("chrome://browser/skin/login.svg") !important;
+    --webextension-menupanel-image-light: url("chrome://browser/skin/login.svg") !important;
+    --webextension-menupanel-image-dark: url("chrome://browser/skin/login.svg") !important;
+    --webextension-menupanel-image-2x: url("chrome://browser/skin/login.svg") !important;
+    --webextension-menupanel-image-2x-light: url("chrome://browser/skin/login.svg") !important;
+    --webextension-menupanel-image-2x-dark: url("chrome://browser/skin/login.svg") !important;
+    --webextension-toolbar-image: url("chrome://browser/skin/login.svg") !important;
+    --webextension-toolbar-image-light: url("chrome://browser/skin/login.svg") !important;
+    --webextension-toolbar-image-dark: url("chrome://browser/skin/login.svg") !important;
+    --webextension-toolbar-image-2x: url("chrome://browser/skin/login.svg") !important;
+    --webextension-toolbar-image-2x-light: url("chrome://browser/skin/login.svg") !important;
+    --webextension-toolbar-image-2x-dark: url("chrome://browser/skin/login.svg") !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  #navigator-toolbox #nav-bar #PanelUI-menu-button .toolbarbutton-badge-stack {
+    transform: none !important;
+  }
+  #navigator-toolbox #nav-bar #PanelUI-menu-button .toolbarbutton-badge-stack image {
+    list-style-image: url("chrome://global/skin/icons/settings.svg");
+  }
+}
+@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  .sharing-icon, #identity-icon, #tracking-protection-icon, .notification-anchor-icon, #blocked-permissions-container > .blocked-permission-icon {
+    margin-inline-start: 2px;
+  }
+  .sharing-icon:not(#identity-icon), #identity-icon:not(#identity-icon), #tracking-protection-icon:not(#identity-icon), .notification-anchor-icon:not(#identity-icon), #blocked-permissions-container > .blocked-permission-icon:not(#identity-icon) {
+    margin-inline-end: 2px;
+  }
+}
+@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  #identity-box {
+    --urlbar-icon-padding: 2px;
+    padding-right: 4px;
+  }
+}
+@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  #identity-box[pageproxystate=valid].extensionPage > .identity-box-button {
+    padding-inline: 2px !important;
   }
 }

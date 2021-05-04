@@ -1,10 +1,10 @@
 /***************+**/
-/* VERSION 0.2.22 */
+/* VERSION 0.2.24 */
 /******************/
 
 /* 
-    Icons: resource:///chrome/browser/skin/classic/browser/
-           resource://gre/chrome/toolkit/skin/classic/global/icons/ 
+    Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
+           resource://gre/chrome/toolkit/skin/classic/global/icons/ => chrome://global/skin/icons/arrow-left.svg
 */
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -13,7 +13,7 @@
 
 $firefox-safari-style-show-favicons-in-tabs: true;
 $firefox-safari-style-grayscale-favicons-in-tabs: false;
-$firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
+$firefox-safari-style-grayscale-extension-buttons-in-toolbar: false;
 $firefox-safari-style-support-themes: false;
 $firefox-safari-style-vibrancy: false;
 
@@ -750,6 +750,20 @@ $firefox-safari-style-vibrancy: false;
                             max-width: 20px !important;
                             height: 20px !important;
                             padding: 3px !important;
+                            &.urlbar-addon-page-action, &[style*="moz-extension://"] {
+                                padding: 0 !important;
+                                max-height: 16px !important;
+                                max-width: 16px !important;
+                                margin-inline-start: 3px;
+                                margin-inline-end: 3px;
+                                @media
+                                only screen and (   min--moz-device-pixel-ratio: 1.01),
+                                only screen and (		min-device-pixel-ratio: 1.01),
+                                only screen and (				min-resolution: 120dpi),
+                                only screen and (				min-resolution: 1.3dppx) {
+                                    transform: translateY(-0.5px);
+                                }
+                            }
                         }
                         #identity-box image {
                             max-height: 13px !important;
@@ -914,7 +928,6 @@ $firefox-safari-style-vibrancy: false;
                 }
             }
             #PanelUI-menu-button {
-                --firefox-safari-style-menu-icon-size: 16px; 
                 .toolbarbutton-badge-stack {
                     padding: 0 !important;
                     @media
@@ -926,12 +939,12 @@ $firefox-safari-style-vibrancy: false;
                     }
                 }
                 .toolbarbutton-icon {
-                    width: var(--firefox-safari-style-menu-icon-size) !important;
-                    min-width: var(--firefox-safari-style-menu-icon-size) !important;
-                    max-width: var(--firefox-safari-style-menu-icon-size) !important;
-                    height: var(--firefox-safari-style-menu-icon-size) !important;
-                    min-height: var(--firefox-safari-style-menu-icon-size) !important;
-                    max-height: var(--firefox-safari-style-menu-icon-size) !important;
+                    width: var(--firefox-safari-style-button-icon) !important;
+                    min-width: var(--firefox-safari-style-button-icon) !important;
+                    max-width: var(--firefox-safari-style-button-icon) !important;
+                    height: var(--firefox-safari-style-button-icon) !important;
+                    min-height: var(--firefox-safari-style-button-icon) !important;
+                    max-height: var(--firefox-safari-style-button-icon) !important;
                     /*list-style-image: url("chrome://global/skin/icons/more.svg");*/
                 }
             }
@@ -1585,10 +1598,73 @@ $firefox-safari-style-vibrancy: false;
 @media 
 (-moz-mac-yosemite-theme) and (-moz-proton),
 (-moz-mac-big-sur-theme) and (-moz-proton) {
+    #nav-bar {
+        padding-right: 8px !important;
+    }
     #identity-box {
         margin-inline-end: 0 !important;
     }
     #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
         margin-inline-start: 0 !important;
+    }
+    #downloads-button {
+        .toolbarbutton-badge-stack {
+            transform: none !important;
+            #downloads-indicator-progress-outer {
+                transform: none !important;
+            }
+        }
+    }
+    #nav-bar-overflow-button, #nav-bar-overflow-button:hover {
+        image {
+            &, .toolbarbutton-icon {
+                padding: 6px 0 !important;
+                @media
+                only screen and (   min--moz-device-pixel-ratio: 1.01),
+                only screen and (		min-device-pixel-ratio: 1.01),
+                only screen and (				min-resolution: 120dpi),
+                only screen and (				min-resolution: 1.3dppx) {
+                    padding: 5.5px 0 !important;
+                }
+            }
+        }
+    }
+    #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image {
+        min-height: var(--firefox-safari-style-button-icon) !important;
+        min-width: var(--firefox-safari-style-button-icon) !important;
+        --firefox-safari-style-button-icon: 17px;
+    }
+    #onepassword4_agilebits_com-browser-action {
+        --webextension-menupanel-image: url("chrome://browser/skin/login.svg") !important;
+        --webextension-menupanel-image-light: url("chrome://browser/skin/login.svg") !important;
+        --webextension-menupanel-image-dark: url("chrome://browser/skin/login.svg") !important;
+        --webextension-menupanel-image-2x: url("chrome://browser/skin/login.svg") !important;
+        --webextension-menupanel-image-2x-light: url("chrome://browser/skin/login.svg") !important;
+        --webextension-menupanel-image-2x-dark: url("chrome://browser/skin/login.svg") !important;
+        --webextension-toolbar-image: url("chrome://browser/skin/login.svg") !important;
+        --webextension-toolbar-image-light: url("chrome://browser/skin/login.svg") !important;
+        --webextension-toolbar-image-dark: url("chrome://browser/skin/login.svg") !important;
+        --webextension-toolbar-image-2x: url("chrome://browser/skin/login.svg") !important;
+        --webextension-toolbar-image-2x-light: url("chrome://browser/skin/login.svg") !important;
+        --webextension-toolbar-image-2x-dark: url("chrome://browser/skin/login.svg") !important;
+    }
+    #navigator-toolbox #nav-bar #PanelUI-menu-button .toolbarbutton-badge-stack {
+        transform: none !important;
+        image {
+            list-style-image: url("chrome://global/skin/icons/settings.svg");
+        }
+    }
+    .sharing-icon, #identity-icon, #tracking-protection-icon, .notification-anchor-icon, #blocked-permissions-container > .blocked-permission-icon {
+        margin-inline-start: 2px;
+        &:not(#identity-icon) {
+            margin-inline-end: 2px;
+        }
+    }
+    #identity-box {
+        --urlbar-icon-padding: 2px;
+        padding-right: 4px;
+    }
+    #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button {
+        padding-inline: 2px !important;
     }
 }
