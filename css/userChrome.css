@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.28 */
+/* VERSION 0.1.29 */
 /******************/
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 @namespace html url("http://www.w3.org/1999/xhtml");
@@ -393,8 +393,8 @@
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:focus-within, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:not(.megabar)[focused=true],
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar.megabar[focused=true] > #urlbar-background,
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:focus-within {
-    border-color: var(--firefox-safari-style-outline-color);
-    box-shadow: 0 0 0 1px var(--firefox-safari-style-outline-color) inset !important;
+    border-color: transparent !important;
+    box-shadow: 0 0 0 2px var(--firefox-safari-style-outline-color) inset !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):not(:-moz-window-inactive),
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):not(:-moz-window-inactive) #urlbar-background,
@@ -461,6 +461,13 @@
     background: none !important;
     background-color: transparent !important;
   }
+}
+@media only screen and (min--moz-device-pixel-ratio: 1.01), only screen and (min-device-pixel-ratio: 1.01), only screen and (min-resolution: 120dpi), only screen and (min-resolution: 1.3dppx) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout] #urlbar-background {
+    border-width: 0.5px !important;
+  }
+}
+@media all {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend] {
     top: 0 !important;
     left: 0 !important;
@@ -494,7 +501,7 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbarView, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbarView {
     position: absolute !important;
     left: -2px !important;
-    top: calc(var(--firefox-safari-style-tab-height) - 1px) !important;
+    top: calc(var(--firefox-safari-style-tab-height) - 1px);
     margin-inline: 2px !important;
     width: calc(100% - 0px) !important;
     border-top: 0 !important;
@@ -565,8 +572,25 @@
 @media all {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon {
     width: 20px !important;
-    height: 20px !important;
     padding: 3px !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon[style*="moz-extension://"] {
+    padding: 0 !important;
+    max-height: 16px !important;
+    max-width: 16px !important;
+    margin-inline-start: 3px;
+    margin-inline-end: 3px;
+  }
+}
+@media only screen and (min--moz-device-pixel-ratio: 1.01), only screen and (min-device-pixel-ratio: 1.01), only screen and (min-resolution: 120dpi), only screen and (min-resolution: 1.3dppx) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-icon[style*="moz-extension://"], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon.urlbar-addon-page-action, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-icon[style*="moz-extension://"] {
+    transform: translateY(-0.5px);
+  }
+}
+@media all {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .page-action-buttons, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #page-action-buttons {
+    display: flex;
+    align-items: center;
   }
 }
 @media all {
@@ -709,10 +733,15 @@
   }
 }
 @media all {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #star-button-box {
+    padding-right: 3px;
+  }
+}
+@media all {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #star-button {
     list-style-image: none !important;
     background: url("chrome://browser/skin/bookmark-hollow.svg") 50% 50%/12px 12px no-repeat;
-    margin-right: 6px;
+    margin-right: 0;
     margin-top: -2px !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #star-button[starred=true] {
@@ -739,6 +768,11 @@
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button:not([hidden=true]) + #pageActionSeparator, #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons:not([hidden=true]) + #pageActionSeparator, #navigator-toolbox #nav-bar #nav-bar-customization-target #contextual-feature-recommendation:not([hidden=true]) + #pageActionSeparator {
     margin-left: 0 !important;
+  }
+}
+@media all {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-zoom-button, #navigator-toolbox #nav-bar #nav-bar-customization-target #userContext-icons, #navigator-toolbox #nav-bar #nav-bar-customization-target #contextual-feature-recommendation {
+    margin-block: 0 !important;
   }
 }
 @media all {
@@ -1048,6 +1082,9 @@
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:-moz-lwtheme-brighttext {
     opacity: 1 !important;
   }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-stack {
+    padding-top: 4px;
+  }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
     filter: grayscale(100%);
   }
@@ -1086,6 +1123,11 @@
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
     min-width: 16px;
   }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container {
+    position: absolute;
+    left: 25px;
+    right: 25px;
+  }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button {
     display: none;
     margin-top: -0.5px !important;
@@ -1094,6 +1136,7 @@
     width: 14px !important;
     min-width: 14px !important;
     height: 14px !important;
+    margin-right: 5px !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-sharing-icon-overlay,
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-overlay {
@@ -1224,6 +1267,9 @@
     display: none !important;
     fill: var(--firefox-safari-style-button-color) !important;
   }
+  #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button {
+    --toolbarbutton-inner-padding: 6px;
+  }
   #navigator-toolbox #titlebar #TabsToolbar .titlebar-spacer {
     display: none;
   }
@@ -1352,5 +1398,146 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
     display: none !important;
   }
 }
+@media (-moz-proton) {
+  #nav-bar {
+    padding-right: 8px !important;
+  }
 
-/*# sourceMappingURL=userChrome.css.map */
+  #identity-box {
+    margin-inline-end: 0 !important;
+  }
+  #identity-box .identity-box-button {
+    background-color: transparent !important;
+  }
+
+  #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+    margin-inline-start: 0 !important;
+  }
+
+  #downloads-button .toolbarbutton-badge-stack {
+    transform: none !important;
+  }
+  #downloads-button .toolbarbutton-badge-stack #downloads-indicator-progress-outer {
+    transform: none !important;
+  }
+
+  #nav-bar-overflow-button image, #nav-bar-overflow-button image .toolbarbutton-icon, #nav-bar-overflow-button:hover image, #nav-bar-overflow-button:hover image .toolbarbutton-icon {
+    padding: 6px 0 !important;
+  }
+}
+@media only screen and (-moz-proton) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-proton) and (min-device-pixel-ratio: 1.01), only screen and (-moz-proton) and (min-resolution: 120dpi), only screen and (-moz-proton) and (min-resolution: 1.3dppx) {
+  #nav-bar-overflow-button image, #nav-bar-overflow-button image .toolbarbutton-icon, #nav-bar-overflow-button:hover image, #nav-bar-overflow-button:hover image .toolbarbutton-icon {
+    padding: 5.5px 0 !important;
+  }
+}
+@media (-moz-proton) {
+  #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image {
+    min-height: var(--firefox-safari-style-button-icon) !important;
+    min-width: var(--firefox-safari-style-button-icon) !important;
+    --firefox-safari-style-button-icon: 13px;
+  }
+}
+@media (-moz-proton) {
+  #urlbar-input-container {
+    padding-left: 0 !important;
+  }
+}
+@media (-moz-proton) {
+  #urlbar:-moz-window-inactive:not(:-moz-lwtheme-brighttext) {
+    --firefox-safari-style-button-background-active: transparent !important;
+  }
+  #urlbar:-moz-window-inactive #urlbar-background {
+    background-color: var(--firefox-safari-style-button-background-inactive) !important;
+    border-color: var(--firefox-safari-style-button-border-color-inactive) !important;
+    border-top-color: var(--firefox-safari-style-button-border-color-inactive) !important;
+    border-bottom-color: var(--firefox-safari-style-button-border-color-inactive) !important;
+  }
+  #urlbar .star-button-box {
+    max-width: 20px;
+  }
+  #urlbar #star-button-box {
+    padding-right: 0px !important;
+  }
+  #urlbar #page-action-buttons {
+    justify-content: flex-end;
+  }
+  #urlbar #star-button {
+    margin-right: 2px !important;
+  }
+}
+@media only screen and (-moz-proton) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-proton) and (min-device-pixel-ratio: 1.01), only screen and (-moz-proton) and (min-resolution: 120dpi), only screen and (-moz-proton) and (min-resolution: 1.3dppx) {
+  #urlbar #star-button {
+    transform: translateY(0.5px) !important;
+  }
+}
+@media (-moz-proton) {
+  #urlbar[breakout][breakout-extend] {
+    width: 100% !important;
+  }
+  #urlbar[breakout][breakout-extend][open] #star-button {
+    margin-right: 3px !important;
+  }
+}
+@media (-moz-proton) {
+  #urlbar:is([focused="true"], [open]):-moz-lwtheme > #urlbar-background, #urlbar #searchbar:focus-within:-moz-lwtheme {
+    opacity: 0 !important;
+  }
+}
+@media (-moz-proton) {
+  .urlbarView {
+    top: calc(var(--firefox-safari-style-tab-height) - 3px) !important;
+  }
+}
+@media (-moz-proton) {
+  .urlbar-background:-moz-window-inactive {
+    border: 1px solid var(--firefox-safari-style-button-border-color) !important;
+    border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
+    border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
+    background-color: transparent !important;
+  }
+}
+@media (-moz-proton) {
+  #navigator-toolbox #nav-bar #PanelUI-menu-button .toolbarbutton-badge-stack {
+    transform: none !important;
+  }
+}
+@media (-moz-proton) {
+  .sharing-icon, #identity-icon, #tracking-protection-icon, .notification-anchor-icon, #blocked-permissions-container > .blocked-permission-icon {
+    margin-inline-start: 2px;
+  }
+  .sharing-icon:not(#identity-icon), #identity-icon:not(#identity-icon), #tracking-protection-icon:not(#identity-icon), .notification-anchor-icon:not(#identity-icon), #blocked-permissions-container > .blocked-permission-icon:not(#identity-icon) {
+    margin-inline-end: 2px;
+  }
+}
+@media (-moz-proton) {
+  #tracking-protection-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+@media (-moz-proton) {
+  :where(#reload-button, #stop-button) > .toolbarbutton-icon, :where(#reload-button, #stop-button) > .toolbarbutton-animatable-box {
+    translate: none !important;
+  }
+}
+@media (-moz-proton) {
+  #identity-box {
+    --urlbar-icon-padding: 2px;
+    padding-right: 4px;
+  }
+}
+@media (-moz-proton) {
+  #identity-box[pageproxystate=valid].extensionPage > .identity-box-button {
+    padding-inline: 2px !important;
+  }
+}
+@media (-moz-proton) {
+  #PersonalToolbar #PlacesChevron {
+    transform: translateX(5px) translateY(-2px) !important;
+  }
+}
+@media (-moz-proton) {
+  .tab-content .tab-icon-stack {
+    padding-top: 6px;
+  }
+}

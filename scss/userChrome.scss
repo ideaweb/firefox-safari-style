@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.28 */
+/* VERSION 0.1.29 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -440,8 +440,8 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     #urlbar:not(.megabar)[focused="true"], 
                     #urlbar.megabar[focused="true"] > #urlbar-background, 
                     #searchbar:focus-within {
-                        border-color: var(--firefox-safari-style-outline-color);
-                        box-shadow: 0 0 0 1px var(--firefox-safari-style-outline-color) inset !important;
+                        border-color: transparent !important;
+                        box-shadow: 0 0 0 2px var(--firefox-safari-style-outline-color) inset !important;
                     }
                     #urlbar:not([focused="true"]):not(:-moz-window-inactive), 
                     #urlbar:not([focused="true"]):not(:-moz-window-inactive) #urlbar-background,
@@ -499,6 +499,13 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             #urlbar-background {
                                 background: none !important;
                                 background-color: transparent !important;
+                                @media
+                                only screen and (   min--moz-device-pixel-ratio: 1.01),
+                                only screen and (		min-device-pixel-ratio: 1.01),
+                                only screen and (				min-resolution: 120dpi),
+                                only screen and (				min-resolution: 1.3dppx) {
+                                    border-width: 0.5px !important;
+                                }
                             }
                             &[breakout-extend] {
                                 top: 0 !important;
@@ -532,7 +539,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         .urlbarView {
                             position: absolute !important;
                             left: -2px !important;  
-                            top: calc(var(--firefox-safari-style-tab-height) - 1px) !important;
+                            top: calc(var(--firefox-safari-style-tab-height) - 1px);
                             margin-inline: 2px !important;
                             width: calc(100% - 0px) !important;
                             border-top: 0 !important;
@@ -598,8 +605,25 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         }
                         .urlbar-icon {
                             width: 20px !important;
-                            height: 20px !important;
                             padding: 3px !important;
+                            &.urlbar-addon-page-action, &[style*="moz-extension://"] {
+                                padding: 0 !important;
+                                max-height: 16px !important;
+                                max-width: 16px !important;
+                                margin-inline-start: 3px;
+                                margin-inline-end: 3px;
+                                @media
+                                only screen and (   min--moz-device-pixel-ratio: 1.01),
+                                only screen and (		min-device-pixel-ratio: 1.01),
+                                only screen and (				min-resolution: 120dpi),
+                                only screen and (				min-resolution: 1.3dppx) {
+                                    transform: translateY(-0.5px);
+                                }
+                            }
+                        }
+                        .page-action-buttons, #page-action-buttons {
+                            display: flex;
+                            align-items: center;
                         }
                         #identity-box {
                             display: flex;
@@ -695,10 +719,13 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                 #pocket-button-animatable-box {
                     display: none !important;
                 }
+                #star-button-box {
+                    padding-right: 3px;
+                }
                 #star-button {
                     list-style-image: none !important;
                     background: url("chrome://browser/skin/bookmark-hollow.svg") 50% 50% / 12px 12px no-repeat;
-                    margin-right: 6px;
+                    margin-right: 0;
                     margin-top: -2px !important;
                     &[starred="true"] {
                         background: var(--firefox-safari-style-attention-color) !important;
@@ -723,6 +750,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     &:not([hidden="true"]) + #pageActionSeparator {
                         margin-left: 0 !important;
                     }
+                }
+                #urlbar-zoom-button, #userContext-icons, #contextual-feature-recommendation {
+                    margin-block: 0 !important;
                 }
                 #contextual-feature-recommendation {
                     display: none !important;
@@ -1027,6 +1057,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         flex-direction: row;
                         position: relative;
                         min-height: calc(var(--firefox-safari-style-tab-height) - 1px) !important;
+                        .tab-icon-stack {
+                            padding-top: 4px;
+                        }
                         .tab-throbber {
                             filter: grayscale(100%);
                         }
@@ -1065,6 +1098,11 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                         .tab-icon-image {
                             min-width: 16px;
                         }
+                        .tab-label-container {
+                            position: absolute;
+                            left: 25px;
+                            right: 25px;
+                        }
                         .tab-close-button {
                             display: none;
                             margin-top: -0.5px !important;
@@ -1073,6 +1111,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             width: 14px !important;
                             min-width: 14px !important;
                             height: 14px !important;
+                            margin-right: 5px !important;
                         }
                         .tab-sharing-icon-overlay,
                         .tab-icon-overlay {
@@ -1227,6 +1266,9 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                     display: none !important;
                     fill: var(--firefox-safari-style-button-color) !important;
                 }
+                #tabs-newtab-button, #new-tab-button {
+                    --toolbarbutton-inner-padding: 6px;
+                }
                 .titlebar-spacer {
                     display: none;
                 }
@@ -1326,5 +1368,137 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     }
     #personal-bookmarks .bookmark-item .toolbarbutton-icon {
         display: none !important;
+    }
+}
+
+@media (-moz-proton) {
+    #nav-bar {
+        padding-right: 8px !important;
+    }
+    #identity-box {
+        margin-inline-end: 0 !important;
+        .identity-box-button {
+            background-color: transparent !important;
+        }
+    }
+    #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+        margin-inline-start: 0 !important;
+    }
+    #downloads-button {
+        .toolbarbutton-badge-stack {
+            transform: none !important;
+            #downloads-indicator-progress-outer {
+                transform: none !important;
+            }
+        }
+    }
+    #nav-bar-overflow-button, #nav-bar-overflow-button:hover {
+        image {
+            &, .toolbarbutton-icon {
+                padding: 6px 0 !important;
+                @media
+                only screen and (   min--moz-device-pixel-ratio: 1.01),
+                only screen and (		min-device-pixel-ratio: 1.01),
+                only screen and (				min-resolution: 120dpi),
+                only screen and (				min-resolution: 1.3dppx) {
+                    padding: 5.5px 0 !important;
+                }
+            }
+        }
+    }
+    #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image {
+        min-height: var(--firefox-safari-style-button-icon) !important;
+        min-width: var(--firefox-safari-style-button-icon) !important;
+        --firefox-safari-style-button-icon: 13px;
+    }
+    #urlbar-input-container {
+        padding-left: 0 !important;
+    }
+    #urlbar {
+        &:-moz-window-inactive {
+            &:not(:-moz-lwtheme-brighttext) {
+                --firefox-safari-style-button-background-active: transparent !important;
+            }
+            #urlbar-background {
+                background-color: var(--firefox-safari-style-button-background-inactive) !important;
+                border-color: var(--firefox-safari-style-button-border-color-inactive) !important;
+                border-top-color: var(--firefox-safari-style-button-border-color-inactive) !important;
+                border-bottom-color: var(--firefox-safari-style-button-border-color-inactive) !important;
+            }
+        }
+        .star-button-box {
+            max-width: 20px;
+        }
+        #star-button-box {
+            padding-right: 0px !important;
+        }
+        #page-action-buttons {
+            justify-content: flex-end;
+        }
+        #star-button {
+            margin-right: 2px !important;
+            @media
+            only screen and (   min--moz-device-pixel-ratio: 1.01),
+            only screen and (		min-device-pixel-ratio: 1.01),
+            only screen and (				min-resolution: 120dpi),
+            only screen and (				min-resolution: 1.3dppx) {
+                transform: translateY(0.5px) !important;
+            }
+        }
+        &[breakout] {
+            &[breakout-extend] {
+                width: 100% !important;
+                &[open] {
+                    #star-button {
+                        margin-right: 3px !important;
+                    }
+                }
+            }
+        }
+        &:is([focused="true"], [open]):-moz-lwtheme > #urlbar-background, #searchbar:focus-within:-moz-lwtheme {
+            opacity: 0 !important;
+        }
+    }
+    .urlbarView {
+        top: calc(var(--firefox-safari-style-tab-height) - 3px) !important;
+    }
+    .urlbar-background:-moz-window-inactive {
+        border: 1px solid var(--firefox-safari-style-button-border-color) !important;
+        border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
+        border-bottom-color: var(--firefox-safari-style-button-border-color-bottom) !important;
+        background-color: transparent !important;
+    }
+    #navigator-toolbox #nav-bar #PanelUI-menu-button .toolbarbutton-badge-stack {
+        transform: none !important;
+    }
+    .sharing-icon, #identity-icon, #tracking-protection-icon, .notification-anchor-icon, #blocked-permissions-container > .blocked-permission-icon {
+        margin-inline-start: 2px;
+        &:not(#identity-icon) {
+            margin-inline-end: 2px;
+        }
+    }
+    #tracking-protection-icon {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    :where(#reload-button, #stop-button) > .toolbarbutton-icon, :where(#reload-button, #stop-button) > .toolbarbutton-animatable-box {
+        translate: none !important;
+    }
+    #identity-box {
+        --urlbar-icon-padding: 2px;
+        padding-right: 4px;
+    }
+    #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button {
+        padding-inline: 2px !important;
+    }
+    #PersonalToolbar {
+        #PlacesChevron {
+            transform: translateX(5px) translateY(-2px) !important;
+        }
+    }
+    .tab-content {
+        .tab-icon-stack {
+            padding-top: 6px;
+        }
     }
 }

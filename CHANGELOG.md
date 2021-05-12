@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.1.29 12/05/2021
+
+#### Bug Fixes:
+
+- Fixed some issues with new Proton interface in recent nightly.
+
 ## v0.1.28 05/03/2021
 
 #### Bug Fixes:
