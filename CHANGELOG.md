@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.25 12/05/2021
+
+#### Bug Fixes:
+
+- Fixed chevron in toolbar.
+
 ## v0.2.24 04/05/2021
 
 #### Bug Fixes:

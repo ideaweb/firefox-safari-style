@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.24 */
+/* VERSION 0.2.25 */
 /******************/
 
 /* 
@@ -1666,5 +1666,10 @@ $firefox-safari-style-vibrancy: false;
     }
     #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button {
         padding-inline: 2px !important;
+    }
+    #PersonalToolbar {
+        #PlacesChevron {
+            transform: translateX(5px) translateY(-1px) !important;
+        }
     }
 }

@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.24 */
+/* VERSION 0.2.25 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1606,5 +1606,10 @@ spacer[part=overflow-end-indicator] {
 @media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
   #identity-box[pageproxystate=valid].extensionPage > .identity-box-button {
     padding-inline: 2px !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  #PersonalToolbar #PlacesChevron {
+    transform: translateX(5px) translateY(-1px) !important;
   }
 }
