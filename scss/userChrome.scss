@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.25 */
+/* VERSION 0.2.26 */
 /******************/
 
 /* 
@@ -1670,6 +1670,17 @@ $firefox-safari-style-vibrancy: false;
     #PersonalToolbar {
         #PlacesChevron {
             transform: translateX(5px) translateY(-1px) !important;
+        }
+    }
+    #navigator-toolbox {
+        > div {
+            position: absolute;
+            bottom: 3px;
+            right: 3px;
+            .notificationbox-stack {
+                background: transparent !important;
+                filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+            }
         }
     }
 }
