@@ -667,6 +667,9 @@ $firefox-safari-style-vibrancy: false;
                         }
                         #urlbar-input-container {
                             padding-left: 0 !important;
+                            moz-input-box {
+                                text-align: center;
+                            }
                         }
                         .urlbarView {
                             position: absolute !important;
@@ -740,6 +743,11 @@ $firefox-safari-style-vibrancy: false;
                         }
                         html|input#urlbar-input {
                             padding-left: 2px !important;
+                        }
+                        &[open="true"] {
+                            #urlbar-input-container moz-input-box {
+                                text-align: left !important;
+                            }
                         }
                         &[focused="true"][usertyping="true"] {
                             #identity-box, .urlbar-input-box {
