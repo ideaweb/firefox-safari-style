@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.26 */
+/* VERSION 0.2.27 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1258,27 +1258,32 @@
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[activemedia-blocked]:not(:hover) {
     opacity: 1 !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container {
     display: flex;
     mask-image: none !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton .tab-text {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-text {
     max-width: calc(100% - 10px);
     mask-image: linear-gradient(to left, transparent, black var(--tab-label-mask-size));
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton .tab-secondary-label {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label {
     min-width: 20px;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton .tab-secondary-label > .tab-icon-sound-label {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label {
     position: absolute;
-    right: 2px;
+    right: 4px;
     max-width: 20px;
-    height: 18px !important;
+    height: 23px !important;
     color: transparent;
-    background: url(chrome://browser/skin/tabbrowser/tab-audio-playing.svg) 100% 50%/14px 14px no-repeat;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container.proton .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label {
-    background-image: url(chrome://browser/skin/tabbrowser/tab-audio-muted.svg);
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label {
+    background: url(chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg) 100% 50%/12px 12px no-repeat;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label {
+    background: url(chrome://browser/skin/tabbrowser/tab-audio-muted-small.svg) 100% 50%/12px 12px no-repeat;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label {
+    background: url(chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg) 100% 50%/12px 12px no-repeat;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound:not([soundplaying]):not([muted]):not([activemedia-blocked]):not([pictureinpicture]),
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound {
@@ -1640,12 +1645,12 @@ spacer[part=overflow-end-indicator] {
   }
 }
 @media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
-  #navigator-toolbox > div {
+  #navigator-toolbox > div, #navigator-toolbox > #tab-notification-deck {
     position: absolute;
     bottom: 3px;
     right: 3px;
   }
-  #navigator-toolbox > div .notificationbox-stack {
+  #navigator-toolbox > div .notificationbox-stack, #navigator-toolbox > #tab-notification-deck .notificationbox-stack {
     background: transparent !important;
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
   }

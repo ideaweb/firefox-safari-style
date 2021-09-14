@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.26 */
+/* VERSION 0.2.27 */
 /******************/
 
 /* 
@@ -1323,7 +1323,7 @@ $firefox-safari-style-vibrancy: false;
                         .tab-icon-sound[activemedia-blocked]:not(:hover) {
                             opacity: 1 !important;
                         }
-                        .tab-label-container.proton {
+                        .tab-label-container {
                             display: flex;
                             mask-image: none !important;
                             .tab-text {
@@ -1334,13 +1334,18 @@ $firefox-safari-style-vibrancy: false;
                                 min-width: 20px;
                                 > .tab-icon-sound-label {
                                     position: absolute;
-                                    right: 2px;
+                                    right: 4px;
                                     max-width: 20px;
-                                    height: 18px !important;
+                                    height: 23px !important;
                                     color: transparent;
-                                    background: url(chrome://browser/skin/tabbrowser/tab-audio-playing.svg) 100% 50% / 14px 14px no-repeat;
+                                    &.tab-icon-sound-playing-label {
+                                        background: url(chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg) 100% 50% / 12px 12px no-repeat;
+                                    }
                                     &.tab-icon-sound-muted-label {
-                                        background-image: url(chrome://browser/skin/tabbrowser/tab-audio-muted.svg);
+                                        background: url(chrome://browser/skin/tabbrowser/tab-audio-muted-small.svg) 100% 50% / 12px 12px no-repeat;
+                                    }
+                                    &.tab-icon-sound-blocked-label {
+                                        background: url(chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg) 100% 50% / 12px 12px no-repeat;
                                     }
                                 }
                             }
@@ -1673,7 +1678,7 @@ $firefox-safari-style-vibrancy: false;
         }
     }
     #navigator-toolbox {
-        > div {
+        > div, > #tab-notification-deck {
             position: absolute;
             bottom: 3px;
             right: 3px;

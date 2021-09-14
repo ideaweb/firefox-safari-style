@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.27 14/09/2021
+
+#### Bug Fixes:
+
+- Sound icon for tabs restored.
+
 ## v0.2.26 31/05/2021
 
 #### Bug Fixes:
