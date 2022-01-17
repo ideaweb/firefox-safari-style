@@ -2,6 +2,11 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.28 17/01/2022
+
+#### Bug Fixes:
+
+- Crash notification.
 ## v0.2.27 14/09/2021
 
 #### Bug Fixes:

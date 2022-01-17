@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.27 */
+/* VERSION 0.2.28 */
 /******************/
 
 /* 
@@ -1598,6 +1598,21 @@ $firefox-safari-style-vibrancy: false;
     }
     .tabbrowser-tab:not([pinned])[fadein] {
         max-width: none !important;
+    }
+    #nav-bar ~ div {
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        > .notificationbox-stack {
+            position: absolute !important;
+            bottom: 3px;
+            right: 3px;
+            z-index: 1000 !important;
+            filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+            width: auto !important;
+            background: transparent !important;
+            display: block !important;
+        }
     }
 }
 @media 
