@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.29 29/04/2022
+
+#### Bug Fixes:
+
+- Favicon for new tabs.
+
 ## v0.2.28 17/01/2022
 
 #### Bug Fixes:

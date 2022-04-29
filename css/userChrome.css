@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.28 */
+/* VERSION 0.2.29 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1163,6 +1163,9 @@
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image,
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button {
     order: 1;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
+    background-image: none !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image,
