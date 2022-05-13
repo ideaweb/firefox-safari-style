@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.29 */
+/* VERSION 0.2.30 */
 /******************/
 
 /* 
@@ -133,7 +133,9 @@ $firefox-safari-style-vibrancy: false;
 /* DARK THEME */
 /**************/
 
-:root:-moz-lwtheme-brighttext {
+@media (prefers-color-scheme: dark) {
+
+    :root {
 
     /* Default Background color */
     --firefox-safari-style-background-color-active: #383839;
@@ -201,40 +203,46 @@ $firefox-safari-style-vibrancy: false;
 
 @if $firefox-safari-style-support-themes == true {
 
-    :root, :root:-moz-lwtheme-brighttext {
+    :root {
 
-        /* Default Background color */
-        --firefox-safari-style-background-color-active: var(--toolbar-bgcolor);
-        /* Background color for inactive windows */
-        --firefox-safari-style-background-color-inactive: var(--firefox-safari-style-background-color-active);
+            /* Default Background color */
+            --firefox-safari-style-background-color-active: var(--toolbar-bgcolor);
+            /* Background color for inactive windows */
+            --firefox-safari-style-background-color-inactive: var(--firefox-safari-style-background-color-active);
 
-        /* Default background color */
-        @if $firefox-safari-style-vibrancy != false {
-            --firefox-safari-style-tab-background-color-inactive: rgba(0,0,0,0.25);
+            /* Default background color */
+            @if $firefox-safari-style-vibrancy != false {
+                --firefox-safari-style-tab-background-color-inactive: rgba(0,0,0,0.25);
+            }
+            @else {
+                --firefox-safari-style-tab-background-color-inactive: var(--lwt-accent-color);
+            }
+            /* Background active tab */
+            --firefox-safari-style-tab-background-color-active: var(--firefox-safari-style-background-color-active);
+            /* Colors e.g. for tabs or bookmarks */
+            --firefox-safari-style-tab-color: var(--lwt-tab-text, var(--toolbar-color));
+            --firefox-safari-style-tab-hover-color: var(--firefox-safari-style-tab-color);
+            --firefox-safari-style-tab-hover-background: var(--firefox-safari-style-input-background-active);
+
+            /* Input background */
+            --firefox-safari-style-input-background-active: var(--lwt-toolbar-field-background-color, hsla(0,0%,100%,.8));
+            --firefox-safari-style-input-background-inactive: var(--firefox-safari-style-input-background-active);
+
+            /* Button background */
+            --firefox-safari-style-button-background-hover: var(--firefox-safari-style-input-background-active);
+            
+            /* Font and icon color of buttons and urlbar */
+            --firefox-safari-style-button-color: var(--lwt-toolbar-field-color, black);
         }
-        @else {
-            --firefox-safari-style-tab-background-color-inactive: var(--lwt-accent-color);
-        }
-        /* Background active tab */
-        --firefox-safari-style-tab-background-color-active: var(--firefox-safari-style-background-color-active);
-        /* Colors e.g. for tabs or bookmarks */
-        --firefox-safari-style-tab-color: var(--lwt-tab-text, var(--toolbar-color));
-        --firefox-safari-style-tab-hover-color: var(--firefox-safari-style-tab-color);
-        --firefox-safari-style-tab-hover-background: var(--firefox-safari-style-input-background-active);
-
-        /* Input background */
-        --firefox-safari-style-input-background-active: var(--lwt-toolbar-field-background-color, hsla(0,0%,100%,.8));
-        --firefox-safari-style-input-background-inactive: var(--firefox-safari-style-input-background-active);
-    
-        /* Button background */
-        --firefox-safari-style-button-background-hover: var(--firefox-safari-style-input-background-active);
-        
-        /* Font and icon color of buttons and urlbar */
-        --firefox-safari-style-button-color: var(--lwt-toolbar-field-color, black);
     }
 }
 
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+    @media (prefers-color-scheme: dark) {
+        [part="content"] {
+            box-shadow: none !important;
+        }
+    }
     :root {
         background-image: none !important;
     }
@@ -280,10 +288,12 @@ $firefox-safari-style-vibrancy: false;
         }
         @if $firefox-safari-style-vibrancy != false {
             html|body {
-                &:not(:-moz-lwtheme-brighttext) {
+                appearance: auto;
+                -moz-default-appearance: -moz-mac-source-list;
+                @media (prefers-color-scheme: light) {
                     -moz-appearance: -moz-mac-vibrancy-light !important;
                 }
-                &:-moz-lwtheme-brighttext {
+                @media (prefers-color-scheme: dark) {
                     -moz-appearance: -moz-mac-vibrancy-dark !important;
                 }
             }
@@ -308,12 +318,12 @@ $firefox-safari-style-vibrancy: false;
                 }
             } @else {
                 box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-active), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-active);
-                &:-moz-lwtheme-brighttext {
+                @media (prefers-color-scheme: dark) {
                     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-active);
                 }
                 &:-moz-window-inactive {
                     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-color-inactive), inset 0 2px 2px -1px var(--firefox-safari-style-tab-border-color-inactive) !important;
-                    &:-moz-lwtheme-brighttext {
+                    @media (prefers-color-scheme: dark) {
                         box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
                     }
                 }
@@ -457,7 +467,7 @@ $firefox-safari-style-vibrancy: false;
                         border-top-color: var(--firefox-safari-style-button-border-color-inactive) !important;
                         border-bottom-color: var(--firefox-safari-style-button-border-color-inactive) !important;
 
-                        &:-moz-lwtheme-brighttext {
+                        @media (prefers-color-scheme: dark) {
                             background-color: var(--firefox-safari-style-button-background-active) !important;
                             border-color: var(--firefox-safari-style-button-border-color) !important;
                             border-top-color: var(--firefox-safari-style-button-border-color-top) !important;
@@ -611,8 +621,10 @@ $firefox-safari-style-vibrancy: false;
                             box-shadow: 0 0 0 2px var(--firefox-safari-style-outline-color) !important;
                         }
                         @if $firefox-safari-style-vibrancy == all {
-                            &:not([focused="true"]) #urlbar-input-container:not(:-moz-window-inactive):not(:-moz-lwtheme-brighttext) {
-                                border-color: var(--firefox-safari-style-tab-border-bottom-color-active) !important;
+                            @media (prefers-color-scheme: light) {
+                                &:not([focused="true"]) #urlbar-input-container:not(:-moz-window-inactive) {
+                                    border-color: var(--firefox-safari-style-tab-border-bottom-color-active) !important;
+                                }
                             }
                         }
                         /*@media
@@ -790,6 +802,12 @@ $firefox-safari-style-vibrancy: false;
                             fill: var(--firefox-safari-style-button-color) !important;
                             fill-opacity: 1 !important;
                         }
+                        @media (prefers-color-scheme: dark) {
+                            #pageActionButton {
+                                filter: invert(1);
+                                opacity: 0.8;
+                            }
+                        }
                         #main-window[privatebrowsingmode] & image {
                             fill: white !important;
                             fill-opacity: 1 !important;
@@ -814,7 +832,7 @@ $firefox-safari-style-vibrancy: false;
                     }
                     &:-moz-window-inactive {
                         opacity: 0.5 !important; 
-                        &:-moz-lwtheme-brighttext {
+                        @media (prefers-color-scheme: dark) {
                             opacity: 0.35 !important; 
                         }
                     }
@@ -1016,7 +1034,7 @@ $firefox-safari-style-vibrancy: false;
                 &, &:hover {
                     background-color: transparent !important;
                 }
-                &:-moz-lwtheme-brighttext {
+                @media (prefers-color-scheme: dark) {
                     opacity: 0.5 !important; 
                 }
             }
@@ -1121,12 +1139,12 @@ $firefox-safari-style-vibrancy: false;
                     image,
                     &#alltabs-button > stack {
                         opacity: 0.5 !important;
-                        &:-moz-lwtheme-brighttext {
+                        @media (prefers-color-scheme: dark) {
                             opacity: 1 !important;
                         }
                         &:-moz-window-inactive {
                             opacity: 0.5 !important; 
-                            &:-moz-lwtheme-brighttext {
+                            @media (prefers-color-scheme: dark) {
                                 opacity: 0.35 !important; 
                             }
                         }
@@ -1215,7 +1233,7 @@ $firefox-safari-style-vibrancy: false;
                     }
                     .tab-label-container:-moz-window-inactive {
                         opacity: 0.55 !important;
-                        &:-moz-lwtheme-brighttext {
+                        @media (prefers-color-scheme: dark) {
                             opacity: 1 !important;
                         }
                     }
@@ -1224,7 +1242,7 @@ $firefox-safari-style-vibrancy: false;
                         &:-moz-window-inactive {
                             opacity: 0.55 !important;
                         }
-                        &:-moz-lwtheme-brighttext {
+                        @media (prefers-color-scheme: dark) {
                             opacity: 1 !important;
                         }
                         display: flex;
@@ -1301,16 +1319,18 @@ $firefox-safari-style-vibrancy: false;
                                 line-height: 17px;
                             }
                         }
-                        &[selected="true"] {
-                            .tab-label-container {
-                                .tab-label:-moz-lwtheme-brighttext {
-                                    color: white !important;
+                        @media (prefers-color-scheme: dark) {
+                            &[selected="true"] {
+                                .tab-label-container {
+                                    .tab-label {
+                                        color: white !important;
+                                    }
                                 }
                             }
-                        }
-                        &:-moz-window-inactive:-moz-lwtheme-brighttext {
-                            .tab-label {
-                                opacity: 0.7;
+                            &:-moz-window-inactive {
+                                .tab-label {
+                                    opacity: 0.7;
+                                }
                             }
                         }
                         .tab-icon-sound {
@@ -1500,7 +1520,7 @@ $firefox-safari-style-vibrancy: false;
         &:-moz-window-inactive {
             opacity: 0.6 !important;
         }
-        &:-moz-lwtheme-brighttext {
+        @media (prefers-color-scheme: dark) {
             opacity: 1 !important;
             color: var(--firefox-safari-style-tab-color) !important;
         }

@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.30 13/05/2022
+
+#### Bug Fixes:
+
+- Fixed dark mode in FF 100.
+- Fixed vibrancy theme files.
+
 ## v0.2.29 29/04/2022
 
 #### Bug Fixes:
