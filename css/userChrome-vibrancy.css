@@ -258,8 +258,6 @@
     width: 100%;
     min-width: 100%;
     max-width: 100%;
-    background-color: transparent !important;
-    background-image: none !important;
     border-bottom: 1px solid var(--firefox-safari-style-tab-border-bottom-color-active) !important;
     --urlbar-separator-color: transparent;
   }
