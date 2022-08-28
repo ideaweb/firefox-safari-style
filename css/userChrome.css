@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.30 */
+/* VERSION 0.2.31 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1129,12 +1129,14 @@
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button#alltabs-button > stack, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button#alltabs-button > stack, #navigator-toolbox #titlebar #TabsToolbar #alltabs-button#alltabs-button > stack {
     opacity: 1 !important;
     display: block !important;
-    background: url(chrome://global/skin/icons/spinner-arrow-down.svg) 50% 50%/9px 9px no-repeat !important;
+    background-color: transparent !important;
+    background: url(chrome://global/skin/icons/arrow-down.svg) 50% 50%/9px 9px no-repeat !important;
+    opacity: 0.5 !important;
     width: 9px;
     height: 9px;
   }
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button#alltabs-button[open=true] stack, #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button#alltabs-button[open=true]:hover stack, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button#alltabs-button[open=true] stack, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button#alltabs-button[open=true]:hover stack, #navigator-toolbox #titlebar #TabsToolbar #alltabs-button#alltabs-button[open=true] stack, #navigator-toolbox #titlebar #TabsToolbar #alltabs-button#alltabs-button[open=true]:hover stack {
-    background-image: url(chrome://global/skin/icons/spinner-arrow-up.svg) !important;
+    background-image: url(chrome://global/skin/icons/arrow-up.svg) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1453,6 +1455,7 @@
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #new-tab-button {
     list-style-image: url(chrome://global/skin/icons/add.svg) !important;
+    list-style-image: url(chrome://browser/skin/new-tab.svg) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {

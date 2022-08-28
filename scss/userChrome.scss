@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.30 */
+/* VERSION 0.2.31 */
 /******************/
 
 /* 
@@ -1168,12 +1168,14 @@ $firefox-safari-style-vibrancy: false;
                         > stack {
                             opacity: 1 !important;
                             display: block !important;
-                            background: url(chrome://global/skin/icons/spinner-arrow-down.svg) 50% 50% / 9px 9px no-repeat !important;
+                            background-color: transparent !important;
+                            background: url(chrome://global/skin/icons/arrow-down.svg) 50% 50% / 9px 9px no-repeat !important;
+                            opacity: 0.5 !important;
                             width: 9px;
                             height: 9px;
                         }
                         &[open="true"] stack, &[open="true"]:hover stack {
-                            background-image: url(chrome://global/skin/icons/spinner-arrow-up.svg) !important;
+                            background-image: url(chrome://global/skin/icons/arrow-up.svg) !important;
                         }
                     }
                 }
@@ -1458,6 +1460,7 @@ $firefox-safari-style-vibrancy: false;
     }
     #new-tab-button {
         list-style-image: url(chrome://global/skin/icons/add.svg) !important;
+        list-style-image: url(chrome://browser/skin/new-tab.svg) !important;
         @if $firefox-safari-style-vibrancy != false {
             box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-active);
             &:-moz-window-inactive {

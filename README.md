@@ -55,6 +55,7 @@ Some code snippets to add extra functionality. Just add any code below to the en
 Hides tab bar if there is only one tab open. Unfortunately currently its not possible to move the new tab button up and that's why it should be hidden as well.
 
 ```css
+#alltabs-button,
 #tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"]:not([pinned]),
 #tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"]:not([pinned]) ~ toolbarbutton,
 #tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"]:not([pinned]) ~ #tabbrowser-arrowscrollbox-periphery {
