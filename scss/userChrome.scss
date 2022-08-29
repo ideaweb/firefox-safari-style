@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.31 */
+/* VERSION 0.2.32 */
 /******************/
 
 /* 
@@ -648,6 +648,9 @@ $firefox-safari-style-vibrancy: false;
                             .star-button-box {
                                 max-width: 20px;
                             }
+                        }
+                        #urlbar-background {
+                            outline: none !important;
                         }
                         &[breakout] {
                             &, * {
@@ -1467,6 +1470,9 @@ $firefox-safari-style-vibrancy: false;
                 box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-vibrance) !important;
             }
         }
+    }
+    #private-browsing-indicator-with-label {
+        display: none;
     }
     #urlbar, #searchbar {
         border-width: 0 !important;

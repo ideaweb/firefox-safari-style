@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.31 */
+/* VERSION 0.2.32 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -545,6 +545,9 @@
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #page-action-buttons .star-button-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #page-action-buttons .star-button-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #page-action-buttons .star-button-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #page-action-buttons .star-button-box {
     max-width: 20px;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #urlbar-background {
+    outline: none !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout] *, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout] *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout] *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout] * {
     transition: none !important;
@@ -1456,6 +1459,11 @@
   #new-tab-button {
     list-style-image: url(chrome://global/skin/icons/add.svg) !important;
     list-style-image: url(chrome://browser/skin/new-tab.svg) !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #private-browsing-indicator-with-label {
+    display: none;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {

@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.32 29/08/2022
+
+#### Bug Fixes:
+
+- Fixed indicator for private browsing in FF 106.
+
 ## v0.2.31 28/08/2022
 
 #### Bug Fixes:
