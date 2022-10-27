@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.32 */
+/* VERSION 0.2.33 */
 /******************/
 
 /* 
@@ -1271,6 +1271,12 @@ $firefox-safari-style-vibrancy: false;
                         .tab-icon-sound {
                             fill: var(--firefox-safari-style-button-color) !important;
                         }
+                        @media (prefers-color-scheme: dark) {
+                            .tab-throbber {
+                                filter: invert(100%);
+                                opacity: 0.7 !important;
+                            }
+                        }
                         .tab-throbber:not([pinned]),
                         .tab-icon-image:not([pinned]),
                         .tab-icon-image:not([pinned]) ~ .tab-close-button {
@@ -1416,7 +1422,8 @@ $firefox-safari-style-vibrancy: false;
                         .tab-throbber,
                         .tab-icon-image {
                             position: relative;
-                            left: -1px;
+                            left: 0;
+                            transform: translateX(-2px);
                         }
                         & + .tabbrowser-tab[pinned] {
                             width: 39px;
@@ -1734,5 +1741,8 @@ $firefox-safari-style-vibrancy: false;
                 filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
             }
         }
+    }
+    #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+        margin-inline-start: 0 !important;
     }
 }

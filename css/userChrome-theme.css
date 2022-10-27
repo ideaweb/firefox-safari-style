@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.32 */
+/* VERSION 0.2.33 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1271,6 +1271,12 @@
     fill: var(--firefox-safari-style-button-color) !important;
   }
 }
+@media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
+    filter: invert(100%);
+    opacity: 0.7 !important;
+  }
+}
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber:not([pinned]),
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]),
@@ -1424,7 +1430,8 @@
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] .tab-throbber,
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] .tab-icon-image {
     position: relative;
-    left: -1px;
+    left: 0;
+    transform: translateX(-2px);
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] + .tabbrowser-tab[pinned] {
     width: 39px;
@@ -1795,5 +1802,10 @@ spacer[part=overflow-end-indicator] {
   #navigator-toolbox > div .notificationbox-stack, #navigator-toolbox > #tab-notification-deck .notificationbox-stack {
     background: transparent !important;
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
+  }
+}
+@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+  #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+    margin-inline-start: 0 !important;
   }
 }

@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.33 27/10/2022
+
+#### Bug Fixes:
+
+- Fixed pinned tabs.
+- Fixed throbber icon in dark mode.
+
 ## v0.2.32 29/08/2022
 
 #### Bug Fixes:
