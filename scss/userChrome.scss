@@ -1,5 +1,5 @@
 /****************+*/
-/* VERSION 0.1.29 */
+/* VERSION 0.1.30 */
 /******************/
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -258,9 +258,14 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
             #main-window[inFullscreen="true"] & {
                 padding-left: 6px !important;
             }
-            &, > hbox, > box, > toolbaritem {
+            &, > hbox, > box {
                 min-height: var(--firefox-safari-style-bar-height) !important;
                 max-height: var(--firefox-safari-style-bar-height) !important;
+            }
+            > toolbaritem, #nav-bar-customization-target toolbaritem {
+                --urlbar-container-height: 24px;
+                min-height: var(--urlbar-container-height) !important;
+                max-height: var(--urlbar-container-height) !important;
             }
             > toolbarpaletteitem, #nav-bar-customization-target toolbarpaletteitem {
                 &[removable="false"] {
@@ -1127,6 +1132,7 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
                             .tab-label {
                                 flex: 1 1;
                                 margin-top: 0 !important;
+                                line-height: 29px !important;
                                 color: var(--firefox-safari-style-tab-color) !important;
                             }
                         }
@@ -1369,9 +1375,6 @@ $firefox-safari-style-grayscale-extension-buttons-in-toolbar: true;
     #personal-bookmarks .bookmark-item .toolbarbutton-icon {
         display: none !important;
     }
-}
-
-@media (-moz-proton) {
     #nav-bar {
         padding-right: 8px !important;
     }
