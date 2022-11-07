@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.33 */
+/* VERSION 0.2.34 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -281,9 +281,14 @@
   #main-window[inFullscreen=true] #navigator-toolbox #nav-bar {
     padding-left: 6px !important;
   }
-  #navigator-toolbox #nav-bar, #navigator-toolbox #nav-bar > hbox, #navigator-toolbox #nav-bar > box, #navigator-toolbox #nav-bar > toolbaritem {
+  #navigator-toolbox #nav-bar, #navigator-toolbox #nav-bar > hbox, #navigator-toolbox #nav-bar > box {
     min-height: var(--firefox-safari-style-bar-height) !important;
     max-height: var(--firefox-safari-style-bar-height) !important;
+  }
+  #navigator-toolbox #nav-bar > toolbaritem, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbaritem {
+    --urlbar-container-height: 28px;
+    min-height: var(--urlbar-container-height) !important;
+    max-height: var(--urlbar-container-height) !important;
   }
   #navigator-toolbox #nav-bar > toolbarpaletteitem[removable=false], #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarpaletteitem[removable=false] {
     opacity: 0.7 !important;
@@ -1744,43 +1749,42 @@ spacer[part=overflow-end-indicator] {
     display: block !important;
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #nav-bar {
     padding-right: 8px !important;
   }
-
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #identity-box {
     margin-inline-end: 0 !important;
   }
-
-  #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
-    margin-inline-start: 0 !important;
-  }
-
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #downloads-button .toolbarbutton-badge-stack {
     transform: none !important;
   }
   #downloads-button .toolbarbutton-badge-stack #downloads-indicator-progress-outer {
     transform: none !important;
   }
-
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #nav-bar-overflow-button image, #nav-bar-overflow-button image .toolbarbutton-icon, #nav-bar-overflow-button:hover image, #nav-bar-overflow-button:hover image .toolbarbutton-icon {
     padding: 6px 0 !important;
   }
 }
-@media only screen and (-moz-mac-yosemite-theme) and (-moz-proton) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (-moz-proton) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (-moz-proton) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (-moz-proton) and (min-resolution: 1.3dppx), only screen and (-moz-mac-big-sur-theme) and (-moz-proton) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (-moz-proton) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (-moz-proton) and (min-resolution: 120dpi), only screen and (-moz-mac-big-sur-theme) and (-moz-proton) and (min-resolution: 1.3dppx) {
+@media only screen and (-moz-mac-yosemite-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 1.3dppx), only screen and (-moz-mac-big-sur-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 1.3dppx) {
   #nav-bar-overflow-button image, #nav-bar-overflow-button image .toolbarbutton-icon, #nav-bar-overflow-button:hover image, #nav-bar-overflow-button:hover image .toolbarbutton-icon {
     padding: 5.5px 0 !important;
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image {
     min-height: var(--firefox-safari-style-button-icon) !important;
     min-width: var(--firefox-safari-style-button-icon) !important;
     --firefox-safari-style-button-icon: 17px;
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #onepassword4_agilebits_com-browser-action {
     --webextension-menupanel-image: url("chrome://browser/skin/login.svg") !important;
     --webextension-menupanel-image-light: url("chrome://browser/skin/login.svg") !important;
@@ -1796,7 +1800,7 @@ spacer[part=overflow-end-indicator] {
     --webextension-toolbar-image-2x-dark: url("chrome://browser/skin/login.svg") !important;
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #nav-bar #PanelUI-menu-button .toolbarbutton-badge-stack {
     transform: none !important;
   }
@@ -1804,7 +1808,7 @@ spacer[part=overflow-end-indicator] {
     list-style-image: url("chrome://global/skin/icons/settings.svg");
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   .sharing-icon, #identity-icon, #tracking-protection-icon, .notification-anchor-icon, #blocked-permissions-container > .blocked-permission-icon {
     margin-inline-start: 2px;
   }
@@ -1812,23 +1816,23 @@ spacer[part=overflow-end-indicator] {
     margin-inline-end: 2px;
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #identity-box {
     --urlbar-icon-padding: 2px;
     padding-right: 4px;
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #identity-box[pageproxystate=valid].extensionPage > .identity-box-button {
     padding-inline: 2px !important;
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #PersonalToolbar #PlacesChevron {
     transform: translateX(5px) translateY(-1px) !important;
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox > div, #navigator-toolbox > #tab-notification-deck {
     position: absolute;
     bottom: 3px;
@@ -1839,7 +1843,7 @@ spacer[part=overflow-end-indicator] {
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
   }
 }
-@media (-moz-mac-yosemite-theme) and (-moz-proton), (-moz-mac-big-sur-theme) and (-moz-proton) {
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
     margin-inline-start: 0 !important;
   }

@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.33 */
+/* VERSION 0.2.34 */
 /******************/
 
 /* 
@@ -392,9 +392,14 @@ $firefox-safari-style-vibrancy: false;
             #main-window[inFullscreen="true"] & {
                 padding-left: 6px !important;
             }
-            &, > hbox, > box, > toolbaritem {
+            &, > hbox, > box {
                 min-height: var(--firefox-safari-style-bar-height) !important;
                 max-height: var(--firefox-safari-style-bar-height) !important;
+            }
+            > toolbaritem, #nav-bar-customization-target toolbaritem {
+                --urlbar-container-height: 28px;
+                min-height: var(--urlbar-container-height) !important;
+                max-height: var(--urlbar-container-height) !important;
             }
             > toolbarpaletteitem, #nav-bar-customization-target toolbarpaletteitem {
                 &[removable="false"] {
@@ -1653,18 +1658,11 @@ $firefox-safari-style-vibrancy: false;
             display: block !important;
         }
     }
-}
-@media 
-(-moz-mac-yosemite-theme) and (-moz-proton),
-(-moz-mac-big-sur-theme) and (-moz-proton) {
     #nav-bar {
         padding-right: 8px !important;
     }
     #identity-box {
         margin-inline-end: 0 !important;
-    }
-    #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
-        margin-inline-start: 0 !important;
     }
     #downloads-button {
         .toolbarbutton-badge-stack {

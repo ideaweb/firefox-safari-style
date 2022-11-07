@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.34 07/11/2022
+
+#### Bug Fixes:
+
+- Fixed pinned tabs (next try).
+- Fixed extension icons in toolbar.
+
 ## v0.2.33 27/10/2022
 
 #### Bug Fixes:
