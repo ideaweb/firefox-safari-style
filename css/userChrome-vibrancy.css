@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.34 */
+/* VERSION 0.2.35 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -253,6 +253,7 @@
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox {
+    position: initial !important;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -1738,7 +1739,9 @@ spacer[part=overflow-end-indicator] {
     height: 100vh;
     width: 100%;
   }
-  #nav-bar ~ div > .notificationbox-stack {
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #nav-bar ~ .notificationbox-stack, #nav-bar ~ div > .notificationbox-stack {
     position: absolute !important;
     bottom: 3px;
     right: 3px;
@@ -1830,17 +1833,6 @@ spacer[part=overflow-end-indicator] {
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #PersonalToolbar #PlacesChevron {
     transform: translateX(5px) translateY(-1px) !important;
-  }
-}
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox > div, #navigator-toolbox > #tab-notification-deck {
-    position: absolute;
-    bottom: 3px;
-    right: 3px;
-  }
-  #navigator-toolbox > div .notificationbox-stack, #navigator-toolbox > #tab-notification-deck .notificationbox-stack {
-    background: transparent !important;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {

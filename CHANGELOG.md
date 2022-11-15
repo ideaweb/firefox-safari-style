@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.35 14/11/2022
+
+#### Bug Fixes:
+
+- Fixed location of notification messages.
+
 ## v0.2.34 07/11/2022
 
 #### Bug Fixes:
@@ -184,7 +190,7 @@ This overview provides notable information about improvements, changes and fixes
 
 #### New Features:
 
-- Support for for themes provided by Firefox (userChrome-theme.css).
+- Support for themes provided by Firefox (userChrome-theme.css).
 
 #### Changes:
 

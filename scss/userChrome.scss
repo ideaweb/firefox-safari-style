@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.34 */
+/* VERSION 0.2.35 */
 /******************/
 
 /* 
@@ -358,6 +358,7 @@ $firefox-safari-style-vibrancy: false;
         }
     }
     #navigator-toolbox {
+        position: initial !important;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -1647,16 +1648,16 @@ $firefox-safari-style-vibrancy: false;
         position: absolute;
         height: 100vh;
         width: 100%;
-        > .notificationbox-stack {
-            position: absolute !important;
-            bottom: 3px;
-            right: 3px;
-            z-index: 1000 !important;
-            filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
-            width: auto !important;
-            background: transparent !important;
-            display: block !important;
-        }
+    }
+    #nav-bar ~ .notificationbox-stack, #nav-bar ~ div > .notificationbox-stack {
+        position: absolute !important;
+        bottom: 3px;
+        right: 3px;
+        z-index: 1000 !important;
+        filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+        width: auto !important;
+        background: transparent !important;
+        display: block !important;
     }
     #nav-bar {
         padding-right: 8px !important;
@@ -1727,17 +1728,6 @@ $firefox-safari-style-vibrancy: false;
     #PersonalToolbar {
         #PlacesChevron {
             transform: translateX(5px) translateY(-1px) !important;
-        }
-    }
-    #navigator-toolbox {
-        > div, > #tab-notification-deck {
-            position: absolute;
-            bottom: 3px;
-            right: 3px;
-            .notificationbox-stack {
-                background: transparent !important;
-                filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
-            }
         }
     }
     #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
