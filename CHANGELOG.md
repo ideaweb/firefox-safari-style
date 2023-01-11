@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.36 11/01/2023
+
+#### Bug Fixes:
+
+- Fixed Firefox view button as pinned tab.
+
 ## v0.2.35 14/11/2022
 
 #### Bug Fixes:

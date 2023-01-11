@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.35 */
+/* VERSION 0.2.36 */
 /******************/
 
 /* 
@@ -270,7 +270,7 @@ $firefox-safari-style-vibrancy: false;
         html|body {
             box-sizing: border-box;
         }
-        &, html|body, #nav-bar, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels {
+        &, html|body, #nav-bar, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels, #firefox-view-button:not([aria-pressed="false"]) {
             @if $firefox-safari-style-vibrancy != false {
                 background-color: transparent !important;
             }
@@ -333,6 +333,7 @@ $firefox-safari-style-vibrancy: false;
         .toolbar-items #new-tab-button, 
         .toolbar-items #tabs-newtab-button, 
         .toolbar-items #alltabs-button,
+        #firefox-view-button[aria-pressed="false"],
         #alltabs-button {
             background-color: transparent !important;
             @if $firefox-safari-style-support-themes != true {
@@ -375,7 +376,7 @@ $firefox-safari-style-vibrancy: false;
         border-bottom: 1px solid var(--firefox-safari-style-tab-border-bottom-color-active) !important;
         &:-moz-window-inactive {
             border-bottom-color: var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
-            toolbarbutton:not(#tabs-newtab-button), image {
+            toolbarbutton:not(#tabs-newtab-button):not(#firefox-view-button), image, .tab-icon-image {
                 filter: grayscale(100%);
             }
             color: transparent;
@@ -832,7 +833,7 @@ $firefox-safari-style-vibrancy: false;
                 #stop-button,
                 #home-button,
                 #nav-bar-overflow-button,
-                .toolbarbutton-1 {
+                .toolbarbutton-1:not(#firefox-view-button) {
                     &[disabled="true"] {
                         opacity: 1 !important;
                         image {
@@ -1131,7 +1132,7 @@ $firefox-safari-style-vibrancy: false;
                     --toolbarbutton-inner-padding: 6px;
                 }
                 #tabs-newtab-button, #new-tab-button, #alltabs-button {
-                    height: calc(var(--firefox-safari-style-tab-height) - 1px);
+                    height: var(--firefox-safari-style-tab-height);
                     opacity: 1 !important;
                     @if $firefox-safari-style-vibrancy != false {
                         &#alltabs-button {
@@ -1212,6 +1213,47 @@ $firefox-safari-style-vibrancy: false;
                     }
                     .tab-line {
                         display: none;
+                    }
+                    #firefox-view-button {
+                        max-height: var(--firefox-safari-style-tab-height) !important;
+                        padding: 0 10px;
+                        width: 39px;
+                        max-width: 39px;
+                        min-width: 39px;
+                        opacity: 1 !important;
+                        @if $firefox-safari-style-vibrancy != false {
+                            transform: translateX(1px);
+                        }
+                        border-right: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
+                        &:-moz-window-inactive {
+                            border-right: 1px solid var(--firefox-safari-style-tab-border-left-color-inactive) !important;
+                        }
+                        &[aria-pressed="false"] {
+                            @if $firefox-safari-style-vibrancy != false {
+                                box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-active);
+                                &:-moz-window-inactive {
+                                    box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-vibrance) !important;
+                                }
+                            }
+                        }
+                        image {
+                            margin-top: 1px !important;
+                            height: 16px !important;
+                            max-height: 16px !important;
+                            background: transparent !important;
+                            box-shadow: none !important;
+                            outline: none !important;
+                        }
+                        &:-moz-window-inactive {
+                            image {
+                                opacity: 0.5 !important;
+                            }
+                        }
+                        & + #tabbrowser-tabs {
+                            border-inline-start: 0 !important;
+                            padding-inline-start: 0 !important;
+                            margin-inline-start: 0 !important;
+                        }
                     }
                 }
                 .titlebar-spacer[type="pre-tabs"] {
@@ -1425,17 +1467,14 @@ $firefox-safari-style-vibrancy: false;
                         max-width: 38px;
                         min-width: 38px;
                         overflow: hidden !important;
-                        .tab-throbber,
-                        .tab-icon-image {
-                            position: relative;
-                            left: 0;
-                            transform: translateX(-2px);
+                        .tab-icon-image, .tab-throbber {
+                            transform: translate(-2px, 1px);
                         }
-                        & + .tabbrowser-tab[pinned] {
-                            width: 39px;
-                            max-width: 39px;
-                            min-width: 39px;
-                        }
+                    }
+                    .tabbrowser-tab[pinned] {
+                        width: 39px;
+                        max-width: 39px;
+                        min-width: 39px;
                     }
                     &:-moz-any([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected="true"]), 
                     > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
