@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.36 */
+/* VERSION 0.2.37 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1405,13 +1405,21 @@
     color: transparent;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label {
-    background: url(chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg) 100% 50%/12px 12px no-repeat;
+    background: url(chrome://global/skin/media/audio.svg) 100% 50%/12px 12px no-repeat;
+    opacity: 0.7 !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label {
-    background: url(chrome://browser/skin/tabbrowser/tab-audio-muted-small.svg) 100% 50%/12px 12px no-repeat;
+    background: url(chrome://global/skin/media/audio-muted.svg) 100% 50%/12px 12px no-repeat;
+    opacity: 0.7 !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label {
-    background: url(chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg) 100% 50%/12px 12px no-repeat;
+    background: url(chrome://global/skin/media/audioNoAudioButton.svg) 100% 50%/12px 12px no-repeat;
+    opacity: 0.7 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label {
+    filter: invert(100%);
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
