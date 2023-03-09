@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.37 */
+/* VERSION 0.2.38 */
 /******************/
 
 /* 
@@ -1192,6 +1192,7 @@ $firefox-safari-style-vibrancy: false;
                 .toolbar-items {
                     &, #tabbrowser-tabs, tab.tabbrowser-tab, tab.tabbrowser-tab::after, tab.tabbrowser-tab stack, tab.tabbrowser-tab .tab-content {
                         max-height: var(--firefox-safari-style-tab-height) !important;
+                        height: var(--firefox-safari-style-tab-height) !important;
                     }
                     tab.tabbrowser-tab stack {
                         border-top: 1px solid transparent;

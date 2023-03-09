@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.37 */
+/* VERSION 0.2.38 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1176,6 +1176,7 @@
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab::after, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab stack, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-content {
     max-height: var(--firefox-safari-style-tab-height) !important;
+    height: var(--firefox-safari-style-tab-height) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab stack {
     border-top: 1px solid transparent;
