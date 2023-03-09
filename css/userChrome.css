@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.38 */
+/* VERSION 0.2.39 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1154,15 +1154,18 @@
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items {
     overflow: hidden;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab::after, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab stack, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-content {
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab::after, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab stack, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-content, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-label-container, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-secondary-label {
     max-height: var(--firefox-safari-style-tab-height) !important;
     height: var(--firefox-safari-style-tab-height) !important;
   }
+  #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-label {
+    line-height: calc(var(--firefox-safari-style-tab-height) - 1px) !important;
+  }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab stack {
     border-top: 1px solid transparent;
-    height: var(--firefox-safari-style-tab-height) !important;
-    min-height: var(--firefox-safari-style-tab-height) !important;
-    max-height: var(--firefox-safari-style-tab-height) !important;
+    height: var(--firefox-safari-style-button-icon) !important;
+    min-height: var(--firefox-safari-style-button-icon) !important;
+    max-height: var(--firefox-safari-style-button-icon) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs[movingtab] {
     margin-top: 0 !important;
@@ -1215,11 +1218,10 @@
     border-left: 1px solid transparent !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab > .tab-stack {
-    padding-top: 5px;
     max-width: 100%;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab > .tab-stack .tab-icon-stack {
-    margin-top: -1px !important;
+    margin-top: -2px !important;
     margin-left: 1px !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-label-container[pinned] {
@@ -1251,6 +1253,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: row;
+    align-items: center;
     position: relative;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:-moz-window-inactive {
@@ -1278,6 +1281,13 @@
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
     background-image: none !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]), #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-broken {
+    content: url() !important;
+    background-image: url("chrome://global/skin/icons/defaultFavicon.svg") !important;
+    background-size: 16px 16px !important;
+    background-position: 50% 0% !important;
+    transform: translateY(-1px) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1329,7 +1339,6 @@
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button {
     display: none;
-    margin-top: 1px !important;
     fill: var(--firefox-safari-style-tab-color) !important;
     padding: 1px !important;
     width: 14px !important;
@@ -1337,6 +1346,7 @@
     height: 14px !important;
     margin-inline-end: 7px !important;
     margin-inline-start: -2px !important;
+    margin-top: -1px !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1396,13 +1406,16 @@
     mask-image: linear-gradient(to left, transparent, black var(--tab-label-mask-size));
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label {
+    margin: 0 !important;
     min-width: 20px;
+    position: absolute;
+    right: 0;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label {
     position: absolute;
     right: 4px;
     max-width: 20px;
-    height: 23px !important;
+    height: var(--firefox-safari-style-tab-height) !important;
     color: transparent;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label {

@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.38 */
+/* VERSION 0.2.39 */
 /******************/
 
 /* 
@@ -1190,15 +1190,18 @@ $firefox-safari-style-vibrancy: false;
                     }
                 }
                 .toolbar-items {
-                    &, #tabbrowser-tabs, tab.tabbrowser-tab, tab.tabbrowser-tab::after, tab.tabbrowser-tab stack, tab.tabbrowser-tab .tab-content {
+                    &, #tabbrowser-tabs, tab.tabbrowser-tab, tab.tabbrowser-tab::after, tab.tabbrowser-tab stack, tab.tabbrowser-tab .tab-content, tab.tabbrowser-tab .tab-label-container, tab.tabbrowser-tab .tab-secondary-label {
                         max-height: var(--firefox-safari-style-tab-height) !important;
                         height: var(--firefox-safari-style-tab-height) !important;
                     }
+                    tab.tabbrowser-tab .tab-label {
+                        line-height: calc(var(--firefox-safari-style-tab-height) - 1px) !important;
+                    }
                     tab.tabbrowser-tab stack {
                         border-top: 1px solid transparent;
-                        height: var(--firefox-safari-style-tab-height) !important;
-                        min-height: var(--firefox-safari-style-tab-height) !important;
-                        max-height: var(--firefox-safari-style-tab-height) !important;
+                        height: var(--firefox-safari-style-button-icon) !important;
+                        min-height: var(--firefox-safari-style-button-icon) !important;
+                        max-height: var(--firefox-safari-style-button-icon) !important;
                     }
                     #tabbrowser-tabs {
                         &, &[movingtab] {
@@ -1262,10 +1265,9 @@ $firefox-safari-style-vibrancy: false;
                 }
                 .tabbrowser-tab {
                     > .tab-stack {
-                        padding-top: 5px;
                         max-width: 100%;
                         .tab-icon-stack {
-                            margin-top: -1px !important;
+                            margin-top: -2px !important;
                             margin-left: 1px !important;
                         }
                     }
@@ -1301,6 +1303,7 @@ $firefox-safari-style-vibrancy: false;
                         }
                         display: flex;
                         flex-direction: row;
+                        align-items: center;
                         position: relative;
                         .tab-throbber {
                             -moz-context-properties: initial !important;
@@ -1313,6 +1316,13 @@ $firefox-safari-style-vibrancy: false;
                         }
                         .tab-icon-image {
                             background-image: none !important;
+                            &:not([src]), &:-moz-broken {
+                                content: url() !important;
+                                background-image: url("chrome://global/skin/icons/defaultFavicon.svg") !important;
+                                background-size: 16px 16px !important;
+                                background-position: 50% 0% !important;
+                                transform: translateY(-1px) !important;
+                            }
                         }
                         .tab-throbber,
                         .tab-icon-image,
@@ -1352,7 +1362,6 @@ $firefox-safari-style-vibrancy: false;
                         }
                         .tab-close-button {
                             display: none;
-                            margin-top: 1px !important;
                             fill: var(--firefox-safari-style-tab-color) !important;
                             padding: 1px !important;
                             width: 14px !important;
@@ -1360,6 +1369,7 @@ $firefox-safari-style-vibrancy: false;
                             height: 14px !important; 
                             margin-inline-end: 7px !important;
                             margin-inline-start: -2px !important;
+                            margin-top: -1px !important;
                         }
                         .tab-sharing-icon-overlay,
                         .tab-icon-overlay {
@@ -1414,12 +1424,15 @@ $firefox-safari-style-vibrancy: false;
                                 mask-image: linear-gradient(to left, transparent, black var(--tab-label-mask-size));
                             }
                             .tab-secondary-label {
+                                margin: 0 !important;
                                 min-width: 20px;
+                                position: absolute;
+                                right: 0;
                                 > .tab-icon-sound-label {
                                     position: absolute;
                                     right: 4px;
                                     max-width: 20px;
-                                    height: 23px !important;
+                                    height: var(--firefox-safari-style-tab-height) !important;
                                     color: transparent;
                                     &.tab-icon-sound-playing-label {
                                         background: url(chrome://global/skin/media/audio.svg) 100% 50% / 12px 12px no-repeat;
