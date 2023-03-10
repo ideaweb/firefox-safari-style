@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.40 10/03/2023
+
+#### Bug Fixes:
+
+- Fixed tab text in recent Firefox Nightly.
+
 ## v0.2.39 09/03/2023
 
 #### Bug Fixes:

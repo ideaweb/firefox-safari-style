@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.39 */
+/* VERSION 0.2.40 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1422,6 +1422,7 @@
     mask-image: none !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-text {
+    width: calc(100% - 10px);
     max-width: calc(100% - 10px);
     mask-image: linear-gradient(to left, transparent, black var(--tab-label-mask-size));
   }
