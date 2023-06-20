@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.40 */
+/* VERSION 0.2.41 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1739,7 +1739,9 @@ spacer[part=overflow-end-indicator] {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #nav-bar ~ .notificationbox-stack, #nav-bar ~ div > .notificationbox-stack {
+  #nav-bar ~ #tab-notification-deck > .notificationbox-stack,
+#nav-bar ~ .notificationbox-stack,
+#nav-bar ~ div > .notificationbox-stack {
     position: absolute !important;
     bottom: 3px;
     right: 3px;
@@ -1834,7 +1836,8 @@ spacer[part=overflow-end-indicator] {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+  #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab],
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[pinned=true] + .tabbrowser-tab:not([pinned=true]) {
     margin-inline-start: 0 !important;
   }
 }

@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.41 20/06/2023
+
+#### Bug Fixes:
+
+- Fixed pinned tabs and notifications in recent Firefox Nightly.
+
 ## v0.2.40 10/03/2023
 
 #### Bug Fixes:
