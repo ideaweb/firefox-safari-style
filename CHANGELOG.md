@@ -7,6 +7,7 @@ This overview provides notable information about improvements, changes and fixes
 #### Bug Fixes:
 
 - Fixed hidden new tabs in recent Firefox Nightly.
+- Fixed position of icons in pinned tabs.
 
 ## v0.2.41 20/06/2023
 

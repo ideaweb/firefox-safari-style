@@ -1151,10 +1151,39 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-arrowscrollbox-periphery {
+    width: 100%;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button image, #navigator-toolbox #titlebar #TabsToolbar #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button#alltabs-button > stack,
+#navigator-toolbox #titlebar #TabsToolbar #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button .toolbarbutton-icon {
+    margin-left: auto !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([pinned]) ~ #tabbrowser-arrowscrollbox-periphery {
+    width: auto;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([pinned]) ~ #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button {
+    min-width: 25px !important;
+    max-width: 25px !important;
+    width: auto !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([pinned]) ~ #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button image, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([pinned]) ~ #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button#alltabs-button > stack,
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([pinned]) ~ #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button .toolbarbutton-icon {
+    margin-right: auto !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items {
     overflow: hidden;
   }
   #navigator-toolbox #titlebar #TabsToolbar .toolbar-items, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab::after, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab stack, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-content, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-label-container, #navigator-toolbox #titlebar #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-secondary-label {
+    min-height: var(--firefox-safari-style-tab-height) !important;
     max-height: var(--firefox-safari-style-tab-height) !important;
     height: var(--firefox-safari-style-tab-height) !important;
   }
@@ -1458,14 +1487,24 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-icon-image, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-throbber {
+    transform: translate(1px, -0.5px);
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-text {
+    transform: translateY(-0.5px);
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] {
-    width: 38px;
-    max-width: 38px;
-    min-width: 38px;
+    width: 35.5px;
+    max-width: 35.5px;
+    min-width: 35.5px;
     overflow: hidden !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] .tab-icon-image, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] .tab-throbber {
-    transform: translate(-2px, 1px);
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] .tab-content {
+    padding: 0px 5px !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1519,9 +1558,10 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #new-tab-button {
+  #tabs-newtab-button, #TabsToolbar #new-tab-button, #new-tab-button {
     list-style-image: url(chrome://global/skin/icons/add.svg) !important;
     list-style-image: url(chrome://browser/skin/new-tab.svg) !important;
+    list-style-image: url(chrome://global/skin/icons/plus.svg) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1618,7 +1658,7 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
   #scrollbutton-up,
 #scrollbutton-down {
     border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
-    border-right: 1px solid transparent !important;
+    border-right: 0 solid transparent !important;
     border-top: 0 !important;
     border-bottom: 0 !important;
     border-radius: 0 !important;
@@ -1654,9 +1694,11 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
     border-left: 0 !important;
     border-right: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
     border-right: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
+    box-shadow: -1px 0px 0px var(--firefox-safari-style-tab-border-left-color-active);
   }
   #scrollbutton-up:-moz-window-inactive {
     border-right-color: var(--firefox-safari-style-tab-border-left-color-inactive) !important;
+    box-shadow: -1px 0px 0px var(--firefox-safari-style-tab-border-left-color-inactive);
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1842,5 +1884,15 @@ spacer[part=overflow-end-indicator] {
   #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab],
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[pinned=true] + .tabbrowser-tab:not([pinned=true]) {
     margin-inline-start: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) {
+    margin-inline-start: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  scrollbox, #tabbrowser-arrowscrollbox::part(scrollbox) {
+    padding-inline: 0 !important;
   }
 }
