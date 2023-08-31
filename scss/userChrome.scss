@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.41 */
+/* VERSION 0.2.42 */
 /******************/
 
 /* 
@@ -1274,14 +1274,12 @@ $firefox-safari-style-vibrancy: false;
                     .tab-label-container[pinned] {
                         display: none !important;
                     }
-                    &:not([fadein="true"]) {
-                        display: none;
-                    }
+                    &:not([fadein]),
                     .tab-background {
                         display: none;
                     }
                     border-left: 1px solid transparent !important;
-                    &[fadein="true"] ~ .tabbrowser-tab {
+                    &[fadein] ~ .tabbrowser-tab {
                         border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
                         &:-moz-window-inactive {
                             border-left-color: var(--firefox-safari-style-tab-border-left-color-inactive) !important;
@@ -1493,7 +1491,7 @@ $firefox-safari-style-vibrancy: false;
                         min-width: 38px;
                         overflow: hidden !important;
                         .tab-icon-image, .tab-throbber {
-                            transform: translate(-2px, 1px);
+                            transform: translate(-2px, 0);
                         }
                     }
                     .tabbrowser-tab[pinned] {
@@ -1609,6 +1607,9 @@ $firefox-safari-style-vibrancy: false;
         @media (prefers-color-scheme: dark) {
             opacity: 1 !important;
             color: var(--firefox-safari-style-tab-color) !important;
+        }
+        .toolbarbutton-icon {
+            border-radius: 2px;
         }
     }
     #scrollbutton-up,

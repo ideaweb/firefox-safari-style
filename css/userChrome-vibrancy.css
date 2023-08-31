@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.41 */
+/* VERSION 0.2.42 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -1278,16 +1278,14 @@
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-label-container[pinned] {
     display: none !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([fadein=true]) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([fadein]),
+#navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-background {
     display: none;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-background {
-    display: none;
-  }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[fadein=true] ~ .tabbrowser-tab {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[fadein] ~ .tabbrowser-tab {
     border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
   }
-  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[fadein=true] ~ .tabbrowser-tab:-moz-window-inactive {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[fadein] ~ .tabbrowser-tab:-moz-window-inactive {
     border-left-color: var(--firefox-safari-style-tab-border-left-color-inactive) !important;
   }
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-label-container:-moz-window-inactive {
@@ -1664,6 +1662,11 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
   toolbarbutton.bookmark-item {
     opacity: 1 !important;
     color: var(--firefox-safari-style-tab-color) !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  toolbarbutton.bookmark-item .toolbarbutton-icon {
+    border-radius: 2px;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {

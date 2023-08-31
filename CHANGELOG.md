@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.42 21/08/2023
+
+#### Bug Fixes:
+
+- Fixed hidden new tabs in recent Firefox Nightly.
+
 ## v0.2.41 20/06/2023
 
 #### Bug Fixes:
