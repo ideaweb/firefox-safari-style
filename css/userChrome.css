@@ -207,7 +207,7 @@
     padding-top: 7px !important;
     background: linear-gradient(to bottom, var(--firefox-safari-style-bar-background-color-top) 0%, var(--firefox-safari-style-bar-background-color-bottom) 100%) !important;
     padding-top: 4px;
-    padding-left: var(--firefox-safari-style-controls-width);
+    padding-left: var(--firefox-safari-style-controls-width) !important;
   }
   #navigator-toolbox #nav-bar:-moz-window-inactive {
     background: var(--firefox-safari-style-bar-background-color-inactive) !important;
@@ -400,6 +400,7 @@
 #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:focus-within {
     border-color: transparent !important;
     box-shadow: 0 0 0 2px var(--firefox-safari-style-outline-color) inset !important;
+    filter: none !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):not(:-moz-window-inactive),
 #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:not([focused=true]):not(:-moz-window-inactive) #urlbar-background,
@@ -1180,29 +1181,82 @@
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[activemedia-blocked]:not(:hover) {
     opacity: 1 !important;
   }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container {
+    display: flex;
+    mask-image: none !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-text {
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+    mask-image: linear-gradient(to left, transparent, black var(--tab-label-mask-size));
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label {
+    margin: 0 !important;
+    min-width: 20px;
+    position: absolute;
+    right: 0;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label {
+    position: absolute;
+    right: 4px;
+    max-width: 20px;
+    height: var(--firefox-safari-style-tab-height) !important;
+    color: transparent;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label {
+    background: url(chrome://global/skin/media/audio.svg) 100% 50%/12px 12px no-repeat;
+    opacity: 0.7 !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label {
+    background: url(chrome://global/skin/media/audio-muted.svg) 100% 50%/12px 12px no-repeat;
+    opacity: 0.7 !important;
+  }
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label {
+    background: url(chrome://global/skin/media/audioNoAudioButton.svg) 100% 50%/12px 12px no-repeat;
+    opacity: 0.7 !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label {
+    filter: invert(100%);
+  }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:not([pinned]):hover .tab-close-button {
     display: block !important;
     opacity: 0.8 !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:not([pinned]):hover .tab-icon-image, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:not([pinned]):hover .tab-icon-image:not([src]), #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content:not([pinned]):hover .tab-throbber {
     display: none !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound:not([soundplaying]):not([muted]):not([activemedia-blocked]):not([pictureinpicture]),
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound,
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([busy]):not([pinned]):not([src]) ~ .tab-close-button {
     display: block !important;
     opacity: 0;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-label {
     padding-right: 9px !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-window-inactive {
     opacity: 0.5 !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab::after {
     border-color: var(--firefox-safari-style-tab-border-color-active) !important;
     display: none !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab[pinned] {
     width: 38px;
     max-width: 38px;
@@ -1219,13 +1273,19 @@
     max-width: 39px;
     min-width: 39px;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:-moz-any([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected=true]),
 #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected=true]) {
     background: none !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([selected=true]):not(:-moz-window-inactive):hover {
     background-color: var(--firefox-safari-style-tab-background-color-hover) !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button {
     height: calc(var(--firefox-safari-style-tab-height) - 1px);
     opacity: 1 !important;
@@ -1264,6 +1324,8 @@
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button .toolbarbutton-icon, #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button .toolbarbutton-icon:hover, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button .toolbarbutton-icon, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button .toolbarbutton-icon:hover {
     background-color: transparent !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .scrollbutton-up,
 #navigator-toolbox #titlebar #TabsToolbar .arrowscrollbox-overflow-start-indicator,
 #navigator-toolbox #titlebar #TabsToolbar .arrowscrollbox-overflow-end-indicator,
@@ -1273,22 +1335,34 @@
     display: none !important;
     fill: var(--firefox-safari-style-button-color) !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar #tabs-newtab-button, #navigator-toolbox #titlebar #TabsToolbar #new-tab-button {
     --toolbarbutton-inner-padding: 6px;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .titlebar-spacer {
     display: none;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([pinned]) {
     max-width: 10000px !important;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .arrowscrollbox-scrollbox, #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab, #navigator-toolbox #titlebar #TabsToolbar .tab-content {
     display: flex;
     align-items: center;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tabbrowser-tab:not([pinned]), #navigator-toolbox #titlebar #TabsToolbar .tab-stack, #navigator-toolbox #titlebar #TabsToolbar .tab-content, #navigator-toolbox #titlebar #TabsToolbar .tab-label-container {
     flex: 1 1;
   }
+}
+@media all {
   #navigator-toolbox #titlebar #TabsToolbar .tab-loading-burst,
 #navigator-toolbox #titlebar #TabsToolbar .private-browsing-indicator {
     display: none;
@@ -1402,6 +1476,79 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
 @media all {
   #personal-bookmarks .bookmark-item .toolbarbutton-icon {
     display: none !important;
+  }
+}
+@media all {
+  #appMenu-popup, #widget-overflow {
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+  }
+}
+@media all {
+  #identity-box:hover:not(.no-hover):not([open=true]),
+#tracking-protection-icon-container:hover:not([open=true]) {
+    background-color: transparent !important;
+  }
+}
+@media all {
+  #scrollbutton-up,
+#scrollbutton-down {
+    min-width: 26px;
+    list-style: none !important;
+    background-color: transparent !important;
+  }
+  #scrollbutton-up, #scrollbutton-up image,
+#scrollbutton-down,
+#scrollbutton-down image {
+    fill: var(--firefox-safari-style-tab-color) !important;
+  }
+  #scrollbutton-up image,
+#scrollbutton-down image {
+    background: url(chrome://global/skin/icons/arrow-left.svg) 50% 50%/12px 12px no-repeat;
+    width: 12px;
+    height: 12px;
+  }
+}
+@media all {
+  #scrollbutton-down image {
+    transform: rotate(180deg) !important;
+  }
+}
+@media all {
+  .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([pictureinpicture])[selected]:not(:hover),
+.tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([sharing]):not([pictureinpicture]):not(:hover) {
+    display: block !important;
+    background: url(chrome://branding/content/icon32.png) 50% 50%/16px 16px no-repeat;
+  }
+}
+@media all {
+  .urlbar-icon:-moz-focusring, .urlbar-icon-wrapper:-moz-focusring {
+    outline: none !important;
+  }
+}
+@media all {
+  .tabbrowser-tab:not([pinned])[fadein] {
+    max-width: none !important;
+  }
+}
+@media all {
+  #nav-bar ~ div {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+  }
+}
+@media all {
+  #nav-bar ~ #tab-notification-deck > .notificationbox-stack,
+#nav-bar ~ .notificationbox-stack,
+#nav-bar ~ div > .notificationbox-stack {
+    position: absolute !important;
+    bottom: 3px;
+    right: 3px;
+    z-index: 1000 !important;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
+    width: auto !important;
+    background: transparent !important;
+    display: block !important;
   }
 }
 @media all {
@@ -1544,6 +1691,12 @@ toolbar:not(#PersonalToolbar) .toolbarbutton-1:-moz-focusring > .toolbarbutton-b
 @media all {
   #PersonalToolbar #PlacesChevron {
     transform: translateX(5px) translateY(-2px) !important;
+  }
+}
+@media all {
+  #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab],
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[pinned=true] + .tabbrowser-tab:not([pinned=true]) {
+    margin-inline-start: 0 !important;
   }
 }
 @media all {
