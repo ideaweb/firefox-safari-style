@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.42 */
+/* VERSION 0.2.43 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -278,7 +278,7 @@
     flex: 1 1;
     padding-top: 11px !important;
     padding-right: 5px !important;
-    padding-left: var(--firefox-safari-style-controls-width);
+    padding-left: var(--firefox-safari-style-controls-width) !important;
     transition: none !important;
   }
   #main-window[inFullscreen=true] #navigator-toolbox #nav-bar {

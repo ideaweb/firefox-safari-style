@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.43 18/12/2023
+
+#### Bug Fixes:
+
+- Fixed position toolbar.
+
 ## v0.2.42 21/08/2023
 
 #### Bug Fixes:
