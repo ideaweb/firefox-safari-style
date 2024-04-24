@@ -29,7 +29,7 @@ This theme will make Firefox more compliant with macOS.
 
 **or(!) use the following file to use the colors from chosen Firefox theme**
 
-Try [colorf0x](https://addons.mozilla.org/en-US/firefox/addon/colorf0x/) for dynamic colors.
+Extra: Try [Adaptive Tab Bar Color](https://github.com/easonwong-de/Adaptive-Tab-Bar-Colour) or [colorf0x](https://addons.mozilla.org/en-US/firefox/addon/colorf0x/) for dynamic colors.
 
 ```css
 @import '/path/to/firefox-safari-style/css/userChrome-theme.css';
