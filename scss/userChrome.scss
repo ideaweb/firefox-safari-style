@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.44 */
+/* VERSION 0.2.45 */
 /******************/
 
 /* 
@@ -391,7 +391,12 @@ $firefox-safari-style-vibrancy: false;
         .toolbar-items #alltabs-button,
         #firefox-view-button[aria-pressed="false"],
         #alltabs-button {
-            background-color: transparent !important;
+            @if $firefox-safari-style-support-themes == true {
+                background-color: rgba(0,0,0,0.075) !important;
+            }
+            @else {
+                background-color: transparent !important;
+            }
             @if $firefox-safari-style-support-themes != true {
                 background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-background-color-inactive) 0%, var(--firefox-safari-style-tab-background-color-inactive) 100%) !important;
             }

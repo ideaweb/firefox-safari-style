@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.45 24/04/2024
+
+#### Bug Fixes:
+
+- Improved inactive tabs in "userChrome-theme.css".
+
 ## v0.2.44 24/04/2024
 
 #### Bug Fixes:

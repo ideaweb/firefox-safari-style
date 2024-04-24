@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.44 */
+/* VERSION 0.2.45 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -257,7 +257,7 @@
 #main-window .toolbar-items #alltabs-button,
 #main-window #firefox-view-button[aria-pressed=false],
 #main-window #alltabs-button {
-    background-color: transparent !important;
+    background-color: rgba(0, 0, 0, 0.075) !important;
   }
   #main-window .tabbrowser-tab:not([selected=true]):not([disabled=true]):hover,
 #main-window .toolbar-items #new-tab-button:not([disabled=true]):hover,
