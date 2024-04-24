@@ -13,7 +13,6 @@ This theme will make Firefox more compliant with macOS.
 ## Known issues
 
 * "Tinting" is currently not supported. IF you want that Firefox and macOS have the same colors please disable the option "Allow wallpaper tinting windows" in system preferences.
-* Dark theme is supported but [Firefox not really have native dark mode](https://bugzilla.mozilla.org/buglist.cgi?quicksearch=dark%20mode%20macos) (e.g. context menus are still "light", white line on top of the window etc.)
 
 ## Installing
 
@@ -28,16 +27,20 @@ This theme will make Firefox more compliant with macOS.
 @import '/path/to/firefox-safari-style/css/userChrome.css';
 ```
 
-**or(!) for macOS colors with enabled transparency / blur effect**
-
-```css
-@import '/path/to/firefox-safari-style/css/userChrome-vibrancy.css';
-```
-
 **or(!) use the following file to use the colors from chosen Firefox theme**
+
+Try [colorf0x](https://addons.mozilla.org/en-US/firefox/addon/colorf0x/) for dynamic colors.
 
 ```css
 @import '/path/to/firefox-safari-style/css/userChrome-theme.css';
+```
+
+**or(!) for macOS colors with enabled transparency / blur effect**
+
+But experimental, because vibrancy is mostly broken from update to update of Firefox...
+
+```css
+@import '/path/to/firefox-safari-style/css/userChrome-vibrancy.css';
 ```
 
 * Restart Firefox that changes can take effect
