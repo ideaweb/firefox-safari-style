@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.45 */
+/* VERSION 0.2.47 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -166,7 +166,7 @@
   --firefox-safari-style-tab-hover-background: var(--toolbar-field-background-color, var(--firefox-safari-style-input-background-active));
   /* Inputs */
   --firefox-safari-style-input-color: var(--toolbar-field-color, var(--firefox-safari-style-tab-color));
-  --firefox-safari-style-input-background-active: var(--toolbar-field-background-color, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8))));
+  --firefox-safari-style-input-background-active: color-mix(in srgb, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))) 66%, transparent);
   --firefox-safari-style-input-background-inactive: var(--firefox-safari-style-input-background-active);
   /*--firefox-safari-style-input-border-active: var(--firefox-safari-style-tab-border-color-active);
   --firefox-safari-style-input-border-inactive: var(--firefox-safari-style-input-border-active);*/
@@ -547,20 +547,19 @@
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar {
+    --urlbar-height: 28px !important;
     padding-top: 0;
     margin-left: 2px;
     margin-right: 2px;
-    height: var(--firefox-safari-style-button-height) !important;
-    min-height: var(--firefox-safari-style-button-height) !important;
     border: 0 solid transparent !important;
     box-shadow: none !important;
     box-sizing: border-box;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: calc(var(--urlbar-height) + 0px) !important;
-    min-height: calc(var(--urlbar-height) + 0px) !important;
-    max-height: calc(var(--urlbar-height) + 0px) !important;
+    height: calc(var(--urlbar-height, var(--firefox-safari-style-button-height)) + 0px) !important;
+    min-height: calc(var(--urlbar-height, var(--firefox-safari-style-button-height)) + 0px) !important;
+    max-height: calc(var(--urlbar-height, var(--firefox-safari-style-button-height)) + 0px) !important;
     /*@media
     only screen and (   min--moz-device-pixel-ratio: 1.01),
     only screen and (		min-device-pixel-ratio: 1.01),
@@ -568,7 +567,7 @@
     only screen and (				min-resolution: 1.3dppx) {
         border-width: 0.5px !important;
     }*/
-    background-image: linear-gradient(to bottom, var(--tabpanel-background-color) 0%, var(--tabpanel-background-color) 100%) !important;
+    background-image: none !important;
     background-color: var(--firefox-safari-style-input-background-active) !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:-moz-window-inactive, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:-moz-window-inactive, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:-moz-window-inactive, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:-moz-window-inactive {
@@ -577,7 +576,10 @@
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar:-moz-window-inactive > *, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar:-moz-window-inactive > *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar:-moz-window-inactive > *, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar:-moz-window-inactive > * {
     opacity: 1 !important;
   }
-  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[focused=true]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[focused=true]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[focused=true]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[focused=true]:not(:-moz-window-inactive) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend] > .urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar .urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend] > .urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar .urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend] > .urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar .urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend] > .urlbar-input-container, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar .urlbar-input-container {
+    padding-inline: 2px !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[focused=true]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[focused=true]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[focused=true]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend]:not(:-moz-window-inactive), #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[focused=true]:not(:-moz-window-inactive) {
     box-shadow: 0 0 0 2px var(--firefox-safari-style-outline-color) !important;
   }
   #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar, #main-window[privatebrowsingmode] #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar {
@@ -1592,7 +1594,7 @@
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #statuspanel #statuspanel-label {
     border-color: var(--firefox-safari-style-input-background-active) !important;
-    background-color: var(--firefox-safari-style-background-color-active) !important;
+    background-color: var(--firefox-safari-style-tab-background-color-inactive) !important;
     color: var(--firefox-safari-style-tab-color) !important;
   }
   #statuspanel #statuspanel-label:-moz-window-inactive {
@@ -1915,8 +1917,14 @@ spacer[part=overflow-end-indicator] {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #identity-box[pageproxystate=valid].extensionPage > .identity-box-button {
+  #identity-box[pageproxystate=valid] > .identity-box-button,
+#identity-box[pageproxystate=valid] > .identity-permission-box {
     padding-inline: 2px !important;
+    padding-inline-start: 4px !important;
+    min-width: 24px !important;
+  }
+  #identity-box[pageproxystate=valid].extensionPage > .identity-box-button {
+    padding-inline-start: 3px !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {

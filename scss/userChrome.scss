@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.45 */
+/* VERSION 0.2.47 */
 /******************/
 
 /* 
@@ -241,7 +241,7 @@ $firefox-safari-style-vibrancy: false;
 
         /* Inputs */
         --firefox-safari-style-input-color: var(--toolbar-field-color, var(--firefox-safari-style-tab-color));
-        --firefox-safari-style-input-background-active: var(--toolbar-field-background-color, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8))));
+        --firefox-safari-style-input-background-active: color-mix(in srgb, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))) 66%, transparent);
         --firefox-safari-style-input-background-inactive: var(--firefox-safari-style-input-background-active);
         /*--firefox-safari-style-input-border-active: var(--firefox-safari-style-tab-border-color-active);
         --firefox-safari-style-input-border-inactive: var(--firefox-safari-style-input-border-active);*/
@@ -665,6 +665,7 @@ $firefox-safari-style-vibrancy: false;
                         }
                     }
                     #urlbar, #searchbar {
+                        --urlbar-height: 28px !important;
                         &:-moz-window-inactive {
                             opacity: 0.5 !important;
                             > * {
@@ -674,18 +675,19 @@ $firefox-safari-style-vibrancy: false;
                         padding-top: 0;
                         margin-left: 2px;
                         margin-right: 2px;
-                        height: var(--firefox-safari-style-button-height) !important;
-                        min-height: var(--firefox-safari-style-button-height) !important;
                         border: 0 solid transparent !important;
                         box-shadow: none !important;
                         box-sizing: border-box;
                         top: 0 !important;
                         left: 0 !important;
                         width: 100% !important;
-                        height: calc(var(--urlbar-height) + 0px) !important;
-                        min-height: calc(var(--urlbar-height) + 0px) !important;
-                        max-height: calc(var(--urlbar-height) + 0px) !important;
-                        &[focused="true"]:not(:-moz-window-inactive) {
+                        height: calc(var(--urlbar-height, var(--firefox-safari-style-button-height)) + 0px) !important;
+                        min-height: calc(var(--urlbar-height, var(--firefox-safari-style-button-height)) + 0px) !important;
+                        max-height: calc(var(--urlbar-height, var(--firefox-safari-style-button-height)) + 0px) !important;
+                        &[breakout][breakout-extend] > .urlbar-input-container, .urlbar-input-container {
+                            padding-inline: 2px !important;
+                        }
+                        &[breakout][breakout-extend]:not(:-moz-window-inactive), &[focused="true"]:not(:-moz-window-inactive) {
                             box-shadow: 0 0 0 2px var(--firefox-safari-style-outline-color) !important;
                         }
                         @if $firefox-safari-style-vibrancy == all {
@@ -702,11 +704,12 @@ $firefox-safari-style-vibrancy: false;
                         only screen and (				min-resolution: 1.3dppx) {
                             border-width: 0.5px !important;
                         }*/
-                        background-image: linear-gradient(to bottom, var(--tabpanel-background-color) 0%, var(--tabpanel-background-color) 100%) !important;
+                        background-image: none !important;
                         background-color: var(--firefox-safari-style-input-background-active) !important;
                         #main-window[privatebrowsingmode] & {
                             background-color: var(--firefox-safari-style-background-color-private) !important;
                         }
+
                         #page-action-buttons {
                             display: flex;
                             align-items: center;
@@ -1630,7 +1633,12 @@ $firefox-safari-style-vibrancy: false;
     }
     #statuspanel #statuspanel-label {
         border-color: var(--firefox-safari-style-input-background-active) !important;
-        background-color: var(--firefox-safari-style-background-color-active) !important;
+        @if $firefox-safari-style-support-themes == true {
+            background-color: var(--firefox-safari-style-tab-background-color-inactive) !important;
+        }
+        @else {
+            background-color: var(--firefox-safari-style-background-color-active) !important;
+        }
         color: var(--firefox-safari-style-tab-color) !important;
         &:-moz-window-inactive {
             opacity: 0.6 !important;
@@ -1895,8 +1903,16 @@ $firefox-safari-style-vibrancy: false;
         --urlbar-icon-padding: 2px;
         padding-right: 4px;
     }
-    #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button {
-        padding-inline: 2px !important;
+    #identity-box[pageproxystate="valid"] {
+        > .identity-box-button,
+        > .identity-permission-box {
+            padding-inline: 2px !important;
+            padding-inline-start: 4px !important;
+            min-width: 24px !important;
+        }
+        &.extensionPage > .identity-box-button {
+            padding-inline-start: 3px !important;
+        }
     }
     #PersonalToolbar {
         #PlacesChevron {

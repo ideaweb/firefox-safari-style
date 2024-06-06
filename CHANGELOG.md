@@ -2,6 +2,18 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.47 06/06/2024
+
+#### Bug Fixes:
+
+- Quick fix for address bar in recent Firefox Nightly.
+
+## v0.2.46 25/04/2024
+
+#### Bug Fixes:
+
+- Fixed status bar in "userChrome-theme.css".
+
 ## v0.2.45 24/04/2024
 
 #### Bug Fixes:
