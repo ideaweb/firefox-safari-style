@@ -4,11 +4,9 @@ This theme will make Firefox more compliant with macOS.
 
 <p align="center"><img alt="Firefox with NelliTab" src="https://raw.githubusercontent.com/ideaweb/firefox-safari-style/master/img/preview.png"/><br/><i>Firefox with macOS theme and <a href="https://nellitab.io">NelliTab</a> new tab extension</i></p>
 
-<p align="center"><img alt="Firefox with NelliTab" src="https://raw.githubusercontent.com/ideaweb/firefox-safari-style/master/img/preview-legacy.png"/><br/><i>Firefox with legacy macOS theme (Branch 0.1)</i></p>
-
 ## Requirements
 
-*  Firefox 71 or higher for macOS
+*  Firefox for macOS
 
 ## Known issues
 
