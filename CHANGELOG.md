@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.449 09/08/2024
+
+#### Bug Fixes:
+
+- Experimental support for vertical tabs in recent Firefox Nightly (see Settings > Firefox Labs).
+
 ## v0.2.448 07/08/2024
 
 #### Bug Fixes:

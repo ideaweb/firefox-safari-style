@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.48 */
+/* VERSION 0.2.49 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -163,6 +163,11 @@
   appearance: none !important;
 }
 
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  /*****************/
+  /* VERTICAL TABS */
+  /*****************/
+}
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
   [part=content] {
     box-shadow: none !important;
@@ -210,18 +215,19 @@
   #main-window, #main-window html|body, #main-window #nav-bar, #main-window .tabbrowser-tab[selected=true], #main-window #PersonalToolbar, #main-window #tabbrowser-tabpanels, #main-window #firefox-view-button:not([aria-pressed=false]) {
     background-color: transparent !important;
   }
-  #main-window html|body {
+  #main-window, #main-window html|body {
+    background-color: transparent !important;
     appearance: auto;
     -moz-default-appearance: -moz-mac-source-list;
   }
 }
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: light), (-moz-mac-big-sur-theme) and (prefers-color-scheme: light) {
-  #main-window html|body {
+  #main-window, #main-window html|body {
     -moz-appearance: -moz-mac-vibrancy-light !important;
   }
 }
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
-  #main-window html|body {
+  #main-window, #main-window html|body {
     -moz-appearance: -moz-mac-vibrancy-dark !important;
   }
 }
@@ -282,8 +288,13 @@
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+    /*@if $firefox-safari-style-support-themes == true {
+        background-color: var(--firefox-safari-style-tab-background-color-inactive) !important;
+        background-image: var(--lwt-header-image) !important;
+    } @else {*/
     background-color: transparent !important;
     background-image: none !important;
+    /*}*/
     border-bottom: 1px solid var(--firefox-safari-style-tab-border-bottom-color-active) !important;
     --urlbar-separator-color: transparent;
   }
@@ -1860,7 +1871,13 @@ spacer[part=overflow-end-indicator] {
   .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([pictureinpicture])[selected]:not(:hover),
 .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([sharing]):not([pictureinpicture]):not(:hover) {
     display: block !important;
-    background: url(chrome://branding/content/icon32.png) 50% 50%/16px 16px no-repeat;
+    background: none;
+    /*url(chrome://branding/content/icon32.png) 50% 50% / 16px 16px no-repeat;*/
+  }
+  .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([pictureinpicture])[selected]:not(:hover):not([src]), .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([pictureinpicture])[selected]:not(:hover):-moz-broken,
+.tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([sharing]):not([pictureinpicture]):not(:hover):not([src]),
+.tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([sharing]):not([pictureinpicture]):not(:hover):-moz-broken {
+    margin-top: -3px;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -1997,5 +2014,123 @@ spacer[part=overflow-end-indicator] {
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   scrollbox, #tabbrowser-arrowscrollbox::part(scrollbox) {
     padding-inline: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  :root {
+    --firefox-safari-style-vertical-tab-width: 250px;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  .wrapper {
+    background-color: transparent !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) {
+    border-bottom-width: 0 !important;
+  }
+  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar {
+    margin-left: calc(var(--firefox-safari-style-vertical-tab-width) - 1px) !important;
+    padding-left: 0 !important;
+    border-left: 1px solid color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-active) 75%, transparent) !important;
+  }
+  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar:-moz-window-inactive {
+    border-left-color: color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-inactive) 50%, transparent) !important;
+  }
+  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #TabsToolbar {
+    display: none !important;
+  }
+  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar {
+    border-bottom: 1px solid var(--firefox-safari-style-tab-border-bottom-color-active) !important;
+  }
+  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar:-moz-window-inactive {
+    border-bottom-color: var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #vertical-tabs[visible] {
+    display: block !important;
+  }
+  #vertical-tabs[visible] #tabbrowser-tabs {
+    display: flex !important;
+  }
+  #vertical-tabs[visible] #newtab-button-container {
+    order: 3;
+  }
+  #vertical-tabs[visible] #newtab-button-container, #vertical-tabs[visible] #newtab-button-container #vertical-tabs-newtab-button {
+    min-height: 29px;
+  }
+  #vertical-tabs[visible] #newtab-button-container, #vertical-tabs[visible] #newtab-button-container[showborder] {
+    border-top-width: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  sidebar-main:not([expanded]) {
+    max-width: 44px !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  sidebar-main:not([expanded]):has(#vertical-tabs[visible]):has(#tabbrowser-tabs[orient=vertical]) {
+    min-width: var(--firefox-safari-style-vertical-tab-width) !important;
+    /*box-shadow: inset -4px 0 2px -2px hsla(0,0%,0%,.033) !important;*/
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  sidebar-main:not([expanded]):has(#vertical-tabs[visible]) .tab-label-container,
+#tabbrowser-tabs[orient=vertical] .tab-close-button {
+    display: block !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  sidebar-main:not([expanded]) .tab-label-container {
+    margin-left: 7px;
+    padding-top: 4px !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  .bottom-actions.actions-list,
+.tools-and-extensions.actions-list {
+    align-items: flex-end !important;
+    margin-right: 2px;
+    flex-direction: row !important;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  .bottom-actions.actions-list {
+    position: absolute;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #main-window #tabbrowser-tabs[orient=vertical] .tabbrowser-tab,
+#main-window #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover,
+#main-window #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):has(.tab-close-button:hover):hover > .tab-stack > .tab-background,
+#main-window #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):has(.tab-close-button:hover) .tab-background {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+  #main-window #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:hover,
+#main-window #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover > .tab-stack > .tab-background {
+    background-color: color-mix(in srgb, var(--tab-hover-background-color) 50%, transparent) !important;
+  }
+  #main-window #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover)) .tab-background {
+    background-color: var(--tab-hover-background-color) !important;
+  }
+  #main-window #tabbrowser-tabs[orient=vertical] .tabbrowser-tab {
+    width: calc(var(--firefox-safari-style-vertical-tab-width) - 12px) !important;
+  }
+  #main-window #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), #main-window #tabbrowser-tabs[orient=vertical] .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]) {
+    background-position: left 4.5px bottom 19.5px;
+  }
+  #main-window #tabbrowser-tabs[orient=vertical] .tab-icon-overlay:not([indicator-replaces-favicon]) {
+    inset-inline-end: -7px;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #tabbrowser-tabs[orient=vertical] .tab-background {
+    box-shadow: none !important;
+    margin: 0 0 0 0 !important;
   }
 }
