@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.448 07/08/2024
+
+#### Bug Fixes:
+
+- Restored broken vibrancy theme in Firefox Nightly.
+
 ## v0.2.47 06/06/2024
 
 #### Bug Fixes:

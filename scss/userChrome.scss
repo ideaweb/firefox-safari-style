@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.47 */
+/* VERSION 0.2.48 */
 /******************/
 
 /* 
@@ -89,7 +89,7 @@ $firefox-safari-style-vibrancy: false;
         --firefox-safari-style-tab-border-bottom-color-inactive: var(--firefox-safari-style-tab-border-bottom-color-active);
         --firefox-safari-style-tab-border-left-color-active: rgba(0,0,0,0.1);
         --firefox-safari-style-tab-border-left-color-inactive: var(--firefox-safari-style-tab-border-left-color-active);
-    }@else if $firefox-safari-style-vibrancy != false {
+    } @else if $firefox-safari-style-vibrancy != false {
         --firefox-safari-style-tab-border-bottom-color-active: rgba(0,0,0,0.1);
         --firefox-safari-style-tab-border-bottom-color-inactive: var(--firefox-safari-style-tab-border-bottom-color-active);
         --firefox-safari-style-tab-border-left-color-active: rgba(0,0,0,0.1);
@@ -272,6 +272,13 @@ $firefox-safari-style-vibrancy: false;
         --inactive-window-transition: 0s;
         --ext-theme-background-transition: 0s;
         --panelui-subview-transition-duration: 0s;
+    }
+}
+
+@if $firefox-safari-style-vibrancy != false {
+    :root, :root:-moz-window-inactive {
+        background-color: transparent !important;
+        appearance: none !important;
     }
 }
 
@@ -709,6 +716,14 @@ $firefox-safari-style-vibrancy: false;
                         #main-window[privatebrowsingmode] & {
                             background-color: var(--firefox-safari-style-background-color-private) !important;
                         }
+                        @if $firefox-safari-style-vibrancy != false {
+                            &[open] {
+                                .urlbar-input-container {
+                                    background: var(--firefox-safari-style-background-color-active) !important;
+                                    background-image: linear-gradient(to bottom, var(--firefox-safari-style-input-background-active) 0%, var(--firefox-safari-style-input-background-active) 100%) !important;
+                                }
+                            }
+                        }
 
                         #page-action-buttons {
                             display: flex;
@@ -863,6 +878,9 @@ $firefox-safari-style-vibrancy: false;
                             only screen and (				min-resolution: 1.3dppx) {
                                 transform: translate(2px, -0.5px);
                             }
+                        }
+                        #identity-icon-box {
+                            background-color: transparent !important;
                         }
                         #identity-box.extensionPage image {
                             transform: translate(2px, -1px);

@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.47 */
+/* VERSION 0.2.48 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -745,6 +745,11 @@
 @media only screen and (-moz-mac-yosemite-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-yosemite-theme) and (min-resolution: 1.3dppx), only screen and (-moz-mac-big-sur-theme) and (min--moz-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-device-pixel-ratio: 1.01), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 120dpi), only screen and (-moz-mac-big-sur-theme) and (min-resolution: 1.3dppx) {
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-box image, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-box image {
     transform: translate(2px, -0.5px);
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar #identity-icon-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar #identity-icon-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar #identity-icon-box, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar #identity-icon-box {
+    background-color: transparent !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
