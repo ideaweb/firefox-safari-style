@@ -19,23 +19,17 @@ This theme will make Firefox more compliant with macOS.
 * Open the [userChrome.css](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) file located in your profile folder of Firefox with any text editor
 * Add there **one** of the following lines below to import your chosen userChrome.css of this theme but please do not forget to update the path and do not mix up the imported file with the none working scss/userChrome.scss of this repository
 
-**Default light and dark theme with macOS colors**
+**Default for "System theme" and all other themes in Firefox settings**
+
+Extra: Try [Adaptive Tab Bar Color](https://github.com/easonwong-de/Adaptive-Tab-Bar-Colour) or [colorf0x](https://addons.mozilla.org/en-US/firefox/addon/colorf0x/) for dynamic colors.
 
 ```css
 @import '/path/to/firefox-safari-style/css/userChrome.css';
 ```
 
-**or(!) use the following file to use the colors from chosen Firefox theme**
+**or(!) for macOS colors with enabled transparency / blur effect in toolbar**
 
-Extra: Try [Adaptive Tab Bar Color](https://github.com/easonwong-de/Adaptive-Tab-Bar-Colour) or [colorf0x](https://addons.mozilla.org/en-US/firefox/addon/colorf0x/) for dynamic colors.
-
-```css
-@import '/path/to/firefox-safari-style/css/userChrome-theme.css';
-```
-
-**or(!) for macOS colors with enabled transparency / blur effect**
-
-But experimental, because vibrancy is mostly broken from update to update of Firefox...
+But no theme support and experimental, because vibrancy is mostly broken from update to update of Firefox...
 
 ```css
 @import '/path/to/firefox-safari-style/css/userChrome-vibrancy.css';

@@ -2,6 +2,14 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.50 13/08/2024
+
+#### Bug Fixes:
+
+- Merged "userChrome-theme.css" into "userChrome.css".
+- Improved support for theme and vertical tabs.
+- Fixed modal windows.
+
 ## v0.2.49 09/08/2024
 
 #### Bug Fixes:
