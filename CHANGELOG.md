@@ -2,17 +2,31 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
-## v0.2.50 13/08/2024
+## v0.2.51 14/08/2024
+
+#### New Features:
+
+- Pinned tabs for vertical tabs.
 
 #### Bug Fixes:
 
+- Fixed container tabs in vertical tabs.
+- Fixed customize toolbar.
+
+## v0.2.50 13/08/2024
+
+#### New Features:
+
 - Merged "userChrome-theme.css" into "userChrome.css".
 - Improved support for theme and vertical tabs.
+
+#### Bug Fixes:
+
 - Fixed modal windows.
 
 ## v0.2.49 09/08/2024
 
-#### Bug Fixes:
+#### New Features:
 
 - Experimental support for vertical tabs in recent Firefox Nightly (see Settings > Firefox Labs).
 

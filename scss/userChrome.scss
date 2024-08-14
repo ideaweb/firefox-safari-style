@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.50 */
+/* VERSION 0.2.51 */
 /******************/
 
 /* 
@@ -2012,12 +2012,8 @@ $firefox-safari-style-vibrancy: false;
     }
     #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient="vertical"]) {
         #nav-bar {
-            margin-left: calc(var( --firefox-safari-style-vertical-tab-width) - 0px) !important;
+            margin-left: var( --firefox-safari-style-vertical-tab-width) !important;
             padding-left: 0 !important;
-            border-left: 1px solid color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-active) 75%, transparent) !important;
-            &:-moz-window-inactive {
-                border-left-color: color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-inactive) 50%, transparent) !important;
-            }
         }
         #TabsToolbar {
             display: none !important;
@@ -2031,7 +2027,6 @@ $firefox-safari-style-vibrancy: false;
         border-bottom-width: 0 !important;
     }
     #vertical-tabs[visible] {
-        display: block !important;
         #tabbrowser-tabs {
             display: flex !important;
         }
@@ -2044,26 +2039,57 @@ $firefox-safari-style-vibrancy: false;
             }
             order: 3;
         }
+        #tabbrowser-arrowscrollbox {
+            overflow-x: hidden !important;
+        }
+        margin-inline-end: 0 !important;
+        display: block !important;
+        padding-right: 8px;
     }
     sidebar-main:not([expanded]) {
         max-width: 44px !important;
-        background: var(--firefox-safari-style-background-color-active) !important;
-        border-right: 1px solid color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-active) 75%, transparent) !important;
+        background-color: var(--firefox-safari-style-background-color-active) !important;
+        &:-moz-window-inactive {
+            background-color: var(--firefox-safari-style-background-color-inactive) !important;
+        }
+    }
+    #navigator-toolbox,
+    sidebar-main:not([expanded]) {
+        background-size: 1px 1px !important;
+        background-repeat: repeat-y !important;
+        background-position: calc(var( --firefox-safari-style-vertical-tab-width) - 1px) 0 !important;
+        background-image: linear-gradient(
+            to bottom, 
+            color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-active) 50%, transparent) 0%, 
+            color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-active) 50%, transparent) 100%
+        ) !important;
         #main-window[lwtheme="true"] & {
-            border-right: 1px solid var(--firefox-safari-style-tab-border-bottom-color-active) !important;
+            background-image: linear-gradient(
+                to bottom, 
+                var(--firefox-safari-style-tab-border-bottom-color-active) 0%, 
+                var(--firefox-safari-style-tab-border-bottom-color-active) 100%
+            ) !important;
         }
         &:-moz-window-inactive {
-            background: var(--firefox-safari-style-background-color-inactive) !important;
-            border-right-color: color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-inactive) 50%, transparent) !important;
+            background-color: var(--firefox-safari-style-background-color-inactive) !important;
+            background-image: linear-gradient(
+                to bottom, 
+                color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-inactive) 50%, transparent) 0%, 
+                color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-inactive) 50%, transparent) 100%
+            ) !important;
             #main-window[lwtheme="true"] & {
-                border-right-color: var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
+                background-image: linear-gradient(
+                    to bottom, 
+                    var(--firefox-safari-style-tab-border-bottom-color-inactive) 0%, 
+                    var(--firefox-safari-style-tab-border-bottom-color-inactive) 100%
+                ) !important;
             }
         }
     }
     sidebar-main:not([expanded]):has(#vertical-tabs[visible]):has(#tabbrowser-tabs[orient="vertical"]) {
         background-color: transparent !important;
         &:-moz-window-inactive {
-            background: var(--firefox-safari-style-background-color-inactive) !important;
+            background-color: var(--firefox-safari-style-background-color-inactive) !important;
         }
         min-width: var( --firefox-safari-style-vertical-tab-width) !important;
         /*box-shadow: inset -4px 0 2px -2px hsla(0,0%,0%,.033) !important;*/
@@ -2120,8 +2146,16 @@ $firefox-safari-style-vibrancy: false;
                 color: var(--firefox-safari-style-button-color) !important;
             }
             .tab-background {
+                /*&:not([selected], [multiselected]) {
+                    background-color: transparent !important;
+                }*/
                 outline: none !important;
                 border-width: 0 !important;
+                border-radius: 5px !important;
+            }
+            &[usercontextid] .tab-background {
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
             }
             .tab-close-button {
                 display: none !important;
@@ -2145,62 +2179,17 @@ $firefox-safari-style-vibrancy: false;
                 background-color: transparent !important;
                 background-image: none !important;
             }
-            #main-window[lwtheme="true"] & {
-                &:not([selected="true"]):not([disabled="true"]):not(:has(.tab-close-button:hover)):hover {
-                    .tab-background, &#vertical-tabs-newtab-button {
-                        background-color: var(--firefox-safari-style-input-background-hover) !important;
-                    }
-                }
-            }
-            &:not([disabled="true"]):not(:has(.tab-close-button:hover)):hover,
-            &[selected="true"]:not([disabled="true"]):not(:has(.tab-close-button:hover)) {
-                .tab-background, &#vertical-tabs-newtab-button {
-                    #main-window:not([lwtheme="true"]) & {
-                        background-color: color-mix(in srgb, var(--tab-hover-background-color) 66%, transparent) !important;
-                        @media (prefers-color-scheme: dark) {
-                            background-color: var(--firefox-safari-style-input-background-active) !important;
-                        }
-                    }
-                    #main-window[lwtheme="true"] & {
-                        background-color: var(--firefox-safari-style-input-background-active) !important;
-                    }
-                }
-                &[selected="true"] {
-                    .tab-throbber,
-                    .tab-icon-image,
-                    .tab-close-button,
-                    image { 
-                        opacity: 1 !important;
-                        fill: var(--firefox-safari-style-button-input-color) !important;
-                    }
-                    label { 
-                        color: var(--firefox-safari-style-button-input-color) !important;
-                    }
-                }
-            }
-            &:not([disabled="true"]):not(:has(.tab-close-button:hover)):hover {
-                .tab-background, &#vertical-tabs-newtab-button {
-                    #main-window:not([lwtheme="true"]) & {
-                        background-color: color-mix(in srgb, var(--tab-hover-background-color) 33%, transparent) !important;
-                        @media (prefers-color-scheme: dark) {
-                            background-color: var(--firefox-safari-style-button-background-hover) !important;
-                        }
-                    }
-                    #main-window[lwtheme="true"] & {
-                        background-color: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
-                    }
-                }
-            }
             &:-moz-window-inactive {
                 opacity: 0.5;
             }
+            padding: 0 !important;
+            width: 100% !important;
+            height: 30px;
         }
-        .tabbrowser-tab {
-            width: calc(var( --firefox-safari-style-vertical-tab-width) - 12px) !important;
-        }
+        .tab-content,
         .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), 
         .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]) {
-            background-position: left 4.5px bottom 19.5px;
+            background-position: left 4.5px bottom 19.5px !important;
         }
         .tab-icon-overlay:not([indicator-replaces-favicon]) {
             inset-inline-end: -7px;
@@ -2209,6 +2198,138 @@ $firefox-safari-style-vibrancy: false;
             box-shadow: none !important;
             margin: 0 0 0 0 !important;
         }
+        #vertical-pinned-tabs-container,
+        #tabbrowser-arrowscrollbox {
+            &::before {
+                color: var(--firefox-safari-style-button-color) !important;
+                font-size: 10px;
+                font-weight: 600;
+                margin: 0 0 5px 6px;
+                opacity: 0.40;
+                width: 100%;
+            }
+            &:-moz-window-inactiv::before {
+                opacity: 0.33;
+            }
+            padding-inline-end: 0 !important;
+            column-gap: 2px !important;
+            row-gap: 0 !important;
+        }
+        #vertical-pinned-tabs-container:has(.tabbrowser-tab) ~ #tabbrowser-arrowscrollbox:has(.tabbrowser-tab) {
+            margin-top: 5px;
+        }
+        #vertical-pinned-tabs-container {
+            &:not(:has(.tabbrowser-tab)) {
+                position: absolute;
+                opacity: 0;
+            }
+            .tabbrowser-tab {
+                .tab-close-button,
+                .tab-label-container {
+                    &, &:hover {
+                        display: none !important;
+                    }
+                }
+                max-width: 33px !important;
+            }
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        #vertical-pinned-tabs-container:has(.tabbrowser-tab) {
+            #main-window[lang*="en-"] &::before { content: 'Pinned Tabs'; }
+            #main-window[lang*="cs-"] &::before { content: 'Připnuté karty'; }
+            #main-window[lang*="de-"] &::before { content: 'Angeheftet Tabs'; }
+            #main-window[lang*="el-"] &::before { content: 'Καρφιτσωμένες καρτέλες'; }
+            #main-window[lang*="es-"] &::before { content: 'Pestañas ancladas'; }
+            #main-window[lang*="fi-"] &::before { content: 'Kiinnitetyt välilehdet'; }
+            #main-window[lang*="it-"] &::before { content: 'Pannelli fissati'; }
+            #main-window[lang*="ja-"] &::before { content: '固定したタブ'; }
+            #main-window[lang*="nl-"] &::before { content: 'Vastgemaakte tabbladen'; }
+            #main-window[lang*="pl-"] &::before { content: 'Przypięte karty'; }
+            #main-window[lang*="ru-"] &::before { content: 'Закрепленные вкладки'; }
+            #main-window[lang*="sl-"] &::before { content: 'Pripeti zavihki'; }
+            #main-window[lang*="sv-"] &::before { content: 'Fästa flikar'; }
+            #main-window[lang*="tr-"] &::before { content: 'Sabitlenmiş sekmeler'; }
+            #main-window[lang*="uk-"] &::before { content: 'Закріплені вкладки'; }
+        }
+        #tabbrowser-arrowscrollbox:has(.tabbrowser-tab) {
+            #main-window[lang*="en-"] &::before { content: 'Open Tabs'; }
+            #main-window[lang*="cs-"] &::before { content: 'Otevřít karty'; }
+            #main-window[lang*="de-"] &::before { content: 'Offene Tabs'; }
+            #main-window[lang*="el-"] &::before { content: 'Ανοικτές καρτέλες'; }
+            #main-window[lang*="es-"] &::before { content: 'Abrir pestañas'; }
+            #main-window[lang*="fi-"] &::before { content: 'Avoimet välilehdet'; }
+            #main-window[lang*="it-"] &::before { content: 'Apri pannelli'; }
+            #main-window[lang*="ja-"] &::before { content: 'タブ'; }
+            #main-window[lang*="nl-"] &::before { content: 'Open tabbladen'; }
+            #main-window[lang*="pl-"] &::before { content: 'Otwórz karty'; }
+            #main-window[lang*="ru-"] &::before { content: 'Открытые вкладки'; }
+            #main-window[lang*="sl-"] &::before { content: 'Odprti zavihki'; }
+            #main-window[lang*="sv-"] &::before { content: 'Öppna flikar'; }
+            #main-window[lang*="tr-"] &::before { content: 'Sekmeleri aç'; }
+            #main-window[lang*="uk-"] &::before { content: 'Відкрити вкладки'; }
+        }
+        padding-inline: 0 !important;
+        padding-left: 3px !important;
     }
-
+    .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+        #vertical-pinned-tabs-container &, #tabbrowser-tabs[orient="vertical"] &, & {
+            margin: 0 !important;
+        }
+    }
+    #tabbrowser-tabs[orient="vertical"]  {
+        .tabbrowser-tab  .tab-background, .tabbrowser-tab#vertical-tabs-newtab-button {
+            background-color: transparent !important;
+        }
+        #main-window[lwtheme="true"] & .tabbrowser-tab  {
+            &:not([selected="true"]):not([disabled="true"]):not(:has(.tab-close-button:hover)):hover {
+                .tab-background, &#vertical-tabs-newtab-button {
+                    background-color: var(--firefox-safari-style-input-background-hover) !important;
+                }
+            }
+        }
+        .tabbrowser-tab:not([disabled="true"]):not(:has(.tab-close-button:hover)):hover,
+        .tabbrowser-tab[selected="true"]:not([disabled="true"]):not(:has(.tab-close-button:hover)) {
+            .tab-background, &#vertical-tabs-newtab-button {
+                #main-window:not([lwtheme="true"]) & {
+                    background-color: color-mix(in srgb, var(--tab-hover-background-color) 66%, transparent) !important;
+                    @media (prefers-color-scheme: dark) {
+                        background-color: var(--firefox-safari-style-input-background-active) !important;
+                    }
+                }
+                #main-window[lwtheme="true"] & {
+                    background-color: var(--firefox-safari-style-input-background-active) !important;
+                }
+            }
+            &[selected="true"] {
+                .tab-throbber,
+                .tab-icon-image,
+                .tab-close-button,
+                image { 
+                    opacity: 1 !important;
+                    fill: var(--firefox-safari-style-button-input-color) !important;
+                }
+                label { 
+                    color: var(--firefox-safari-style-button-input-color) !important;
+                }
+            }
+        }
+        #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled="true"]):not([selected="true"]):not(:has(.tab-close-button:hover)),
+        .tabbrowser-tab:not([disabled="true"]):not(:has(.tab-close-button:hover)):hover {
+            .tab-background, &#vertical-tabs-newtab-button {
+                #main-window:not([lwtheme="true"]) & {
+                    background-color: color-mix(in srgb, var(--tab-hover-background-color) 33%, transparent) !important;
+                    @media (prefers-color-scheme: dark) {
+                        background-color: var(--firefox-safari-style-button-background-hover) !important;
+                    }
+                }
+                #main-window[lwtheme="true"] & {
+                    background-color: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
+                }
+            }
+        }
+    }
+    toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], toolbarspring {
+        max-height: 28px;
+    }
 }

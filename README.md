@@ -4,6 +4,8 @@ This theme will make Firefox more compliant with macOS.
 
 <p align="center"><img alt="Firefox with NelliTab" src="https://raw.githubusercontent.com/ideaweb/firefox-safari-style/master/img/preview.png"/><br/><i>Firefox with macOS theme and <a href="https://nellitab.io">NelliTab</a> new tab extension</i></p>
 
+<p align="center"><img alt="Firefox with NelliTab" src="https://raw.githubusercontent.com/ideaweb/firefox-safari-style/master/img/preview-vertical.png"/><br/><i>Experimental support for <a href="https://blog.nightly.mozilla.org/2024/08/07/firefox-sidebar-and-vertical-tabs-try-them-out-in-nightly-firefox-labs-131/">vertical tabs</a></i></p>
+
 ## Requirements
 
 *  Firefox for macOS
