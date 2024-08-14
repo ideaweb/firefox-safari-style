@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.52 */
+/* VERSION 0.2.53 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -2241,6 +2241,13 @@ sidebar-main:not([expanded]):-moz-window-inactive {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-content .tab-icon-stack > .tab-icon-image,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-content .tab-icon-stack > :not(.tab-icon-overlay), #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true]:hover .tab-content .tab-icon-stack > .tab-icon-image,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true]:hover .tab-content .tab-icon-stack > :not(.tab-icon-overlay) {
+    opacity: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   sidebar-main:not([expanded]) .tab-label-container {
     margin-left: 7px;
     padding-top: 4px !important;
@@ -2273,15 +2280,14 @@ sidebar-main:not([expanded]):-moz-window-inactive {
     padding-left: 3px !important;
   }
   #tabbrowser-tabs[orient=vertical] .tabbrowser-tab,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):has(.tab-close-button:hover):hover > .tab-stack > .tab-background,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):has(.tab-close-button:hover) .tab-background {
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover {
     background-color: transparent !important;
     background-image: none !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab {
     margin-bottom: 2px !important;
+    --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - 51px);
     padding: 0 !important;
     width: 100% !important;
     height: 30px;
@@ -2314,9 +2320,40 @@ sidebar-main:not([expanded]):-moz-window-inactive {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
   }
+  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-content,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-content {
+    display: flex !important;
+    justify-content: flex-start !important;
+  }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-close-button,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-close-button {
     display: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    padding: 2px !important;
+    transform: translateX(calc(0px - var(--firefox-move-icon)));
+  }
+  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-stack .tab-sharing-icon-overlay,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-stack .tab-sharing-icon-overlay {
+    display: none !important;
+    opacity: 0 !important;
+  }
+  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-label-container,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-label-container {
+    max-width: 187px;
+  }
+  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-overlay[pictureinpicture],
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-overlay[soundplaying],
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-overlay[muted],
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-overlay[activemedia-blocked],
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-overlay[pictureinpicture],
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-overlay[soundplaying],
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-overlay[muted],
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-overlay[activemedia-blocked] {
+    position: absolute !important;
+    transform: translateX(var(--firefox-move-icon)) !important;
+    width: 16px !important;
+    height: 16px !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:hover .tab-close-button,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-close-button {
@@ -2502,43 +2539,43 @@ sidebar-main:not([expanded]):-moz-window-inactive {
   #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-background, #tabbrowser-tabs[orient=vertical] .tabbrowser-tab#vertical-tabs-newtab-button {
     background-color: transparent !important;
   }
-  #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([selected=true]):not([disabled=true]):not(:has(.tab-close-button:hover)):hover .tab-background, #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([selected=true]):not([disabled=true]):not(:has(.tab-close-button:hover)):hover#vertical-tabs-newtab-button {
+  #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([selected=true]):not([disabled=true]):hover .tab-background, #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([selected=true]):not([disabled=true]):hover#vertical-tabs-newtab-button {
     background-color: var(--firefox-safari-style-input-background-hover) !important;
   }
-  #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover#vertical-tabs-newtab-button,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover)) .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover))#vertical-tabs-newtab-button {
+  #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-background,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])#vertical-tabs-newtab-button {
     background-color: color-mix(in srgb, var(--tab-hover-background-color) 66%, transparent) !important;
   }
 }
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
-  #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover#vertical-tabs-newtab-button,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover)) .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover))#vertical-tabs-newtab-button {
+  #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-background,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])#vertical-tabs-newtab-button {
     background-color: var(--firefox-safari-style-input-background-active) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover .tab-background, #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover#vertical-tabs-newtab-button,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover)) .tab-background,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover))#vertical-tabs-newtab-button {
+  #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background, #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button,
+#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-background,
+#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])#vertical-tabs-newtab-button {
     background-color: var(--firefox-safari-style-input-background-active) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover[selected=true] .tab-throbber,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover[selected=true] .tab-icon-image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover[selected=true] .tab-close-button,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover[selected=true] image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover))[selected=true] .tab-throbber,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover))[selected=true] .tab-icon-image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover))[selected=true] .tab-close-button,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover))[selected=true] image {
+  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] .tab-throbber,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] .tab-icon-image,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] .tab-close-button,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] image,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] .tab-throbber,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] .tab-icon-image,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] .tab-close-button,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] image {
     opacity: 1 !important;
     fill: var(--firefox-safari-style-button-input-color) !important;
   }
-  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover[selected=true] label,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]):not(:has(.tab-close-button:hover))[selected=true] label {
+  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] label,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] label {
     color: var(--firefox-safari-style-button-input-color) !important;
   }
 }
@@ -2550,28 +2587,28 @@ sidebar-main:not([expanded]):-moz-window-inactive {
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button#vertical-tabs-newtab-button:hover,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]):not(:has(.tab-close-button:hover)) .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]):not(:has(.tab-close-button:hover))#vertical-tabs-newtab-button:hover,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover#vertical-tabs-newtab-button:hover {
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]) .tab-background,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true])#vertical-tabs-newtab-button:hover,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button:hover {
     background-color: color-mix(in srgb, var(--tab-hover-background-color) 33%, transparent) !important;
   }
 }
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
   #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button#vertical-tabs-newtab-button:hover,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]):not(:has(.tab-close-button:hover)) .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]):not(:has(.tab-close-button:hover))#vertical-tabs-newtab-button:hover,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover#vertical-tabs-newtab-button:hover {
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]) .tab-background,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true])#vertical-tabs-newtab-button:hover,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background,
+#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button:hover {
     background-color: var(--firefox-safari-style-button-background-hover) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-background, #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button#vertical-tabs-newtab-button:hover,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]):not(:has(.tab-close-button:hover)) .tab-background,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]):not(:has(.tab-close-button:hover))#vertical-tabs-newtab-button:hover,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover .tab-background,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):not(:has(.tab-close-button:hover)):hover#vertical-tabs-newtab-button:hover {
+#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]) .tab-background,
+#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true])#vertical-tabs-newtab-button:hover,
+#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background,
+#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button:hover {
     background-color: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
   }
 }
