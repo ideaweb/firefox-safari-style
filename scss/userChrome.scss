@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.51 */
+/* VERSION 0.2.52 */
 /******************/
 
 /* 
@@ -2038,13 +2038,16 @@ $firefox-safari-style-vibrancy: false;
                 border-top-width: 0 !important;
             }
             order: 3;
+            margin: 0 !important;
+            margin-inline-start: 0 !important;
+            margin-inline-end: 0 !important;
         }
         #tabbrowser-arrowscrollbox {
             overflow-x: hidden !important;
         }
         margin-inline-end: 0 !important;
         display: block !important;
-        padding-right: 8px;
+        padding-right: 9px;
     }
     sidebar-main:not([expanded]) {
         max-width: 44px !important;
@@ -2205,7 +2208,7 @@ $firefox-safari-style-vibrancy: false;
                 font-size: 10px;
                 font-weight: 600;
                 margin: 0 0 5px 6px;
-                opacity: 0.40;
+                opacity: 0.5;
                 width: 100%;
             }
             &:-moz-window-inactiv::before {
@@ -2314,9 +2317,14 @@ $firefox-safari-style-vibrancy: false;
                 }
             }
         }
+        #vertical-tabs-newtab-button {
+            border-radius: 5px;
+            margin: 0 !important;
+        }
+        #vertical-tabs-newtab-button,
         #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled="true"]):not([selected="true"]):not(:has(.tab-close-button:hover)),
         .tabbrowser-tab:not([disabled="true"]):not(:has(.tab-close-button:hover)):hover {
-            .tab-background, &#vertical-tabs-newtab-button {
+            .tab-background, &#vertical-tabs-newtab-button:hover {
                 #main-window:not([lwtheme="true"]) & {
                     background-color: color-mix(in srgb, var(--tab-hover-background-color) 33%, transparent) !important;
                     @media (prefers-color-scheme: dark) {
