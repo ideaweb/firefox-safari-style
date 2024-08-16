@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.53 */
+/* VERSION 0.2.54 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -225,7 +225,7 @@
     /* Inputs */
     --firefox-safari-style-input-color: var(--toolbar-field-color, var(--firefox-safari-style-tab-color));
     /*--firefox-safari-style-input-background-active: var(--toolbar-bgcolor, color-mix(in srgb, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))) 66%, transparent));*/
-    --firefox-safari-style-input-background-active: color-mix(in srgb, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))) 66%, transparent);
+    --firefox-safari-style-input-background-active: var(--toolbar-bgcolor, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))));
     --firefox-safari-style-input-background-inactive: var(--firefox-safari-style-input-background-active);
     --firefox-safari-style-input-background-hover: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent);
     /*--firefox-safari-style-input-border-active: var(--firefox-safari-style-tab-border-color-active);
@@ -2104,12 +2104,16 @@ spacer[part=overflow-end-indicator] {
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   :root {
-    --firefox-safari-style-vertical-tab-width: 260px;
+    --firefox-safari-style-vertical-tab-width: 77px;
+  }
+  :root:has(sidebar-main[expanded]) {
+    --firefox-safari-style-vertical-tab-width: 261px;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   .wrapper {
     background-color: transparent !important;
+    min-width: initial !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -2145,54 +2149,54 @@ spacer[part=overflow-end-indicator] {
     margin-inline-start: 0 !important;
     margin-inline-end: 0 !important;
   }
-  #vertical-tabs[visible] #newtab-button-container, #vertical-tabs[visible] #newtab-button-container #vertical-tabs-newtab-button {
-    min-height: 29px;
-  }
   #vertical-tabs[visible] #newtab-button-container, #vertical-tabs[visible] #newtab-button-container[showborder] {
     border-top-width: 0 !important;
+  }
+  sidebar-main[expanded] #vertical-tabs[visible] #newtab-button-container .toolbarbutton-icon {
+    margin-left: 9px;
   }
   #vertical-tabs[visible] #tabbrowser-arrowscrollbox {
     overflow-x: hidden !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  sidebar-main:not([expanded]) {
+  sidebar-main {
     max-width: 44px !important;
     background-color: var(--firefox-safari-style-background-color-active) !important;
   }
-  sidebar-main:not([expanded]):-moz-window-inactive {
+  sidebar-main:-moz-window-inactive {
     background-color: var(--firefox-safari-style-background-color-inactive) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox,
-sidebar-main:not([expanded]) {
+sidebar-main {
     background-size: 1px 1px !important;
     background-repeat: repeat-y !important;
     background-position: calc(var(--firefox-safari-style-vertical-tab-width) - 1px) 0 !important;
     background-image: linear-gradient(to bottom, color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-active) 50%, transparent) 0%, color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-active) 50%, transparent) 100%) !important;
   }
   #main-window[lwtheme=true] #navigator-toolbox,
-#main-window[lwtheme=true] sidebar-main:not([expanded]) {
+#main-window[lwtheme=true] sidebar-main {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-border-bottom-color-active) 0%, var(--firefox-safari-style-tab-border-bottom-color-active) 100%) !important;
   }
   #navigator-toolbox:-moz-window-inactive,
-sidebar-main:not([expanded]):-moz-window-inactive {
+sidebar-main:-moz-window-inactive {
     background-color: var(--firefox-safari-style-background-color-inactive) !important;
     background-image: linear-gradient(to bottom, color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-inactive) 50%, transparent) 0%, color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-inactive) 50%, transparent) 100%) !important;
   }
   #main-window[lwtheme=true] #navigator-toolbox:-moz-window-inactive,
-#main-window[lwtheme=true] sidebar-main:not([expanded]):-moz-window-inactive {
+#main-window[lwtheme=true] sidebar-main:-moz-window-inactive {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-tab-border-bottom-color-inactive) 0%, var(--firefox-safari-style-tab-border-bottom-color-inactive) 100%) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  sidebar-main:not([expanded]):has(#vertical-tabs[visible]):has(#tabbrowser-tabs[orient=vertical]) {
+  sidebar-main:has(#vertical-tabs[visible]):has(#tabbrowser-tabs[orient=vertical]) {
     background-color: transparent !important;
     min-width: var(--firefox-safari-style-vertical-tab-width) !important;
     /*box-shadow: inset -4px 0 2px -2px hsla(0,0%,0%,.033) !important;*/
   }
-  sidebar-main:not([expanded]):has(#vertical-tabs[visible]):has(#tabbrowser-tabs[orient=vertical]):-moz-window-inactive {
+  sidebar-main:has(#vertical-tabs[visible]):has(#tabbrowser-tabs[orient=vertical]):-moz-window-inactive {
     background-color: var(--firefox-safari-style-background-color-inactive) !important;
   }
 }
@@ -2205,37 +2209,75 @@ sidebar-main:not([expanded]):-moz-window-inactive {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  sidebar-main:not([expanded]):has(#vertical-tabs[visible]) .tab-label-container,
-#tabbrowser-tabs[orient=vertical] .tab-close-button {
+  sidebar-main[expanded]:has(#vertical-tabs[visible]) .tab-label-container,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-close-button {
     display: block !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-content .tab-icon-stack > .tab-icon-image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-content .tab-icon-stack > :not(.tab-icon-overlay), #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true]:hover .tab-content .tab-icon-stack > .tab-icon-image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true]:hover .tab-content .tab-icon-stack > :not(.tab-icon-overlay) {
+  sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab:hover .tab-content .tab-icon-stack > .tab-icon-image,
+sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab:hover .tab-content .tab-icon-stack > :not(.tab-icon-overlay), sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true]:hover .tab-content .tab-icon-stack > .tab-icon-image,
+sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true]:hover .tab-content .tab-icon-stack > :not(.tab-icon-overlay) {
     opacity: 0 !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  sidebar-main:not([expanded]) .tab-label-container {
-    margin-left: 7px;
+  sidebar-main .tab-label-container {
+    margin-left: 0 !important;
     padding-top: 4px !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #main-window:not([lwtheme=true]) {
+    /* Active bottom */
+    --button-background-color: var(--firefox-safari-style-input-background-active) !important;
+    /* Active top */
+    --button-background-color-ghost-active: var(--firefox-safari-style-input-background-active) !important;
+    /* Hover */
+    --button-background-color-ghost-hover: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
+    /* ? */
+    --button-background-color-hover: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #main-window[lwtheme=true] {
+    /* Active bottom */
+    --button-background-color: var(--firefox-safari-style-input-background-active) !important;
+    /* Active top */
+    --button-background-color-ghost-active: var(--firefox-safari-style-input-background-active) !important;
+    /* Hover */
+    --button-background-color-ghost-hover: var(--firefox-safari-style-input-background-hover) !important;
+    /* ? */
+    --button-background-color-hover: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   .bottom-actions.actions-list,
 .tools-and-extensions.actions-list {
-    align-items: flex-end !important;
-    margin-right: 2px;
-    flex-direction: row !important;
-    justify-content: center;
-    flex-wrap: wrap;
+    /* inactive */
+    --button-text-color-ghost: var(--firefox-safari-style-button-color) !important;
+    /* active */
+    --button-text-color: var(--firefox-safari-style-button-input-color) !important;
+    /* hover */
+    --button-text-color-ghost-hover: var(--firefox-safari-style-button-color) !important;
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+  }
+  .bottom-actions.actions-list:-moz-window-inactive,
+.tools-and-extensions.actions-list:-moz-window-inactive {
+    opacity: 0.5 !important;
+  }
+  .bottom-actions.actions-list moz-button + moz-button,
+.tools-and-extensions.actions-list moz-button + moz-button {
+    margin-top: 2px !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   .bottom-actions.actions-list {
-    position: absolute;
+    margin-bottom: 2px !important;
+  }
+  sidebar-main:not([expanded]) .bottom-actions.actions-list {
+    margin-bottom: 16px !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -2254,13 +2296,22 @@ sidebar-main:not([expanded]):-moz-window-inactive {
     background-color: transparent !important;
     background-image: none !important;
   }
+  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button {
+    border-radius: 5px !important;
+  }
+  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .toolbarbutton-icon {
+    transform: translateY(-1px);
+  }
+  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .toolbarbutton-text {
+    padding-inline-start: 5px !important;
+  }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab {
     margin-bottom: 2px !important;
-    --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - 51px);
+    min-width: initial !important;
+    --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - 52px);
     padding: 0 !important;
     width: 100% !important;
-    height: 30px;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-throbber,
 #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-image,
@@ -2294,6 +2345,7 @@ sidebar-main:not([expanded]):-moz-window-inactive {
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-content {
     display: flex !important;
     justify-content: flex-start !important;
+    padding: 0 8px !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-close-button,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-close-button {
@@ -2325,8 +2377,8 @@ sidebar-main:not([expanded]):-moz-window-inactive {
     width: 16px !important;
     height: 16px !important;
   }
-  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:hover .tab-close-button,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-close-button {
+  sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:hover .tab-close-button,
+sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-close-button {
     display: block !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-throbber,
@@ -2348,16 +2400,22 @@ sidebar-main:not([expanded]):-moz-window-inactive {
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([sharing]):not([pictureinpicture]):-moz-broken {
     margin-top: -2px;
   }
-  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button, #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:not([selected=true]), #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:not([selected=true]):not([disabled=true]):hover,
+  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button, #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:not(#vertical-tabs-newtab-button):not([selected=true]), #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:not(#vertical-tabs-newtab-button):not([selected=true]):not([disabled=true]):hover,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([selected=true]),
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([selected=true]):not([disabled=true]):hover {
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not(#vertical-tabs-newtab-button):not([selected=true]),
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not(#vertical-tabs-newtab-button):not([selected=true]):not([disabled=true]):hover {
     background-color: transparent !important;
     background-image: none !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:-moz-window-inactive,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:-moz-window-inactive {
     opacity: 0.5;
+  }
+  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab, #tabbrowser-tabs[orient=vertical] .tabbrowser-tab #vertical-tabs-newtab-button,
+#tabbrowser-tabs[orient=vertical] #newtab-button-container,
+#tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button {
+    height: 30px;
+    min-height: 30px;
   }
   #tabbrowser-tabs[orient=vertical] .tab-content,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]),
@@ -2393,110 +2451,123 @@ sidebar-main:not([expanded]):-moz-window-inactive {
   #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab) ~ #tabbrowser-arrowscrollbox:has(.tabbrowser-tab) {
     margin-top: 5px;
   }
-  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
   #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:not(:has(.tabbrowser-tab)) {
     position: absolute;
     opacity: 0;
   }
-  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab {
-    max-width: 33px !important;
+  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-close-button, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-close-button:hover,
 #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-label-container,
-#tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-label-container:hover {
+#tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-label-container:hover, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-close-button, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-close-button:hover,
+#tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-label-container,
+#tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-label-container:hover, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-close-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-close-button:hover,
+sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-label-container,
+sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-label-container:hover, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-close-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-close-button:hover,
+sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-label-container,
+sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-label-container:hover, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab .tab-close-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab .tab-close-button:hover,
+sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab .tab-label-container,
+sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab .tab-label-container:hover, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button .tab-close-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button .tab-close-button:hover,
+sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button .tab-label-container,
+sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button .tab-label-container:hover {
     display: none !important;
   }
-  #main-window[lang*=en-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-stack, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button .tab-stack {
+    max-width: 33px !important;
+  }
+  sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab {
+    transform: translateX(13px) !important;
+  }
+  #main-window[lang*=en-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Pinned Tabs";
   }
-  #main-window[lang*=cs-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=cs-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Připnuté karty";
   }
-  #main-window[lang*=de-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=de-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Angeheftet Tabs";
   }
-  #main-window[lang*=el-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=el-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Καρφιτσωμένες καρτέλες";
   }
-  #main-window[lang*=es-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=es-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Pestañas ancladas";
   }
-  #main-window[lang*=fi-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=fi-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Kiinnitetyt välilehdet";
   }
-  #main-window[lang*=it-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=it-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Pannelli fissati";
   }
-  #main-window[lang*=ja-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=ja-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "固定したタブ";
   }
-  #main-window[lang*=nl-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=nl-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Vastgemaakte tabbladen";
   }
-  #main-window[lang*=pl-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=pl-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Przypięte karty";
   }
-  #main-window[lang*=ru-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=ru-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Закрепленные вкладки";
   }
-  #main-window[lang*=sl-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=sl-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Pripeti zavihki";
   }
-  #main-window[lang*=sv-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=sv-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Fästa flikar";
   }
-  #main-window[lang*=tr-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=tr-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Sabitlenmiş sekmeler";
   }
-  #main-window[lang*=uk-] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
+  #main-window[lang*=uk-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab)::before {
     content: "Закріплені вкладки";
   }
-  #main-window[lang*=en-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=en-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Open Tabs";
   }
-  #main-window[lang*=cs-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=cs-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Otevřít karty";
   }
-  #main-window[lang*=de-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=de-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Offene Tabs";
   }
-  #main-window[lang*=el-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=el-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Ανοικτές καρτέλες";
   }
-  #main-window[lang*=es-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=es-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Abrir pestañas";
   }
-  #main-window[lang*=fi-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=fi-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Avoimet välilehdet";
   }
-  #main-window[lang*=it-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=it-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Apri pannelli";
   }
-  #main-window[lang*=ja-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=ja-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "タブ";
   }
-  #main-window[lang*=nl-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=nl-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Open tabbladen";
   }
-  #main-window[lang*=pl-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=pl-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Otwórz karty";
   }
-  #main-window[lang*=ru-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=ru-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Открытые вкладки";
   }
-  #main-window[lang*=sl-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=sl-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Odprti zavihki";
   }
-  #main-window[lang*=sv-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=sv-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Öppna flikar";
   }
-  #main-window[lang*=tr-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=tr-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Sekmeleri aç";
   }
-  #main-window[lang*=uk-] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
+  #main-window[lang*=uk-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Відкрити вкладки";
   }
 }
@@ -2506,84 +2577,41 @@ sidebar-main:not([expanded]):-moz-window-inactive {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-background, #tabbrowser-tabs[orient=vertical] .tabbrowser-tab#vertical-tabs-newtab-button {
+  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-background,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button {
     background-color: transparent !important;
   }
-  #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([selected=true]):not([disabled=true]):hover .tab-background, #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([selected=true]):not([disabled=true]):hover#vertical-tabs-newtab-button {
-    background-color: var(--firefox-safari-style-input-background-hover) !important;
+  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-background {
+    /* Active */
+    background-color: var(--button-background-color-ghost-active) !important;
   }
-  #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])#vertical-tabs-newtab-button {
-    background-color: color-mix(in srgb, var(--tab-hover-background-color) 66%, transparent) !important;
+  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([selected=true]):not([disabled=true]):hover .tab-background,
+#tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([selected=true]):not([disabled=true]) .tab-background,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:hover {
+    /* hover */
+    background-color: var(--button-background-color-ghost-hover) !important;
   }
-}
-@media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
-  #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])#vertical-tabs-newtab-button {
-    background-color: var(--firefox-safari-style-input-background-active) !important;
-  }
-}
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background, #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-background,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])#vertical-tabs-newtab-button {
-    background-color: var(--firefox-safari-style-input-background-active) !important;
-  }
-}
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] .tab-throbber,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] .tab-icon-image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] .tab-close-button,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] .tab-throbber,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] .tab-icon-image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] .tab-close-button,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] image {
-    opacity: 1 !important;
-    fill: var(--firefox-safari-style-button-input-color) !important;
-  }
-  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover[selected=true] label,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true])[selected=true] label {
-    color: var(--firefox-safari-style-button-input-color) !important;
-  }
-}
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button {
     border-radius: 5px;
     margin: 0 !important;
   }
-}
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button#vertical-tabs-newtab-button:hover,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]) .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true])#vertical-tabs-newtab-button:hover,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button:hover {
-    background-color: color-mix(in srgb, var(--tab-hover-background-color) 33%, transparent) !important;
+  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-throbber,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-icon-image, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-close-button,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) image {
+    opacity: 1 !important;
+    fill: var(--firefox-safari-style-button-input-color) !important;
   }
-}
-@media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
-  #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-background, #main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button#vertical-tabs-newtab-button:hover,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]) .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true])#vertical-tabs-newtab-button:hover,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background,
-#main-window:not([lwtheme=true]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button:hover {
-    background-color: var(--firefox-safari-style-button-background-hover) !important;
-  }
-}
-@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-background, #main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button#vertical-tabs-newtab-button:hover,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true]) .tab-background,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled=true]):not([selected=true])#vertical-tabs-newtab-button:hover,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover .tab-background,
-#main-window[lwtheme=true] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:not([disabled=true]):hover#vertical-tabs-newtab-button:hover {
-    background-color: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
+  #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) label {
+    color: var(--firefox-safari-style-button-input-color) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   toolbarpaletteitem[place=toolbar][id^=wrapper-customizableui-special-spring], toolbarspring {
     max-height: 28px;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  sidebar-main:not([expanded]) #vertical-pinned-tabs-container {
+    justify-content: center;
   }
 }

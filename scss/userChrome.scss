@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.53 */
+/* VERSION 0.2.54 */
 /******************/
 
 /* 
@@ -284,7 +284,7 @@ $firefox-safari-style-vibrancy: false;
             /* Inputs */
             --firefox-safari-style-input-color: var(--toolbar-field-color, var(--firefox-safari-style-tab-color));
             /*--firefox-safari-style-input-background-active: var(--toolbar-bgcolor, color-mix(in srgb, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))) 66%, transparent));*/
-            --firefox-safari-style-input-background-active: color-mix(in srgb, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))) 66%, transparent);
+            --firefox-safari-style-input-background-active: var(--toolbar-bgcolor, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))));
             --firefox-safari-style-input-background-inactive: var(--firefox-safari-style-input-background-active);
             --firefox-safari-style-input-background-hover: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent);
             /*--firefox-safari-style-input-border-active: var(--firefox-safari-style-tab-border-color-active);
@@ -2005,10 +2005,14 @@ $firefox-safari-style-vibrancy: false;
     /*****************/
 
     :root {
-        --firefox-safari-style-vertical-tab-width: 260px;
+        --firefox-safari-style-vertical-tab-width: 77px;
+        &:has(sidebar-main[expanded]) {
+            --firefox-safari-style-vertical-tab-width: 261px;
+        }
     }
     .wrapper { 
-        background-color: transparent !important ;
+        background-color: transparent !important;
+        min-width: initial !important;
     }
     #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient="vertical"]) {
         #nav-bar {
@@ -2031,11 +2035,11 @@ $firefox-safari-style-vibrancy: false;
             display: flex !important;
         }
         #newtab-button-container {
-            &, #vertical-tabs-newtab-button {
-                min-height: 29px;;
-            }
             &, &[showborder] {
                 border-top-width: 0 !important;
+            }
+            sidebar-main[expanded] & .toolbarbutton-icon {
+                margin-left: 9px;
             }
             order: 3;
             margin: 0 !important;
@@ -2049,7 +2053,7 @@ $firefox-safari-style-vibrancy: false;
         display: block !important;
         padding-right: 9px;
     }
-    sidebar-main:not([expanded]) {
+    sidebar-main {
         max-width: 44px !important;
         background-color: var(--firefox-safari-style-background-color-active) !important;
         &:-moz-window-inactive {
@@ -2057,7 +2061,7 @@ $firefox-safari-style-vibrancy: false;
         }
     }
     #navigator-toolbox,
-    sidebar-main:not([expanded]) {
+    sidebar-main {
         background-size: 1px 1px !important;
         background-repeat: repeat-y !important;
         background-position: calc(var( --firefox-safari-style-vertical-tab-width) - 1px) 0 !important;
@@ -2089,7 +2093,7 @@ $firefox-safari-style-vibrancy: false;
             }
         }
     }
-    sidebar-main:not([expanded]):has(#vertical-tabs[visible]):has(#tabbrowser-tabs[orient="vertical"]) {
+    sidebar-main:has(#vertical-tabs[visible]):has(#tabbrowser-tabs[orient="vertical"]) {
         background-color: transparent !important;
         &:-moz-window-inactive {
             background-color: var(--firefox-safari-style-background-color-inactive) !important;
@@ -2104,11 +2108,11 @@ $firefox-safari-style-vibrancy: false;
         }
     }
     
-    sidebar-main:not([expanded]):has(#vertical-tabs[visible]) .tab-label-container,
-    #tabbrowser-tabs[orient="vertical"] .tab-close-button {
+    sidebar-main[expanded]:has(#vertical-tabs[visible]) .tab-label-container,
+    #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:hover .tab-close-button {
         display: block !important;
     }
-    #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab {
+    sidebar-main[expanded] #tabbrowser-tabs[orient="vertical"] #tabbrowser-arrowscrollbox .tabbrowser-tab {
         &, &[selected="true"]:not([disabled="true"])[selected="true"] {
             &:hover .tab-content .tab-icon-stack {
                 > .tab-icon-image,
@@ -2118,22 +2122,53 @@ $firefox-safari-style-vibrancy: false;
             }
         }
     }
-    sidebar-main:not([expanded]) .tab-label-container {
-        margin-left: 7px;
+    sidebar-main .tab-label-container {
+        margin-left: 0 !important;
         padding-top: 4px !important;
+    }
+    #main-window:not([lwtheme="true"]) {
+        /* Active bottom */
+        --button-background-color: var(--firefox-safari-style-input-background-active) !important;
+        /* Active top */
+        --button-background-color-ghost-active: var(--firefox-safari-style-input-background-active) !important;
+        /* Hover */
+        --button-background-color-ghost-hover: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
+        /* ? */
+        --button-background-color-hover: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
+    }
+    #main-window[lwtheme="true"] {
+        /* Active bottom */
+        --button-background-color: var(--firefox-safari-style-input-background-active) !important;
+        /* Active top */
+        --button-background-color-ghost-active: var(--firefox-safari-style-input-background-active) !important;
+        /* Hover */
+        --button-background-color-ghost-hover: var(--firefox-safari-style-input-background-hover) !important;
+        /* ? */
+        --button-background-color-hover: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
     }
     .bottom-actions.actions-list,
     .tools-and-extensions.actions-list {
-        align-items: flex-end !important;
-        margin-right: 2px;
-        flex-direction: row !important;
-        justify-content: center;
-        flex-wrap: wrap;
+        /* inactive */
+        --button-text-color-ghost: var(--firefox-safari-style-button-color) !important;
+        /* active */
+        --button-text-color: var(--firefox-safari-style-button-input-color) !important;
+        /* hover */
+        --button-text-color-ghost-hover: var(--firefox-safari-style-button-color) !important;
+        margin-left: 2px !important;
+        margin-right: 2px !important;
+        &:-moz-window-inactive {
+            opacity: 0.5 !important;
+        }
+        moz-button + moz-button {
+            margin-top: 2px !important;
+        }
     }
     .bottom-actions.actions-list {
-        position: absolute;
+        margin-bottom: 2px !important;
+        sidebar-main:not([expanded]) & {
+            margin-bottom: 16px !important;
+        }
     }
-
     #vertical-pinned-tabs-container {
         display: flex !important;
         flex-direction: column;
@@ -2146,9 +2181,19 @@ $firefox-safari-style-vibrancy: false;
             background-color: transparent !important;
             background-image: none !important;
         }
+        #vertical-tabs-newtab-button {
+            border-radius: 5px !important;
+            .toolbarbutton-icon {
+                transform: translateY(-1px);
+            }
+            .toolbarbutton-text {
+                padding-inline-start: 5px !important;
+            }
+        }
         #vertical-tabs-newtab-button,
         .tabbrowser-tab {
             margin-bottom: 2px !important;
+            min-width: initial !important;
             .tab-throbber,
             .tab-icon-image,
             .tab-close-button,
@@ -2173,8 +2218,9 @@ $firefox-safari-style-vibrancy: false;
             .tab-content {
                 display: flex !important;
                 justify-content: flex-start !important;
+                padding: 0 8px !important;
             }
-            --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - 51px);
+            --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - 52px);
             .tab-close-button {
                 display: none !important;
                 width: 16px !important;
@@ -2200,7 +2246,7 @@ $firefox-safari-style-vibrancy: false;
                 width: 16px !important;
                 height: 16px !important;
             }
-            &:hover .tab-close-button {
+            sidebar-main:not([expanded]) &:hover .tab-close-button {
                 display: block !important;
             }
             .tab-throbber,
@@ -2215,7 +2261,7 @@ $firefox-safari-style-vibrancy: false;
                     margin-top: -2px;
                 }
             }
-            &, &:not([selected="true"]), &:not([selected="true"]):not([disabled="true"]):hover {
+            &, &:not(#vertical-tabs-newtab-button):not([selected="true"]), &:not(#vertical-tabs-newtab-button):not([selected="true"]):not([disabled="true"]):hover {
                 background-color: transparent !important;
                 background-image: none !important;
             }
@@ -2224,7 +2270,13 @@ $firefox-safari-style-vibrancy: false;
             }
             padding: 0 !important;
             width: 100% !important;
-            height: 30px;
+        }
+        .tabbrowser-tab,
+        #newtab-button-container {
+            &, #vertical-tabs-newtab-button {
+                height: 30px;
+                min-height: 30px;
+            }
         }
         .tab-content,
         .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), 
@@ -2263,51 +2315,63 @@ $firefox-safari-style-vibrancy: false;
                 position: absolute;
                 opacity: 0;
             }
-            .tabbrowser-tab {
+        }
+        #vertical-pinned-tabs-container,
+        sidebar-main:not([expanded]) & #newtab-button-container,
+        sidebar-main:not([expanded]) & #tabbrowser-arrowscrollbox {
+            .tabbrowser-tab, #vertical-tabs-newtab-button {
                 .tab-close-button,
                 .tab-label-container {
                     &, &:hover {
                         display: none !important;
                     }
                 }
-                max-width: 33px !important;
+                &, .tab-stack {
+                    max-width: 33px !important;
+                }
             }
             flex-direction: row;
             flex-wrap: wrap;
         }
-        #vertical-pinned-tabs-container:has(.tabbrowser-tab) {
-            #main-window[lang*="en-"] &::before { content: 'Pinned Tabs'; }
-            #main-window[lang*="cs-"] &::before { content: 'Připnuté karty'; }
-            #main-window[lang*="de-"] &::before { content: 'Angeheftet Tabs'; }
-            #main-window[lang*="el-"] &::before { content: 'Καρφιτσωμένες καρτέλες'; }
-            #main-window[lang*="es-"] &::before { content: 'Pestañas ancladas'; }
-            #main-window[lang*="fi-"] &::before { content: 'Kiinnitetyt välilehdet'; }
-            #main-window[lang*="it-"] &::before { content: 'Pannelli fissati'; }
-            #main-window[lang*="ja-"] &::before { content: '固定したタブ'; }
-            #main-window[lang*="nl-"] &::before { content: 'Vastgemaakte tabbladen'; }
-            #main-window[lang*="pl-"] &::before { content: 'Przypięte karty'; }
-            #main-window[lang*="ru-"] &::before { content: 'Закрепленные вкладки'; }
-            #main-window[lang*="sl-"] &::before { content: 'Pripeti zavihki'; }
-            #main-window[lang*="sv-"] &::before { content: 'Fästa flikar'; }
-            #main-window[lang*="tr-"] &::before { content: 'Sabitlenmiş sekmeler'; }
-            #main-window[lang*="uk-"] &::before { content: 'Закріплені вкладки'; }
+        sidebar-main:not([expanded]) & #vertical-tabs-newtab-button,
+        sidebar-main:not([expanded]) & #tabbrowser-arrowscrollbox .tabbrowser-tab {
+            transform: translateX(13px) !important;
         }
-        #tabbrowser-arrowscrollbox:has(.tabbrowser-tab) {
-            #main-window[lang*="en-"] &::before { content: 'Open Tabs'; }
-            #main-window[lang*="cs-"] &::before { content: 'Otevřít karty'; }
-            #main-window[lang*="de-"] &::before { content: 'Offene Tabs'; }
-            #main-window[lang*="el-"] &::before { content: 'Ανοικτές καρτέλες'; }
-            #main-window[lang*="es-"] &::before { content: 'Abrir pestañas'; }
-            #main-window[lang*="fi-"] &::before { content: 'Avoimet välilehdet'; }
-            #main-window[lang*="it-"] &::before { content: 'Apri pannelli'; }
-            #main-window[lang*="ja-"] &::before { content: 'タブ'; }
-            #main-window[lang*="nl-"] &::before { content: 'Open tabbladen'; }
-            #main-window[lang*="pl-"] &::before { content: 'Otwórz karty'; }
-            #main-window[lang*="ru-"] &::before { content: 'Открытые вкладки'; }
-            #main-window[lang*="sl-"] &::before { content: 'Odprti zavihki'; }
-            #main-window[lang*="sv-"] &::before { content: 'Öppna flikar'; }
-            #main-window[lang*="tr-"] &::before { content: 'Sekmeleri aç'; }
-            #main-window[lang*="uk-"] &::before { content: 'Відкрити вкладки'; }
+        sidebar-main[expanded] & {
+            #vertical-pinned-tabs-container:has(.tabbrowser-tab) {
+                #main-window[lang*="en-"] &::before { content: 'Pinned Tabs'; }
+                #main-window[lang*="cs-"] &::before { content: 'Připnuté karty'; }
+                #main-window[lang*="de-"] &::before { content: 'Angeheftet Tabs'; }
+                #main-window[lang*="el-"] &::before { content: 'Καρφιτσωμένες καρτέλες'; }
+                #main-window[lang*="es-"] &::before { content: 'Pestañas ancladas'; }
+                #main-window[lang*="fi-"] &::before { content: 'Kiinnitetyt välilehdet'; }
+                #main-window[lang*="it-"] &::before { content: 'Pannelli fissati'; }
+                #main-window[lang*="ja-"] &::before { content: '固定したタブ'; }
+                #main-window[lang*="nl-"] &::before { content: 'Vastgemaakte tabbladen'; }
+                #main-window[lang*="pl-"] &::before { content: 'Przypięte karty'; }
+                #main-window[lang*="ru-"] &::before { content: 'Закрепленные вкладки'; }
+                #main-window[lang*="sl-"] &::before { content: 'Pripeti zavihki'; }
+                #main-window[lang*="sv-"] &::before { content: 'Fästa flikar'; }
+                #main-window[lang*="tr-"] &::before { content: 'Sabitlenmiş sekmeler'; }
+                #main-window[lang*="uk-"] &::before { content: 'Закріплені вкладки'; }
+            }
+            #tabbrowser-arrowscrollbox:has(.tabbrowser-tab) {
+                #main-window[lang*="en-"] &::before { content: 'Open Tabs'; }
+                #main-window[lang*="cs-"] &::before { content: 'Otevřít karty'; }
+                #main-window[lang*="de-"] &::before { content: 'Offene Tabs'; }
+                #main-window[lang*="el-"] &::before { content: 'Ανοικτές καρτέλες'; }
+                #main-window[lang*="es-"] &::before { content: 'Abrir pestañas'; }
+                #main-window[lang*="fi-"] &::before { content: 'Avoimet välilehdet'; }
+                #main-window[lang*="it-"] &::before { content: 'Apri pannelli'; }
+                #main-window[lang*="ja-"] &::before { content: 'タブ'; }
+                #main-window[lang*="nl-"] &::before { content: 'Open tabbladen'; }
+                #main-window[lang*="pl-"] &::before { content: 'Otwórz karty'; }
+                #main-window[lang*="ru-"] &::before { content: 'Открытые вкладки'; }
+                #main-window[lang*="sl-"] &::before { content: 'Odprti zavihki'; }
+                #main-window[lang*="sv-"] &::before { content: 'Öppna flikar'; }
+                #main-window[lang*="tr-"] &::before { content: 'Sekmeleri aç'; }
+                #main-window[lang*="uk-"] &::before { content: 'Відкрити вкладки'; }
+            }
         }
         padding-inline: 0 !important;
         padding-left: 3px !important;
@@ -2318,63 +2382,47 @@ $firefox-safari-style-vibrancy: false;
         }
     }
     #tabbrowser-tabs[orient="vertical"]  {
-        .tabbrowser-tab  .tab-background, .tabbrowser-tab#vertical-tabs-newtab-button {
+        .tabbrowser-tab  .tab-background, 
+        #vertical-tabs-newtab-button {
             background-color: transparent !important;
         }
-        #main-window[lwtheme="true"] & .tabbrowser-tab  {
-            &:not([selected="true"]):not([disabled="true"]):hover {
-                .tab-background, &#vertical-tabs-newtab-button {
-                    background-color: var(--firefox-safari-style-input-background-hover) !important;
-                }
+        .tabbrowser-tab[selected="true"]:not([disabled="true"]) {
+            .tab-background {
+                /* Active */
+                background-color: var(--button-background-color-ghost-active) !important;
             }
         }
-        .tabbrowser-tab:not([disabled="true"]):hover,
-        .tabbrowser-tab[selected="true"]:not([disabled="true"]) {
-            .tab-background, &#vertical-tabs-newtab-button {
-                #main-window:not([lwtheme="true"]) & {
-                    background-color: color-mix(in srgb, var(--tab-hover-background-color) 66%, transparent) !important;
-                    @media (prefers-color-scheme: dark) {
-                        background-color: var(--firefox-safari-style-input-background-active) !important;
-                    }
-                }
-                #main-window[lwtheme="true"] & {
-                    background-color: var(--firefox-safari-style-input-background-active) !important;
-                }
-            }
-            &[selected="true"] {
-                .tab-throbber,
-                .tab-icon-image,
-                .tab-close-button,
-                image { 
-                    opacity: 1 !important;
-                    fill: var(--firefox-safari-style-button-input-color) !important;
-                }
-                label { 
-                    color: var(--firefox-safari-style-button-input-color) !important;
-                }
-            }
+        .tabbrowser-tab:not([selected="true"]):not([disabled="true"]):hover .tab-background, 
+        #vertical-pinned-tabs-container .tabbrowser-tab:not([selected="true"]):not([disabled="true"]) .tab-background,
+        #vertical-tabs-newtab-button:hover {
+            /* hover */
+            background-color: var(--button-background-color-ghost-hover) !important;
         }
         #vertical-tabs-newtab-button {
             border-radius: 5px;
             margin: 0 !important;
         }
-        #vertical-tabs-newtab-button,
-        #vertical-pinned-tabs-container .tabbrowser-tab:not([disabled="true"]):not([selected="true"]),
-        .tabbrowser-tab:not([disabled="true"]):hover {
-            .tab-background, &#vertical-tabs-newtab-button:hover {
-                #main-window:not([lwtheme="true"]) & {
-                    background-color: color-mix(in srgb, var(--tab-hover-background-color) 33%, transparent) !important;
-                    @media (prefers-color-scheme: dark) {
-                        background-color: var(--firefox-safari-style-button-background-hover) !important;
-                    }
-                }
-                #main-window[lwtheme="true"] & {
-                    background-color: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent) !important;
-                }
+        .tabbrowser-tab[selected="true"]:not([disabled="true"]) {
+            .tab-throbber,
+            .tab-icon-image,
+            sidebar-main:not([expanded]) & .tab-close-button,
+            image { 
+                opacity: 1 !important;
+                fill: var(--firefox-safari-style-button-input-color) !important;
+            }
+            label { 
+                color: var(--firefox-safari-style-button-input-color) !important;
             }
         }
     }
+
     toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], toolbarspring {
         max-height: 28px;
+    }
+
+    sidebar-main:not([expanded]) {
+        #vertical-pinned-tabs-container {
+            justify-content: center;
+        }
     }
 }

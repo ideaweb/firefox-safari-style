@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.54 16/08/2024
+
+#### Bug Fixes:
+
+- Fixed sidebar toggle for vertical tabs.
+
 ## v0.2.53 14/08/2024
 
 #### Bug Fixes:
