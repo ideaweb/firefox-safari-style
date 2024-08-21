@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.55 */
+/* VERSION 0.2.56 */
 /******************/
 
 /* 
@@ -2089,7 +2089,7 @@ $firefox-safari-style-vibrancy: false;
         #TabsToolbar {
             display: none !important;
         }
-        &:has(~ #browser sidebar-main[expanded]) {
+        &:has(~ #browser sidebar-main) {
             #nav-bar {
                 border-bottom: 0;
                 &::after {
@@ -2099,11 +2099,13 @@ $firefox-safari-style-vibrancy: false;
             }
             &:-moz-window-inactive {
                 #nav-bar {
-                    &::before {
+                    &::after {
                         box-shadow: inset 0 -1px 0 0 var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
                     }
                 }
             }
+        }
+        &:has(~ #browser sidebar-main[expanded]) {
             #sidebar-button {
                 position: absolute;
                 left: 77px;
@@ -2414,6 +2416,16 @@ $firefox-safari-style-vibrancy: false;
             }
             flex-direction: row;
             flex-wrap: wrap;
+        }
+        sidebar-main:not([expanded]) & #vertical-pinned-tabs-container {
+            flex-direction: column;
+            padding-left: 13px;
+        }
+        sidebar-main {
+            order: 1 !important;
+        }
+        #sidebar-box {
+            order: 2 !important;
         }
         sidebar-main:not([expanded]) & #vertical-tabs-newtab-button,
         sidebar-main:not([expanded]) & #tabbrowser-arrowscrollbox .tabbrowser-tab {

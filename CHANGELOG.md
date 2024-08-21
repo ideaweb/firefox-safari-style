@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.56 21/08/2024
+
+#### Bug Fixes:
+
+- Fixed pinned tabs in sidebar.
+
 ## v0.2.55 19/08/2024
 
 #### Bug Fixes:
