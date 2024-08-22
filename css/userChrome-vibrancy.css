@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.56 */
+/* VERSION 0.2.57 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -160,7 +160,7 @@
     --firefox-safari-style-button-input-color: var(--firefox-safari-style-button-color);
   }
 }
-:root, :root:-moz-window-inactive {
+:root:has(#browser), :root:has(#browser):-moz-window-inactive {
   background-color: transparent !important;
   appearance: none !important;
 }
@@ -220,9 +220,9 @@
     --firefox-safari-style-attention-color: var(--toolbar-field-focus-border-color, #0a84ff);
     --firefox-safari-style-outline-color: var(--firefox-safari-style-attention-color, #73a6f1);
     /* Default Background color */
-    --firefox-safari-style-background-color-active: var(--lwt-accent-color, var(--firefox-safari-style-background-color-active));
+    --firefox-safari-style-background-color-active: var(--lwt-accent-color);
     /* Background color for inactive windows */
-    --firefox-safari-style-background-color-inactive: var(--lwt-accent-color, var(--firefox-safari-style-background-color-active));
+    --firefox-safari-style-background-color-inactive: var(--lwt-accent-color);
     /* Default background color */
     --firefox-safari-style-tab-background-color-inactive: rgba(0,0,0,0.25);
     /* Colors e.g. for tabs or bookmarks */
@@ -275,13 +275,14 @@
   #main-window, #main-window #navigator-toolbox, #main-window #navigator-toolbox * {
     transition: none !important;
   }
-  #main-window, #main-window html|body, #main-window #nav-bar, #main-window .tabbrowser-tab[selected=true], #main-window #TabsToolbar, #main-window #PersonalToolbar, #main-window #tabbrowser-tabpanels, #main-window #firefox-view-button:not([aria-pressed=false]) {
+  #main-window, #main-window html|body, #main-window .tabbrowser-tab[selected=true], #main-window #TabsToolbar, #main-window #PersonalToolbar, #main-window #tabbrowser-tabpanels, #main-window #firefox-view-button:not([aria-pressed=false]) {
     background-color: transparent !important;
   }
   #main-window #titlebar:-moz-window-inactive {
     opacity: 1 !important;
   }
   #main-window #nav-bar {
+    appearance: none !important;
     background-color: transparent !important;
   }
   #main-window #nav-bar:-moz-window-inactive {
@@ -2163,13 +2164,16 @@ spacer[part=overflow-end-indicator] {
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   :root {
+    --firefox-safari-style-vertical-tab-min-width: 77px;
+    --firefox-safari-style-vertical-tab-max-width: 261px;
+    --firefox-safari-style-vertical-tab-box-width: var(--firefox-safari-style-vertical-tab-max-width);
     --firefox-safari-style-vertical-tab-width: 50px;
   }
   :root:has(#tabbrowser-tabs[orient=vertical]) {
-    --firefox-safari-style-vertical-tab-width: 77px;
+    --firefox-safari-style-vertical-tab-width: var(--firefox-safari-style-vertical-tab-min-width);
   }
   :root:has(sidebar-main[expanded]) {
-    --firefox-safari-style-vertical-tab-width: 261px !important;
+    --firefox-safari-style-vertical-tab-width: var(--firefox-safari-style-vertical-tab-max-width) !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -2184,22 +2188,10 @@ spacer[part=overflow-end-indicator] {
   }
   #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar {
     padding-left: var(--firefox-safari-style-vertical-tab-width) !important;
-  }
-  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar::after {
-    left: var(--firefox-safari-style-vertical-tab-width) !important;
+    background-position-x: var(--firefox-safari-style-vertical-tab-width) !important;
   }
   #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #TabsToolbar {
     display: none !important;
-  }
-  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]):has(~ #browser sidebar-main) #nav-bar {
-    border-bottom: 0;
-  }
-  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]):has(~ #browser sidebar-main) #nav-bar::after {
-    max-height: 52px;
-    box-shadow: inset 0 -1px 0 0 var(--firefox-safari-style-tab-border-bottom-color-active) !important;
-  }
-  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]):has(~ #browser sidebar-main):-moz-window-inactive #nav-bar::after {
-    box-shadow: inset 0 -1px 0 0 var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
   }
   #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]):has(~ #browser sidebar-main[expanded]) #sidebar-button {
     position: absolute;
@@ -2262,6 +2254,11 @@ sidebar-main:-moz-window-inactive {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #main-window:has(#browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #sidebar-box {
+    order: 2 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #main-window:not([lwtheme=true]) sidebar-main {
     background-color: transparent !important;
   }
@@ -2285,7 +2282,7 @@ sidebar-main:-moz-window-inactive {
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   sidebar-main[expanded]:has(#vertical-tabs[visible]) .tab-label-container,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-close-button {
+#tabbrowser-tabs[orient=vertical]:not([movingtab]) .tabbrowser-tab:hover .tab-close-button {
     display: block !important;
   }
 }
@@ -2384,19 +2381,27 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscroll
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab {
     margin-bottom: 2px !important;
     min-width: initial !important;
-    --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - 52px);
+    --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - var(--firefox-safari-style-bar-height));
     padding: 0 !important;
     width: 100% !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-throbber,
 #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-image,
 #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-close-button,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-pending,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-sharing-icon-overlay,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-overlay,
 #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button image,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-throbber,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-image,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-close-button,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-pending,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-sharing-icon-overlay,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-overlay,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab image {
     fill: var(--firefox-safari-style-button-color) !important;
+    margin-inline-end: 5.5px;
+    opacity: 0.7 !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button label,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab label {
@@ -2451,20 +2456,6 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscroll
     transform: translateX(var(--firefox-move-icon)) !important;
     width: 16px !important;
     height: 16px !important;
-  }
-  sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button:hover .tab-close-button,
-sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover .tab-close-button {
-    display: block !important;
-  }
-  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-throbber,
-#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-image,
-#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-close-button,
-#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-throbber,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-image,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-close-button,
-#tabbrowser-tabs[orient=vertical] .tabbrowser-tab image {
-    opacity: 0.7 !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([pictureinpicture])[selected]:not([src]), #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([pictureinpicture])[selected]:-moz-broken,
 #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([sharing]):not([pictureinpicture]):not([src]),
@@ -2530,15 +2521,19 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:h
     position: absolute;
     opacity: 0;
   }
-  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox {
+  #tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])), #tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-close-button, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-close-button:hover,
-#tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-label-container,
-#tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-label-container:hover, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-close-button, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-close-button:hover,
-#tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-label-container,
-#tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-label-container:hover, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-close-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-close-button:hover,
+  #tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) .tabbrowser-tab .tab-close-button, #tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) .tabbrowser-tab .tab-close-button:hover,
+#tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) .tabbrowser-tab .tab-label-container,
+#tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) .tabbrowser-tab .tab-label-container:hover, #tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) #vertical-tabs-newtab-button .tab-close-button, #tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) #vertical-tabs-newtab-button .tab-close-button:hover,
+#tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) #vertical-tabs-newtab-button .tab-label-container,
+#tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) #vertical-tabs-newtab-button .tab-label-container:hover, #tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container .tabbrowser-tab .tab-close-button, #tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container .tabbrowser-tab .tab-close-button:hover,
+#tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container .tabbrowser-tab .tab-label-container,
+#tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container .tabbrowser-tab .tab-label-container:hover, #tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-close-button, #tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-close-button:hover,
+#tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-label-container,
+#tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-label-container:hover, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-close-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-close-button:hover,
 sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-label-container,
 sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-label-container:hover, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-close-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-close-button:hover,
 sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-label-container,
@@ -2549,7 +2544,7 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
 sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button .tab-label-container:hover {
     display: none !important;
   }
-  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-stack, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button, #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button .tab-stack {
+  #tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) .tabbrowser-tab, #tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) .tabbrowser-tab .tab-stack, #tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) #vertical-tabs-newtab-button, #tabbrowser-tabs[orient=vertical][movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])) #vertical-tabs-newtab-button .tab-stack, #tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container .tabbrowser-tab, #tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container .tabbrowser-tab .tab-stack, #tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container #vertical-tabs-newtab-button, #tabbrowser-tabs[orient=vertical]:not([movingtab]) #vertical-pinned-tabs-container #vertical-tabs-newtab-button .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container .tabbrowser-tab .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #newtab-button-container #vertical-tabs-newtab-button .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab .tab-stack, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox #vertical-tabs-newtab-button .tab-stack {
     max-width: 33px !important;
   }
   sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container {
@@ -2558,9 +2553,6 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
   }
   #tabbrowser-tabs[orient=vertical] sidebar-main {
     order: 1 !important;
-  }
-  #tabbrowser-tabs[orient=vertical] #sidebar-box {
-    order: 2 !important;
   }
   sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox .tabbrowser-tab {
     transform: translateX(13px) !important;

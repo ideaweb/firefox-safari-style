@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.57 22/08/2024
+
+#### Bug Fixes:
+
+- Fixed transparent backgrounds in modal windows.
+- Workaround for drag'n drop of pinned tabs in vertical tabs.
+
 ## v0.2.56 21/08/2024
 
 #### Bug Fixes:

@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.56 */
+/* VERSION 0.2.57 */
 /******************/
 
 /* 
@@ -215,7 +215,7 @@ $firefox-safari-style-vibrancy: false;
 }
 
 
-:root, :root:-moz-window-inactive {
+:root:has(#browser), :root:has(#browser):-moz-window-inactive {
     background-color: transparent !important;
     appearance: none !important;
 }
@@ -265,9 +265,9 @@ $firefox-safari-style-vibrancy: false;
             --firefox-safari-style-outline-color: var(--firefox-safari-style-attention-color, #73a6f1);
 
             /* Default Background color */
-            --firefox-safari-style-background-color-active: var(--lwt-accent-color, var(--firefox-safari-style-background-color-active));
+            --firefox-safari-style-background-color-active: var(--lwt-accent-color);
             /* Background color for inactive windows */
-            --firefox-safari-style-background-color-inactive: var(--lwt-accent-color, var(--firefox-safari-style-background-color-active));
+            --firefox-safari-style-background-color-inactive: var(--lwt-accent-color);
 
             /* Default background color */
             @if $firefox-safari-style-vibrancy != false {
@@ -336,7 +336,7 @@ $firefox-safari-style-vibrancy: false;
         &, #navigator-toolbox, #navigator-toolbox * {
             transition: none !important;
         }
-        &, html|body, #nav-bar, .tabbrowser-tab[selected="true"], #TabsToolbar, #PersonalToolbar, #tabbrowser-tabpanels, #firefox-view-button:not([aria-pressed="false"]) {
+        &, html|body, .tabbrowser-tab[selected="true"], #TabsToolbar, #PersonalToolbar, #tabbrowser-tabpanels, #firefox-view-button:not([aria-pressed="false"]) {
             @if $firefox-safari-style-vibrancy != false {
                 background-color: transparent !important;
             }
@@ -351,43 +351,37 @@ $firefox-safari-style-vibrancy: false;
             opacity: 1 !important;
         }
         #nav-bar {
+            appearance: none !important;
             background-color: transparent !important;
             &:-moz-window-inactive {
                 background-color: transparent !important;
             }
             @if $firefox-safari-style-vibrancy == false {
-                &::after {
-                    background: var(--firefox-safari-style-background-color-active) !important;
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    width: 100%;
-                    top: 0;
-                    height: 100%;
-                    z-index: -1;
-                }
-
+                background-image: linear-gradient(
+                    to bottom, 
+                    var(--firefox-safari-style-background-color-active) 0%, 
+                    var(--firefox-safari-style-background-color-active) 100%
+                ) !important;
+                background-size: 10000px var(--firefox-safari-style-bar-height);
+                background-repeat: no-repeat;
+                background-position: 0 0;
                 &:-moz-window-inactive {
-                    &::after {
-                        background: var(--firefox-safari-style-background-color-inactive) !important;
-                    }
+                    background-image: linear-gradient(
+                        to bottom, 
+                        var(--firefox-safari-style-background-color-inactive) 0%, 
+                        var(--firefox-safari-style-background-color-inactive) 100%
+                    ) !important;
                 }
             }
         }
         @if $firefox-safari-style-vibrancy == false {
             &[lwtheme="true"] {
-                #nav-bar {
-                    background-color: transparent !important;
-                    &:-moz-window-inactive {
-                        background-color: transparent !important;
-                    }
-                }
-                &, html|body, #nav-bar::after, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels, #firefox-view-button:not([aria-pressed="false"]), sidebar-main {
+                &, html|body, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels, #firefox-view-button:not([aria-pressed="false"]), sidebar-main {
                     appearance: none !important;
                     background-color: var(--lwt-accent-color) !important;
                 }
                 &:-moz-window-inactive {
-                    &, html|body, #nav-bar::after, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels, #firefox-view-button:not([aria-pressed="false"]), sidebar-main {
+                    &, html|body, .tabbrowser-tab[selected="true"], #PersonalToolbar, #tabbrowser-tabpanels, #firefox-view-button:not([aria-pressed="false"]), sidebar-main {
                         background-color: var(--firefox-safari-style-background-color-inactive) !important;
                     }
                 }
@@ -2067,12 +2061,17 @@ $firefox-safari-style-vibrancy: false;
     /*****************/
 
     :root {
+        --firefox-safari-style-vertical-tab-min-width: 77px;
+        --firefox-safari-style-vertical-tab-max-width: 261px;
+
+        --firefox-safari-style-vertical-tab-box-width: var(--firefox-safari-style-vertical-tab-max-width);
+
         --firefox-safari-style-vertical-tab-width: 50px;
         &:has(#tabbrowser-tabs[orient="vertical"]) {
-            --firefox-safari-style-vertical-tab-width: 77px;
+            --firefox-safari-style-vertical-tab-width: var(--firefox-safari-style-vertical-tab-min-width);
         }
         &:has(sidebar-main[expanded]) {
-            --firefox-safari-style-vertical-tab-width: 261px !important;
+            --firefox-safari-style-vertical-tab-width: var(--firefox-safari-style-vertical-tab-max-width) !important;
         }
     }
     .wrapper { 
@@ -2081,29 +2080,33 @@ $firefox-safari-style-vibrancy: false;
     }
     #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient="vertical"]) {
         #nav-bar {
-            padding-left: var( --firefox-safari-style-vertical-tab-width) !important;
-            &::after {
-                left: var( --firefox-safari-style-vertical-tab-width) !important;
+            padding-left: var(--firefox-safari-style-vertical-tab-width) !important;
+            background-position-x: var(--firefox-safari-style-vertical-tab-width) !important;
+
+            @if $firefox-safari-style-vibrancy == false {
+                background-image: linear-gradient(
+                    to bottom, 
+                    var(--firefox-safari-style-background-color-active) 0%, 
+                    var(--firefox-safari-style-background-color-active) calc(var(--firefox-safari-style-bar-height) - 1px),
+                    var(--firefox-safari-style-tab-border-bottom-color-active) calc(var(--firefox-safari-style-bar-height) - 1px),
+                    var(--firefox-safari-style-tab-border-bottom-color-active) 100%
+                ) !important;
+                background-size: 10000px var(--firefox-safari-style-bar-height);
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                &:-moz-window-inactive {
+                    background-image: linear-gradient(
+                        to bottom, 
+                        var(--firefox-safari-style-background-color-inactive) 0%, 
+                        var(--firefox-safari-style-background-color-inactive) calc(var(--firefox-safari-style-bar-height) - 1px),
+                        var(--firefox-safari-style-tab-border-bottom-color-inactive) calc(var(--firefox-safari-style-bar-height) - 1px),
+                        var(--firefox-safari-style-tab-border-bottom-color-inactive) 100%
+                    ) !important;
+                }
             }
         }
         #TabsToolbar {
             display: none !important;
-        }
-        &:has(~ #browser sidebar-main) {
-            #nav-bar {
-                border-bottom: 0;
-                &::after {
-                    max-height: 52px;
-                    box-shadow: inset 0 -1px 0 0 var(--firefox-safari-style-tab-border-bottom-color-active) !important;
-                }
-            }
-            &:-moz-window-inactive {
-                #nav-bar {
-                    &::after {
-                        box-shadow: inset 0 -1px 0 0 var(--firefox-safari-style-tab-border-bottom-color-inactive) !important;
-                    }
-                }
-            }
         }
         &:has(~ #browser sidebar-main[expanded]) {
             #sidebar-button {
@@ -2146,7 +2149,7 @@ $firefox-safari-style-vibrancy: false;
     sidebar-main {
         background-size: 1px 1px !important;
         background-repeat: repeat-y !important;
-        background-position: calc(var( --firefox-safari-style-vertical-tab-width) - 1px) 0 !important;
+        background-position: calc(var(--firefox-safari-style-vertical-tab-width) - 1px) 0 !important;
         background-image: linear-gradient(
             to bottom, 
             color-mix(in srgb, var(--firefox-safari-style-tab-border-bottom-color-active) 50%, transparent) 0%, 
@@ -2175,6 +2178,9 @@ $firefox-safari-style-vibrancy: false;
             }
         }
     }
+    #main-window:has(#browser #sidebar-main #tabbrowser-tabs[orient="vertical"]) #sidebar-box {
+        order: 2 !important;
+    }
     #main-window:not([lwtheme="true"]) sidebar-main {
         background-color: transparent !important;
         &:-moz-window-inactive {
@@ -2182,7 +2188,7 @@ $firefox-safari-style-vibrancy: false;
         }
     }
     sidebar-main {
-        min-width: var( --firefox-safari-style-vertical-tab-width) !important;
+        min-width: var(--firefox-safari-style-vertical-tab-width) !important;
         /*box-shadow: inset -4px 0 2px -2px hsla(0,0%,0%,.033) !important;*/
     }
     moz-button:part(button) {
@@ -2193,7 +2199,7 @@ $firefox-safari-style-vibrancy: false;
     }
     
     sidebar-main[expanded]:has(#vertical-tabs[visible]) .tab-label-container,
-    #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:hover .tab-close-button {
+    #tabbrowser-tabs[orient="vertical"]:not([movingtab]) .tabbrowser-tab:hover .tab-close-button {
         display: block !important;
     }
     sidebar-main[expanded] #tabbrowser-tabs[orient="vertical"] #tabbrowser-arrowscrollbox .tabbrowser-tab {
@@ -2281,8 +2287,13 @@ $firefox-safari-style-vibrancy: false;
             .tab-throbber,
             .tab-icon-image,
             .tab-close-button,
+            .tab-icon-pending, 
+            .tab-sharing-icon-overlay, 
+            .tab-icon-overlay,
             image { 
                 fill: var(--firefox-safari-style-button-color) !important;
+                margin-inline-end: 5.5px;
+                opacity: 0.7 !important;
             }
             label { 
                 color: var(--firefox-safari-style-button-color) !important;
@@ -2304,7 +2315,7 @@ $firefox-safari-style-vibrancy: false;
                 justify-content: flex-start !important;
                 padding: 0 8px !important;
             }
-            --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - 52px);
+            --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - var(--firefox-safari-style-bar-height));
             .tab-close-button {
                 display: none !important;
                 width: 16px !important;
@@ -2329,15 +2340,6 @@ $firefox-safari-style-vibrancy: false;
                 transform: translateX(var(--firefox-move-icon)) !important;
                 width: 16px !important;
                 height: 16px !important;
-            }
-            sidebar-main:not([expanded]) &:hover .tab-close-button {
-                display: block !important;
-            }
-            .tab-throbber,
-            .tab-icon-image,
-            .tab-close-button,
-            image { 
-                opacity: 0.7 !important;
             }
             .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([pictureinpicture])[selected], 
             .tab-icon-image:not([src]):not([pinned]):not([crashed]):not([busy]):not([sharing]):not([pictureinpicture]) {
@@ -2400,7 +2402,8 @@ $firefox-safari-style-vibrancy: false;
                 opacity: 0;
             }
         }
-        #vertical-pinned-tabs-container,
+        &[movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])),
+        &:not([movingtab]) #vertical-pinned-tabs-container,
         sidebar-main:not([expanded]) & #newtab-button-container,
         sidebar-main:not([expanded]) & #tabbrowser-arrowscrollbox {
             .tabbrowser-tab, #vertical-tabs-newtab-button {
@@ -2423,9 +2426,6 @@ $firefox-safari-style-vibrancy: false;
         }
         sidebar-main {
             order: 1 !important;
-        }
-        #sidebar-box {
-            order: 2 !important;
         }
         sidebar-main:not([expanded]) & #vertical-tabs-newtab-button,
         sidebar-main:not([expanded]) & #tabbrowser-arrowscrollbox .tabbrowser-tab {
