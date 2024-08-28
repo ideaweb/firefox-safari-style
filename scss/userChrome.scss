@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.57 */
+/* VERSION 0.2.58 */
 /******************/
 
 /* 
@@ -2518,5 +2518,16 @@ $firefox-safari-style-vibrancy: false;
         #vertical-pinned-tabs-container {
             justify-content: center;
         }
+    }
+    #appcontent, #sidebar, #sidebar-box, .sidebar-panel {
+        border-inline-start: 0 !important;
+        box-shadow: none !important;
+    }
+    #sidebar, #sidebar-box, .sidebar-panel {
+        border-width: 0 !important;
+        border-radius: 0 !important;
+    }
+    .sidebar-panel {
+        background-color: transparent !important;
     }
 }

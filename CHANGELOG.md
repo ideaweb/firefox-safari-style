@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.58 28/08/2024
+
+#### Bug Fixes:
+
+- Fixed shadow vertical tabs and new sidebar in recent Firefox Nightly.
+
 ## v0.2.57 22/08/2024
 
 #### Bug Fixes:
