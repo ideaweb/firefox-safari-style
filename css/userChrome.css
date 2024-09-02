@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.58 */
+/* VERSION 0.2.59 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -2678,6 +2678,7 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #appcontent, #sidebar, #sidebar-box, .sidebar-panel {
+    border-top-width: 0 !important;
     border-inline-start: 0 !important;
     box-shadow: none !important;
   }
