@@ -2269,6 +2269,7 @@ sidebar-main:-moz-window-inactive {
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   sidebar-main {
     min-width: var(--firefox-safari-style-vertical-tab-width) !important;
+    max-width: var(--firefox-safari-style-vertical-tab-width) !important;
     /*box-shadow: inset -4px 0 2px -2px hsla(0,0%,0%,.033) !important;*/
   }
 }
@@ -2402,6 +2403,22 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscroll
     fill: var(--firefox-safari-style-button-color) !important;
     margin-inline-end: 5.5px;
     opacity: 0.7 !important;
+  }
+  #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button[pinned] .tab-throbber,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button[pinned] .tab-icon-image,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button[pinned] .tab-close-button,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button[pinned] .tab-icon-pending,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button[pinned] .tab-sharing-icon-overlay,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button[pinned] .tab-icon-overlay,
+#tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button[pinned] image,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[pinned] .tab-throbber,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[pinned] .tab-icon-image,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[pinned] .tab-close-button,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[pinned] .tab-icon-pending,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[pinned] .tab-sharing-icon-overlay,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[pinned] .tab-icon-overlay,
+#tabbrowser-tabs[orient=vertical] .tabbrowser-tab[pinned] image {
+    margin-right: 0 !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button label,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab label {

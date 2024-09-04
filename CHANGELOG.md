@@ -6,6 +6,7 @@ This overview provides notable information about improvements, changes and fixes
 
 #### Bug Fixes:
 
+- Fixed width in new sidebar in recent Firefox Nightly.
 - Fixed borders around shown website when new sidebar is enabled in recent Firefox Nightly.
 
 ## v0.2.59 02/09/2024
