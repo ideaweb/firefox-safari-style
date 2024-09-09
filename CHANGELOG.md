@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.61 09/09/2024
+
+#### Bug Fixes:
+
+- Fixed new tab button in recent Firefox Nightly.
+- Fixed (again) borders around shown website when new sidebar is enabled.
+
 ## v0.2.60 04/09/2024
 
 #### Bug Fixes:
