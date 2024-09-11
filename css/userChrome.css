@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.61 */
+/* VERSION 0.2.62 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -2243,10 +2243,10 @@ sidebar-main:-moz-window-inactive {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window:not([lwtheme=true]) sidebar-main {
+  #main-window:not([lwtheme=true]) #sidebar-main, #main-window:not([lwtheme=true]) sidebar-main {
     background-color: transparent !important;
   }
-  #main-window:not([lwtheme=true]) sidebar-main:-moz-window-inactive {
+  #main-window:not([lwtheme=true]) #sidebar-main:-moz-window-inactive, #main-window:not([lwtheme=true]) sidebar-main:-moz-window-inactive {
     background-color: var(--firefox-safari-style-background-color-inactive) !important;
   }
 }

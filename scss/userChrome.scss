@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.61 */
+/* VERSION 0.2.62 */
 /******************/
 
 /* 
@@ -2181,10 +2181,12 @@ $firefox-safari-style-vibrancy: false;
     #main-window:has(#browser #sidebar-main #tabbrowser-tabs[orient="vertical"]) #sidebar-box {
         order: 2 !important;
     }
-    #main-window:not([lwtheme="true"]) sidebar-main {
-        background-color: transparent !important;
-        &:-moz-window-inactive {
-            background-color: var(--firefox-safari-style-background-color-inactive) !important;
+    #main-window:not([lwtheme="true"]) { 
+        #sidebar-main, sidebar-main {
+            background-color: transparent !important;
+            &:-moz-window-inactive {
+                background-color: var(--firefox-safari-style-background-color-inactive) !important;
+            }
         }
     }
     sidebar-main {
