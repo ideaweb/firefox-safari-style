@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.63 13/09/2024
+
+#### Bug Fixes:
+
+- Fixed (again) borders around shown website when new sidebar is enabled.
+
 ## v0.2.62 11/09/2024
 
 #### Bug Fixes:
