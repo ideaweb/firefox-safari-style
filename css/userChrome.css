@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.63 */
+/* VERSION 0.2.64 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -2349,7 +2349,7 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscroll
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #tabbrowser-tabs[orient=vertical] {
     padding-inline: 0 !important;
-    padding-left: 3px !important;
+    padding-left: 1px !important;
   }
   #tabbrowser-tabs[orient=vertical] .tabbrowser-tab,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab:hover {
@@ -2664,6 +2664,9 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
   }
   #main-window[lang*=uk-] sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox:has(.tabbrowser-tab)::before {
     content: "Відкрити вкладки";
+  }
+  #tabbrowser-tabs[orient=vertical], #tabbrowser-tabs[orient=vertical][overflow] {
+    border-bottom-width: 0 !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {

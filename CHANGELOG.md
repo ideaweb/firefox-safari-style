@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.64 16/09/2024
+
+#### Bug Fixes:
+
+- Fixed borders and padding new sidebar in recent Firefox Nightly.
+
 ## v0.2.63 13/09/2024
 
 #### Bug Fixes:

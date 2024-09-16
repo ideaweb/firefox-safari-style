@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.63 */
+/* VERSION 0.2.64 */
 /******************/
 
 /* 
@@ -2501,8 +2501,11 @@ $firefox-safari-style-vibrancy: false;
                 #main-window[lang*="uk-"] &::before { content: 'Відкрити вкладки'; }
             }
         }
+        &, &[overflow] {
+            border-bottom-width: 0 !important;
+        }
         padding-inline: 0 !important;
-        padding-left: 3px !important;
+        padding-left: 1px !important;
     }
     .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
         #vertical-pinned-tabs-container &, #tabbrowser-tabs[orient="vertical"] &, & {
