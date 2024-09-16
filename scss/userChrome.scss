@@ -2397,6 +2397,9 @@ $firefox-safari-style-vibrancy: false;
                 }
             }
         }
+        #tabbrowser-arrowscrollbox {
+            width: 100% !important;
+        }
         .tab-content,
         .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), 
         .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]) {
