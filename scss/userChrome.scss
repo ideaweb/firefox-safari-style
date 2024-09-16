@@ -2286,7 +2286,7 @@ $firefox-safari-style-vibrancy: false;
                 transform: translateY(-1px);
             }
             .toolbarbutton-text {
-                padding-inline-start: 5px !important;
+                padding-inline-start: 7px !important;
             }
         }
         #vertical-tabs-newtab-button,
@@ -2390,7 +2390,7 @@ $firefox-safari-style-vibrancy: false;
             min-height: 30px;
             sidebar-main[expanded] & {
                 > .toolbarbutton-icon {
-                    transform: translateX(8.5px);
+                    transform: translate(8.5px, -1px);
                 }
                 > .toolbarbutton-text {
                     transform: translateX(8px);
@@ -2507,8 +2507,12 @@ $firefox-safari-style-vibrancy: false;
         &, &[overflow] {
             border-bottom-width: 0 !important;
         }
+        > #vertical-tabs-newtab-button {
+            order: 2 !important;
+        }
         padding-inline: 0 !important;
         padding-left: 1px !important;
+        display: flex !important;
     }
     .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
         #vertical-pinned-tabs-container &, #tabbrowser-tabs[orient="vertical"] &, & {

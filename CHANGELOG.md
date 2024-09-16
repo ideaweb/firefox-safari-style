@@ -7,7 +7,8 @@ This overview provides notable information about improvements, changes and fixes
 #### Bug Fixes:
 
 - Fixed borders and padding new sidebar in recent Firefox Nightly.
-- Fixed collapsed new sidebar.
+- Fixed position of new tab button in new sidebar.
+- Fixed icons in collapsed new sidebar.
 
 ## v0.2.63 13/09/2024
 
