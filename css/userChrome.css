@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.64 */
+/* VERSION 0.2.65 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -2674,6 +2674,9 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
   }
   #tabbrowser-tabs[orient=vertical] > #vertical-tabs-newtab-button {
     order: 2 !important;
+  }
+  #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button {
+    display: none !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {

@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.64 */
+/* VERSION 0.2.65 */
 /******************/
 
 /* 
@@ -2509,6 +2509,9 @@ $firefox-safari-style-vibrancy: false;
         }
         > #vertical-tabs-newtab-button {
             order: 2 !important;
+        }
+        #tabbrowser-arrowscrollbox-periphery #tabs-newtab-button {
+            display: none !important;
         }
         padding-inline: 0 !important;
         padding-left: 1px !important;
