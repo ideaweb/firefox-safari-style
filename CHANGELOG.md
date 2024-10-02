@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.66 02/10/2024
+
+#### Bug Fixes:
+
+- Fixed alignment of tabs and new tab button in new sidebar.
+- Fixed tabs position and size in vertical tabs of recent Firefox Nightly.
+
 ## v0.2.65 23/09/2024
 
 #### Bug Fixes:
