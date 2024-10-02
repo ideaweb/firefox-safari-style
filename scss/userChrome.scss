@@ -235,8 +235,8 @@ $firefox-safari-style-vibrancy: false;
     .wrapper {
         border-right-width: 0 !important;
     }
-    #browser {
-        z-index: 10000;
+    #navigator-toolbox:has(#nav-bar:not([urlbar-exceeds-toolbar-bounds])) + #browser {
+        z-index: 10000 !important;
     }
     #mainPopupSet {
         #pageActionActivatedActionPanel, 
@@ -2269,6 +2269,9 @@ $firefox-safari-style-vibrancy: false;
         --button-min-height: 30px !important;
         --button-size-icon: 23px !important;
     }
+    .expanded-button {
+        --button-outer-padding-inline: 6px !important;
+    }
     #vertical-pinned-tabs-container-separator {
         display: none !important;
         opacity: 0 !important;
@@ -2542,7 +2545,11 @@ $firefox-safari-style-vibrancy: false;
         display: flex !important;
     }
     .button-background {
-       min-width: 30px;
+       min-width: 33px;
+       [src] {
+        margin-left: 5px;
+        margin-right: 5px;
+       }
     }
     .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
         #vertical-pinned-tabs-container &, #tabbrowser-tabs[orient="vertical"] &, & {

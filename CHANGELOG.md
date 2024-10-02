@@ -8,6 +8,7 @@ This overview provides notable information about improvements, changes and fixes
 
 - Fixed alignment of tabs and new tab button in new sidebar.
 - Fixed tabs position and size in vertical tabs of recent Firefox Nightly.
+- Fixed content not clickable.
 
 ## v0.2.65 23/09/2024
 

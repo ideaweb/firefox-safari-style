@@ -191,8 +191,8 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #browser {
-    z-index: 10000;
+  #navigator-toolbox:has(#nav-bar:not([urlbar-exceeds-toolbar-bounds])) + #browser {
+    z-index: 10000 !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
@@ -2363,6 +2363,11 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscroll
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  .expanded-button {
+    --button-outer-padding-inline: 6px !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #vertical-pinned-tabs-container-separator {
     display: none !important;
     opacity: 0 !important;
@@ -2740,7 +2745,11 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   .button-background {
-    min-width: 30px;
+    min-width: 33px;
+  }
+  .button-background [src] {
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
