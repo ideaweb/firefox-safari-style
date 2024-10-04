@@ -2,6 +2,12 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.67 04/10/2024
+
+#### Bug Fixes:
+
+- Fixed toolbar in recent Firefox Nightly.
+
 ## v0.2.66 02/10/2024
 
 #### Bug Fixes:

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.66*/
+/* VERSION 0.2.67 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -185,6 +185,11 @@
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox:has(#nav-bar:not([urlbar-exceeds-toolbar-bounds])) + #browser {
+    z-index: 10000 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #nav-bar[urlbar-exceeds-toolbar-bounds] {
     z-index: 10000 !important;
   }
 }
@@ -457,7 +462,7 @@
   #main-window[inFullscreen=true] #navigator-toolbox #nav-bar {
     padding-left: 6px !important;
   }
-  #navigator-toolbox #nav-bar, #navigator-toolbox #nav-bar > hbox, #navigator-toolbox #nav-bar > box {
+  #navigator-toolbox #nav-bar, #navigator-toolbox #nav-bar > hbox:not(.titlebar-buttonbox-container), #navigator-toolbox #nav-bar > box {
     min-height: var(--firefox-safari-style-bar-height) !important;
     max-height: var(--firefox-safari-style-bar-height) !important;
   }
@@ -1244,6 +1249,24 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox .titlebar-buttonbox-container {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    min-height: 27px !important;
+    max-height: 27px !important;
+  }
+  #navigator-toolbox .titlebar-buttonbox-container > .titlebar-buttonbox {
+    margin-top: 18px;
+    margin-left: 17px;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox .titlebar-spacer[type=pre-tabs], #navigator-toolbox .titlebar-spacer[type=post-tabs] {
+    max-width: 1px;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #navigator-toolbox #titlebar {
     order: 3;
     flex: 1 1;
@@ -1258,16 +1281,6 @@
   #navigator-toolbox #titlebar > #toolbar-menubar #menubar-items, #navigator-toolbox #titlebar > #toolbar-menubar spacer {
     display: none !important;
   }
-  #navigator-toolbox #titlebar > #toolbar-menubar .titlebar-buttonbox-container {
-    display: block !important;
-    position: absolute;
-    top: 0;
-    min-height: 27px;
-  }
-  #navigator-toolbox #titlebar > #toolbar-menubar .titlebar-buttonbox-container > .titlebar-buttonbox {
-    margin-top: 18px;
-    margin-left: 17px;
-  }
   #navigator-toolbox #titlebar #TabsToolbar {
     min-height: 0 !important;
     /*height: var(--firefox-safari-style-tab-height);*/
@@ -1276,9 +1289,6 @@
   }
   #navigator-toolbox #titlebar #TabsToolbar .titlebar-buttonbox-container, #navigator-toolbox #titlebar #TabsToolbar #menubar-items {
     display: none !important;
-  }
-  #navigator-toolbox #titlebar #TabsToolbar .titlebar-spacer[type=pre-tabs], #navigator-toolbox #titlebar #TabsToolbar .titlebar-spacer[type=post-tabs] {
-    max-width: 1px;
   }
   #navigator-toolbox #titlebar #TabsToolbar #wrapper-alltabs-button {
     opacity: 1 !important;
@@ -2165,10 +2175,10 @@ spacer[part=overflow-end-indicator] {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) {
+  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) {
     border-bottom-width: 0 !important;
   }
-  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar {
+  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar {
     padding-left: var(--firefox-safari-style-vertical-tab-width) !important;
     background-position-x: var(--firefox-safari-style-vertical-tab-width) !important;
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-background-color-active) 0%, var(--firefox-safari-style-background-color-active) calc(var(--firefox-safari-style-bar-height) - 1px), var(--firefox-safari-style-tab-border-bottom-color-active) calc(var(--firefox-safari-style-bar-height) - 1px), var(--firefox-safari-style-tab-border-bottom-color-active) 100%) !important;
@@ -2176,15 +2186,15 @@ spacer[part=overflow-end-indicator] {
     background-repeat: no-repeat;
     background-position: 0 0;
   }
-  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar:-moz-window-inactive {
+  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar:-moz-window-inactive {
     background-image: linear-gradient(to bottom, var(--firefox-safari-style-background-color-inactive) 0%, var(--firefox-safari-style-background-color-inactive) calc(var(--firefox-safari-style-bar-height) - 1px), var(--firefox-safari-style-tab-border-bottom-color-inactive) calc(var(--firefox-safari-style-bar-height) - 1px), var(--firefox-safari-style-tab-border-bottom-color-inactive) 100%) !important;
   }
-  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #TabsToolbar {
+  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]) #TabsToolbar {
     display: none !important;
   }
-  #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]):has(~ #browser sidebar-main[expanded]) #sidebar-button {
+  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main #tabbrowser-tabs[orient=vertical]):has(~ #browser sidebar-main[expanded]) #sidebar-button {
     position: absolute;
-    left: 77px;
+    left: 78px;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
