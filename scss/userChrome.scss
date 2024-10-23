@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.67 */
+/* VERSION 0.2.68 */
 /******************/
 
 /* 
@@ -766,9 +766,9 @@ $firefox-safari-style-vibrancy: false;
                         border: 0 solid transparent !important;
                         box-shadow: none !important;
                         box-sizing: border-box;
-                        top: 0 !important;
+                        /*top: 0 !important;
                         left: 0 !important;
-                        width: 100% !important;
+                        width: 100% !important;*/
                         height: calc(var(--urlbar-height, var(--firefox-safari-style-button-height)) + 0px) !important;
                         min-height: calc(var(--urlbar-height, var(--firefox-safari-style-button-height)) + 0px) !important;
                         max-height: calc(var(--urlbar-height, var(--firefox-safari-style-button-height)) + 0px) !important;
@@ -2468,8 +2468,7 @@ $firefox-safari-style-vibrancy: false;
             }
             max-height: inherit !important;
         }
-        &[movingtab] #vertical-pinned-tabs-container:not(:has([touchdownstartsdrag])),
-        &:not([movingtab]) #vertical-pinned-tabs-container,
+        #vertical-pinned-tabs-container,
         sidebar-main:not([expanded]) &,
         sidebar-main:not([expanded]) & #newtab-button-container,
         sidebar-main:not([expanded]) & #tabbrowser-arrowscrollbox {
