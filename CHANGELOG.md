@@ -2,6 +2,14 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.69 25/10/2024
+
+#### Bug Fixes:
+
+- Fixed fullscreen mode.
+- Fixed horizontal tabs in recent Firefox Nightly.
+
+
 ## v0.2.68 23/10/2024
 
 #### Bug Fixes:
