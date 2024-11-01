@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.70 01/11/2024
+
+#### Bug Fixes:
+
+- Fixed search mode switch in recent Firefox Nightly.
+- Improved drag'n drop in vertical tabs.
+
 ## v0.2.69 25/10/2024
 
 #### Bug Fixes:

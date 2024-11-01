@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.69 */
+/* VERSION 0.2.70 */
 /******************/
 
 /* 
@@ -604,7 +604,7 @@ $firefox-safari-style-vibrancy: false;
                     }
                     width: var(--firefox-safari-style-button-width) !important;
                 }
-                &:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button) {
+                &:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#urlbar-searchmode-switcher) {
                     
                     background-color: var(--firefox-safari-style-button-background-active) !important;
                     &:hover:not([disabled="true"]):not(:-moz-window-inactive) {
@@ -992,6 +992,16 @@ $firefox-safari-style-vibrancy: false;
                         }
                         #searchbar-search-button {
                             margin-right: 3px;
+                        }
+                        #urlbar-searchmode-switcher {
+                            background-color: transparent !important;
+                            margin-right: 0 !important;
+                            #searchmode-switcher-icon {
+                                transform: translateX(2px);
+                            }
+                            #searchmode-switcher-dropmarker {
+                                --firefox-safari-style-button-icon: 12px !important;
+                            }
                         }
                     }
                 }
@@ -2004,7 +2014,9 @@ $firefox-safari-style-vibrancy: false;
             }
         }
     }
-    #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image {
+    #navigator-toolbox #nav-bar > toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image, 
+    #navigator-toolbox #nav-bar #nav-bar-customization-target toolbarbutton:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image,
+    #navigator-toolbox #nav-bar #PanelUI-menu-button:not(#tabs-newtab-button):not(#urlbar-zoom-button):not(#nav-bar-overflow-button):not(#PanelUI-menu-button) image {
         min-height: var(--firefox-safari-style-button-icon) !important;
         min-width: var(--firefox-safari-style-button-icon) !important;
         --firefox-safari-style-button-icon: 17px;
@@ -2159,12 +2171,19 @@ $firefox-safari-style-vibrancy: false;
             margin-inline-start: 0 !important;
             margin-inline-end: 0 !important;
         }
-        #tabbrowser-arrowscrollbox {
-            overflow-x: hidden !important;
-        }
         margin-inline-end: 0 !important;
-        display: block !important;
-        padding-right: 9px;
+        sidebar-main[expanded] & {
+            display: block !important;
+            padding-right: 5px;
+        }
+        sidebar-main:not([expanded]) & {
+            display: flex !important;
+            justify-content: center !important;
+        }
+        
+    }
+    scrollbox[orient="vertical"] {
+        overflow-y: hidden !important;
     }
     sidebar-main {
         background-color: var(--firefox-safari-style-background-color-active) !important;
@@ -2244,7 +2263,6 @@ $firefox-safari-style-vibrancy: false;
     }
     sidebar-main .tab-label-container {
         margin-left: 0 !important;
-        padding-top: 4px !important;
     }
     #main-window:not([lwtheme="true"]) {
         /* Active bottom */
@@ -2297,8 +2315,14 @@ $firefox-safari-style-vibrancy: false;
         --button-outer-padding-inline: 6px !important;
     }
     #vertical-pinned-tabs-container-separator {
-        display: none !important;
-        opacity: 0 !important;
+        opacity: 0.75 !important;
+        sidebar-main[expanded] & {
+            display: none !important;
+            opacity: 0 !important;
+        }
+        transform: translate(-3px, 2px);
+        margin-top: 10px;
+        margin-bottom: 0;
     }
     #vertical-pinned-tabs-container {
         sidebar-main &,
@@ -2307,10 +2331,13 @@ $firefox-safari-style-vibrancy: false;
                 border-bottom-width: 0 !important;
             }
         }
-        display: flex !important;
-        flex-direction: column;
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
     }
     #tabbrowser-tabs[orient="vertical"]  {
+        #tabbrowser-arrowscrollbox {
+            overflow: hidden;
+        }
         .tabbrowser-tab,
         .tabbrowser-tab:hover/*,
         .tabbrowser-tab:not([disabled="true"]):has(.tab-close-button:hover):hover > .tab-stack > .tab-background,
@@ -2319,17 +2346,18 @@ $firefox-safari-style-vibrancy: false;
             background-image: none !important;
         }
         #vertical-tabs-newtab-button {
+            display: flex !important;
+            align-items: center !important;
             border-radius: 5px !important;
             .toolbarbutton-icon {
-                transform: translateY(-1px);
+                transform: translateY(0.5px);
             }
             .toolbarbutton-text {
-                padding-inline-start: 7px !important;
+                padding-inline-start: 2px !important;
             }
         }
         #vertical-tabs-newtab-button,
         .tabbrowser-tab {
-            margin-bottom: 2px !important;
             min-width: initial !important;
             .tab-throbber,
             .tab-icon-image,
@@ -2382,7 +2410,12 @@ $firefox-safari-style-vibrancy: false;
                 width: 16px !important;
                 height: 16px !important;
                 padding: 2px !important;
-                transform: translateX(calc(0px - var(--firefox-move-icon)));
+                transform: translateX(calc(-1px - var(--firefox-move-icon)));
+            }
+            &:hover {
+                .tab-close-button {
+                    display: block !important;
+                }
             }
             .tab-icon-stack {
                 .tab-sharing-icon-overlay {
@@ -2398,7 +2431,7 @@ $firefox-safari-style-vibrancy: false;
             .tab-icon-overlay[muted], 
             .tab-icon-overlay[activemedia-blocked] {
                 position: absolute !important;
-                transform: translateX(var(--firefox-move-icon)) !important;
+                transform: translateX(calc(5px + var(--firefox-move-icon))) !important;
                 width: 16px !important;
                 height: 16px !important;
             }
@@ -2424,8 +2457,8 @@ $firefox-safari-style-vibrancy: false;
         #newtab-button-container {
             &, #vertical-tabs-newtab-button {
                 --tab-min-height: 30px !important;
-                height: 30px;
-                min-height: 30px;
+                height: 32px;
+                min-height: 32px;
                 min-width: 33px;
             }
         }
@@ -2434,10 +2467,10 @@ $firefox-safari-style-vibrancy: false;
             min-height: 30px;
             sidebar-main[expanded] & {
                 > .toolbarbutton-icon {
-                    transform: translate(8.5px, -1px);
+                    transform: translate(9.5px, -1px);
                 }
                 > .toolbarbutton-text {
-                    transform: translateX(8px);
+                    transform: translateX(8.5px);
                 }
             }
         }
@@ -2448,6 +2481,11 @@ $firefox-safari-style-vibrancy: false;
         .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), 
         .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]) {
             background-position: left 4.5px bottom 19.5px !important;
+            .tab-icon-image {
+                &:not([src]), &:-moz-broken {
+                    transform: translateY(0.5px) !important;
+                }
+            }
         }
         .tab-icon-overlay:not([indicator-replaces-favicon]) {
             inset-inline-end: -7px;
@@ -2461,25 +2499,33 @@ $firefox-safari-style-vibrancy: false;
             display: none !important;
             opacity: 0 !important;
         }
-        #vertical-pinned-tabs-container,
+        &:has(#vertical-pinned-tabs-container .tabbrowser-tab),
         #tabbrowser-arrowscrollbox {
-            --tab-pinned-container-margin-inline-expanded: 0.6rem !important;
             &::before {
                 color: var(--firefox-safari-style-button-color) !important;
                 font-size: 10px;
                 font-weight: 600;
-                margin: 0 0 5px 6px;
+                margin: 0 0 6px 6px;
                 opacity: 0.5;
                 width: 100%;
             }
             &:-moz-window-inactiv::before {
                 opacity: 0.33;
             }
-            column-gap: 2px !important;
+        }
+        &:has(#vertical-pinned-tabs-container .tabbrowser-tab) {
+            &::before {
+                margin: 0 0 6px 12.5px;
+            }
+        }
+        #vertical-pinned-tabs-container,
+        #tabbrowser-arrowscrollbox {
+            --tab-pinned-container-margin-inline-expanded: 0.6rem !important;
+            column-gap: 0 !important;
             row-gap: 0 !important;
         }
         #vertical-pinned-tabs-container:has(.tabbrowser-tab) ~ #tabbrowser-arrowscrollbox:has(.tabbrowser-tab) {
-            margin-top: 5px;
+            margin-top: 15px;
         }
         #vertical-pinned-tabs-container {
             &:not(:has(.tabbrowser-tab)) {
@@ -2487,6 +2533,14 @@ $firefox-safari-style-vibrancy: false;
                 opacity: 0;
             }
             max-height: inherit !important;
+        }
+        #vertical-pinned-tabs-container {
+            .tab-content {
+                justify-content: center !important;
+                .tab-icon-stack {
+                    transform: translateX(-1px);
+                }
+            }
         }
         #vertical-pinned-tabs-container,
         sidebar-main:not([expanded]) &,
@@ -2499,12 +2553,17 @@ $firefox-safari-style-vibrancy: false;
                         display: none !important;
                     }
                 }
-                &, .tab-stack {
-                    max-width: 33px !important;
-                }
             }
             flex-direction: row;
             flex-wrap: wrap;
+        }
+        sidebar-main:not([expanded]) &,
+        sidebar-main:not([expanded]) & #vertical-pinned-tabs-container,
+        sidebar-main:not([expanded]) & #newtab-button-container,
+        sidebar-main:not([expanded]) & #tabbrowser-arrowscrollbox {
+            &, .tabbrowser-tab, .tab-stack {
+                max-width: 33px !important;
+            }
         }
         sidebar-main:not([expanded]) & #vertical-pinned-tabs-container {
             flex-direction: column;
@@ -2516,10 +2575,10 @@ $firefox-safari-style-vibrancy: false;
         }
         sidebar-main:not([expanded]) & #vertical-tabs-newtab-button,
         sidebar-main:not([expanded]) & #tabbrowser-arrowscrollbox .tabbrowser-tab {
-            transform: translateX(14px) !important;
+            margin-left: 0 !important;
         }
         sidebar-main[expanded] & {
-            #vertical-pinned-tabs-container:has(.tabbrowser-tab) {
+            &:has(#vertical-pinned-tabs-container .tabbrowser-tab) {
                 #main-window[lang*="en-"] &::before { content: 'Pinned Tabs'; }
                 #main-window[lang*="cs-"] &::before { content: 'Připnuté karty'; }
                 #main-window[lang*="de-"] &::before { content: 'Angeheftet Tabs'; }
@@ -2568,11 +2627,13 @@ $firefox-safari-style-vibrancy: false;
         display: flex !important;
     }
     .button-background {
-       min-width: 33px;
-       [src] {
-        margin-left: 5px;
-        margin-right: 5px;
-       }
+        --button-border-radius: 5px !important;
+        border-radius: 5px !important;
+        min-width: 33px;
+        [src] {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
     }
     .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
         #vertical-pinned-tabs-container &, #tabbrowser-tabs[orient="vertical"] &, & {
@@ -2580,9 +2641,15 @@ $firefox-safari-style-vibrancy: false;
         }
     }
     #tabbrowser-tabs[orient="vertical"]  {
-        .tabbrowser-tab  .tab-background, 
+        grid-gap: 0 !important;
+        .tabbrowser-tab .tab-background, 
         #vertical-tabs-newtab-button {
             background-color: transparent !important;
+        }
+        .tabbrowser-tab .tab-background {
+            transform: translateY(1px);
+            max-height: 30px;
+            width: calc(100% - 3px);
         }
         .tabbrowser-tab[selected="true"]:not([disabled="true"]) {
             .tab-background {
@@ -2595,15 +2662,20 @@ $firefox-safari-style-vibrancy: false;
         #vertical-tabs-newtab-button:hover {
             /* hover */
             background-color: var(--button-background-color-ghost-hover) !important;
+            max-height: 30px;
+        }
+        #tabbrowser-arrowscrollbox {
+            padding-inline-start: 0 !important;
+            padding-inline-end: 0 !important;
         }
         #vertical-pinned-tabs-container,
-        #tabbrowser-arrowscrollbox {
+        sidebar-main[expanded] & #tabbrowser-arrowscrollbox  {
             padding-inline-start: var(--tab-pinned-container-margin-inline-expanded) !important;
             padding-inline-end: 0 !important;
         }
         #vertical-tabs-newtab-button {
             border-radius: 5px;
-            margin: 0 !important;
+            margin: 1px 0 0 0 !important;
             margin-left: var(--tab-pinned-container-margin-inline-expanded) !important;
             max-width: calc(var(--firefox-safari-style-vertical-tab-max-width) - 16px);
         }
@@ -2618,6 +2690,15 @@ $firefox-safari-style-vibrancy: false;
             label { 
                 color: var(--firefox-safari-style-button-input-color) !important;
             }
+        }
+        .tab-label-container {
+            .tab-text {
+                margin-top: -0.5px !important;
+                margin-bottom: 0 !important;
+            }
+        }
+        .tab-close-button {
+            margin-inline-end: 4px !important;
         }
     }
 
@@ -2646,5 +2727,15 @@ $firefox-safari-style-vibrancy: false;
     }
     .sidebar-panel {
         background-color: transparent !important;
+    }
+
+    .tab-icon-overlay {
+        &:not([crashed]) {
+          &:is([soundplaying], [muted], [activemedia-blocked]) {
+            background-color: transparent !important;
+            border-width: 0 !important;
+            border-radius: 0;
+          }
+        }
     }
 }
