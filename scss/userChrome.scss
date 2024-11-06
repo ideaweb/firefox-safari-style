@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.70 */
+/* VERSION 0.2.71 */
 /******************/
 
 /* 
@@ -492,6 +492,9 @@ $firefox-safari-style-vibrancy: false;
                 .titlebar-buttonbox-container {
                     opacity: 0;
                 }
+                #urlbar[style*="translateY"] {
+                    transform: translateY(0) !important;
+                }
             }
         }
         > * > box:not([id]) {
@@ -850,6 +853,8 @@ $firefox-safari-style-vibrancy: false;
                                         border-bottom-right-radius: 0 !important;
                                     }
                                 }
+                                --urlbar-margin-inline: 0px !important;
+                                margin-left: 2px !important;
                             }
                         }
                         #urlbar-input-container {
@@ -2649,7 +2654,7 @@ $firefox-safari-style-vibrancy: false;
         .tabbrowser-tab .tab-background {
             transform: translateY(1px);
             max-height: 30px;
-            width: calc(100% - 3px);
+            width: calc(100% - 2px);
         }
         .tabbrowser-tab[selected="true"]:not([disabled="true"]) {
             .tab-background {

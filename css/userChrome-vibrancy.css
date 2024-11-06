@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.70 */
+/* VERSION 0.2.71 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -385,6 +385,9 @@
   #main-window[inFullscreen=true] html|body .titlebar-buttonbox-container {
     opacity: 0;
   }
+  #main-window[inFullscreen=true] html|body #urlbar[style*=translateY] {
+    transform: translateY(0) !important;
+  }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #main-window > * > box:not([id]) {
@@ -755,6 +758,10 @@
     background-color: transparent !important;
     border-color: transparent !important;
     box-shadow: none !important;
+  }
+  #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend], #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend], #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend] {
+    --urlbar-margin-inline: 0px !important;
+    margin-left: 2px !important;
   }
   #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #urlbar[breakout][breakout-extend] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #urlbar-container #searchbar[breakout][breakout-extend] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #urlbar[breakout][breakout-extend] #urlbar-background, #navigator-toolbox #nav-bar #nav-bar-customization-target #search-container #searchbar[breakout][breakout-extend] #urlbar-background {
     opacity: 0 !important;
@@ -2843,7 +2850,7 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
   #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-background {
     transform: translateY(1px);
     max-height: 30px;
-    width: calc(100% - 3px);
+    width: calc(100% - 2px);
   }
   #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-background {
     /* Active */
