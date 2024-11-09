@@ -2,6 +2,10 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.72 09/11/2024
+
+- Fixed toolbar in popup windows.
+
 ## v0.2.71 06/11/2024
 
 - Fixed jumping address bar on focus.

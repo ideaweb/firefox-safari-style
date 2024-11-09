@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.71 */
+/* VERSION 0.2.72 */
 /******************/
 
 /* 
@@ -535,6 +535,9 @@ $firefox-safari-style-vibrancy: false;
             padding-top: 11px !important;
             padding-right: 5px !important;
             padding-left: var(--firefox-safari-style-controls-width) !important;
+            :root:not([chromemargin], [inFullscreen]) & {
+                padding-left: 5px !important;
+            }
             transition: none !important;
             /*background-image: var(--lwt-additional-images) !important;
             background-repeat: var(--lwt-background-tiling) !important;
@@ -2107,7 +2110,7 @@ $firefox-safari-style-vibrancy: false;
         min-width: initial !important;
     }
     #main-window:not([customizing]) {
-        #navigator-toolbox:has(~ #browser sidebar-main #tabbrowser-tabs[orient="vertical"]) {
+        #navigator-toolbox:has(~ #browser #sidebar-main:not([hidden="true"]) #tabbrowser-tabs[orient="vertical"]) {
             #nav-bar {
                 padding-left: var(--firefox-safari-style-vertical-tab-width) !important;
                 background-position-x: var(--firefox-safari-style-vertical-tab-width) !important;

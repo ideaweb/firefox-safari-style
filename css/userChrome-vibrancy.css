@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.71 */
+/* VERSION 0.2.72 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -433,6 +433,9 @@
     /*background-image: var(--lwt-additional-images) !important;
     background-repeat: var(--lwt-background-tiling) !important;
     background-position: var(--lwt-background-alignment) !important;*/
+  }
+  :root:not([chromemargin], [inFullscreen]) #navigator-toolbox #nav-bar {
+    padding-left: 5px !important;
   }
   #main-window[inFullscreen=true] #navigator-toolbox #nav-bar {
     padding-left: 6px !important;
@@ -2228,17 +2231,17 @@ spacer[part=overflow-end-indicator] {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser sidebar-main #tabbrowser-tabs[orient=vertical]) {
+  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main:not([hidden=true]) #tabbrowser-tabs[orient=vertical]) {
     border-bottom-width: 0 !important;
   }
-  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser sidebar-main #tabbrowser-tabs[orient=vertical]) #nav-bar {
+  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main:not([hidden=true]) #tabbrowser-tabs[orient=vertical]) #nav-bar {
     padding-left: var(--firefox-safari-style-vertical-tab-width) !important;
     background-position-x: var(--firefox-safari-style-vertical-tab-width) !important;
   }
-  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser sidebar-main #tabbrowser-tabs[orient=vertical]) #TabsToolbar {
+  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main:not([hidden=true]) #tabbrowser-tabs[orient=vertical]) #TabsToolbar {
     display: none !important;
   }
-  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser sidebar-main #tabbrowser-tabs[orient=vertical]):has(~ #browser sidebar-main[expanded]) #sidebar-button {
+  #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main:not([hidden=true]) #tabbrowser-tabs[orient=vertical]):has(~ #browser sidebar-main[expanded]) #sidebar-button {
     position: absolute;
     left: 78px;
   }
