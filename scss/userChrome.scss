@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.72 */
+/* VERSION 0.2.73 */
 /******************/
 
 /* 
@@ -2685,7 +2685,7 @@ $firefox-safari-style-vibrancy: false;
             border-radius: 5px;
             margin: 1px 0 0 0 !important;
             margin-left: var(--tab-pinned-container-margin-inline-expanded) !important;
-            max-width: calc(var(--firefox-safari-style-vertical-tab-max-width) - 16px);
+            max-width: calc(var(--firefox-safari-style-vertical-tab-max-width) - 14px);
         }
         .tabbrowser-tab[selected="true"]:not([disabled="true"]) {
             .tab-throbber,

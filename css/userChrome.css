@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.72 */
+/* VERSION 0.2.73 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -2862,7 +2862,7 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
     border-radius: 5px;
     margin: 1px 0 0 0 !important;
     margin-left: var(--tab-pinned-container-margin-inline-expanded) !important;
-    max-width: calc(var(--firefox-safari-style-vertical-tab-max-width) - 16px);
+    max-width: calc(var(--firefox-safari-style-vertical-tab-max-width) - 14px);
   }
   #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-throbber,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-icon-image, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] .tabbrowser-tab[selected=true]:not([disabled=true]) .tab-close-button,
