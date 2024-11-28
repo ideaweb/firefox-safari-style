@@ -2164,6 +2164,7 @@ $firefox-safari-style-vibrancy: false;
     }
        
     #vertical-tabs[visible] {
+        min-width: var(--firefox-safari-style-vertical-tab-width);
         #tabbrowser-tabs {
             display: flex !important;
         }
@@ -2412,7 +2413,7 @@ $firefox-safari-style-vibrancy: false;
                 justify-content: flex-start !important;
                 padding: 0 8px !important;
             }
-            --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - var(--firefox-safari-style-bar-height) - 16.5px);
+            --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - var(--firefox-safari-style-bar-height));
             .tab-close-button {
                 display: none !important;
                 width: 16px !important;

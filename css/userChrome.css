@@ -2239,6 +2239,7 @@ spacer[part=overflow-end-indicator] {
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   #vertical-tabs[visible] {
+    min-width: var(--firefox-safari-style-vertical-tab-width);
     margin-inline-end: 0 !important;
   }
   #vertical-tabs[visible] #tabbrowser-tabs {
@@ -2457,7 +2458,7 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscroll
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button,
 #tabbrowser-tabs[orient=vertical] .tabbrowser-tab {
     min-width: initial !important;
-    --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - var(--firefox-safari-style-bar-height) - 16.5px);
+    --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - var(--firefox-safari-style-bar-height));
     padding: 0 !important;
     width: 100% !important;
     --tab-collapsed-background-width: 33px !important;

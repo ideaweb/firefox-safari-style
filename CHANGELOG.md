@@ -4,7 +4,7 @@ This overview provides notable information about improvements, changes and fixes
 
 ## v0.2.74 28/11/2024
 
-- Fixed close button in sidebar.
+- Fixed tabs and close button in sidebar.
 
 ## v0.2.73 17/11/2024
 
