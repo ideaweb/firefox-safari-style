@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.73 */
+/* VERSION 0.2.74 */
 /******************/
 
 /* 
@@ -2412,7 +2412,7 @@ $firefox-safari-style-vibrancy: false;
                 justify-content: flex-start !important;
                 padding: 0 8px !important;
             }
-            --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - var(--firefox-safari-style-bar-height));
+            --firefox-move-icon: calc(var(--firefox-safari-style-vertical-tab-width) - var(--firefox-safari-style-bar-height) - 16.5px);
             .tab-close-button {
                 display: none !important;
                 width: 16px !important;
