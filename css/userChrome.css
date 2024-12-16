@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.74 */
+/* VERSION 0.2.75 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -235,7 +235,7 @@
     /* Inputs */
     --firefox-safari-style-input-color: var(--toolbar-field-color, var(--firefox-safari-style-tab-color));
     /*--firefox-safari-style-input-background-active: var(--toolbar-bgcolor, color-mix(in srgb, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))) 66%, transparent));*/
-    --firefox-safari-style-input-background-active: var(--toolbar-bgcolor, var(--arrowpanel-border-color, var(--toolbar-field-background-color, var(--toolbar-bgcolor, var(--toolbar-non-lwt-bgcolor, var(--urlbar-box-bgcolor, hsla(0,0%,100%,.8)))))));
+    --firefox-safari-style-input-background-active: var(--toolbar-field-background-color);
     --firefox-safari-style-input-background-inactive: var(--firefox-safari-style-input-background-active);
     --firefox-safari-style-input-background-hover: color-mix(in srgb, var(--firefox-safari-style-input-background-active) 50%, transparent);
     /*--firefox-safari-style-input-border-active: var(--firefox-safari-style-tab-border-color-active);
@@ -461,13 +461,13 @@
     padding-top: 11px !important;
     padding-right: 5px !important;
     padding-left: var(--firefox-safari-style-controls-width) !important;
+    /*:root:not([chromemargin], [inFullscreen]) & {
+        padding-left: 5px !important;
+    }*/
     transition: none !important;
     /*background-image: var(--lwt-additional-images) !important;
     background-repeat: var(--lwt-background-tiling) !important;
     background-position: var(--lwt-background-alignment) !important;*/
-  }
-  :root:not([chromemargin], [inFullscreen]) #navigator-toolbox #nav-bar {
-    padding-left: 5px !important;
   }
   #main-window[inFullscreen=true] #navigator-toolbox #nav-bar {
     padding-left: 6px !important;
@@ -2920,5 +2920,23 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
     background-color: transparent !important;
     border-width: 0 !important;
     border-radius: 0;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  :root:not([inDOMFullscreen]) #tabbrowser-tabbox {
+    border-start-start-radius: 0 !important;
+    border-start-end-radius: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  .tab-audio-button {
+    order: 10;
+    margin-right: 0 !important;
+    transform: translate(11px, -1px);
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #tabbrowser-tabs[orient=vertical] .tab-audio-button {
+    transform: translate(3px, 0) !important;
   }
 }

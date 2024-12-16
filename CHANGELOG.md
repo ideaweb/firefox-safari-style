@@ -2,6 +2,13 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.75 16/12/2024
+
+- Fixed new audio button.
+- Fixed border radius of webpage when new sidebar is open.
+- Fixed address bar in themes.
+- Fixed toolbar in recent Firefox Nightly.
+
 ## v0.2.74 28/11/2024
 
 - Fixed tabs and close button in sidebar.
