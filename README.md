@@ -98,6 +98,10 @@ In case of _blue_, please check the list of [known issues](https://github.com/id
 
 If you want to contribute or to make your own changes please edit userChrome.scss file only. Then just run `make` in root folder of this repository to get more details how to create final CSS files.
 
+##  License
+
+MIT License.
+
 ---
 
 Mozilla and Firefox are trademarks of the Mozilla Foundation in the U.S. and other countries. 
