@@ -2,6 +2,10 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.76 23/01/2025
+
+- Support for tab groups in new sidebar.
+
 ## v0.2.75 16/12/2024
 
 - Fixed new audio button.

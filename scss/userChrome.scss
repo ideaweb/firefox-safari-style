@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.75 */
+/* VERSION 0.2.76 */
 /******************/
 
 /* 
@@ -425,6 +425,7 @@ $firefox-safari-style-vibrancy: false;
         }
         &[lwtheme="true"] {
             #TabsToolbar .toolbar-items {
+                tab-group .tab-group-label-container,
                 .tabbrowser-tab:not([selected="true"]), 
                 #tabs-newtab-button, 
                 #firefox-view-button[aria-pressed="false"],
@@ -451,6 +452,7 @@ $firefox-safari-style-vibrancy: false;
                 &:-moz-window-inactive {
                     background: var(--firefox-safari-style-background-color-inactive) !important;
                 }
+                tab-group .tab-group-label-container,
                 .tabbrowser-tab:not([selected="true"]), 
                 #tabs-newtab-button, 
                 #alltabs-button,
@@ -1408,7 +1410,7 @@ $firefox-safari-style-vibrancy: false;
                 }
             }
             .toolbar-items {
-                &, #tabbrowser-tabs, tab.tabbrowser-tab, tab.tabbrowser-tab::after, tab.tabbrowser-tab stack, tab.tabbrowser-tab .tab-content, tab.tabbrowser-tab .tab-label-container, tab.tabbrowser-tab .tab-secondary-label {
+                &, tab-group, #tabbrowser-tabs, tab.tabbrowser-tab, tab.tabbrowser-tab::after, tab.tabbrowser-tab stack, tab.tabbrowser-tab .tab-content, tab.tabbrowser-tab .tab-label-container, tab.tabbrowser-tab .tab-secondary-label {
                     min-height: var(--firefox-safari-style-tab-height) !important;
                     max-height: var(--firefox-safari-style-tab-height) !important;
                     height: var(--firefox-safari-style-tab-height) !important;
@@ -1483,6 +1485,7 @@ $firefox-safari-style-vibrancy: false;
             .titlebar-spacer[type="pre-tabs"] {
                 border-inline-end: 1px solid transparent !important;
             }
+            tab-group,
             .tabbrowser-tab {
                 > .tab-stack {
                     max-width: 100%;
@@ -2085,6 +2088,25 @@ $firefox-safari-style-vibrancy: false;
     scrollbox, #tabbrowser-arrowscrollbox::part(scrollbox) {
         padding-inline: 0 !important;
     }
+    #navigator-toolbox:not(:has(~ #browser sidebar-main #tabbrowser-tabs[orient="vertical"])) .tab-group-label-container {
+        margin-inline-start: 0 !important;
+        padding-inline-end: 0 !important;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        .tab-group-label {
+            width: 100%;
+            height: var(--firefox-safari-style-tab-height);
+            line-height: calc(var(--firefox-safari-style-tab-height) - 3px) !important;
+            border-radius: 0 !important;
+        }
+    }
+    tab-group[collapsed] {
+        .tabbrowser-tab {
+            display: none !important;
+        }
+    }
 
 
     /*****************/
@@ -2143,7 +2165,7 @@ $firefox-safari-style-vibrancy: false;
             &:has(~ #browser sidebar-main[expanded]) {
                 #sidebar-button {
                     position: absolute;
-                    left: 78px;
+                    left: 77px;
                 }
             }
             border-bottom-width: 0 !important;
@@ -2709,6 +2731,20 @@ $firefox-safari-style-vibrancy: false;
         .tab-close-button {
             margin-inline-end: 4px !important;
         }
+        tab-group {
+            margin-left: 0 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            .tab-group-label {
+                margin-top: 1.5px !important;
+                margin-bottom: 1.5px !important;
+                margin-right: 0 !important;
+                width: calc(100% - 9.5px);
+                &:-moz-window-inactive {
+                    opacity: 0.5;
+                }
+            }
+        }
     }
 
     toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], toolbarspring {
@@ -2721,6 +2757,19 @@ $firefox-safari-style-vibrancy: false;
         }
         .button-background {
             min-height: 30px;
+        }
+        tab-group {
+            margin-left: 0 !important;
+        }
+        tab-group .tab-group-label, #tabbrowser-tabs[orient="vertical"] #tabbrowser-arrowscrollbox tab-group .tabbrowser-tab {
+            &, .tab-background {
+                max-width: calc(var(--tab-collapsed-background-width) - 6px) !important;
+                width: calc(var(--tab-collapsed-background-width) - 6px) !important;
+            }
+            .tab-content {
+                padding: 0 5px !important;
+            }
+            margin-left: 6px !important;
         }
     }
     #appcontent, #sidebar, #sidebar-box, .sidebar-panel, #tabbrowser-tabbox, .browserSidebarContainer {

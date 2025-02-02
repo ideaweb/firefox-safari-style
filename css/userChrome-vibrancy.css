@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.75 */
+/* VERSION 0.2.76 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -325,13 +325,15 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window[lwtheme=true] #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]),
+  #main-window[lwtheme=true] #TabsToolbar .toolbar-items tab-group .tab-group-label-container,
+#main-window[lwtheme=true] #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]),
 #main-window[lwtheme=true] #TabsToolbar .toolbar-items #tabs-newtab-button,
 #main-window[lwtheme=true] #TabsToolbar .toolbar-items #firefox-view-button[aria-pressed=false],
 #main-window[lwtheme=true] #TabsToolbar .toolbar-items #alltabs-button {
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-active);
   }
-  #main-window[lwtheme=true] #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-window-inactive,
+  #main-window[lwtheme=true] #TabsToolbar .toolbar-items tab-group .tab-group-label-container:-moz-window-inactive,
+#main-window[lwtheme=true] #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-window-inactive,
 #main-window[lwtheme=true] #TabsToolbar .toolbar-items #tabs-newtab-button:-moz-window-inactive,
 #main-window[lwtheme=true] #TabsToolbar .toolbar-items #firefox-view-button[aria-pressed=false]:-moz-window-inactive,
 #main-window[lwtheme=true] #TabsToolbar .toolbar-items #alltabs-button:-moz-window-inactive {
@@ -354,14 +356,16 @@
   #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items:-moz-window-inactive {
     background: var(--firefox-safari-style-background-color-inactive) !important;
   }
-  #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]),
+  #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items tab-group .tab-group-label-container,
+#main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]),
 #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items #tabs-newtab-button,
 #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items #alltabs-button,
 #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items #firefox-view-button[aria-pressed=false],
 #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items #alltabs-button {
     box-shadow: inset 0px 1px 0px var(--firefox-safari-style-tab-border-left-color-active);
   }
-  #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-window-inactive,
+  #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items tab-group .tab-group-label-container:-moz-window-inactive,
+#main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items .tabbrowser-tab:not([selected=true]):-moz-window-inactive,
 #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items #tabs-newtab-button:-moz-window-inactive,
 #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items #alltabs-button:-moz-window-inactive,
 #main-window:not([lwtheme=true]) #TabsToolbar .toolbar-items #firefox-view-button[aria-pressed=false]:-moz-window-inactive,
@@ -1432,7 +1436,7 @@
   #navigator-toolbox #TabsToolbar .toolbar-items {
     overflow: hidden;
   }
-  #navigator-toolbox #TabsToolbar .toolbar-items, #navigator-toolbox #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab::after, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab stack, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-content, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-label-container, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-secondary-label {
+  #navigator-toolbox #TabsToolbar .toolbar-items, #navigator-toolbox #TabsToolbar .toolbar-items tab-group, #navigator-toolbox #TabsToolbar .toolbar-items #tabbrowser-tabs, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab::after, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab stack, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-content, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-label-container, #navigator-toolbox #TabsToolbar .toolbar-items tab.tabbrowser-tab .tab-secondary-label {
     min-height: var(--firefox-safari-style-tab-height) !important;
     max-height: var(--firefox-safari-style-tab-height) !important;
     height: var(--firefox-safari-style-tab-height) !important;
@@ -1501,75 +1505,96 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab {
+  #navigator-toolbox #TabsToolbar tab-group,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab {
     border-left: 1px solid transparent !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab > .tab-stack {
+  #navigator-toolbox #TabsToolbar tab-group > .tab-stack,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab > .tab-stack {
     max-width: 100%;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab > .tab-stack .tab-icon-stack {
+  #navigator-toolbox #TabsToolbar tab-group > .tab-stack .tab-icon-stack,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab > .tab-stack .tab-icon-stack {
     margin-top: -2px !important;
     margin-left: 1px !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-label-container[pinned] {
+  #navigator-toolbox #TabsToolbar tab-group .tab-label-container[pinned],
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-label-container[pinned] {
     display: none !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([fadein]),
+  #navigator-toolbox #TabsToolbar tab-group:not([fadein]),
+#navigator-toolbox #TabsToolbar tab-group .tab-background,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab:not([fadein]),
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-background {
     display: none;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab[fadein] ~ .tabbrowser-tab {
+  #navigator-toolbox #TabsToolbar tab-group[fadein] ~ .tabbrowser-tab,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab[fadein] ~ .tabbrowser-tab {
     border-left: 1px solid var(--firefox-safari-style-tab-border-left-color-active) !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab[fadein] ~ .tabbrowser-tab:-moz-window-inactive {
+  #navigator-toolbox #TabsToolbar tab-group[fadein] ~ .tabbrowser-tab:-moz-window-inactive,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab[fadein] ~ .tabbrowser-tab:-moz-window-inactive {
     border-left-color: var(--firefox-safari-style-tab-border-left-color-inactive) !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-label-container:-moz-window-inactive {
+  #navigator-toolbox #TabsToolbar tab-group .tab-label-container:-moz-window-inactive,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-label-container:-moz-window-inactive {
     opacity: 0.55 !important;
   }
 }
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-label-container:-moz-window-inactive {
+  #navigator-toolbox #TabsToolbar tab-group .tab-label-container:-moz-window-inactive,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-label-container:-moz-window-inactive {
     opacity: 1 !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content {
     overflow: hidden;
     display: flex;
     flex-direction: row;
     align-items: center;
     position: relative;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content:-moz-window-inactive {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content:-moz-window-inactive,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content:-moz-window-inactive {
     opacity: 0.55 !important;
   }
 }
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content {
     opacity: 1 !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-throbber,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
     filter: grayscale(100%);
   }
-  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
+  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-throbber,
+#main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
     -moz-context-properties: initial !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-throbber,
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image,
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-close-button,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image,
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button {
     order: 1;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
     background-image: none !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]), #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-broken {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image:not([src]), #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image:-moz-broken,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]),
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-broken {
     content: url() !important;
     background-image: url("chrome://global/skin/icons/defaultFavicon.svg") !important;
     background-size: 16px 16px !important;
@@ -1578,7 +1603,11 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-throbber,
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image,
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-close-button,
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-sound,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image,
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button,
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound {
@@ -1586,13 +1615,17 @@
   }
 }
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-throbber,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
     filter: invert(100%);
     opacity: 0.7 !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber:not([pinned]),
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-throbber:not([pinned]),
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image:not([pinned]),
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image:not([pinned]) ~ .tab-close-button,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber:not([pinned]),
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]),
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-close-button {
     margin-left: -3px !important;
@@ -1601,35 +1634,43 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-throbber,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber {
     transform: translateY(-1px);
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
     margin-top: 0 !important;
     border-radius: 2px;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]) {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image:not([src]),
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]) {
     list-style-image: none !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]):not([busy]) {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image:not([src]):not([busy]),
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([src]):not([busy]) {
     display: block;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-throbber,
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-throbber,
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
     min-width: 16px;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
+  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image,
+#main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image {
     filter: drop-shadow(0 0 1px var(--firefox-safari-style-tab-border-color-active));
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-close-button,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-close-button {
     display: none;
     fill: var(--firefox-safari-style-tab-color) !important;
     padding: 1px !important;
@@ -1642,13 +1683,16 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-sharing-icon-overlay,
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-sharing-icon-overlay,
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-overlay,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-sharing-icon-overlay,
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-overlay {
     display: none !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container {
     order: 2;
     flex: 1 1 100%;
     margin-top: -1px !important;
@@ -1656,7 +1700,8 @@
     display: flex;
     max-width: 100%;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-label {
     flex: 1 1;
     margin-top: 0 !important;
     color: var(--firefox-safari-style-tab-color) !important;
@@ -1664,26 +1709,34 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([selected=true]) .tab-throbber,
+  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar tab-group:not([selected=true]) .tab-throbber,
+#main-window[lwtheme=true] #navigator-toolbox #TabsToolbar tab-group:not([selected=true]) .tab-icon-image,
+#main-window[lwtheme=true] #navigator-toolbox #TabsToolbar tab-group:not([selected=true]) .tab-close-button,
+#main-window[lwtheme=true] #navigator-toolbox #TabsToolbar tab-group:not([selected=true]) .tab-icon-sound,
+#main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([selected=true]) .tab-throbber,
 #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([selected=true]) .tab-icon-image,
 #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([selected=true]) .tab-close-button,
 #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([selected=true]) .tab-icon-sound {
     fill: var(--firefox-safari-style-input-color) !important;
   }
-  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([selected=true]) .tab-content .tab-label-container .tab-label {
+  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar tab-group:not([selected=true]) .tab-content .tab-label-container .tab-label,
+#main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([selected=true]) .tab-content .tab-label-container .tab-label {
     color: var(--firefox-safari-style-input-color) !important;
   }
 }
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content[selected=true] .tab-label-container .tab-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content[selected=true] .tab-label-container .tab-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content[selected=true] .tab-label-container .tab-label {
     color: white !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content:-moz-window-inactive .tab-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content:-moz-window-inactive .tab-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content:-moz-window-inactive .tab-label {
     opacity: 0.7;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-sound,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound {
     order: 3;
     width: 14px !important;
     height: 14px !important;
@@ -1692,7 +1745,11 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[pictureinpicture]:not(:hover),
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-sound[pictureinpicture]:not(:hover),
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-sound[soundplaying]:not(:hover),
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-sound[muted]:not(:hover),
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-sound[activemedia-blocked]:not(:hover),
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[pictureinpicture]:not(:hover),
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[soundplaying]:not(:hover),
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[muted]:not(:hover),
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-sound[activemedia-blocked]:not(:hover) {
@@ -1700,120 +1757,150 @@
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container {
     display: flex;
     mask-image: none !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-text {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-text,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-text {
     width: calc(100% - 10px);
     max-width: calc(100% - 10px);
     mask-image: linear-gradient(to left, transparent, black var(--tab-label-mask-size));
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-secondary-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label {
     margin: 0 !important;
     min-width: 20px;
     position: absolute;
     right: 0;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label {
     position: absolute;
     right: 4px;
     max-width: 20px;
     height: var(--firefox-safari-style-tab-height) !important;
     color: transparent;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label {
     background: url(chrome://global/skin/media/audio.svg) 100% 50%/12px 12px no-repeat;
     opacity: 0.7 !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label {
     background: url(chrome://global/skin/media/audio-muted.svg) 100% 50%/12px 12px no-repeat;
     opacity: 0.7 !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label {
     background: url(chrome://global/skin/media/audioNoAudioButton.svg) 100% 50%/12px 12px no-repeat;
     opacity: 0.7 !important;
   }
 }
 @media (-moz-mac-yosemite-theme) and (prefers-color-scheme: dark), (-moz-mac-big-sur-theme) and (prefers-color-scheme: dark) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label, #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label, #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label, #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label, #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-playing-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-muted-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label-container .tab-secondary-label > .tab-icon-sound-label.tab-icon-sound-blocked-label {
     filter: invert(100%);
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound:not([soundplaying]):not([muted]):not([activemedia-blocked]):not([pictureinpicture]),
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound:not([soundplaying]):not([muted]):not([activemedia-blocked]):not([pictureinpicture]),
+#navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound:not([soundplaying]):not([muted]):not([activemedia-blocked]):not([pictureinpicture]),
 #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:not([pinned]) ~ .tab-icon-sound {
     display: block !important;
     opacity: 0;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-label,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-label {
     padding-right: 9px !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-window-inactive {
+  #navigator-toolbox #TabsToolbar tab-group .tab-content .tab-icon-image:-moz-window-inactive,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-content .tab-icon-image:-moz-window-inactive {
     opacity: 0.5 !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab::before, #navigator-toolbox #TabsToolbar .tabbrowser-tab::after {
+  #navigator-toolbox #TabsToolbar tab-group::before, #navigator-toolbox #TabsToolbar tab-group::after,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab::before,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab::after {
     display: none !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-icon-image, #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-throbber {
+  #navigator-toolbox #TabsToolbar tab-group .tab-icon-image, #navigator-toolbox #TabsToolbar tab-group .tab-throbber,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-icon-image,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-throbber {
     transform: translate(1px, -0.5px);
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-text {
+  #navigator-toolbox #TabsToolbar tab-group .tab-text,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tab-text {
     transform: translateY(-0.5px);
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab[pinned] {
+  #navigator-toolbox #TabsToolbar tab-group[pinned],
+#navigator-toolbox #TabsToolbar .tabbrowser-tab[pinned] {
     width: 35.5px;
     max-width: 35.5px;
     min-width: 35.5px;
     overflow: hidden !important;
   }
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab[pinned] .tab-content {
+  #navigator-toolbox #TabsToolbar tab-group[pinned] .tab-content,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab[pinned] .tab-content {
     padding: 0px 5px !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab .tabbrowser-tab[pinned] {
+  #navigator-toolbox #TabsToolbar tab-group .tabbrowser-tab[pinned],
+#navigator-toolbox #TabsToolbar .tabbrowser-tab .tabbrowser-tab[pinned] {
     width: 39px;
     max-width: 39px;
     min-width: 39px;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab:-moz-any([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected=true]),
+  #navigator-toolbox #TabsToolbar tab-group:-moz-any([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected=true]),
+#navigator-toolbox #TabsToolbar tab-group > .tab-stack > .tab-content[pinned][titlechanged]:not([selected=true]),
+#navigator-toolbox #TabsToolbar .tabbrowser-tab:-moz-any([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected=true]),
 #navigator-toolbox #TabsToolbar .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected=true]) {
     background: none !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab:hover .tab-content:not([pinned]) .tab-icon-image, #navigator-toolbox #TabsToolbar .tabbrowser-tab:hover .tab-content:not([pinned]) .tab-icon-image:not([src]), #navigator-toolbox #TabsToolbar .tabbrowser-tab:hover .tab-content:not([pinned]) .tab-throbber {
+  #navigator-toolbox #TabsToolbar tab-group:hover .tab-content:not([pinned]) .tab-icon-image, #navigator-toolbox #TabsToolbar tab-group:hover .tab-content:not([pinned]) .tab-icon-image:not([src]), #navigator-toolbox #TabsToolbar tab-group:hover .tab-content:not([pinned]) .tab-throbber,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab:hover .tab-content:not([pinned]) .tab-icon-image,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab:hover .tab-content:not([pinned]) .tab-icon-image:not([src]),
+#navigator-toolbox #TabsToolbar .tabbrowser-tab:hover .tab-content:not([pinned]) .tab-throbber {
     display: none !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab:hover .tab-content:not([pinned]) .tab-close-button {
+  #navigator-toolbox #TabsToolbar tab-group:hover .tab-content:not([pinned]) .tab-close-button,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab:hover .tab-content:not([pinned]) .tab-close-button {
     display: block !important;
     opacity: 0.8 !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #navigator-toolbox #TabsToolbar .tabbrowser-tab:not(:hover) .tab-content .tab-icon-image {
+  #navigator-toolbox #TabsToolbar tab-group:not(:hover) .tab-content .tab-icon-image,
+#navigator-toolbox #TabsToolbar .tabbrowser-tab:not(:hover) .tab-content .tab-icon-image {
     opacity: 1 !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
-  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([selected=true]):not(:hover) .tab-content .tab-icon-image {
+  #main-window[lwtheme=true] #navigator-toolbox #TabsToolbar tab-group:not([selected=true]):not(:hover) .tab-content .tab-icon-image,
+#main-window[lwtheme=true] #navigator-toolbox #TabsToolbar .tabbrowser-tab:not([selected=true]):not(:hover) .tab-content .tab-icon-image {
     opacity: 0.7 !important;
   }
 }
@@ -2211,6 +2298,27 @@ spacer[part=overflow-end-indicator] {
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #navigator-toolbox:not(:has(~ #browser sidebar-main #tabbrowser-tabs[orient=vertical])) .tab-group-label-container {
+    margin-inline-start: 0 !important;
+    padding-inline-end: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #navigator-toolbox:not(:has(~ #browser sidebar-main #tabbrowser-tabs[orient=vertical])) .tab-group-label-container .tab-group-label {
+    width: 100%;
+    height: var(--firefox-safari-style-tab-height);
+    line-height: calc(var(--firefox-safari-style-tab-height) - 3px) !important;
+    border-radius: 0 !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  tab-group[collapsed] .tabbrowser-tab {
+    display: none !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   :root {
     --firefox-safari-style-vertical-tab-min-width: 77px;
     --firefox-safari-style-vertical-tab-max-width: 261px;
@@ -2243,7 +2351,7 @@ spacer[part=overflow-end-indicator] {
   }
   #main-window:not([customizing]) #navigator-toolbox:has(~ #browser #sidebar-main:not([hidden=true]) #tabbrowser-tabs[orient=vertical]):has(~ #browser sidebar-main[expanded]) #sidebar-button {
     position: absolute;
-    left: 78px;
+    left: 77px;
   }
   #main-window:not([customizing])[inFullscreen=true] #navigator-toolbox:has(~ #browser sidebar-main #tabbrowser-tabs[orient=vertical]) #sidebar-button {
     position: absolute !important;
@@ -2897,6 +3005,20 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
   #tabbrowser-tabs[orient=vertical] .tab-close-button {
     margin-inline-end: 4px !important;
   }
+  #tabbrowser-tabs[orient=vertical] tab-group {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  #tabbrowser-tabs[orient=vertical] tab-group .tab-group-label {
+    margin-top: 1.5px !important;
+    margin-bottom: 1.5px !important;
+    margin-right: 0 !important;
+    width: calc(100% - 9.5px);
+  }
+  #tabbrowser-tabs[orient=vertical] tab-group .tab-group-label:-moz-window-inactive {
+    opacity: 0.5;
+  }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   toolbarpaletteitem[place=toolbar][id^=wrapper-customizableui-special-spring], toolbarspring {
@@ -2909,6 +3031,19 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
   }
   sidebar-main:not([expanded]) .button-background {
     min-height: 30px;
+  }
+  sidebar-main:not([expanded]) tab-group {
+    margin-left: 0 !important;
+  }
+  sidebar-main:not([expanded]) tab-group .tab-group-label, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox tab-group .tabbrowser-tab {
+    margin-left: 6px !important;
+  }
+  sidebar-main:not([expanded]) tab-group .tab-group-label, sidebar-main:not([expanded]) tab-group .tab-group-label .tab-background, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox tab-group .tabbrowser-tab, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox tab-group .tabbrowser-tab .tab-background {
+    max-width: calc(var(--tab-collapsed-background-width) - 6px) !important;
+    width: calc(var(--tab-collapsed-background-width) - 6px) !important;
+  }
+  sidebar-main:not([expanded]) tab-group .tab-group-label .tab-content, sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox tab-group .tabbrowser-tab .tab-content {
+    padding: 0 5px !important;
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
