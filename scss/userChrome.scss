@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.76 */
+/* VERSION 0.2.77 */
 /******************/
 
 /* 
@@ -2292,6 +2292,9 @@ $firefox-safari-style-vibrancy: false;
             }
         }
     }
+    #sidebar-main:has(#tabbrowser-tabs[orient="vertical"]) ~ #sidebar-launcher-splitter {
+        display: none !important;
+    }
     sidebar-main .tab-label-container {
         margin-left: 0 !important;
     }
@@ -2399,7 +2402,7 @@ $firefox-safari-style-vibrancy: false;
             image { 
                 fill: var(--firefox-safari-style-button-color) !important;
                 sidebar-main[expanded] & {
-                    margin-inline-end: 5.5px;
+                    margin-inline-end: 5.5px !important;
                 }
                 opacity: 0.7 !important;
             }
@@ -2551,9 +2554,15 @@ $firefox-safari-style-vibrancy: false;
         }
         #vertical-pinned-tabs-container,
         #tabbrowser-arrowscrollbox {
-            --tab-pinned-container-margin-inline-expanded: 0.6rem !important;
             column-gap: 0 !important;
             row-gap: 0 !important;
+        }
+        #vertical-pinned-tabs-container {
+            --tab-pinned-container-margin-inline-expanded: 0 !important;
+            padding-left: 0.6rem !important;
+        }
+        #tabbrowser-arrowscrollbox {
+            --tab-pinned-container-margin-inline-expanded: 0.6rem !important;
         }
         #vertical-pinned-tabs-container:has(.tabbrowser-tab) ~ #tabbrowser-arrowscrollbox:has(.tabbrowser-tab) {
             margin-top: 15px;
@@ -2699,7 +2708,10 @@ $firefox-safari-style-vibrancy: false;
             padding-inline-start: 0 !important;
             padding-inline-end: 0 !important;
         }
-        #vertical-pinned-tabs-container,
+        #vertical-pinned-tabs-container {
+            padding-inline-start: 0.6rem !important;
+            padding-inline-end: 0 !important;
+        }
         sidebar-main[expanded] & #tabbrowser-arrowscrollbox  {
             padding-inline-start: var(--tab-pinned-container-margin-inline-expanded) !important;
             padding-inline-end: 0 !important;

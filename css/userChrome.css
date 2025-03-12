@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.76 */
+/* VERSION 0.2.77 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -2453,6 +2453,11 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscroll
   }
 }
 @media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
+  #sidebar-main:has(#tabbrowser-tabs[orient=vertical]) ~ #sidebar-launcher-splitter {
+    display: none !important;
+  }
+}
+@media (-moz-mac-yosemite-theme), (-moz-mac-big-sur-theme) {
   sidebar-main .tab-label-container {
     margin-left: 0 !important;
   }
@@ -2604,7 +2609,7 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-ic
 sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-sharing-icon-overlay,
 sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab .tab-icon-overlay,
 sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab image {
-    margin-inline-end: 5.5px;
+    margin-inline-end: 5.5px !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button[pinned] .tab-throbber,
 #tabbrowser-tabs[orient=vertical] #vertical-tabs-newtab-button[pinned] .tab-icon-image,
@@ -2764,9 +2769,15 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab image {
   }
   #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container,
 #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox {
-    --tab-pinned-container-margin-inline-expanded: 0.6rem !important;
     column-gap: 0 !important;
     row-gap: 0 !important;
+  }
+  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container {
+    --tab-pinned-container-margin-inline-expanded: 0 !important;
+    padding-left: 0.6rem !important;
+  }
+  #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox {
+    --tab-pinned-container-margin-inline-expanded: 0.6rem !important;
   }
   #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container:has(.tabbrowser-tab) ~ #tabbrowser-arrowscrollbox:has(.tabbrowser-tab) {
     margin-top: 15px;
@@ -2965,7 +2976,11 @@ sidebar-main:not([expanded]) #tabbrowser-tabs[orient=vertical] #tabbrowser-arrow
     padding-inline-start: 0 !important;
     padding-inline-end: 0 !important;
   }
-  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container, sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox {
+  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container {
+    padding-inline-start: 0.6rem !important;
+    padding-inline-end: 0 !important;
+  }
+  sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox {
     padding-inline-start: var(--tab-pinned-container-margin-inline-expanded) !important;
     padding-inline-end: 0 !important;
   }
