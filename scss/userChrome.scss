@@ -1,5 +1,5 @@
 /***************+**/
-/* VERSION 0.2.77 */
+/* VERSION 0.2.78 */
 /******************/
 
 /* 
@@ -2560,6 +2560,20 @@ $firefox-safari-style-vibrancy: false;
         #vertical-pinned-tabs-container {
             --tab-pinned-container-margin-inline-expanded: 0 !important;
             padding-left: 0.6rem !important;
+            .tabbrowser-tab {
+                min-width: initial !important;
+                .tab-throbber,
+                .tab-icon-image,
+                .tab-close-button,
+                .tab-icon-pending, 
+                .tab-sharing-icon-overlay, 
+                .tab-icon-overlay,
+                image { 
+                    sidebar-main[expanded] & {
+                        margin-inline-end: 0 !important;
+                    }
+                }
+            }
         }
         #tabbrowser-arrowscrollbox {
             --tab-pinned-container-margin-inline-expanded: 0.6rem !important;

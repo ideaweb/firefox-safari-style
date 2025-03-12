@@ -2,6 +2,10 @@
 
 This overview provides notable information about improvements, changes and fixes through all versions.
 
+## v0.2.78 12/02/2025
+
+- Fixed layout issues in pinned tabs.
+
 ## v0.2.77 12/02/2025
 
 - Fixed layout issues in vertical tabs.

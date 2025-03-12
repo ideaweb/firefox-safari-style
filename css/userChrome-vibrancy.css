@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /***************+**/
-/* VERSION 0.2.77 */
+/* VERSION 0.2.78 */
 /******************/
 /* 
     Icons: resource:///chrome/browser/skin/classic/browser/ => chrome://browser/skin/
@@ -2789,6 +2789,18 @@ sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] .tabbrowser-tab image {
   #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container {
     --tab-pinned-container-margin-inline-expanded: 0 !important;
     padding-left: 0.6rem !important;
+  }
+  #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab {
+    min-width: initial !important;
+  }
+  sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-throbber,
+sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-icon-image,
+sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-close-button,
+sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-icon-pending,
+sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-sharing-icon-overlay,
+sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab .tab-icon-overlay,
+sidebar-main[expanded] #tabbrowser-tabs[orient=vertical] #vertical-pinned-tabs-container .tabbrowser-tab image {
+    margin-inline-end: 0 !important;
   }
   #tabbrowser-tabs[orient=vertical] #tabbrowser-arrowscrollbox {
     --tab-pinned-container-margin-inline-expanded: 0.6rem !important;
