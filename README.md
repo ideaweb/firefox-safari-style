@@ -1,3 +1,6 @@
+> **WARNING**: This repository is not maintained anymore.
+> A much better adaptation is [Zen Browser](https://github.com/zen-browser).
+ 
 # Firefox userChrome.css Safari style (macOS only)
 
 This theme will make Firefox more compliant with macOS.
